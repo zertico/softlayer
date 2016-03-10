@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Registration?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Subnet_RegistrationInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Subnet_RegistrationObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Subnet_Registration"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Subnet_RegistrationInitParametersHeader">
+    <part name="SoftLayer_Network_Subnet_RegistrationInitParameters" type="tns:SoftLayer_Network_Subnet_RegistrationInitParameters"/>
+  </message>
+  <message name="clearRegistration"/>
+  <message name="clearRegistrationResponse">
+    <part name="clearRegistrationReturn" type="xsd:boolean"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Subnet_Registration"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Network_Subnet_Registration"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Subnet_Registration"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editRegistrationAttachedDetails">
+    <part name="personObjectSkeleton" type="tns:SoftLayer_Network_Subnet_Registration_Details"/>
+    <part name="networkObjectSkeleton" type="tns:SoftLayer_Network_Subnet_Registration_Details"/>
+  </message>
+  <message name="editRegistrationAttachedDetailsResponse">
+    <part name="editRegistrationAttachedDetailsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getDetailReferences"/>
+  <message name="getDetailReferencesResponse">
+    <part name="getDetailReferencesReturn" type="tns:SoftLayer_Network_Subnet_Registration_DetailsArray"/>
+  </message>
+  <message name="getEvents"/>
+  <message name="getEventsResponse">
+    <part name="getEventsReturn" type="tns:SoftLayer_Network_Subnet_Registration_EventArray"/>
+  </message>
+  <message name="getNetworkDetail"/>
+  <message name="getNetworkDetailResponse">
+    <part name="getNetworkDetailReturn" type="tns:SoftLayer_Account_Regional_Registry_Detail"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Subnet_Registration"/>
+  </message>
+  <message name="getPersonDetail"/>
+  <message name="getPersonDetailResponse">
+    <part name="getPersonDetailReturn" type="tns:SoftLayer_Account_Regional_Registry_Detail"/>
+  </message>
+  <message name="getRegionalInternetRegistry"/>
+  <message name="getRegionalInternetRegistryResponse">
+    <part name="getRegionalInternetRegistryReturn" type="tns:SoftLayer_Network_Regional_Internet_Registry"/>
+  </message>
+  <message name="getRegionalInternetRegistryHandle"/>
+  <message name="getRegionalInternetRegistryHandleResponse">
+    <part name="getRegionalInternetRegistryHandleReturn" type="tns:SoftLayer_Account_Rwhois_Handle"/>
+  </message>
+  <message name="getStatus"/>
+  <message name="getStatusResponse">
+    <part name="getStatusReturn" type="tns:SoftLayer_Network_Subnet_Registration_Status"/>
+  </message>
+  <message name="getSubnet"/>
+  <message name="getSubnetResponse">
+    <part name="getSubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Subnet_RegistrationObjectMaskHeader">
+    <part name="SoftLayer_Network_Subnet_RegistrationObjectMask" type="tns:SoftLayer_Network_Subnet_RegistrationObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Subnet_RegistrationObjectFilterHeader">
+    <part name="SoftLayer_Network_Subnet_RegistrationObjectFilter" type="tns:SoftLayer_Network_Subnet_RegistrationObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Subnet_RegistrationPortType">
+    <documentation>Subnet registration objects are used to request and track registration of the subnet with the appropriate Regional Internet Registry (RIR). Subnet registration is executed automatically for RIRs that require registration upon assignment, but this registration can be modified at any time. 
+
+Subnet Registration objects can be updated after they are created. This will result in the information being submitted to the RIR and the records on their end being refreshed. </documentation>
+    <operation name="clearRegistration">
+      <documentation>This method will initiate the removal of a subnet registration. </documentation>
+      <input message="tns:clearRegistration"/>
+      <output message="tns:clearRegistrationResponse"/>
+    </operation>
+    <operation name="createObject">
+      <documentation>&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;.create_object &amp;gt; li &amp;gt; div { padding-top: .5em; padding-bottom: .5em}&amp;lt;/style&amp;gt; This method will create a new SoftLayer_Network_Subnet_Registration object. 
+
+&amp;lt;b&amp;gt;Input&amp;lt;/b&amp;gt; - [[SoftLayer_Network_Subnet_Registration (type)|SoftLayer_Network_Subnet_Registration]] &amp;lt;ul class=&amp;quot;create_object&amp;quot;&amp;gt; &amp;lt;li&amp;gt;&amp;lt;code&amp;gt;networkIdentifier&amp;lt;/code&amp;gt; &amp;lt;div&amp;gt; The base address of the [[SoftLayer_Network_Subnet|subnet]] being registered. This can be derived directly from the SoftLayer_Network_Subnet object's networkIdentifier property. &amp;lt;/div&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;b&amp;gt;Required&amp;lt;/b&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;b&amp;gt;Type&amp;lt;/b&amp;gt; - string&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;code&amp;gt;cidr&amp;lt;/code&amp;gt; &amp;lt;div&amp;gt; The CIDR prefix of the [[SoftLayer_Network_Subnet|subnet]] being registered. This can be derived directly from the SoftLayer_Network_Subnet object's cidr property. &amp;lt;/div&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;b&amp;gt;Required&amp;lt;/b&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;b&amp;gt;Type&amp;lt;/b&amp;gt; - integer&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>This method will edit an existing SoftLayer_Network_Subnet_Registration object. For more detail, see [[SoftLayer_Network_Subnet_Registration::createObject|createObject]]. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="editRegistrationAttachedDetails">
+      <documentation>This method modifies a single registration by modifying the current [[SoftLayer_Network_Subnet_Registration_Details]] objects that are linked to that registration. </documentation>
+      <input message="tns:editRegistrationAttachedDetails"/>
+      <output message="tns:editRegistrationAttachedDetailsResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account that this registration belongs to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getDetailReferences">
+      <documentation>Retrieve the cross-reference records that tie the [[SoftLayer_Account_Regional_Registry_Detail]] objects to the registration object.</documentation>
+      <input message="tns:getDetailReferences"/>
+      <output message="tns:getDetailReferencesResponse"/>
+    </operation>
+    <operation name="getEvents">
+      <documentation>Retrieve the related registration events.</documentation>
+      <input message="tns:getEvents"/>
+      <output message="tns:getEventsResponse"/>
+    </operation>
+    <operation name="getNetworkDetail">
+      <documentation>Retrieve the &amp;quot;network&amp;quot; detail object.</documentation>
+      <input message="tns:getNetworkDetail"/>
+      <output message="tns:getNetworkDetailResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPersonDetail">
+      <documentation>Retrieve the &amp;quot;person&amp;quot; detail object.</documentation>
+      <input message="tns:getPersonDetail"/>
+      <output message="tns:getPersonDetailResponse"/>
+    </operation>
+    <operation name="getRegionalInternetRegistry">
+      <documentation>Retrieve the related Regional Internet Registry.</documentation>
+      <input message="tns:getRegionalInternetRegistry"/>
+      <output message="tns:getRegionalInternetRegistryResponse"/>
+    </operation>
+    <operation name="getRegionalInternetRegistryHandle">
+      <documentation>Retrieve the RIR handle that this registration object belongs to. This field may not be populated until the registration is complete.</documentation>
+      <input message="tns:getRegionalInternetRegistryHandle"/>
+      <output message="tns:getRegionalInternetRegistryHandleResponse"/>
+    </operation>
+    <operation name="getStatus">
+      <documentation>Retrieve the status of this registration.</documentation>
+      <input message="tns:getStatus"/>
+      <output message="tns:getStatusResponse"/>
+    </operation>
+    <operation name="getSubnet">
+      <documentation>Retrieve the subnet that this registration pertains to.</documentation>
+      <input message="tns:getSubnet"/>
+      <output message="tns:getSubnetResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Subnet_RegistrationBinding" type="tns:SoftLayer_Network_Subnet_RegistrationPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="clearRegistration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editRegistrationAttachedDetails">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDetailReferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEvents">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkDetail">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPersonDetail">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegionalInternetRegistry">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegionalInternetRegistryHandle">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectMaskHeader" part="SoftLayer_Network_Subnet_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationObjectFilterHeader" part="SoftLayer_Network_Subnet_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_RegistrationInitParametersHeader" part="SoftLayer_Network_Subnet_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Subnet_RegistrationService">
+    <port name="SoftLayer_Network_Subnet_RegistrationPort" binding="tns:SoftLayer_Network_Subnet_RegistrationBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Registration"/>
+    </port>
+  </service>
+</definitions>

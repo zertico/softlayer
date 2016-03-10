@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Rwhois_Data?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Subnet_Rwhois_DataInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Subnet_Rwhois_DataObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Subnet_Rwhois_Data"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Subnet_Rwhois_DataInitParametersHeader">
+    <part name="SoftLayer_Network_Subnet_Rwhois_DataInitParameters" type="tns:SoftLayer_Network_Subnet_Rwhois_DataInitParameters"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Subnet_Rwhois_Data"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Subnet_Rwhois_Data"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Subnet_Rwhois_DataObjectMaskHeader">
+    <part name="SoftLayer_Network_Subnet_Rwhois_DataObjectMask" type="tns:SoftLayer_Network_Subnet_Rwhois_DataObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Subnet_Rwhois_DataObjectFilterHeader">
+    <part name="SoftLayer_Network_Subnet_Rwhois_DataObjectFilter" type="tns:SoftLayer_Network_Subnet_Rwhois_DataObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Subnet_Rwhois_DataPortType">
+    <documentation>Every SoftLayer customer account has a RWHOIS record tied to it.  This RWHOIS record is used by SoftLayer's Reverse Whois system as well as SoftLayer's Automated SWIP system. 
+
+This service allows you to update your stored RWHOIS record.  Changing this record automatically updates the RWHOIS record in 24 hours, but does NOT update SWIP data.  You will need to use the SWIP service to do that. </documentation>
+    <operation name="editObject">
+      <documentation>Edit the RWHOIS record by passing in a modified version of the record object.  All fields are editable.</documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the SoftLayer customer account associated with this reverse WHOIS data.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Network_Subnet_Rwhois_Data object whose ID corresponds to the ID number of the init parameter passed to the SoftLayer_Network_Subnet_Rwhois_Data service. 
+
+The best way to get Rwhois Data for an account is through getRhwoisData on the Account service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Subnet_Rwhois_DataBinding" type="tns:SoftLayer_Network_Subnet_Rwhois_DataPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Rwhois_DataAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Rwhois_DataInitParametersHeader" part="SoftLayer_Network_Subnet_Rwhois_DataInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Rwhois_DataAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Rwhois_DataObjectMaskHeader" part="SoftLayer_Network_Subnet_Rwhois_DataObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Rwhois_DataObjectFilterHeader" part="SoftLayer_Network_Subnet_Rwhois_DataObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Rwhois_DataInitParametersHeader" part="SoftLayer_Network_Subnet_Rwhois_DataInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Rwhois_DataAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Rwhois_DataObjectMaskHeader" part="SoftLayer_Network_Subnet_Rwhois_DataObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Rwhois_DataObjectFilterHeader" part="SoftLayer_Network_Subnet_Rwhois_DataObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Rwhois_DataInitParametersHeader" part="SoftLayer_Network_Subnet_Rwhois_DataInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Subnet_Rwhois_DataService">
+    <port name="SoftLayer_Network_Subnet_Rwhois_DataPort" binding="tns:SoftLayer_Network_Subnet_Rwhois_DataBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Rwhois_Data"/>
+    </port>
+  </service>
+</definitions>

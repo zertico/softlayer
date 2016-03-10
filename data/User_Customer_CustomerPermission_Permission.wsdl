@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_CustomerPermission_Permission?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_User_Customer_CustomerPermission_PermissionInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_User_Customer_CustomerPermission_PermissionObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_User_Customer_CustomerPermission_Permission"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_User_Customer_CustomerPermission_PermissionInitParametersHeader">
+    <part name="SoftLayer_User_Customer_CustomerPermission_PermissionInitParameters" type="tns:SoftLayer_User_Customer_CustomerPermission_PermissionInitParameters"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_User_Customer_CustomerPermission_PermissionArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_User_Customer_CustomerPermission_Permission"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_User_Customer_CustomerPermission_PermissionObjectMaskHeader">
+    <part name="SoftLayer_User_Customer_CustomerPermission_PermissionObjectMask" type="tns:SoftLayer_User_Customer_CustomerPermission_PermissionObjectMask"/>
+  </message>
+  <message name="SoftLayer_User_Customer_CustomerPermission_PermissionObjectFilterHeader">
+    <part name="SoftLayer_User_Customer_CustomerPermission_PermissionObjectFilter" type="tns:SoftLayer_User_Customer_CustomerPermission_PermissionObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_User_Customer_CustomerPermission_PermissionPortType">
+    <documentation>Portal account users who are not the master user (account owner) have permissions to allow them access to portal functionalities.</documentation>
+    <operation name="getAllObjects">
+      <documentation>Retrieve all available permissions.</documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_User_Customer_CustomerPermission_Permission object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_User_Customer_CustomerPermission_Permission service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_User_Customer_CustomerPermission_PermissionBinding" type="tns:SoftLayer_User_Customer_CustomerPermission_PermissionPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_CustomerPermission_PermissionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_CustomerPermission_PermissionObjectMaskHeader" part="SoftLayer_User_Customer_CustomerPermission_PermissionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_CustomerPermission_PermissionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_CustomerPermission_PermissionObjectMaskHeader" part="SoftLayer_User_Customer_CustomerPermission_PermissionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_CustomerPermission_PermissionObjectFilterHeader" part="SoftLayer_User_Customer_CustomerPermission_PermissionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_CustomerPermission_PermissionInitParametersHeader" part="SoftLayer_User_Customer_CustomerPermission_PermissionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_User_Customer_CustomerPermission_PermissionService">
+    <port name="SoftLayer_User_Customer_CustomerPermission_PermissionPort" binding="tns:SoftLayer_User_Customer_CustomerPermission_PermissionBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_CustomerPermission_Permission"/>
+    </port>
+  </service>
+</definitions>

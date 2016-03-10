@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Iscsi_OS_Type?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Storage_Iscsi_OS_TypeInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Storage_Iscsi_OS_TypeObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Storage_Iscsi_OS_Type"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Storage_Iscsi_OS_TypeInitParametersHeader">
+    <part name="SoftLayer_Network_Storage_Iscsi_OS_TypeInitParameters" type="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeInitParameters"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Storage_Iscsi_OS_Type"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Storage_Iscsi_OS_TypeObjectMaskHeader">
+    <part name="SoftLayer_Network_Storage_Iscsi_OS_TypeObjectMask" type="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Storage_Iscsi_OS_TypeObjectFilterHeader">
+    <part name="SoftLayer_Network_Storage_Iscsi_OS_TypeObjectFilter" type="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Storage_Iscsi_OS_TypePortType">
+    <documentation></documentation>
+    <operation name="getAllObjects">
+      <documentation>Use this method to retrieve all iSCSI OS Types. </documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Storage_Iscsi_OS_TypeBinding" type="tns:SoftLayer_Network_Storage_Iscsi_OS_TypePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Iscsi_OS_TypeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeObjectMaskHeader" part="SoftLayer_Network_Storage_Iscsi_OS_TypeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeObjectFilterHeader" part="SoftLayer_Network_Storage_Iscsi_OS_TypeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Iscsi_OS_TypeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeObjectMaskHeader" part="SoftLayer_Network_Storage_Iscsi_OS_TypeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeObjectFilterHeader" part="SoftLayer_Network_Storage_Iscsi_OS_TypeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeInitParametersHeader" part="SoftLayer_Network_Storage_Iscsi_OS_TypeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Storage_Iscsi_OS_TypeService">
+    <port name="SoftLayer_Network_Storage_Iscsi_OS_TypePort" binding="tns:SoftLayer_Network_Storage_Iscsi_OS_TypeBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Iscsi_OS_Type"/>
+    </port>
+  </service>
+</definitions>

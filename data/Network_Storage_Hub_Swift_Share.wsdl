@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Hub_Swift_Share?xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="getContainerList"/>
+  <message name="getContainerListResponse">
+    <part name="getContainerListReturn" type="tns:SoftLayer_Container_Network_Storage_Hub_ObjectStorage_FolderArray"/>
+  </message>
+  <message name="getFile">
+    <part name="fileName" type="xsd:string"/>
+    <part name="container" type="xsd:string"/>
+  </message>
+  <message name="getFileResponse">
+    <part name="getFileReturn" type="tns:SoftLayer_Container_Network_Storage_Hub_ObjectStorage_File"/>
+  </message>
+  <message name="getFileList">
+    <part name="container" type="xsd:string"/>
+    <part name="path" type="xsd:string"/>
+  </message>
+  <message name="getFileListResponse">
+    <part name="getFileListReturn" type="tns:SoftLayer_Container_Utility_File_EntityArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Storage_Hub_Swift_SharePortType">
+    <documentation></documentation>
+    <operation name="getContainerList">
+      <documentation>This method returns a collection of container objects. </documentation>
+      <input message="tns:getContainerList"/>
+      <output message="tns:getContainerListResponse"/>
+    </operation>
+    <operation name="getFile">
+      <documentation>This method returns a file object given the file's full name. </documentation>
+      <input message="tns:getFile"/>
+      <output message="tns:getFileResponse"/>
+    </operation>
+    <operation name="getFileList">
+      <documentation>This method returns a collection of the file objects within a container and the given path. </documentation>
+      <input message="tns:getFileList"/>
+      <output message="tns:getFileListResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Storage_Hub_Swift_ShareBinding" type="tns:SoftLayer_Network_Storage_Hub_Swift_SharePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getContainerList">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Hub_Swift_ShareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFile">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Hub_Swift_ShareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFileList">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Hub_Swift_ShareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Storage_Hub_Swift_ShareService">
+    <port name="SoftLayer_Network_Storage_Hub_Swift_SharePort" binding="tns:SoftLayer_Network_Storage_Hub_Swift_ShareBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Hub_Swift_Share"/>
+    </port>
+  </service>
+</definitions>

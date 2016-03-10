@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_Configuration_History?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_History"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParametersHeader">
+    <part name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParameters" type="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParameters"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getController"/>
+  <message name="getControllerResponse">
+    <part name="getControllerReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_History"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectMaskHeader">
+    <part name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectMask" type="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectFilterHeader">
+    <part name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectFilter" type="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryPortType">
+    <documentation>SoftLayer_Network_Application_Delivery_Controller_Configuration_History provides access to view or delete existing configuration history records. Configuration content may not be viewed as it may contain sensitive information. The configuration history entries are used to support creating backups of an application delivery controller's configuration state in order to restore them later if needed. </documentation>
+    <operation name="deleteObject">
+      <documentation>deleteObject permanently removes a configuration history record </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="getController">
+      <documentation>Retrieve the application delivery controller that a configuration history record belongs to.</documentation>
+      <input message="tns:getController"/>
+      <output message="tns:getControllerResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryBinding" type="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getController">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryService">
+    <port name="SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryPort" binding="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_Configuration_History"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Shipping_Courier_Type?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Auxiliary_Shipping_Courier_TypeInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Auxiliary_Shipping_Courier_Type"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Auxiliary_Shipping_Courier_TypeInitParametersHeader">
+    <part name="SoftLayer_Auxiliary_Shipping_Courier_TypeInitParameters" type="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeInitParameters"/>
+  </message>
+  <message name="getCourier"/>
+  <message name="getCourierResponse">
+    <part name="getCourierReturn" type="tns:SoftLayer_Auxiliary_Shipping_CourierArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Auxiliary_Shipping_Courier_Type"/>
+  </message>
+  <message name="getTypeByKeyName">
+    <part name="keyName" type="xsd:string"/>
+  </message>
+  <message name="getTypeByKeyNameResponse">
+    <part name="getTypeByKeyNameReturn" type="tns:SoftLayer_Auxiliary_Shipping_Courier_Type"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMaskHeader">
+    <part name="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMask" type="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMask"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectFilterHeader">
+    <part name="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectFilter" type="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Auxiliary_Shipping_Courier_TypePortType">
+    <documentation></documentation>
+    <operation name="getCourier">
+      <documentation></documentation>
+      <input message="tns:getCourier"/>
+      <output message="tns:getCourierResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getTypeByKeyName">
+      <documentation></documentation>
+      <input message="tns:getTypeByKeyName"/>
+      <output message="tns:getTypeByKeyNameResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Auxiliary_Shipping_Courier_TypeBinding" type="tns:SoftLayer_Auxiliary_Shipping_Courier_TypePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getCourier">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Shipping_Courier_TypeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMaskHeader" part="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeObjectFilterHeader" part="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeInitParametersHeader" part="SoftLayer_Auxiliary_Shipping_Courier_TypeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Shipping_Courier_TypeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMaskHeader" part="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeObjectFilterHeader" part="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeInitParametersHeader" part="SoftLayer_Auxiliary_Shipping_Courier_TypeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTypeByKeyName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Shipping_Courier_TypeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMaskHeader" part="SoftLayer_Auxiliary_Shipping_Courier_TypeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Auxiliary_Shipping_Courier_TypeService">
+    <port name="SoftLayer_Auxiliary_Shipping_Courier_TypePort" binding="tns:SoftLayer_Auxiliary_Shipping_Courier_TypeBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Shipping_Courier_Type"/>
+    </port>
+  </service>
+</definitions>

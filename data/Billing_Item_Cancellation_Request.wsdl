@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_Request?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Billing_Item_Cancellation_RequestInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Billing_Item_Cancellation_RequestObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Billing_Item_Cancellation_Request"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Billing_Item_Cancellation_RequestInitParametersHeader">
+    <part name="SoftLayer_Billing_Item_Cancellation_RequestInitParameters" type="tns:SoftLayer_Billing_Item_Cancellation_RequestInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Billing_Item_Cancellation_Request"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Billing_Item_Cancellation_Request"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAllCancellationRequests"/>
+  <message name="getAllCancellationRequestsResponse">
+    <part name="getAllCancellationRequestsReturn" type="tns:SoftLayer_Billing_Item_Cancellation_RequestArray"/>
+  </message>
+  <message name="getCancellationCutoffDate">
+    <part name="accountId" type="xsd:int"/>
+    <part name="categoryCode" type="xsd:string"/>
+  </message>
+  <message name="getCancellationCutoffDateResponse">
+    <part name="getCancellationCutoffDateReturn" type="xsd:dateTime"/>
+  </message>
+  <message name="getItems"/>
+  <message name="getItemsResponse">
+    <part name="getItemsReturn" type="tns:SoftLayer_Billing_Item_Cancellation_Request_ItemArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Billing_Item_Cancellation_Request"/>
+  </message>
+  <message name="getStatus"/>
+  <message name="getStatusResponse">
+    <part name="getStatusReturn" type="tns:SoftLayer_Billing_Item_Cancellation_Request_Status"/>
+  </message>
+  <message name="getTicket"/>
+  <message name="getTicketResponse">
+    <part name="getTicketReturn" type="tns:SoftLayer_Ticket"/>
+  </message>
+  <message name="getUser"/>
+  <message name="getUserResponse">
+    <part name="getUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="removeCancellationItem">
+    <part name="itemId" type="xsd:int"/>
+  </message>
+  <message name="removeCancellationItemResponse">
+    <part name="removeCancellationItemReturn" type="xsd:boolean"/>
+  </message>
+  <message name="validateBillingItemForCancellation">
+    <part name="billingItemId" type="xsd:int"/>
+  </message>
+  <message name="validateBillingItemForCancellationResponse">
+    <part name="validateBillingItemForCancellationReturn" type="xsd:boolean"/>
+  </message>
+  <message name="void">
+    <part name="closeRelatedTicketFlag" type="xsd:boolean"/>
+  </message>
+  <message name="voidResponse">
+    <part name="voidReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Billing_Item_Cancellation_RequestObjectMaskHeader">
+    <part name="SoftLayer_Billing_Item_Cancellation_RequestObjectMask" type="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectMask"/>
+  </message>
+  <message name="SoftLayer_Billing_Item_Cancellation_RequestObjectFilterHeader">
+    <part name="SoftLayer_Billing_Item_Cancellation_RequestObjectFilter" type="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Billing_Item_Cancellation_RequestPortType">
+    <documentation>SoftLayer customers can use this API to submit a cancellation request. A single service cancellation can contain multiple cancellation items which contain a billing item. </documentation>
+    <operation name="createObject">
+      <documentation>This method creates a service cancellation request. 
+
+You need to have &amp;quot;Cancel Services&amp;quot; privilege to create a cancellation request. You have to provide at least one SoftLayer_Billing_Item_Cancellation_Request_Item in the &amp;quot;items&amp;quot; property. Make sure billing item's category code belongs to the cancelable product codes. You can retrieve the cancelable product category by the [[SoftLayer_Product_Item_Category::getValidCancelableServiceItemCategories|product category]] service. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the SoftLayer account that a service cancellation request belongs to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAllCancellationRequests">
+      <documentation>This method returns all service cancellation requests. 
+
+Make sure to include the &amp;quot;resultLimit&amp;quot; in the SOAP request header for quicker response. If there is no result limit header is passed, it will return the latest 25 results by default. </documentation>
+      <input message="tns:getAllCancellationRequests"/>
+      <output message="tns:getAllCancellationRequestsResponse"/>
+    </operation>
+    <operation name="getCancellationCutoffDate">
+      <documentation>Services can be canceled 2 or 3 days prior to your next bill date. This service returns the time by which a cancellation request submission is permitted in the current billing cycle. If the current time falls into the cut off date, this will return next earliest cancellation cut off date. 
+
+Available category codes are: service, server </documentation>
+      <input message="tns:getCancellationCutoffDate"/>
+      <output message="tns:getCancellationCutoffDateResponse"/>
+    </operation>
+    <operation name="getItems">
+      <documentation>Retrieve a collection of service cancellation items.</documentation>
+      <input message="tns:getItems"/>
+      <output message="tns:getItemsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Billing_Item_Cancellation_Request object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Billing_Item_Cancellation_Request service. You can only retrieve cancellation request records that are assigned to your SoftLayer account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getStatus">
+      <documentation>Retrieve the status of a service cancellation request.</documentation>
+      <input message="tns:getStatus"/>
+      <output message="tns:getStatusResponse"/>
+    </operation>
+    <operation name="getTicket">
+      <documentation>Retrieve the ticket that is associated with the service cancellation request.</documentation>
+      <input message="tns:getTicket"/>
+      <output message="tns:getTicketResponse"/>
+    </operation>
+    <operation name="getUser">
+      <documentation>Retrieve the user that initiated a service cancellation request.</documentation>
+      <input message="tns:getUser"/>
+      <output message="tns:getUserResponse"/>
+    </operation>
+    <operation name="removeCancellationItem">
+      <documentation>This method removes a cancellation item from a cancellation request that is in &amp;quot;Pending&amp;quot; or &amp;quot;Approved&amp;quot; status. </documentation>
+      <input message="tns:removeCancellationItem"/>
+      <output message="tns:removeCancellationItemResponse"/>
+    </operation>
+    <operation name="validateBillingItemForCancellation">
+      <documentation>This method examined if a billing item is eligible for cancellation. It checks if the billing item you provided is already in your existing cancellation request. </documentation>
+      <input message="tns:validateBillingItemForCancellation"/>
+      <output message="tns:validateBillingItemForCancellationResponse"/>
+    </operation>
+    <operation name="void">
+      <documentation>This method voids a service cancellation request in &amp;quot;Pending&amp;quot; or &amp;quot;Approved&amp;quot; status. </documentation>
+      <input message="tns:void"/>
+      <output message="tns:voidResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Billing_Item_Cancellation_RequestBinding" type="tns:SoftLayer_Billing_Item_Cancellation_RequestPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectMaskHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectMaskHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectFilterHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestInitParametersHeader" part="SoftLayer_Billing_Item_Cancellation_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllCancellationRequests">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectMaskHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectFilterHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCancellationCutoffDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getItems">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectMaskHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectFilterHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestInitParametersHeader" part="SoftLayer_Billing_Item_Cancellation_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectMaskHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectFilterHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestInitParametersHeader" part="SoftLayer_Billing_Item_Cancellation_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectMaskHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectFilterHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestInitParametersHeader" part="SoftLayer_Billing_Item_Cancellation_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTicket">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectMaskHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectFilterHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestInitParametersHeader" part="SoftLayer_Billing_Item_Cancellation_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectMaskHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestObjectFilterHeader" part="SoftLayer_Billing_Item_Cancellation_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestInitParametersHeader" part="SoftLayer_Billing_Item_Cancellation_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeCancellationItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestInitParametersHeader" part="SoftLayer_Billing_Item_Cancellation_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="validateBillingItemForCancellation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="void">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Item_Cancellation_RequestInitParametersHeader" part="SoftLayer_Billing_Item_Cancellation_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Billing_Item_Cancellation_RequestService">
+    <port name="SoftLayer_Billing_Item_Cancellation_RequestPort" binding="tns:SoftLayer_Billing_Item_Cancellation_RequestBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Item_Cancellation_Request"/>
+    </port>
+  </service>
+</definitions>

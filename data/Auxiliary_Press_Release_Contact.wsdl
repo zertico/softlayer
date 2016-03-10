@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_Release_Contact?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Auxiliary_Press_Release_ContactInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Auxiliary_Press_Release_ContactObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Auxiliary_Press_Release_Contact"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Auxiliary_Press_Release_ContactInitParametersHeader">
+    <part name="SoftLayer_Auxiliary_Press_Release_ContactInitParameters" type="tns:SoftLayer_Auxiliary_Press_Release_ContactInitParameters"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Auxiliary_Press_Release_Contact"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Press_Release_ContactObjectMaskHeader">
+    <part name="SoftLayer_Auxiliary_Press_Release_ContactObjectMask" type="tns:SoftLayer_Auxiliary_Press_Release_ContactObjectMask"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Press_Release_ContactObjectFilterHeader">
+    <part name="SoftLayer_Auxiliary_Press_Release_ContactObjectFilter" type="tns:SoftLayer_Auxiliary_Press_Release_ContactObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Auxiliary_Press_Release_ContactPortType">
+    <documentation>The SoftLayer_Auxiliary_Press_Release_Contact service provides all contacts associated to a press release. </documentation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Auxiliary_Press_Release_Contact object whose contact id number corresponds to the ID number of the init parameter passed to the SoftLayer_Auxiliary_Press_Release service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Auxiliary_Press_Release_ContactBinding" type="tns:SoftLayer_Auxiliary_Press_Release_ContactPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_Release_ContactAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_Release_ContactObjectMaskHeader" part="SoftLayer_Auxiliary_Press_Release_ContactObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_Release_ContactObjectFilterHeader" part="SoftLayer_Auxiliary_Press_Release_ContactObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_Release_ContactInitParametersHeader" part="SoftLayer_Auxiliary_Press_Release_ContactInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Auxiliary_Press_Release_ContactService">
+    <port name="SoftLayer_Auxiliary_Press_Release_ContactPort" binding="tns:SoftLayer_Auxiliary_Press_Release_ContactBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_Release_Contact"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Account_Authentication_Saml?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Account_Authentication_SamlInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Account_Authentication_SamlObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Account_Authentication_Saml"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Account_Authentication_SamlInitParametersHeader">
+    <part name="SoftLayer_Account_Authentication_SamlInitParameters" type="tns:SoftLayer_Account_Authentication_SamlInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Account_Authentication_Saml"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Account_Authentication_Saml"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Account_Authentication_Saml"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAttributes"/>
+  <message name="getAttributesResponse">
+    <part name="getAttributesReturn" type="tns:SoftLayer_Account_Authentication_AttributeArray"/>
+  </message>
+  <message name="getMetadata"/>
+  <message name="getMetadataResponse">
+    <part name="getMetadataReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Account_Authentication_Saml"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Account_Authentication_SamlObjectMaskHeader">
+    <part name="SoftLayer_Account_Authentication_SamlObjectMask" type="tns:SoftLayer_Account_Authentication_SamlObjectMask"/>
+  </message>
+  <message name="SoftLayer_Account_Authentication_SamlObjectFilterHeader">
+    <part name="SoftLayer_Account_Authentication_SamlObjectFilter" type="tns:SoftLayer_Account_Authentication_SamlObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Account_Authentication_SamlPortType">
+    <documentation></documentation>
+    <operation name="createObject">
+      <documentation></documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation></documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Edit the object by passing in a modified instance of the object </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account associated with this saml configuration.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAttributes">
+      <documentation>Retrieve the saml attribute values for a SoftLayer customer account.</documentation>
+      <input message="tns:getAttributes"/>
+      <output message="tns:getAttributesResponse"/>
+    </operation>
+    <operation name="getMetadata">
+      <documentation>This method will return the service provider metadata in XML format. </documentation>
+      <input message="tns:getMetadata"/>
+      <output message="tns:getMetadataResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Account_Authentication_SamlBinding" type="tns:SoftLayer_Account_Authentication_SamlPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Authentication_SamlAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlObjectMaskHeader" part="SoftLayer_Account_Authentication_SamlObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Authentication_SamlAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlInitParametersHeader" part="SoftLayer_Account_Authentication_SamlInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Authentication_SamlAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlInitParametersHeader" part="SoftLayer_Account_Authentication_SamlInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Authentication_SamlAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlObjectMaskHeader" part="SoftLayer_Account_Authentication_SamlObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlObjectFilterHeader" part="SoftLayer_Account_Authentication_SamlObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlInitParametersHeader" part="SoftLayer_Account_Authentication_SamlInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAttributes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Authentication_SamlAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlObjectMaskHeader" part="SoftLayer_Account_Authentication_SamlObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlObjectFilterHeader" part="SoftLayer_Account_Authentication_SamlObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlInitParametersHeader" part="SoftLayer_Account_Authentication_SamlInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMetadata">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Authentication_SamlAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlInitParametersHeader" part="SoftLayer_Account_Authentication_SamlInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Authentication_SamlAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlObjectMaskHeader" part="SoftLayer_Account_Authentication_SamlObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlObjectFilterHeader" part="SoftLayer_Account_Authentication_SamlObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Authentication_SamlInitParametersHeader" part="SoftLayer_Account_Authentication_SamlInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Account_Authentication_SamlService">
+    <port name="SoftLayer_Account_Authentication_SamlPort" binding="tns:SoftLayer_Account_Authentication_SamlBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Account_Authentication_Saml"/>
+    </port>
+  </service>
+</definitions>

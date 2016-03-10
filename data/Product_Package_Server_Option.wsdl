@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Product_Package_Server_Option?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Product_Package_Server_OptionInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Product_Package_Server_OptionObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Product_Package_Server_Option"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Product_Package_Server_OptionInitParametersHeader">
+    <part name="SoftLayer_Product_Package_Server_OptionInitParameters" type="tns:SoftLayer_Product_Package_Server_OptionInitParameters"/>
+  </message>
+  <message name="getAllOptions"/>
+  <message name="getAllOptionsResponse">
+    <part name="getAllOptionsReturn" type="tns:SoftLayer_Product_Package_Server_OptionArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Product_Package_Server_Option"/>
+  </message>
+  <message name="getOptions">
+    <part name="type" type="xsd:string"/>
+  </message>
+  <message name="getOptionsResponse">
+    <part name="getOptionsReturn" type="tns:SoftLayer_Product_Package_Server_OptionArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Product_Package_Server_OptionObjectMaskHeader">
+    <part name="SoftLayer_Product_Package_Server_OptionObjectMask" type="tns:SoftLayer_Product_Package_Server_OptionObjectMask"/>
+  </message>
+  <message name="SoftLayer_Product_Package_Server_OptionObjectFilterHeader">
+    <part name="SoftLayer_Product_Package_Server_OptionObjectFilter" type="tns:SoftLayer_Product_Package_Server_OptionObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Product_Package_Server_OptionPortType">
+    <documentation></documentation>
+    <operation name="getAllOptions">
+      <documentation>This method will grab all the package server options. </documentation>
+      <input message="tns:getAllOptions"/>
+      <output message="tns:getAllOptionsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOptions">
+      <documentation>This method will grab all the package server options for the specified type. </documentation>
+      <input message="tns:getOptions"/>
+      <output message="tns:getOptionsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Product_Package_Server_OptionBinding" type="tns:SoftLayer_Product_Package_Server_OptionPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllOptions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_Server_OptionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_Server_OptionObjectMaskHeader" part="SoftLayer_Product_Package_Server_OptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_Server_OptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_Server_OptionObjectMaskHeader" part="SoftLayer_Product_Package_Server_OptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_Server_OptionObjectFilterHeader" part="SoftLayer_Product_Package_Server_OptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_Server_OptionInitParametersHeader" part="SoftLayer_Product_Package_Server_OptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOptions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_Server_OptionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_Server_OptionObjectMaskHeader" part="SoftLayer_Product_Package_Server_OptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Product_Package_Server_OptionService">
+    <port name="SoftLayer_Product_Package_Server_OptionPort" binding="tns:SoftLayer_Product_Package_Server_OptionBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Product_Package_Server_Option"/>
+    </port>
+  </service>
+</definitions>

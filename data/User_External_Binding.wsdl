@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_User_External_Binding?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_User_External_BindingInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_User_External_BindingObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_User_External_Binding"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_User_External_BindingInitParametersHeader">
+    <part name="SoftLayer_User_External_BindingInitParameters" type="tns:SoftLayer_User_External_BindingInitParameters"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAttributes"/>
+  <message name="getAttributesResponse">
+    <part name="getAttributesReturn" type="tns:SoftLayer_User_External_Binding_AttributeArray"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getNote"/>
+  <message name="getNoteResponse">
+    <part name="getNoteReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_User_External_Binding"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_User_External_Binding_Type"/>
+  </message>
+  <message name="getVendor"/>
+  <message name="getVendorResponse">
+    <part name="getVendorReturn" type="tns:SoftLayer_User_External_Binding_Vendor"/>
+  </message>
+  <message name="updateNote">
+    <part name="text" type="xsd:string"/>
+  </message>
+  <message name="updateNoteResponse">
+    <part name="updateNoteReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_User_External_BindingObjectMaskHeader">
+    <part name="SoftLayer_User_External_BindingObjectMask" type="tns:SoftLayer_User_External_BindingObjectMask"/>
+  </message>
+  <message name="SoftLayer_User_External_BindingObjectFilterHeader">
+    <part name="SoftLayer_User_External_BindingObjectFilter" type="tns:SoftLayer_User_External_BindingObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_User_External_BindingPortType">
+    <documentation>&amp;lt;&amp;lt;&amp;lt;</documentation>
+    <operation name="deleteObject">
+      <documentation>Delete an external authentication binding.  If the external binding currently has an active billing item associated you will be prevented from deleting the binding.  The alternative method to remove an external authentication binding is to use the service cancellation form. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="getAttributes">
+      <documentation>Retrieve attributes of an external authentication binding.</documentation>
+      <input message="tns:getAttributes"/>
+      <output message="tns:getAttributesResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve information regarding the billing item for external authentication.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getNote">
+      <documentation>Retrieve an optional note for identifying the external binding.</documentation>
+      <input message="tns:getNote"/>
+      <output message="tns:getNoteResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve the type of external authentication binding.</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+    <operation name="getVendor">
+      <documentation>Retrieve the vendor of an external authentication binding.</documentation>
+      <input message="tns:getVendor"/>
+      <output message="tns:getVendorResponse"/>
+    </operation>
+    <operation name="updateNote">
+      <documentation>Update the note of an external binding.  The note is an optional property that is used to store information about a binding. </documentation>
+      <input message="tns:updateNote"/>
+      <output message="tns:updateNoteResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_User_External_BindingBinding" type="tns:SoftLayer_User_External_BindingPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_External_BindingAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingInitParametersHeader" part="SoftLayer_User_External_BindingInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAttributes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_External_BindingAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectMaskHeader" part="SoftLayer_User_External_BindingObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectFilterHeader" part="SoftLayer_User_External_BindingObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingInitParametersHeader" part="SoftLayer_User_External_BindingInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_External_BindingAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectMaskHeader" part="SoftLayer_User_External_BindingObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectFilterHeader" part="SoftLayer_User_External_BindingObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingInitParametersHeader" part="SoftLayer_User_External_BindingInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_External_BindingAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectMaskHeader" part="SoftLayer_User_External_BindingObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectFilterHeader" part="SoftLayer_User_External_BindingObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingInitParametersHeader" part="SoftLayer_User_External_BindingInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_External_BindingAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectMaskHeader" part="SoftLayer_User_External_BindingObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectFilterHeader" part="SoftLayer_User_External_BindingObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingInitParametersHeader" part="SoftLayer_User_External_BindingInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_External_BindingAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectMaskHeader" part="SoftLayer_User_External_BindingObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectFilterHeader" part="SoftLayer_User_External_BindingObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingInitParametersHeader" part="SoftLayer_User_External_BindingInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVendor">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_External_BindingAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectMaskHeader" part="SoftLayer_User_External_BindingObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingObjectFilterHeader" part="SoftLayer_User_External_BindingObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingInitParametersHeader" part="SoftLayer_User_External_BindingInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateNote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_External_BindingAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_External_BindingInitParametersHeader" part="SoftLayer_User_External_BindingInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_User_External_BindingService">
+    <port name="SoftLayer_User_External_BindingPort" binding="tns:SoftLayer_User_External_BindingBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_User_External_Binding"/>
+    </port>
+  </service>
+</definitions>

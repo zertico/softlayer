@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Ticket_Update_Employee?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Ticket_Update_EmployeeInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Ticket_Update_EmployeeObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Ticket_Update_Employee"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Ticket_Update_EmployeeInitParametersHeader">
+    <part name="SoftLayer_Ticket_Update_EmployeeInitParameters" type="tns:SoftLayer_Ticket_Update_EmployeeInitParameters"/>
+  </message>
+  <message name="addResponseRating">
+    <part name="responseRating" type="xsd:int"/>
+  </message>
+  <message name="addResponseRatingResponse">
+    <part name="addResponseRatingReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getChangeOwnerActivity"/>
+  <message name="getChangeOwnerActivityResponse">
+    <part name="getChangeOwnerActivityReturn" type="xsd:string"/>
+  </message>
+  <message name="getEditor"/>
+  <message name="getEditorResponse">
+    <part name="getEditorReturn" type="tns:SoftLayer_User_Employee"/>
+  </message>
+  <message name="getFileAttachment"/>
+  <message name="getFileAttachmentResponse">
+    <part name="getFileAttachmentReturn" type="tns:SoftLayer_Ticket_Attachment_FileArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Ticket_Update_Employee"/>
+  </message>
+  <message name="getTicket"/>
+  <message name="getTicketResponse">
+    <part name="getTicketReturn" type="tns:SoftLayer_Ticket"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_Ticket_Update_Type"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Ticket_Update_EmployeeObjectMaskHeader">
+    <part name="SoftLayer_Ticket_Update_EmployeeObjectMask" type="tns:SoftLayer_Ticket_Update_EmployeeObjectMask"/>
+  </message>
+  <message name="SoftLayer_Ticket_Update_EmployeeObjectFilterHeader">
+    <part name="SoftLayer_Ticket_Update_EmployeeObjectFilter" type="tns:SoftLayer_Ticket_Update_EmployeeObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Ticket_Update_EmployeePortType">
+    <documentation>Retrieve an update to a ticket made by a SoftLayer employee. Ticket updates created by employees have the option of being rated on a one to five scale. Because customer updates don't have this ability the SoftLayer_Ticket_Update_Employee class has it's own service. </documentation>
+    <operation name="addResponseRating">
+      <documentation>As part of the customer service process SoftLayer has provided a quick feedback mechanism for its customers to rate the responses that its employees give on tickets. addResponseRating() sets the rating for a single ticket update made by a SoftLayer employee. Ticket ratings have the integer values 1 through 5, with 1 being the worst and 5 being the best. Once the rating is set ''addResponseRating()'' returns a boolean true. </documentation>
+      <input message="tns:addResponseRating"/>
+      <output message="tns:addResponseRatingResponse"/>
+    </operation>
+    <operation name="getChangeOwnerActivity">
+      <documentation></documentation>
+      <input message="tns:getChangeOwnerActivity"/>
+      <output message="tns:getChangeOwnerActivityResponse"/>
+    </operation>
+    <operation name="getEditor">
+      <documentation>Retrieve a representation of the SoftLayer employee who created a ticket update.</documentation>
+      <input message="tns:getEditor"/>
+      <output message="tns:getEditorResponse"/>
+    </operation>
+    <operation name="getFileAttachment">
+      <documentation>Retrieve the files attached to a ticket update.</documentation>
+      <input message="tns:getFileAttachment"/>
+      <output message="tns:getFileAttachmentResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Ticket_Update_Employee object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Ticket_Update_Employee service. You can only retrieve employee updates to tickets that your API account has access to. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getTicket">
+      <documentation>Retrieve the ticket that a ticket update belongs to.</documentation>
+      <input message="tns:getTicket"/>
+      <output message="tns:getTicketResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve the Type of update to this ticket</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Ticket_Update_EmployeeBinding" type="tns:SoftLayer_Ticket_Update_EmployeePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addResponseRating">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_Update_EmployeeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeInitParametersHeader" part="SoftLayer_Ticket_Update_EmployeeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getChangeOwnerActivity">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_Update_EmployeeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectMaskHeader" part="SoftLayer_Ticket_Update_EmployeeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectFilterHeader" part="SoftLayer_Ticket_Update_EmployeeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeInitParametersHeader" part="SoftLayer_Ticket_Update_EmployeeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEditor">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_Update_EmployeeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectMaskHeader" part="SoftLayer_Ticket_Update_EmployeeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectFilterHeader" part="SoftLayer_Ticket_Update_EmployeeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeInitParametersHeader" part="SoftLayer_Ticket_Update_EmployeeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFileAttachment">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_Update_EmployeeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectMaskHeader" part="SoftLayer_Ticket_Update_EmployeeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectFilterHeader" part="SoftLayer_Ticket_Update_EmployeeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeInitParametersHeader" part="SoftLayer_Ticket_Update_EmployeeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_Update_EmployeeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectMaskHeader" part="SoftLayer_Ticket_Update_EmployeeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectFilterHeader" part="SoftLayer_Ticket_Update_EmployeeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeInitParametersHeader" part="SoftLayer_Ticket_Update_EmployeeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTicket">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_Update_EmployeeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectMaskHeader" part="SoftLayer_Ticket_Update_EmployeeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectFilterHeader" part="SoftLayer_Ticket_Update_EmployeeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeInitParametersHeader" part="SoftLayer_Ticket_Update_EmployeeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_Update_EmployeeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectMaskHeader" part="SoftLayer_Ticket_Update_EmployeeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeObjectFilterHeader" part="SoftLayer_Ticket_Update_EmployeeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_Update_EmployeeInitParametersHeader" part="SoftLayer_Ticket_Update_EmployeeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Ticket_Update_EmployeeService">
+    <port name="SoftLayer_Ticket_Update_EmployeePort" binding="tns:SoftLayer_Ticket_Update_EmployeeBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Ticket_Update_Employee"/>
+    </port>
+  </service>
+</definitions>

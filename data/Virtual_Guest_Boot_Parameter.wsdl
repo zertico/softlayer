@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Boot_Parameter?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Virtual_Guest_Boot_ParameterInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Virtual_Guest_Boot_ParameterObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Virtual_Guest_Boot_Parameter"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Virtual_Guest_Boot_ParameterInitParametersHeader">
+    <part name="SoftLayer_Virtual_Guest_Boot_ParameterInitParameters" type="tns:SoftLayer_Virtual_Guest_Boot_ParameterInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Virtual_Guest_Boot_Parameter"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Virtual_Guest_Boot_Parameter"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getGuest"/>
+  <message name="getGuestResponse">
+    <part name="getGuestReturn" type="tns:SoftLayer_Virtual_Guest"/>
+  </message>
+  <message name="getGuestBootParameterType"/>
+  <message name="getGuestBootParameterTypeResponse">
+    <part name="getGuestBootParameterTypeReturn" type="tns:SoftLayer_Virtual_Guest_Boot_Parameter_Type"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Virtual_Guest_Boot_Parameter"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Virtual_Guest_Boot_ParameterObjectMaskHeader">
+    <part name="SoftLayer_Virtual_Guest_Boot_ParameterObjectMask" type="tns:SoftLayer_Virtual_Guest_Boot_ParameterObjectMask"/>
+  </message>
+  <message name="SoftLayer_Virtual_Guest_Boot_ParameterObjectFilterHeader">
+    <part name="SoftLayer_Virtual_Guest_Boot_ParameterObjectFilter" type="tns:SoftLayer_Virtual_Guest_Boot_ParameterObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Virtual_Guest_Boot_ParameterPortType">
+    <documentation></documentation>
+    <operation name="createObject">
+      <documentation></documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation></documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation></documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getGuest">
+      <documentation></documentation>
+      <input message="tns:getGuest"/>
+      <output message="tns:getGuestResponse"/>
+    </operation>
+    <operation name="getGuestBootParameterType">
+      <documentation></documentation>
+      <input message="tns:getGuestBootParameterType"/>
+      <output message="tns:getGuestBootParameterTypeResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Virtual_Guest_Boot_ParameterBinding" type="tns:SoftLayer_Virtual_Guest_Boot_ParameterPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Boot_ParameterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Boot_ParameterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterInitParametersHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Boot_ParameterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterInitParametersHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Boot_ParameterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterObjectMaskHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterObjectFilterHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterInitParametersHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGuestBootParameterType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Boot_ParameterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterObjectMaskHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterObjectFilterHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterInitParametersHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Boot_ParameterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterObjectMaskHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterObjectFilterHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Boot_ParameterInitParametersHeader" part="SoftLayer_Virtual_Guest_Boot_ParameterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Virtual_Guest_Boot_ParameterService">
+    <port name="SoftLayer_Virtual_Guest_Boot_ParameterPort" binding="tns:SoftLayer_Virtual_Guest_Boot_ParameterBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Boot_Parameter"/>
+    </port>
+  </service>
+</definitions>

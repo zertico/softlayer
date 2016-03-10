@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Vlan_Firewall?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Vlan_FirewallInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Vlan_FirewallObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Vlan_Firewall"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Vlan_FirewallInitParametersHeader">
+    <part name="SoftLayer_Network_Vlan_FirewallInitParameters" type="tns:SoftLayer_Network_Vlan_FirewallInitParameters"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getDatacenter"/>
+  <message name="getDatacenterResponse">
+    <part name="getDatacenterReturn" type="tns:SoftLayer_Location"/>
+  </message>
+  <message name="getFirewallType"/>
+  <message name="getFirewallTypeResponse">
+    <part name="getFirewallTypeReturn" type="xsd:string"/>
+  </message>
+  <message name="getFullyQualifiedDomainName"/>
+  <message name="getFullyQualifiedDomainNameResponse">
+    <part name="getFullyQualifiedDomainNameReturn" type="xsd:string"/>
+  </message>
+  <message name="getManagementCredentials"/>
+  <message name="getManagementCredentialsResponse">
+    <part name="getManagementCredentialsReturn" type="tns:SoftLayer_Software_Component_Password"/>
+  </message>
+  <message name="getNetworkFirewallUpdateRequests"/>
+  <message name="getNetworkFirewallUpdateRequestsResponse">
+    <part name="getNetworkFirewallUpdateRequestsReturn" type="tns:SoftLayer_Network_Firewall_Update_RequestArray"/>
+  </message>
+  <message name="getNetworkVlan"/>
+  <message name="getNetworkVlanResponse">
+    <part name="getNetworkVlanReturn" type="tns:SoftLayer_Network_Vlan"/>
+  </message>
+  <message name="getNetworkVlans"/>
+  <message name="getNetworkVlansResponse">
+    <part name="getNetworkVlansReturn" type="tns:SoftLayer_Network_VlanArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Vlan_Firewall"/>
+  </message>
+  <message name="getRules"/>
+  <message name="getRulesResponse">
+    <part name="getRulesReturn" type="tns:SoftLayer_Network_Vlan_Firewall_RuleArray"/>
+  </message>
+  <message name="getTagReferences"/>
+  <message name="getTagReferencesResponse">
+    <part name="getTagReferencesReturn" type="tns:SoftLayer_Tag_ReferenceArray"/>
+  </message>
+  <message name="restoreDefaults"/>
+  <message name="restoreDefaultsResponse">
+    <part name="restoreDefaultsReturn" type="tns:SoftLayer_Provisioning_Version1_Transaction"/>
+  </message>
+  <message name="setTags">
+    <part name="tags" type="xsd:string"/>
+  </message>
+  <message name="setTagsResponse">
+    <part name="setTagsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="updateRouteBypass">
+    <part name="bypass" type="xsd:boolean"/>
+  </message>
+  <message name="updateRouteBypassResponse">
+    <part name="updateRouteBypassReturn" type="tns:SoftLayer_Provisioning_Version1_Transaction"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Vlan_FirewallObjectMaskHeader">
+    <part name="SoftLayer_Network_Vlan_FirewallObjectMask" type="tns:SoftLayer_Network_Vlan_FirewallObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Vlan_FirewallObjectFilterHeader">
+    <part name="SoftLayer_Network_Vlan_FirewallObjectFilter" type="tns:SoftLayer_Network_Vlan_FirewallObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Vlan_FirewallPortType">
+    <documentation>The SoftLayer_Network_Vlan_Firewall service accesses general information relating to a single SoftLayer VLAN firewall.  This is the object which ties the running rules to a specific downstream server. The current running rule set can be pulled from this service. Use the [[SoftLayer Network Firewall Template]] service to pull SoftLayer recommended rule set templates. Use the [[SoftLayer Network Firewall Update Request]] service to submit a firewall update request. </documentation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the billing item for a Hardware Firewall (Dedicated).</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getDatacenter">
+      <documentation>Retrieve the datacenter that the firewall resides in.</documentation>
+      <input message="tns:getDatacenter"/>
+      <output message="tns:getDatacenterResponse"/>
+    </operation>
+    <operation name="getFirewallType">
+      <documentation>Retrieve the firewall device type.</documentation>
+      <input message="tns:getFirewallType"/>
+      <output message="tns:getFirewallTypeResponse"/>
+    </operation>
+    <operation name="getFullyQualifiedDomainName">
+      <documentation>Retrieve a name reflecting the hostname and domain of the firewall. This is created from the combined values of the firewall's logical name and vlan number automatically, and thus can not be edited directly.</documentation>
+      <input message="tns:getFullyQualifiedDomainName"/>
+      <output message="tns:getFullyQualifiedDomainNameResponse"/>
+    </operation>
+    <operation name="getManagementCredentials">
+      <documentation>Retrieve the credentials to log in to a firewall device. This is only present for dedicated appliances.</documentation>
+      <input message="tns:getManagementCredentials"/>
+      <output message="tns:getManagementCredentialsResponse"/>
+    </operation>
+    <operation name="getNetworkFirewallUpdateRequests">
+      <documentation>Retrieve the update requests made for this firewall.</documentation>
+      <input message="tns:getNetworkFirewallUpdateRequests"/>
+      <output message="tns:getNetworkFirewallUpdateRequestsResponse"/>
+    </operation>
+    <operation name="getNetworkVlan">
+      <documentation>Retrieve the VLAN object that a firewall is associated with and protecting.</documentation>
+      <input message="tns:getNetworkVlan"/>
+      <output message="tns:getNetworkVlanResponse"/>
+    </operation>
+    <operation name="getNetworkVlans">
+      <documentation>Retrieve the VLAN objects that a firewall is associated with and protecting.</documentation>
+      <input message="tns:getNetworkVlans"/>
+      <output message="tns:getNetworkVlansResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject returns a SoftLayer_Network_Vlan_Firewall object. You can only get objects for vlans attached to your account that have a network firewall enabled. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getRules">
+      <documentation>Retrieve the currently running rule set of this network component firewall.</documentation>
+      <input message="tns:getRules"/>
+      <output message="tns:getRulesResponse"/>
+    </operation>
+    <operation name="getTagReferences">
+      <documentation></documentation>
+      <input message="tns:getTagReferences"/>
+      <output message="tns:getTagReferencesResponse"/>
+    </operation>
+    <operation name="restoreDefaults">
+      <documentation>This will completely reset the firewall to factory settings. If the firewall is not a dedicated appliance an error will occur. Note, this process is performed asynchronously. During the process all traffic will not be routed through the firewall. </documentation>
+      <input message="tns:restoreDefaults"/>
+      <output message="tns:restoreDefaultsResponse"/>
+    </operation>
+    <operation name="setTags">
+      <documentation>This method will associate a comma separated list of tags with this object. </documentation>
+      <input message="tns:setTags"/>
+      <output message="tns:setTagsResponse"/>
+    </operation>
+    <operation name="updateRouteBypass">
+      <documentation>Enable or disable route bypass for this context. If enabled, this will bypass the firewall entirely and all traffic will be routed directly to the host(s) behind it. If disabled, traffic will flow through the firewall normally. This feature is only available for Hardware Firewall (Dedicated) and dedicated appliances. </documentation>
+      <input message="tns:updateRouteBypass"/>
+      <output message="tns:updateRouteBypassResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Vlan_FirewallBinding" type="tns:SoftLayer_Network_Vlan_FirewallPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDatacenter">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFirewallType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFullyQualifiedDomainName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getManagementCredentials">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkFirewallUpdateRequests">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlan">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlans">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRules">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTagReferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectFilterHeader" part="SoftLayer_Network_Vlan_FirewallObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="restoreDefaults">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="setTags">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateRouteBypass">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Vlan_FirewallAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallInitParametersHeader" part="SoftLayer_Network_Vlan_FirewallInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Vlan_FirewallObjectMaskHeader" part="SoftLayer_Network_Vlan_FirewallObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Vlan_FirewallService">
+    <port name="SoftLayer_Network_Vlan_FirewallPort" binding="tns:SoftLayer_Network_Vlan_FirewallBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Vlan_Firewall"/>
+    </port>
+  </service>
+</definitions>

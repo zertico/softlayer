@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Layout_Profile_Containers?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Layout_Profile_ContainersInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Layout_Profile_ContainersObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Layout_Profile_Containers"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Layout_Profile_ContainersInitParametersHeader">
+    <part name="SoftLayer_Layout_Profile_ContainersInitParameters" type="tns:SoftLayer_Layout_Profile_ContainersInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Layout_Profile_Containers"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Layout_Profile_Containers"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getLayoutContainerType"/>
+  <message name="getLayoutContainerTypeResponse">
+    <part name="getLayoutContainerTypeReturn" type="tns:SoftLayer_Layout_Container"/>
+  </message>
+  <message name="getLayoutProfile"/>
+  <message name="getLayoutProfileResponse">
+    <part name="getLayoutProfileReturn" type="tns:SoftLayer_Layout_Profile"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Layout_Profile_Containers"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Layout_Profile_ContainersObjectMaskHeader">
+    <part name="SoftLayer_Layout_Profile_ContainersObjectMask" type="tns:SoftLayer_Layout_Profile_ContainersObjectMask"/>
+  </message>
+  <message name="SoftLayer_Layout_Profile_ContainersObjectFilterHeader">
+    <part name="SoftLayer_Layout_Profile_ContainersObjectFilter" type="tns:SoftLayer_Layout_Profile_ContainersObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Layout_Profile_ContainersPortType">
+    <documentation></documentation>
+    <operation name="createObject">
+      <documentation></documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation></documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getLayoutContainerType">
+      <documentation>Retrieve the container to be contained</documentation>
+      <input message="tns:getLayoutContainerType"/>
+      <output message="tns:getLayoutContainerTypeResponse"/>
+    </operation>
+    <operation name="getLayoutProfile">
+      <documentation>Retrieve the profile containing this container</documentation>
+      <input message="tns:getLayoutProfile"/>
+      <output message="tns:getLayoutProfileResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Layout_Profile_ContainersBinding" type="tns:SoftLayer_Layout_Profile_ContainersPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_ContainersAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_ContainersAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersInitParametersHeader" part="SoftLayer_Layout_Profile_ContainersInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLayoutContainerType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_ContainersAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersObjectMaskHeader" part="SoftLayer_Layout_Profile_ContainersObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersObjectFilterHeader" part="SoftLayer_Layout_Profile_ContainersObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersInitParametersHeader" part="SoftLayer_Layout_Profile_ContainersInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLayoutProfile">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_ContainersAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersObjectMaskHeader" part="SoftLayer_Layout_Profile_ContainersObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersObjectFilterHeader" part="SoftLayer_Layout_Profile_ContainersObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersInitParametersHeader" part="SoftLayer_Layout_Profile_ContainersInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_ContainersAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersObjectMaskHeader" part="SoftLayer_Layout_Profile_ContainersObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersObjectFilterHeader" part="SoftLayer_Layout_Profile_ContainersObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_ContainersInitParametersHeader" part="SoftLayer_Layout_Profile_ContainersInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Layout_Profile_ContainersService">
+    <port name="SoftLayer_Layout_Profile_ContainersPort" binding="tns:SoftLayer_Layout_Profile_ContainersBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Layout_Profile_Containers"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_User_Permission_Group?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_User_Permission_GroupInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_User_Permission_GroupObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_User_Permission_Group"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_User_Permission_GroupInitParametersHeader">
+    <part name="SoftLayer_User_Permission_GroupInitParameters" type="tns:SoftLayer_User_Permission_GroupInitParameters"/>
+  </message>
+  <message name="addAction">
+    <part name="action" type="tns:SoftLayer_User_Permission_Action"/>
+  </message>
+  <message name="addBulkActions">
+    <part name="actions" type="tns:SoftLayer_User_Permission_ActionArray"/>
+  </message>
+  <message name="addBulkResourceObjects">
+    <part name="resourceObjects" type="tns:SoftLayer_EntityArray"/>
+    <part name="resourceTypeKeyName" type="xsd:string"/>
+  </message>
+  <message name="addBulkResourceObjectsResponse">
+    <part name="addBulkResourceObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="addResourceObject">
+    <part name="resourceObject" type="tns:SoftLayer_Entity"/>
+    <part name="resourceTypeKeyName" type="xsd:string"/>
+  </message>
+  <message name="addResourceObjectResponse">
+    <part name="addResourceObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_User_Permission_Group"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_User_Permission_Group"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_User_Permission_Group"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="tns:SoftLayer_User_Permission_Group"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getActions"/>
+  <message name="getActionsResponse">
+    <part name="getActionsReturn" type="tns:SoftLayer_User_Permission_ActionArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_User_Permission_Group"/>
+  </message>
+  <message name="getRoles"/>
+  <message name="getRolesResponse">
+    <part name="getRolesReturn" type="tns:SoftLayer_User_Permission_RoleArray"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_User_Permission_Group_Type"/>
+  </message>
+  <message name="linkRole">
+    <part name="role" type="tns:SoftLayer_User_Permission_Role"/>
+  </message>
+  <message name="removeAction">
+    <part name="action" type="tns:SoftLayer_User_Permission_Action"/>
+  </message>
+  <message name="removeBulkActions">
+    <part name="actions" type="tns:SoftLayer_User_Permission_ActionArray"/>
+  </message>
+  <message name="removeBulkResourceObjects">
+    <part name="resourceObjects" type="tns:SoftLayer_EntityArray"/>
+    <part name="resourceTypeKeyName" type="xsd:string"/>
+  </message>
+  <message name="removeBulkResourceObjectsResponse">
+    <part name="removeBulkResourceObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="removeResourceObject">
+    <part name="resourceObject" type="tns:SoftLayer_Entity"/>
+    <part name="resourceTypeKeyName" type="xsd:string"/>
+  </message>
+  <message name="removeResourceObjectResponse">
+    <part name="removeResourceObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="unlinkRole">
+    <part name="role" type="tns:SoftLayer_User_Permission_Role"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_User_Permission_GroupObjectMaskHeader">
+    <part name="SoftLayer_User_Permission_GroupObjectMask" type="tns:SoftLayer_User_Permission_GroupObjectMask"/>
+  </message>
+  <message name="SoftLayer_User_Permission_GroupObjectFilterHeader">
+    <part name="SoftLayer_User_Permission_GroupObjectFilter" type="tns:SoftLayer_User_Permission_GroupObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_User_Permission_GroupPortType">
+    <documentation></documentation>
+    <operation name="addAction">
+      <documentation></documentation>
+      <input message="tns:addAction"/>
+    </operation>
+    <operation name="addBulkActions">
+      <documentation></documentation>
+      <input message="tns:addBulkActions"/>
+    </operation>
+    <operation name="addBulkResourceObjects">
+      <documentation></documentation>
+      <input message="tns:addBulkResourceObjects"/>
+      <output message="tns:addBulkResourceObjectsResponse"/>
+    </operation>
+    <operation name="addResourceObject">
+      <documentation></documentation>
+      <input message="tns:addResourceObject"/>
+      <output message="tns:addResourceObjectResponse"/>
+    </operation>
+    <operation name="createObject">
+      <documentation></documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation></documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation></documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation></documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getActions">
+      <documentation></documentation>
+      <input message="tns:getActions"/>
+      <output message="tns:getActionsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getRoles">
+      <documentation></documentation>
+      <input message="tns:getRoles"/>
+      <output message="tns:getRolesResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve the type of the permission group.</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+    <operation name="linkRole">
+      <documentation></documentation>
+      <input message="tns:linkRole"/>
+    </operation>
+    <operation name="removeAction">
+      <documentation></documentation>
+      <input message="tns:removeAction"/>
+    </operation>
+    <operation name="removeBulkActions">
+      <documentation></documentation>
+      <input message="tns:removeBulkActions"/>
+    </operation>
+    <operation name="removeBulkResourceObjects">
+      <documentation></documentation>
+      <input message="tns:removeBulkResourceObjects"/>
+      <output message="tns:removeBulkResourceObjectsResponse"/>
+    </operation>
+    <operation name="removeResourceObject">
+      <documentation></documentation>
+      <input message="tns:removeResourceObject"/>
+      <output message="tns:removeResourceObjectResponse"/>
+    </operation>
+    <operation name="unlinkRole">
+      <documentation></documentation>
+      <input message="tns:unlinkRole"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_User_Permission_GroupBinding" type="tns:SoftLayer_User_Permission_GroupPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addAction">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="addBulkActions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="addBulkResourceObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="addResourceObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectMaskHeader" part="SoftLayer_User_Permission_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectMaskHeader" part="SoftLayer_User_Permission_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectMaskHeader" part="SoftLayer_User_Permission_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectFilterHeader" part="SoftLayer_User_Permission_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getActions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectMaskHeader" part="SoftLayer_User_Permission_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectFilterHeader" part="SoftLayer_User_Permission_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectMaskHeader" part="SoftLayer_User_Permission_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectFilterHeader" part="SoftLayer_User_Permission_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRoles">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectMaskHeader" part="SoftLayer_User_Permission_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectFilterHeader" part="SoftLayer_User_Permission_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectMaskHeader" part="SoftLayer_User_Permission_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupObjectFilterHeader" part="SoftLayer_User_Permission_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="linkRole">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="removeAction">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="removeBulkActions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="removeBulkResourceObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeResourceObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unlinkRole">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Permission_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Permission_GroupInitParametersHeader" part="SoftLayer_User_Permission_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="SoftLayer_User_Permission_GroupService">
+    <port name="SoftLayer_User_Permission_GroupPort" binding="tns:SoftLayer_User_Permission_GroupBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_User_Permission_Group"/>
+    </port>
+  </service>
+</definitions>

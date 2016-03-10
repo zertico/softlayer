@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_Ticket?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Provisioning_Maintenance_TicketInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Provisioning_Maintenance_TicketObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Provisioning_Maintenance_Ticket"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Provisioning_Maintenance_TicketInitParametersHeader">
+    <part name="SoftLayer_Provisioning_Maintenance_TicketInitParameters" type="tns:SoftLayer_Provisioning_Maintenance_TicketInitParameters"/>
+  </message>
+  <message name="getAvailableSlots"/>
+  <message name="getAvailableSlotsResponse">
+    <part name="getAvailableSlotsReturn" type="tns:SoftLayer_Provisioning_Maintenance_Slots"/>
+  </message>
+  <message name="getMaintenanceClass"/>
+  <message name="getMaintenanceClassResponse">
+    <part name="getMaintenanceClassReturn" type="tns:SoftLayer_Provisioning_Maintenance_Classification"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Provisioning_Maintenance_Ticket"/>
+  </message>
+  <message name="getTicket"/>
+  <message name="getTicketResponse">
+    <part name="getTicketReturn" type="tns:SoftLayer_Ticket"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Provisioning_Maintenance_TicketObjectMaskHeader">
+    <part name="SoftLayer_Provisioning_Maintenance_TicketObjectMask" type="tns:SoftLayer_Provisioning_Maintenance_TicketObjectMask"/>
+  </message>
+  <message name="SoftLayer_Provisioning_Maintenance_TicketObjectFilterHeader">
+    <part name="SoftLayer_Provisioning_Maintenance_TicketObjectFilter" type="tns:SoftLayer_Provisioning_Maintenance_TicketObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Provisioning_Maintenance_TicketPortType">
+    <documentation></documentation>
+    <operation name="getAvailableSlots">
+      <documentation></documentation>
+      <input message="tns:getAvailableSlots"/>
+      <output message="tns:getAvailableSlotsResponse"/>
+    </operation>
+    <operation name="getMaintenanceClass">
+      <documentation></documentation>
+      <input message="tns:getMaintenanceClass"/>
+      <output message="tns:getMaintenanceClassResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getTicket">
+      <documentation></documentation>
+      <input message="tns:getTicket"/>
+      <output message="tns:getTicketResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Provisioning_Maintenance_TicketBinding" type="tns:SoftLayer_Provisioning_Maintenance_TicketPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAvailableSlots">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_TicketAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_TicketObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketObjectFilterHeader" part="SoftLayer_Provisioning_Maintenance_TicketObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketInitParametersHeader" part="SoftLayer_Provisioning_Maintenance_TicketInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMaintenanceClass">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_TicketAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_TicketObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketObjectFilterHeader" part="SoftLayer_Provisioning_Maintenance_TicketObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketInitParametersHeader" part="SoftLayer_Provisioning_Maintenance_TicketInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_TicketAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_TicketObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketObjectFilterHeader" part="SoftLayer_Provisioning_Maintenance_TicketObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketInitParametersHeader" part="SoftLayer_Provisioning_Maintenance_TicketInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTicket">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_TicketAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_TicketObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketObjectFilterHeader" part="SoftLayer_Provisioning_Maintenance_TicketObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_TicketInitParametersHeader" part="SoftLayer_Provisioning_Maintenance_TicketInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Provisioning_Maintenance_TicketService">
+    <port name="SoftLayer_Provisioning_Maintenance_TicketPort" binding="tns:SoftLayer_Provisioning_Maintenance_TicketBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_Ticket"/>
+    </port>
+  </service>
+</definitions>

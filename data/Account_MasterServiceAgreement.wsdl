@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Account_MasterServiceAgreement?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Account_MasterServiceAgreementInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Account_MasterServiceAgreementObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Account_MasterServiceAgreement"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Account_MasterServiceAgreementInitParametersHeader">
+    <part name="SoftLayer_Account_MasterServiceAgreementInitParameters" type="tns:SoftLayer_Account_MasterServiceAgreementInitParameters"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getFile"/>
+  <message name="getFileResponse">
+    <part name="getFileReturn" type="tns:SoftLayer_Container_Utility_File_Entity"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Account_MasterServiceAgreement"/>
+  </message>
+  <message name="getPdf">
+    <part name="accountId" type="xsd:int"/>
+    <part name="guid" type="xsd:string"/>
+  </message>
+  <message name="getPdfResponse">
+    <part name="getPdfReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Account_MasterServiceAgreementObjectMaskHeader">
+    <part name="SoftLayer_Account_MasterServiceAgreementObjectMask" type="tns:SoftLayer_Account_MasterServiceAgreementObjectMask"/>
+  </message>
+  <message name="SoftLayer_Account_MasterServiceAgreementObjectFilterHeader">
+    <part name="SoftLayer_Account_MasterServiceAgreementObjectFilter" type="tns:SoftLayer_Account_MasterServiceAgreementObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Account_MasterServiceAgreementPortType">
+    <documentation></documentation>
+    <operation name="getAccount">
+      <documentation></documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getFile">
+      <documentation>Gets a File Entity container with the user's account's current MSA PDF. Gets a translation if one is available. Otherwise, gets the master document. </documentation>
+      <input message="tns:getFile"/>
+      <output message="tns:getFileResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPdf">
+      <documentation>Returns the binary content of the user's account's current MSA PDF.</documentation>
+      <input message="tns:getPdf"/>
+      <output message="tns:getPdfResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Account_MasterServiceAgreementBinding" type="tns:SoftLayer_Account_MasterServiceAgreementPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_MasterServiceAgreementAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_MasterServiceAgreementObjectMaskHeader" part="SoftLayer_Account_MasterServiceAgreementObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_MasterServiceAgreementObjectFilterHeader" part="SoftLayer_Account_MasterServiceAgreementObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_MasterServiceAgreementInitParametersHeader" part="SoftLayer_Account_MasterServiceAgreementInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFile">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_MasterServiceAgreementAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_MasterServiceAgreementAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_MasterServiceAgreementObjectMaskHeader" part="SoftLayer_Account_MasterServiceAgreementObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_MasterServiceAgreementObjectFilterHeader" part="SoftLayer_Account_MasterServiceAgreementObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_MasterServiceAgreementInitParametersHeader" part="SoftLayer_Account_MasterServiceAgreementInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPdf">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_MasterServiceAgreementAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Account_MasterServiceAgreementService">
+    <port name="SoftLayer_Account_MasterServiceAgreementPort" binding="tns:SoftLayer_Account_MasterServiceAgreementBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Account_MasterServiceAgreement"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_Notification_Hardware?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_User_Customer_Notification_HardwareInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_User_Customer_Notification_HardwareObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_User_Customer_Notification_Hardware"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_User_Customer_Notification_HardwareInitParametersHeader">
+    <part name="SoftLayer_User_Customer_Notification_HardwareInitParameters" type="tns:SoftLayer_User_Customer_Notification_HardwareInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_User_Customer_Notification_Hardware"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_User_Customer_Notification_Hardware"/>
+  </message>
+  <message name="createObjects">
+    <part name="templateObjects" type="tns:SoftLayer_User_Customer_Notification_HardwareArray"/>
+  </message>
+  <message name="createObjectsResponse">
+    <part name="createObjectsReturn" type="tns:SoftLayer_Dns_DomainArray"/>
+  </message>
+  <message name="deleteObjects">
+    <part name="templateObjects" type="tns:SoftLayer_User_Customer_Notification_HardwareArray"/>
+  </message>
+  <message name="deleteObjectsResponse">
+    <part name="deleteObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="findByHardwareId">
+    <part name="hardwareId" type="xsd:int"/>
+  </message>
+  <message name="findByHardwareIdResponse">
+    <part name="findByHardwareIdReturn" type="tns:SoftLayer_User_Customer_Notification_HardwareArray"/>
+  </message>
+  <message name="getHardware"/>
+  <message name="getHardwareResponse">
+    <part name="getHardwareReturn" type="tns:SoftLayer_Hardware"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_User_Customer_Notification_Hardware"/>
+  </message>
+  <message name="getUser"/>
+  <message name="getUserResponse">
+    <part name="getUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_User_Customer_Notification_HardwareObjectMaskHeader">
+    <part name="SoftLayer_User_Customer_Notification_HardwareObjectMask" type="tns:SoftLayer_User_Customer_Notification_HardwareObjectMask"/>
+  </message>
+  <message name="SoftLayer_User_Customer_Notification_HardwareObjectFilterHeader">
+    <part name="SoftLayer_User_Customer_Notification_HardwareObjectFilter" type="tns:SoftLayer_User_Customer_Notification_HardwareObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_User_Customer_Notification_HardwarePortType">
+    <documentation>This service represents the link between a monitored hardware instance, and a user account. 
+
+When a monitoring service on that hardware instance fails and the monitor is set to &amp;quot;notify users,&amp;quot; any users linked to that hardware instance using this service will be notified of the failure. </documentation>
+    <operation name="createObject">
+      <documentation>Passing in an unsaved instances of a Customer_Notification_Hardware object into this function will create the object and return the results to the user. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="createObjects">
+      <documentation>Passing in a collection of unsaved instances of Customer_Notification_Hardware objects into this function will create all objects and return the results to the user. </documentation>
+      <input message="tns:createObjects"/>
+      <output message="tns:createObjectsResponse"/>
+    </operation>
+    <operation name="deleteObjects">
+      <documentation>Like any other API object, the customer notification objects can be deleted by passing an instance of them into this function.  The ID on the object must be set. </documentation>
+      <input message="tns:deleteObjects"/>
+      <output message="tns:deleteObjectsResponse"/>
+    </operation>
+    <operation name="findByHardwareId">
+      <documentation>This method returns all Customer_Notification_Hardware objects associated with the passed in hardware ID as long as that hardware ID is owned by the current user's account. 
+
+This behavior can also be accomplished by simply tapping monitoringUserNotification on the Hardware_Server object. </documentation>
+      <input message="tns:findByHardwareId"/>
+      <output message="tns:findByHardwareIdResponse"/>
+    </operation>
+    <operation name="getHardware">
+      <documentation>Retrieve the hardware object that will be monitored.</documentation>
+      <input message="tns:getHardware"/>
+      <output message="tns:getHardwareResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_User_Customer_Notification_Hardware object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_User_Customer_Notification_Hardware service. You can only retrieve hardware notifications attached to hardware and users that belong to your account </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getUser">
+      <documentation>Retrieve the user that will be notified when the associated hardware object fails a monitoring instance.</documentation>
+      <input message="tns:getUser"/>
+      <output message="tns:getUserResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_User_Customer_Notification_HardwareBinding" type="tns:SoftLayer_User_Customer_Notification_HardwarePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Notification_HardwareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareObjectMaskHeader" part="SoftLayer_User_Customer_Notification_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Notification_HardwareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareObjectMaskHeader" part="SoftLayer_User_Customer_Notification_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Notification_HardwareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="findByHardwareId">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Notification_HardwareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareObjectMaskHeader" part="SoftLayer_User_Customer_Notification_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Notification_HardwareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareObjectMaskHeader" part="SoftLayer_User_Customer_Notification_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareObjectFilterHeader" part="SoftLayer_User_Customer_Notification_HardwareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareInitParametersHeader" part="SoftLayer_User_Customer_Notification_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Notification_HardwareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareObjectMaskHeader" part="SoftLayer_User_Customer_Notification_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareObjectFilterHeader" part="SoftLayer_User_Customer_Notification_HardwareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareInitParametersHeader" part="SoftLayer_User_Customer_Notification_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Notification_HardwareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareObjectMaskHeader" part="SoftLayer_User_Customer_Notification_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareObjectFilterHeader" part="SoftLayer_User_Customer_Notification_HardwareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Notification_HardwareInitParametersHeader" part="SoftLayer_User_Customer_Notification_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_User_Customer_Notification_HardwareService">
+    <port name="SoftLayer_User_Customer_Notification_HardwarePort" binding="tns:SoftLayer_User_Customer_Notification_HardwareBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_Notification_Hardware"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_Sendgrid?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Message_Delivery_Email_Sendgrid"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader">
+    <part name="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" type="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters"/>
+  </message>
+  <message name="addUnsubscribeEmailAddress">
+    <part name="emailAddress" type="xsd:string"/>
+  </message>
+  <message name="addUnsubscribeEmailAddressResponse">
+    <part name="addUnsubscribeEmailAddressReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteEmailListEntries">
+    <part name="list" type="xsd:string"/>
+    <part name="entries" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="deleteEmailListEntriesResponse">
+    <part name="deleteEmailListEntriesReturn" type="xsd:boolean"/>
+  </message>
+  <message name="disableSmtpAccess"/>
+  <message name="disableSmtpAccessResponse">
+    <part name="disableSmtpAccessReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Message_Delivery_Email_Sendgrid"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="enableSmtpAccess"/>
+  <message name="enableSmtpAccessResponse">
+    <part name="enableSmtpAccessReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAccountOverview"/>
+  <message name="getAccountOverviewResponse">
+    <part name="getAccountOverviewReturn" type="tns:SoftLayer_Container_Network_Message_Delivery_Email_Sendgrid_Account_Overview"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getCategoryList"/>
+  <message name="getCategoryListResponse">
+    <part name="getCategoryListReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getEmailAddress"/>
+  <message name="getEmailAddressResponse">
+    <part name="getEmailAddressReturn" type="xsd:string"/>
+  </message>
+  <message name="getEmailList">
+    <part name="list" type="xsd:string"/>
+  </message>
+  <message name="getEmailListResponse">
+    <part name="getEmailListReturn" type="tns:SoftLayer_Container_Network_Message_Delivery_Email_Sendgrid_List_EntryArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Message_Delivery_Email_Sendgrid"/>
+  </message>
+  <message name="getSmtpAccess"/>
+  <message name="getSmtpAccessResponse">
+    <part name="getSmtpAccessReturn" type="xsd:string"/>
+  </message>
+  <message name="getStatistics">
+    <part name="options" type="tns:SoftLayer_Container_Network_Message_Delivery_Email_Sendgrid_Statistics_Options"/>
+  </message>
+  <message name="getStatisticsResponse">
+    <part name="getStatisticsReturn" type="tns:SoftLayer_Container_Network_Message_Delivery_Email_Sendgrid_StatisticsArray"/>
+  </message>
+  <message name="getStatisticsGraph">
+    <part name="options" type="tns:SoftLayer_Container_Network_Message_Delivery_Email_Sendgrid_Statistics_Options"/>
+  </message>
+  <message name="getStatisticsGraphResponse">
+    <part name="getStatisticsGraphReturn" type="tns:SoftLayer_Container_Network_Message_Delivery_Email_Sendgrid_Statistics_Graph"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_Network_Message_Delivery_Type"/>
+  </message>
+  <message name="getVendor"/>
+  <message name="getVendorResponse">
+    <part name="getVendorReturn" type="tns:SoftLayer_Network_Message_Delivery_Vendor"/>
+  </message>
+  <message name="getVendorPortalUrl"/>
+  <message name="getVendorPortalUrlResponse">
+    <part name="getVendorPortalUrlReturn" type="xsd:string"/>
+  </message>
+  <message name="sendEmail">
+    <part name="emailContainer" type="tns:SoftLayer_Container_Network_Message_Delivery_Email"/>
+  </message>
+  <message name="sendEmailResponse">
+    <part name="sendEmailReturn" type="xsd:boolean"/>
+  </message>
+  <message name="updateEmailAddress">
+    <part name="emailAddress" type="xsd:string"/>
+  </message>
+  <message name="updateEmailAddressResponse">
+    <part name="updateEmailAddressReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMaskHeader">
+    <part name="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask" type="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilterHeader">
+    <part name="SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilter" type="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Message_Delivery_Email_SendgridPortType">
+    <documentation></documentation>
+    <operation name="addUnsubscribeEmailAddress">
+      <documentation></documentation>
+      <input message="tns:addUnsubscribeEmailAddress"/>
+      <output message="tns:addUnsubscribeEmailAddressResponse"/>
+    </operation>
+    <operation name="deleteEmailListEntries">
+      <documentation></documentation>
+      <input message="tns:deleteEmailListEntries"/>
+      <output message="tns:deleteEmailListEntriesResponse"/>
+    </operation>
+    <operation name="disableSmtpAccess">
+      <documentation></documentation>
+      <input message="tns:disableSmtpAccess"/>
+      <output message="tns:disableSmtpAccessResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation></documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="enableSmtpAccess">
+      <documentation></documentation>
+      <input message="tns:enableSmtpAccess"/>
+      <output message="tns:enableSmtpAccessResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the SoftLayer customer account that a network message delivery account belongs to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAccountOverview">
+      <documentation></documentation>
+      <input message="tns:getAccountOverview"/>
+      <output message="tns:getAccountOverviewResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the billing item for a network message delivery account.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getCategoryList">
+      <documentation></documentation>
+      <input message="tns:getCategoryList"/>
+      <output message="tns:getCategoryListResponse"/>
+    </operation>
+    <operation name="getEmailAddress">
+      <documentation>Retrieve the contact e-mail address used by SendGrid.</documentation>
+      <input message="tns:getEmailAddress"/>
+      <output message="tns:getEmailAddressResponse"/>
+    </operation>
+    <operation name="getEmailList">
+      <documentation></documentation>
+      <input message="tns:getEmailList"/>
+      <output message="tns:getEmailListResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getSmtpAccess">
+      <documentation>Retrieve a flag that determines if a SendGrid e-mail delivery account has access to send mail through the SendGrid SMTP server.</documentation>
+      <input message="tns:getSmtpAccess"/>
+      <output message="tns:getSmtpAccessResponse"/>
+    </operation>
+    <operation name="getStatistics">
+      <documentation></documentation>
+      <input message="tns:getStatistics"/>
+      <output message="tns:getStatisticsResponse"/>
+    </operation>
+    <operation name="getStatisticsGraph">
+      <documentation></documentation>
+      <input message="tns:getStatisticsGraph"/>
+      <output message="tns:getStatisticsGraphResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve the message delivery type of a network message delivery account.</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+    <operation name="getVendor">
+      <documentation>Retrieve the vendor for a network message delivery account.</documentation>
+      <input message="tns:getVendor"/>
+      <output message="tns:getVendorResponse"/>
+    </operation>
+    <operation name="getVendorPortalUrl">
+      <documentation></documentation>
+      <input message="tns:getVendorPortalUrl"/>
+      <output message="tns:getVendorPortalUrlResponse"/>
+    </operation>
+    <operation name="sendEmail">
+      <documentation></documentation>
+      <input message="tns:sendEmail"/>
+      <output message="tns:sendEmailResponse"/>
+    </operation>
+    <operation name="updateEmailAddress">
+      <documentation></documentation>
+      <input message="tns:updateEmailAddress"/>
+      <output message="tns:updateEmailAddressResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Message_Delivery_Email_SendgridBinding" type="tns:SoftLayer_Network_Message_Delivery_Email_SendgridPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addUnsubscribeEmailAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteEmailListEntries">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="disableSmtpAccess">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="enableSmtpAccess">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectMaskHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilterHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccountOverview">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectMaskHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilterHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCategoryList">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEmailAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectMaskHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilterHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEmailList">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectMaskHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilterHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSmtpAccess">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectMaskHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilterHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatistics">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatisticsGraph">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectMaskHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilterHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVendor">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectMaskHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilterHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVendorPortalUrl">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="sendEmail">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateEmailAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_SendgridAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Delivery_Email_SendgridInitParametersHeader" part="SoftLayer_Network_Message_Delivery_Email_SendgridInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Message_Delivery_Email_SendgridService">
+    <port name="SoftLayer_Network_Message_Delivery_Email_SendgridPort" binding="tns:SoftLayer_Network_Message_Delivery_Email_SendgridBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Message_Delivery_Email_Sendgrid"/>
+    </port>
+  </service>
+</definitions>

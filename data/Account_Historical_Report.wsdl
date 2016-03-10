@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Account_Historical_Report?xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="getAccountHostUptimeGraphData">
+    <part name="startDate" type="xsd:string"/>
+    <part name="endDate" type="xsd:string"/>
+  </message>
+  <message name="getAccountHostUptimeGraphDataResponse">
+    <part name="getAccountHostUptimeGraphDataReturn" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getAccountHostUptimeSummary">
+    <part name="startDateTime" type="xsd:string"/>
+    <part name="endDateTime" type="xsd:string"/>
+  </message>
+  <message name="getAccountHostUptimeSummaryResponse">
+    <part name="getAccountHostUptimeSummaryReturn" type="tns:SoftLayer_Container_Account_Historical_Summary"/>
+  </message>
+  <message name="getAccountUrlUptimeGraphData">
+    <part name="startDate" type="xsd:string"/>
+    <part name="endDate" type="xsd:string"/>
+  </message>
+  <message name="getAccountUrlUptimeGraphDataResponse">
+    <part name="getAccountUrlUptimeGraphDataReturn" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getAccountUrlUptimeSummary">
+    <part name="startDateTime" type="xsd:string"/>
+    <part name="endDateTime" type="xsd:string"/>
+  </message>
+  <message name="getAccountUrlUptimeSummaryResponse">
+    <part name="getAccountUrlUptimeSummaryReturn" type="tns:SoftLayer_Container_Account_Historical_Summary"/>
+  </message>
+  <message name="getHostUptimeDetail">
+    <part name="configurationValueId" type="xsd:int"/>
+    <part name="startDateTime" type="xsd:string"/>
+    <part name="endDateTime" type="xsd:string"/>
+  </message>
+  <message name="getHostUptimeDetailResponse">
+    <part name="getHostUptimeDetailReturn" type="tns:SoftLayer_Container_Account_Historical_Summary_Detail"/>
+  </message>
+  <message name="getHostUptimeGraphData">
+    <part name="configurationValueId" type="xsd:int"/>
+    <part name="startDate" type="xsd:string"/>
+    <part name="endDate" type="xsd:string"/>
+  </message>
+  <message name="getHostUptimeGraphDataResponse">
+    <part name="getHostUptimeGraphDataReturn" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getUrlUptimeDetail">
+    <part name="configurationValueId" type="xsd:int"/>
+    <part name="startDateTime" type="xsd:string"/>
+    <part name="endDateTime" type="xsd:string"/>
+  </message>
+  <message name="getUrlUptimeDetailResponse">
+    <part name="getUrlUptimeDetailReturn" type="tns:SoftLayer_Container_Account_Historical_Summary_Detail"/>
+  </message>
+  <message name="getUrlUptimeGraphData">
+    <part name="configurationValueId" type="xsd:int"/>
+    <part name="startDate" type="xsd:string"/>
+    <part name="endDate" type="xsd:string"/>
+  </message>
+  <message name="getUrlUptimeGraphDataResponse">
+    <part name="getUrlUptimeGraphDataReturn" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Account_Historical_ReportPortType">
+    <documentation>SoftLayer's account historical report service allows users to access a broad overview of devices for that account and historical details concerning the overall function and performance of the devices on that account </documentation>
+    <operation name="getAccountHostUptimeGraphData">
+      <documentation></documentation>
+      <input message="tns:getAccountHostUptimeGraphData"/>
+      <output message="tns:getAccountHostUptimeGraphDataResponse"/>
+    </operation>
+    <operation name="getAccountHostUptimeSummary">
+      <documentation></documentation>
+      <input message="tns:getAccountHostUptimeSummary"/>
+      <output message="tns:getAccountHostUptimeSummaryResponse"/>
+    </operation>
+    <operation name="getAccountUrlUptimeGraphData">
+      <documentation></documentation>
+      <input message="tns:getAccountUrlUptimeGraphData"/>
+      <output message="tns:getAccountUrlUptimeGraphDataResponse"/>
+    </operation>
+    <operation name="getAccountUrlUptimeSummary">
+      <documentation></documentation>
+      <input message="tns:getAccountUrlUptimeSummary"/>
+      <output message="tns:getAccountUrlUptimeSummaryResponse"/>
+    </operation>
+    <operation name="getHostUptimeDetail">
+      <documentation></documentation>
+      <input message="tns:getHostUptimeDetail"/>
+      <output message="tns:getHostUptimeDetailResponse"/>
+    </operation>
+    <operation name="getHostUptimeGraphData">
+      <documentation></documentation>
+      <input message="tns:getHostUptimeGraphData"/>
+      <output message="tns:getHostUptimeGraphDataResponse"/>
+    </operation>
+    <operation name="getUrlUptimeDetail">
+      <documentation></documentation>
+      <input message="tns:getUrlUptimeDetail"/>
+      <output message="tns:getUrlUptimeDetailResponse"/>
+    </operation>
+    <operation name="getUrlUptimeGraphData">
+      <documentation></documentation>
+      <input message="tns:getUrlUptimeGraphData"/>
+      <output message="tns:getUrlUptimeGraphDataResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Account_Historical_ReportBinding" type="tns:SoftLayer_Account_Historical_ReportPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccountHostUptimeGraphData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Historical_ReportAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccountHostUptimeSummary">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Historical_ReportAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccountUrlUptimeGraphData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Historical_ReportAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccountUrlUptimeSummary">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Historical_ReportAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHostUptimeDetail">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Historical_ReportAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHostUptimeGraphData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Historical_ReportAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUrlUptimeDetail">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Historical_ReportAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUrlUptimeGraphData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Historical_ReportAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Account_Historical_ReportService">
+    <port name="SoftLayer_Account_Historical_ReportPort" binding="tns:SoftLayer_Account_Historical_ReportBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Account_Historical_Report"/>
+    </port>
+  </service>
+</definitions>

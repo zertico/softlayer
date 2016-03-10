@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Host?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Virtual_HostInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Virtual_HostObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Virtual_Host"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Virtual_HostInitParametersHeader">
+    <part name="SoftLayer_Virtual_HostInitParameters" type="tns:SoftLayer_Virtual_HostInitParameters"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getBilledPerGuestFlag"/>
+  <message name="getBilledPerGuestFlagResponse">
+    <part name="getBilledPerGuestFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getBilledPerMemoryUsageFlag"/>
+  <message name="getBilledPerMemoryUsageFlagResponse">
+    <part name="getBilledPerMemoryUsageFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getGuests"/>
+  <message name="getGuestsResponse">
+    <part name="getGuestsReturn" type="tns:SoftLayer_Virtual_GuestArray"/>
+  </message>
+  <message name="getHardware"/>
+  <message name="getHardwareResponse">
+    <part name="getHardwareReturn" type="tns:SoftLayer_Hardware_Server"/>
+  </message>
+  <message name="getLiveGuestByUuid">
+    <part name="uuid" type="xsd:string"/>
+  </message>
+  <message name="getLiveGuestByUuidResponse">
+    <part name="getLiveGuestByUuidReturn" type="tns:SoftLayer_Virtual_Guest"/>
+  </message>
+  <message name="getLiveGuestList"/>
+  <message name="getLiveGuestListResponse">
+    <part name="getLiveGuestListReturn" type="tns:SoftLayer_Virtual_GuestArray"/>
+  </message>
+  <message name="getLiveGuestRecentMetricData">
+    <part name="uuid" type="xsd:string"/>
+    <part name="time" type="xsd:int"/>
+    <part name="limit" type="xsd:int"/>
+    <part name="interval" type="xsd:int"/>
+  </message>
+  <message name="getLiveGuestRecentMetricDataResponse">
+    <part name="getLiveGuestRecentMetricDataReturn" type="tns:SoftLayer_Metric_Tracking_ObjectArray"/>
+  </message>
+  <message name="getMetricTrackingObject"/>
+  <message name="getMetricTrackingObjectResponse">
+    <part name="getMetricTrackingObjectReturn" type="tns:SoftLayer_Metric_Tracking_Object"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Virtual_Host"/>
+  </message>
+  <message name="pauseLiveGuest">
+    <part name="uuid" type="xsd:string"/>
+  </message>
+  <message name="pauseLiveGuestResponse">
+    <part name="pauseLiveGuestReturn" type="xsd:boolean"/>
+  </message>
+  <message name="powerCycleLiveGuest">
+    <part name="uuid" type="xsd:string"/>
+  </message>
+  <message name="powerCycleLiveGuestResponse">
+    <part name="powerCycleLiveGuestReturn" type="xsd:boolean"/>
+  </message>
+  <message name="powerOffLiveGuest">
+    <part name="uuid" type="xsd:string"/>
+  </message>
+  <message name="powerOffLiveGuestResponse">
+    <part name="powerOffLiveGuestReturn" type="xsd:boolean"/>
+  </message>
+  <message name="powerOnLiveGuest">
+    <part name="uuid" type="xsd:string"/>
+  </message>
+  <message name="powerOnLiveGuestResponse">
+    <part name="powerOnLiveGuestReturn" type="xsd:boolean"/>
+  </message>
+  <message name="rebootSoftLiveGuest">
+    <part name="uuid" type="xsd:string"/>
+  </message>
+  <message name="rebootSoftLiveGuestResponse">
+    <part name="rebootSoftLiveGuestReturn" type="xsd:boolean"/>
+  </message>
+  <message name="resumeLiveGuest">
+    <part name="uuid" type="xsd:string"/>
+  </message>
+  <message name="resumeLiveGuestResponse">
+    <part name="resumeLiveGuestReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Virtual_HostObjectMaskHeader">
+    <part name="SoftLayer_Virtual_HostObjectMask" type="tns:SoftLayer_Virtual_HostObjectMask"/>
+  </message>
+  <message name="SoftLayer_Virtual_HostObjectFilterHeader">
+    <part name="SoftLayer_Virtual_HostObjectFilter" type="tns:SoftLayer_Virtual_HostObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Virtual_HostPortType">
+    <documentation>The virtual host service provides a common interface to any virtualization platform supported by SoftLayer. Interaction with various third party APIs is not needed when implementing this service to administer your hosts. </documentation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account which a virtual host belongs to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getBilledPerGuestFlag">
+      <documentation>Retrieve boolean flag indicating whether this virtualization platform gets billed per guest rather than at a fixed rate.</documentation>
+      <input message="tns:getBilledPerGuestFlag"/>
+      <output message="tns:getBilledPerGuestFlagResponse"/>
+    </operation>
+    <operation name="getBilledPerMemoryUsageFlag">
+      <documentation>Retrieve boolean flag indicating whether this virtualization platform gets billed per memory usage rather than at a fixed rate.</documentation>
+      <input message="tns:getBilledPerMemoryUsageFlag"/>
+      <output message="tns:getBilledPerMemoryUsageFlagResponse"/>
+    </operation>
+    <operation name="getGuests">
+      <documentation>Retrieve the guests associated with a virtual host.</documentation>
+      <input message="tns:getGuests"/>
+      <output message="tns:getGuestsResponse"/>
+    </operation>
+    <operation name="getHardware">
+      <documentation>Retrieve the hardware record which a virtual host resides on.</documentation>
+      <input message="tns:getHardware"/>
+      <output message="tns:getHardwareResponse"/>
+    </operation>
+    <operation name="getLiveGuestByUuid">
+      <documentation>Query a virtualization platform directly to retrieve details regarding a guest. </documentation>
+      <input message="tns:getLiveGuestByUuid"/>
+      <output message="tns:getLiveGuestByUuidResponse"/>
+    </operation>
+    <operation name="getLiveGuestList">
+      <documentation>Query a virtualization platform directly to retrieve a list of known guests. </documentation>
+      <input message="tns:getLiveGuestList"/>
+      <output message="tns:getLiveGuestListResponse"/>
+    </operation>
+    <operation name="getLiveGuestRecentMetricData">
+      <documentation>Query a virtualization platform directly to retrieve recent metric data for a guest. </documentation>
+      <input message="tns:getLiveGuestRecentMetricData"/>
+      <output message="tns:getLiveGuestRecentMetricDataResponse"/>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <documentation>Retrieve the metric tracking object for this virtual host.</documentation>
+      <input message="tns:getMetricTrackingObject"/>
+      <output message="tns:getMetricTrackingObjectResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="pauseLiveGuest">
+      <documentation>Pause a virtual guest </documentation>
+      <input message="tns:pauseLiveGuest"/>
+      <output message="tns:pauseLiveGuestResponse"/>
+    </operation>
+    <operation name="powerCycleLiveGuest">
+      <documentation>Power cycle a virtual guest </documentation>
+      <input message="tns:powerCycleLiveGuest"/>
+      <output message="tns:powerCycleLiveGuestResponse"/>
+    </operation>
+    <operation name="powerOffLiveGuest">
+      <documentation>Power off a virtual guest </documentation>
+      <input message="tns:powerOffLiveGuest"/>
+      <output message="tns:powerOffLiveGuestResponse"/>
+    </operation>
+    <operation name="powerOnLiveGuest">
+      <documentation>Power on a virtual guest </documentation>
+      <input message="tns:powerOnLiveGuest"/>
+      <output message="tns:powerOnLiveGuestResponse"/>
+    </operation>
+    <operation name="rebootSoftLiveGuest">
+      <documentation>Attempt to complete a soft reboot of a guest by shutting down the operating system. </documentation>
+      <input message="tns:rebootSoftLiveGuest"/>
+      <output message="tns:rebootSoftLiveGuestResponse"/>
+    </operation>
+    <operation name="resumeLiveGuest">
+      <documentation>Resume a virtual guest </documentation>
+      <input message="tns:resumeLiveGuest"/>
+      <output message="tns:resumeLiveGuestResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Virtual_HostBinding" type="tns:SoftLayer_Virtual_HostPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectFilterHeader" part="SoftLayer_Virtual_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBilledPerGuestFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectFilterHeader" part="SoftLayer_Virtual_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBilledPerMemoryUsageFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectFilterHeader" part="SoftLayer_Virtual_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGuests">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectFilterHeader" part="SoftLayer_Virtual_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectFilterHeader" part="SoftLayer_Virtual_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLiveGuestByUuid">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLiveGuestList">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLiveGuestRecentMetricData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectFilterHeader" part="SoftLayer_Virtual_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectMaskHeader" part="SoftLayer_Virtual_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostObjectFilterHeader" part="SoftLayer_Virtual_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="pauseLiveGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="powerCycleLiveGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="powerOffLiveGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="powerOnLiveGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="rebootSoftLiveGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="resumeLiveGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_HostInitParametersHeader" part="SoftLayer_Virtual_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Virtual_HostService">
+    <port name="SoftLayer_Virtual_HostPort" binding="tns:SoftLayer_Virtual_HostBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Host"/>
+    </port>
+  </service>
+</definitions>

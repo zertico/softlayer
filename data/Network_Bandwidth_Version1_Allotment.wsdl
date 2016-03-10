@@ -1,0 +1,1256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_Allotment?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Bandwidth_Version1_Allotment"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="getBandwidthImage_networkType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="public">
+            <xsd:annotation>
+              <xsd:documentation>public</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="private">
+            <xsd:annotation>
+              <xsd:documentation>private</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="getBandwidthImage_snapshotRange">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="day">
+            <xsd:annotation>
+              <xsd:documentation>day</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="week">
+            <xsd:annotation>
+              <xsd:documentation>week</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="30day">
+            <xsd:annotation>
+              <xsd:documentation>30day</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="previous_calander_month">
+            <xsd:annotation>
+              <xsd:documentation>previous_calander_month</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="current_calendar_month">
+            <xsd:annotation>
+              <xsd:documentation>current_calendar_month</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="current_billing_cycle">
+            <xsd:annotation>
+              <xsd:documentation>current_billing_cycle</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="previous_billing_cycle">
+            <xsd:annotation>
+              <xsd:documentation>previous_billing_cycle</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="specified_day">
+            <xsd:annotation>
+              <xsd:documentation>specified_day</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="new_getBandwidthImage_networkType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="public">
+            <xsd:annotation>
+              <xsd:documentation>public</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="private">
+            <xsd:annotation>
+              <xsd:documentation>private</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="new_getBandwidthImage_snapshotRange">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="day">
+            <xsd:annotation>
+              <xsd:documentation>day</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="week">
+            <xsd:annotation>
+              <xsd:documentation>week</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="30day">
+            <xsd:annotation>
+              <xsd:documentation>30day</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="previous_calander_month">
+            <xsd:annotation>
+              <xsd:documentation>previous_calander_month</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="current_calendar_month">
+            <xsd:annotation>
+              <xsd:documentation>current_calendar_month</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="current_billing_cycle">
+            <xsd:annotation>
+              <xsd:documentation>current_billing_cycle</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="previous_billing_cycle">
+            <xsd:annotation>
+              <xsd:documentation>previous_billing_cycle</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="specified_day">
+            <xsd:annotation>
+              <xsd:documentation>specified_day</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader">
+    <part name="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" type="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Bandwidth_Version1_Allotment"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Bandwidth_Version1_Allotment"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getActiveDetails"/>
+  <message name="getActiveDetailsResponse">
+    <part name="getActiveDetailsReturn" type="tns:SoftLayer_Network_Bandwidth_Version1_Allotment_DetailArray"/>
+  </message>
+  <message name="getApplicationDeliveryControllers"/>
+  <message name="getApplicationDeliveryControllersResponse">
+    <part name="getApplicationDeliveryControllersReturn" type="tns:SoftLayer_Network_Application_Delivery_ControllerArray"/>
+  </message>
+  <message name="getAverageDailyPublicBandwidthUsage"/>
+  <message name="getAverageDailyPublicBandwidthUsageResponse">
+    <part name="getAverageDailyPublicBandwidthUsageReturn" type="xsd:float"/>
+  </message>
+  <message name="getBackendBandwidthByHour">
+    <part name="date" type="xsd:dateTime"/>
+  </message>
+  <message name="getBackendBandwidthByHourResponse">
+    <part name="getBackendBandwidthByHourReturn" type="tns:SoftLayer_Container_Network_Bandwidth_Version1_UsageArray"/>
+  </message>
+  <message name="getBackendBandwidthUse">
+    <part name="startDate" type="xsd:dateTime"/>
+    <part name="endDate" type="xsd:dateTime"/>
+  </message>
+  <message name="getBackendBandwidthUseResponse">
+    <part name="getBackendBandwidthUseReturn" type="tns:SoftLayer_Network_Bandwidth_Version1_Usage_DetailArray"/>
+  </message>
+  <message name="getBandwidthForDateRange">
+    <part name="startDate" type="xsd:dateTime"/>
+    <part name="endDate" type="xsd:dateTime"/>
+  </message>
+  <message name="getBandwidthForDateRangeResponse">
+    <part name="getBandwidthForDateRangeReturn" type="tns:SoftLayer_Metric_Tracking_Object_DataArray"/>
+  </message>
+  <message name="getBandwidthImage">
+    <part name="networkType" type="tns:getBandwidthImage_networkType"/>
+    <part name="snapshotRange" type="tns:getBandwidthImage_snapshotRange"/>
+    <part name="draw" type="xsd:boolean"/>
+    <part name="dateSpecified" type="xsd:dateTime"/>
+  </message>
+  <message name="getBandwidthImageResponse">
+    <part name="getBandwidthImageReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>
+  </message>
+  <message name="getBareMetalInstances"/>
+  <message name="getBareMetalInstancesResponse">
+    <part name="getBareMetalInstancesReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getBillingCycleBandwidthUsage"/>
+  <message name="getBillingCycleBandwidthUsageResponse">
+    <part name="getBillingCycleBandwidthUsageReturn" type="tns:SoftLayer_Network_Bandwidth_UsageArray"/>
+  </message>
+  <message name="getBillingCyclePrivateBandwidthUsage"/>
+  <message name="getBillingCyclePrivateBandwidthUsageResponse">
+    <part name="getBillingCyclePrivateBandwidthUsageReturn" type="tns:SoftLayer_Network_Bandwidth_Usage"/>
+  </message>
+  <message name="getBillingCyclePublicBandwidthUsage"/>
+  <message name="getBillingCyclePublicBandwidthUsageResponse">
+    <part name="getBillingCyclePublicBandwidthUsageReturn" type="tns:SoftLayer_Network_Bandwidth_Usage"/>
+  </message>
+  <message name="getBillingCyclePublicUsageTotal"/>
+  <message name="getBillingCyclePublicUsageTotalResponse">
+    <part name="getBillingCyclePublicUsageTotalReturn" type="xsd:unsignedInt"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getCurrentBandwidthSummary"/>
+  <message name="getCurrentBandwidthSummaryResponse">
+    <part name="getCurrentBandwidthSummaryReturn" type="tns:SoftLayer_Metric_Tracking_Object_Bandwidth_Summary"/>
+  </message>
+  <message name="getCustomBandwidthDataByDate">
+    <part name="graphData" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getCustomBandwidthDataByDateResponse">
+    <part name="getCustomBandwidthDataByDateReturn" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getDetails"/>
+  <message name="getDetailsResponse">
+    <part name="getDetailsReturn" type="tns:SoftLayer_Network_Bandwidth_Version1_Allotment_DetailArray"/>
+  </message>
+  <message name="getFrontendBandwidthByHour">
+    <part name="date" type="xsd:dateTime"/>
+  </message>
+  <message name="getFrontendBandwidthByHourResponse">
+    <part name="getFrontendBandwidthByHourReturn" type="tns:SoftLayer_Container_Network_Bandwidth_Version1_UsageArray"/>
+  </message>
+  <message name="getFrontendBandwidthUse">
+    <part name="startDate" type="xsd:dateTime"/>
+    <part name="endDate" type="xsd:dateTime"/>
+  </message>
+  <message name="getFrontendBandwidthUseResponse">
+    <part name="getFrontendBandwidthUseReturn" type="tns:SoftLayer_Network_Bandwidth_Version1_Usage_DetailArray"/>
+  </message>
+  <message name="getHardware"/>
+  <message name="getHardwareResponse">
+    <part name="getHardwareReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getInboundPublicBandwidthUsage"/>
+  <message name="getInboundPublicBandwidthUsageResponse">
+    <part name="getInboundPublicBandwidthUsageReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getLocationGroup"/>
+  <message name="getLocationGroupResponse">
+    <part name="getLocationGroupReturn" type="tns:SoftLayer_Location_Group"/>
+  </message>
+  <message name="getManagedBareMetalInstances"/>
+  <message name="getManagedBareMetalInstancesResponse">
+    <part name="getManagedBareMetalInstancesReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getManagedHardware"/>
+  <message name="getManagedHardwareResponse">
+    <part name="getManagedHardwareReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getManagedVirtualGuests"/>
+  <message name="getManagedVirtualGuestsResponse">
+    <part name="getManagedVirtualGuestsReturn" type="tns:SoftLayer_Virtual_GuestArray"/>
+  </message>
+  <message name="getMetricTrackingObject"/>
+  <message name="getMetricTrackingObjectResponse">
+    <part name="getMetricTrackingObjectReturn" type="tns:SoftLayer_Metric_Tracking_Object_VirtualDedicatedRack"/>
+  </message>
+  <message name="getMetricTrackingObjectId"/>
+  <message name="getMetricTrackingObjectIdResponse">
+    <part name="getMetricTrackingObjectIdReturn" type="xsd:int"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Bandwidth_Version1_Allotment"/>
+  </message>
+  <message name="getOutboundPublicBandwidthUsage"/>
+  <message name="getOutboundPublicBandwidthUsageResponse">
+    <part name="getOutboundPublicBandwidthUsageReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getOverBandwidthAllocationFlag"/>
+  <message name="getOverBandwidthAllocationFlagResponse">
+    <part name="getOverBandwidthAllocationFlagReturn" type="xsd:int"/>
+  </message>
+  <message name="getPrivateNetworkOnlyHardware"/>
+  <message name="getPrivateNetworkOnlyHardwareResponse">
+    <part name="getPrivateNetworkOnlyHardwareReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getProjectedOverBandwidthAllocationFlag"/>
+  <message name="getProjectedOverBandwidthAllocationFlagResponse">
+    <part name="getProjectedOverBandwidthAllocationFlagReturn" type="xsd:int"/>
+  </message>
+  <message name="getProjectedPublicBandwidthUsage"/>
+  <message name="getProjectedPublicBandwidthUsageResponse">
+    <part name="getProjectedPublicBandwidthUsageReturn" type="xsd:float"/>
+  </message>
+  <message name="getServiceProvider"/>
+  <message name="getServiceProviderResponse">
+    <part name="getServiceProviderReturn" type="tns:SoftLayer_Service_Provider"/>
+  </message>
+  <message name="getTotalBandwidthAllocated"/>
+  <message name="getTotalBandwidthAllocatedResponse">
+    <part name="getTotalBandwidthAllocatedReturn" type="xsd:unsignedLong"/>
+  </message>
+  <message name="getVirtualGuests"/>
+  <message name="getVirtualGuestsResponse">
+    <part name="getVirtualGuestsReturn" type="tns:SoftLayer_Virtual_GuestArray"/>
+  </message>
+  <message name="new_getBandwidthImage">
+    <part name="networkType" type="tns:new_getBandwidthImage_networkType"/>
+    <part name="snapshotRange" type="tns:new_getBandwidthImage_snapshotRange"/>
+    <part name="draw" type="xsd:boolean"/>
+    <part name="dateSpecified" type="xsd:dateTime"/>
+  </message>
+  <message name="new_getBandwidthImageResponse">
+    <part name="new_getBandwidthImageReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>
+  </message>
+  <message name="reassignServers">
+    <part name="templateObjects" type="tns:SoftLayer_HardwareArray"/>
+    <part name="newAllotmentId" type="xsd:int"/>
+  </message>
+  <message name="reassignServersResponse">
+    <part name="reassignServersReturn" type="xsd:boolean"/>
+  </message>
+  <message name="requestVdrCancellation"/>
+  <message name="requestVdrCancellationResponse">
+    <part name="requestVdrCancellationReturn" type="xsd:boolean"/>
+  </message>
+  <message name="requestVdrContentUpdates">
+    <part name="hardwareToAdd" type="tns:SoftLayer_HardwareArray"/>
+    <part name="hardwareToRemove" type="tns:SoftLayer_HardwareArray"/>
+    <part name="cloudsToAdd" type="tns:SoftLayer_Virtual_GuestArray"/>
+    <part name="cloudsToRemove" type="tns:SoftLayer_Virtual_GuestArray"/>
+    <part name="optionalAllotmentId" type="xsd:int"/>
+    <part name="adcToAdd" type="tns:SoftLayer_Network_Application_Delivery_ControllerArray"/>
+    <part name="adcToRemove" type="tns:SoftLayer_Network_Application_Delivery_ControllerArray"/>
+  </message>
+  <message name="requestVdrContentUpdatesResponse">
+    <part name="requestVdrContentUpdatesReturn" type="xsd:boolean"/>
+  </message>
+  <message name="setVdrContent">
+    <part name="hardware" type="tns:SoftLayer_HardwareArray"/>
+    <part name="bareMetalServers" type="tns:SoftLayer_HardwareArray"/>
+    <part name="virtualServerInstance" type="tns:SoftLayer_Virtual_GuestArray"/>
+    <part name="adc" type="tns:SoftLayer_Network_Application_Delivery_ControllerArray"/>
+    <part name="optionalAllotmentId" type="xsd:int"/>
+  </message>
+  <message name="setVdrContentResponse">
+    <part name="setVdrContentReturn" type="xsd:boolean"/>
+  </message>
+  <message name="unassignServers">
+    <part name="templateObjects" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="unassignServersResponse">
+    <part name="unassignServersReturn" type="xsd:boolean"/>
+  </message>
+  <message name="voidPendingServerMove">
+    <part name="id" type="xsd:int"/>
+    <part name="type" type="xsd:string"/>
+  </message>
+  <message name="voidPendingServerMoveResponse">
+    <part name="voidPendingServerMoveReturn" type="xsd:boolean"/>
+  </message>
+  <message name="voidPendingVdrCancellation"/>
+  <message name="voidPendingVdrCancellationResponse">
+    <part name="voidPendingVdrCancellationReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader">
+    <part name="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" type="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader">
+    <part name="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" type="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Bandwidth_Version1_AllotmentPortType">
+    <documentation>Every SoftLayer Bandwidth Pooling, Virtual Datacenter, Virtual Private Rack(VPR) is defined in the SoftLayer_Network_Bandwidth_Version1_Allotment service as an allotment. SoftLayer allotments are a collection of servers that share all of the servers allocated bandwidth together. 
+
+Virtual Private Rack Each server is by default a part of your Virtual Private Rack. Bandwidth overages are billed individually per server for all hardware in your Virtual Private Rack. If any one server uses more bandwidth than it is allocated, an overage charge will result. 
+
+Bandwidth Pooling Bandwidth Pooling allow you to optimize your bandwidth usage by &amp;quot;pooling&amp;quot; all of the bandwidth together for servers in a Bandwidth Pooling. Bandwidth overages for servers in a Bandwidth Pooling are summed up as a whole and overages are calculated only if the total bandwidth of all servers exceeds the total allocated bandwidth for all servers. 
+
+For example, if you had 5 servers, each with 2000 GB of bandwidth, and one server used 3000 GB of bandwidth while the other used only 1500 GB of bandwidth, you would not be billed for an overage because your total usage would be 9000 GB and your total allocated would be 10000 GB. </documentation>
+    <operation name="createObject">
+      <documentation>Create a allotment for servers to pool bandwidth and avoid overages in billing if they use more than there allocated bandwidth. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Edit a bandwidth allotment's local properties. Currently you may only change an allotment's name. Use the [[SoftLayer_Network_Bandwidth_Version1_Allotment::reassignServers|reassignServers()]] and [[SoftLayer_Network_Bandwidth_Version1_Allotment::unassignServers|unassignServers()]] methods to move servers in and out of your allotments. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account associated with this virtual rack.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getActiveDetails">
+      <documentation>Retrieve the bandwidth allotment detail records associated with this virtual rack.</documentation>
+      <input message="tns:getActiveDetails"/>
+      <output message="tns:getActiveDetailsResponse"/>
+    </operation>
+    <operation name="getApplicationDeliveryControllers">
+      <documentation>Retrieve the Application Delivery Controller contained within a virtual rack.</documentation>
+      <input message="tns:getApplicationDeliveryControllers"/>
+      <output message="tns:getApplicationDeliveryControllersResponse"/>
+    </operation>
+    <operation name="getAverageDailyPublicBandwidthUsage">
+      <documentation>Retrieve the average daily public bandwidth usage for the current billing cycle.</documentation>
+      <input message="tns:getAverageDailyPublicBandwidthUsage"/>
+      <output message="tns:getAverageDailyPublicBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getBackendBandwidthByHour">
+      <documentation>This method recurses through all servers on a Bandwidth Pool for 24 hour time span starting at a given date/time. To get the private data set for all servers on a Bandwidth Pool from midnight Feb 1st, 2008 to 23:59 on Feb 1st, you would pass a parameter of '02/01/2008 0:00'.  The ending date / time is calculated for you to prevent requesting data from the server for periods larger than 24 hours as this method requires processing a lot of data records and can get slow at times. </documentation>
+      <input message="tns:getBackendBandwidthByHour"/>
+      <output message="tns:getBackendBandwidthByHourResponse"/>
+    </operation>
+    <operation name="getBackendBandwidthUse">
+      <documentation>This method recurses through all servers on a Bandwidth Pool between the given start and end dates to retrieve public bandwidth data. </documentation>
+      <input message="tns:getBackendBandwidthUse"/>
+      <output message="tns:getBackendBandwidthUseResponse"/>
+    </operation>
+    <operation name="getBandwidthForDateRange">
+      <documentation>Retrieve a collection of bandwidth data from an individual public or private network tracking object. Data is ideal if you with to employ your own traffic storage and graphing systems. </documentation>
+      <input message="tns:getBandwidthForDateRange"/>
+      <output message="tns:getBandwidthForDateRangeResponse"/>
+    </operation>
+    <operation name="getBandwidthImage">
+      <documentation>This method recurses through all servers on a Bandwidth Pool for a given snapshot range, gathers the necessary parameters, and then calls the bandwidth graphing server.  The return result is a container that includes the min and max dates for all servers to be used in the query, as well as an image in PNG format.  Depending on the current workload of the graphing server this method make take some time to return.  As such, it is recommended the page not wait for the result without providing the user some sort of visual feedback.  To facilitate this, an option to gather the parameters but not actually draw the image is included.  This allows you to call the method twice, once for setting up your page, and then again to actually do the time consuming draw. </documentation>
+      <input message="tns:getBandwidthImage"/>
+      <output message="tns:getBandwidthImageResponse"/>
+    </operation>
+    <operation name="getBareMetalInstances">
+      <documentation>Retrieve the bare metal server instances contained within a virtual rack.</documentation>
+      <input message="tns:getBareMetalInstances"/>
+      <output message="tns:getBareMetalInstancesResponse"/>
+    </operation>
+    <operation name="getBillingCycleBandwidthUsage">
+      <documentation>Retrieve a virtual rack's raw bandwidth usage data for an account's current billing cycle. One object is returned for each network this server is attached to.</documentation>
+      <input message="tns:getBillingCycleBandwidthUsage"/>
+      <output message="tns:getBillingCycleBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getBillingCyclePrivateBandwidthUsage">
+      <documentation>Retrieve a virtual rack's raw private network bandwidth usage data for an account's current billing cycle.</documentation>
+      <input message="tns:getBillingCyclePrivateBandwidthUsage"/>
+      <output message="tns:getBillingCyclePrivateBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getBillingCyclePublicBandwidthUsage">
+      <documentation>Retrieve a virtual rack's raw public network bandwidth usage data for an account's current billing cycle.</documentation>
+      <input message="tns:getBillingCyclePublicBandwidthUsage"/>
+      <output message="tns:getBillingCyclePublicBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getBillingCyclePublicUsageTotal">
+      <documentation>Retrieve the total public bandwidth used in this virtual rack for an account's current billing cycle.</documentation>
+      <input message="tns:getBillingCyclePublicUsageTotal"/>
+      <output message="tns:getBillingCyclePublicUsageTotalResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve a virtual rack's billing item.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getCurrentBandwidthSummary">
+      <documentation>Retrieve an object that provides commonly used bandwidth summary components for the current billing cycle.</documentation>
+      <input message="tns:getCurrentBandwidthSummary"/>
+      <output message="tns:getCurrentBandwidthSummaryResponse"/>
+    </operation>
+    <operation name="getCustomBandwidthDataByDate">
+      <documentation>Retrieve bandwidth graph by date. </documentation>
+      <input message="tns:getCustomBandwidthDataByDate"/>
+      <output message="tns:getCustomBandwidthDataByDateResponse"/>
+    </operation>
+    <operation name="getDetails">
+      <documentation>Retrieve the bandwidth allotment detail records associated with this virtual rack.</documentation>
+      <input message="tns:getDetails"/>
+      <output message="tns:getDetailsResponse"/>
+    </operation>
+    <operation name="getFrontendBandwidthByHour">
+      <documentation>This method recurses through all servers on a Bandwidth Pool for 24 hour time span starting at a given date/time. To get the public data set for all servers on a Bandwidth Pool from midnight Feb 1st, 2008 to 23:59 on Feb 1st, you would pass a parameter of '02/01/2008 0:00'.  The ending date / time is calculated for you to prevent requesting data from the server for periods larger than 24 hours as this method requires processing a lot of data records and can get slow at times. </documentation>
+      <input message="tns:getFrontendBandwidthByHour"/>
+      <output message="tns:getFrontendBandwidthByHourResponse"/>
+    </operation>
+    <operation name="getFrontendBandwidthUse">
+      <documentation>This method recurses through all servers on a Bandwidth Pool between the given start and end dates to retrieve private bandwidth data. </documentation>
+      <input message="tns:getFrontendBandwidthUse"/>
+      <output message="tns:getFrontendBandwidthUseResponse"/>
+    </operation>
+    <operation name="getHardware">
+      <documentation>Retrieve the hardware contained within a virtual rack.</documentation>
+      <input message="tns:getHardware"/>
+      <output message="tns:getHardwareResponse"/>
+    </operation>
+    <operation name="getInboundPublicBandwidthUsage">
+      <documentation>Retrieve the total public inbound bandwidth used in this virtual rack for an account's current billing cycle.</documentation>
+      <input message="tns:getInboundPublicBandwidthUsage"/>
+      <output message="tns:getInboundPublicBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getLocationGroup">
+      <documentation>Retrieve the location group associated with this virtual rack.</documentation>
+      <input message="tns:getLocationGroup"/>
+      <output message="tns:getLocationGroupResponse"/>
+    </operation>
+    <operation name="getManagedBareMetalInstances">
+      <documentation>Retrieve the managed bare metal server instances contained within a virtual rack.</documentation>
+      <input message="tns:getManagedBareMetalInstances"/>
+      <output message="tns:getManagedBareMetalInstancesResponse"/>
+    </operation>
+    <operation name="getManagedHardware">
+      <documentation>Retrieve the managed hardware contained within a virtual rack.</documentation>
+      <input message="tns:getManagedHardware"/>
+      <output message="tns:getManagedHardwareResponse"/>
+    </operation>
+    <operation name="getManagedVirtualGuests">
+      <documentation>Retrieve the managed Virtual Server contained within a virtual rack.</documentation>
+      <input message="tns:getManagedVirtualGuests"/>
+      <output message="tns:getManagedVirtualGuestsResponse"/>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <documentation>Retrieve a virtual rack's metric tracking object. This object records all periodic polled data available to this rack.</documentation>
+      <input message="tns:getMetricTrackingObject"/>
+      <output message="tns:getMetricTrackingObjectResponse"/>
+    </operation>
+    <operation name="getMetricTrackingObjectId">
+      <documentation>Retrieve the metric tracking object id for this allotment.</documentation>
+      <input message="tns:getMetricTrackingObjectId"/>
+      <output message="tns:getMetricTrackingObjectIdResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Network_Bandwidth_Version1_Allotment object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Hardware service. You can only retrieve an allotment associated with the account that your portal user is assigned to. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOutboundPublicBandwidthUsage">
+      <documentation>Retrieve the total public outbound bandwidth used in this virtual rack for an account's current billing cycle.</documentation>
+      <input message="tns:getOutboundPublicBandwidthUsage"/>
+      <output message="tns:getOutboundPublicBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getOverBandwidthAllocationFlag">
+      <documentation>Retrieve whether the bandwidth usage for this bandwidth pool for the current billing cycle exceeds the allocation.</documentation>
+      <input message="tns:getOverBandwidthAllocationFlag"/>
+      <output message="tns:getOverBandwidthAllocationFlagResponse"/>
+    </operation>
+    <operation name="getPrivateNetworkOnlyHardware">
+      <documentation>Retrieve the private network only hardware contained within a virtual rack.</documentation>
+      <input message="tns:getPrivateNetworkOnlyHardware"/>
+      <output message="tns:getPrivateNetworkOnlyHardwareResponse"/>
+    </operation>
+    <operation name="getProjectedOverBandwidthAllocationFlag">
+      <documentation>Retrieve whether the bandwidth usage for this bandwidth pool for the current billing cycle is projected to exceed the allocation.</documentation>
+      <input message="tns:getProjectedOverBandwidthAllocationFlag"/>
+      <output message="tns:getProjectedOverBandwidthAllocationFlagResponse"/>
+    </operation>
+    <operation name="getProjectedPublicBandwidthUsage">
+      <documentation>Retrieve the projected public outbound bandwidth for this virtual server for the current billing cycle.</documentation>
+      <input message="tns:getProjectedPublicBandwidthUsage"/>
+      <output message="tns:getProjectedPublicBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getServiceProvider">
+      <documentation></documentation>
+      <input message="tns:getServiceProvider"/>
+      <output message="tns:getServiceProviderResponse"/>
+    </operation>
+    <operation name="getTotalBandwidthAllocated">
+      <documentation>Retrieve the combined allocated bandwidth for all servers in a virtual rack.</documentation>
+      <input message="tns:getTotalBandwidthAllocated"/>
+      <output message="tns:getTotalBandwidthAllocatedResponse"/>
+    </operation>
+    <operation name="getVirtualGuests">
+      <documentation>Retrieve the Virtual Server contained within a virtual rack.</documentation>
+      <input message="tns:getVirtualGuests"/>
+      <output message="tns:getVirtualGuestsResponse"/>
+    </operation>
+    <operation name="new_getBandwidthImage">
+      <documentation>This method recurses through all servers on a Bandwidth Pool for a given snapshot range, gathers the necessary parameters, and then calls the bandwidth graphing server.  The return result is a container that includes the min and max dates for all servers to be used in the query, as well as an image in PNG format.  This method uses the new and improved drawing routines which should return in a reasonable time frame now that the new backend data warehouse is used. </documentation>
+      <input message="tns:new_getBandwidthImage"/>
+      <output message="tns:new_getBandwidthImageResponse"/>
+    </operation>
+    <operation name="reassignServers">
+      <documentation>This method will reassign a collection of SoftLayer hardware to a bandwidth allotment Bandwidth Pool. </documentation>
+      <input message="tns:reassignServers"/>
+      <output message="tns:reassignServersResponse"/>
+    </operation>
+    <operation name="requestVdrCancellation">
+      <documentation>This will remove a bandwidth pooling from a customer's allotments by cancelling the billing item.  All servers in that allotment will get moved to the account's vpr. </documentation>
+      <input message="tns:requestVdrCancellation"/>
+      <output message="tns:requestVdrCancellationResponse"/>
+    </operation>
+    <operation name="requestVdrContentUpdates">
+      <documentation>This will move servers into a bandwidth pool, removing them from their previous bandwidth pool and optionally remove the bandwidth pool on completion. </documentation>
+      <input message="tns:requestVdrContentUpdates"/>
+      <output message="tns:requestVdrContentUpdatesResponse"/>
+    </operation>
+    <operation name="setVdrContent">
+      <documentation>This will update the bandwidth pool to the servers provided.  Servers currently in the bandwidth pool not provided on update will be removed. Servers provided on update not currently in the bandwidth pool will be added. If all servers are removed, this removes the bandwidth pool on completion. </documentation>
+      <input message="tns:setVdrContent"/>
+      <output message="tns:setVdrContentResponse"/>
+    </operation>
+    <operation name="unassignServers">
+      <documentation>This method will reassign a collection of SoftLayer hardware to the virtual private rack </documentation>
+      <input message="tns:unassignServers"/>
+      <output message="tns:unassignServersResponse"/>
+    </operation>
+    <operation name="voidPendingServerMove">
+      <documentation>This method will void a pending server removal from this bandwidth pooling. Pass in the id of the hardware object or virtual guest you wish to update. Assuming that object is currently pending removal from the bandwidth pool at the start of the next billing cycle, the bandwidth pool member status will be restored and the pending cancellation removed. </documentation>
+      <input message="tns:voidPendingServerMove"/>
+      <output message="tns:voidPendingServerMoveResponse"/>
+    </operation>
+    <operation name="voidPendingVdrCancellation">
+      <documentation>This method will void a pending cancellation on a bandwidth pool. Note however any servers that belonged to the rack will have to be restored individually using the method voidPendingServerMove($id, $type). </documentation>
+      <input message="tns:voidPendingVdrCancellation"/>
+      <output message="tns:voidPendingVdrCancellationResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Bandwidth_Version1_AllotmentBinding" type="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getActiveDetails">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getApplicationDeliveryControllers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAverageDailyPublicBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBackendBandwidthByHour">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBackendBandwidthUse">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBandwidthForDateRange">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBandwidthImage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBareMetalInstances">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingCycleBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingCyclePrivateBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingCyclePublicBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingCyclePublicUsageTotal">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCurrentBandwidthSummary">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCustomBandwidthDataByDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDetails">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFrontendBandwidthByHour">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFrontendBandwidthUse">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInboundPublicBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLocationGroup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getManagedBareMetalInstances">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getManagedHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getManagedVirtualGuests">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMetricTrackingObjectId">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOutboundPublicBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOverBandwidthAllocationFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrivateNetworkOnlyHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProjectedOverBandwidthAllocationFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProjectedPublicBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceProvider">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTotalBandwidthAllocated">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVirtualGuests">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilterHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="new_getBandwidthImage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="reassignServers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="requestVdrCancellation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="requestVdrContentUpdates">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="setVdrContent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unassignServers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="voidPendingServerMove">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="voidPendingVdrCancellation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Bandwidth_Version1_AllotmentService">
+    <port name="SoftLayer_Network_Bandwidth_Version1_AllotmentPort" binding="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Bandwidth_Version1_Allotment"/>
+    </port>
+  </service>
+</definitions>

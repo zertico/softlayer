@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Dns_Secondary?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Dns_SecondaryInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Dns_SecondaryObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Dns_Secondary"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Dns_SecondaryInitParametersHeader">
+    <part name="SoftLayer_Dns_SecondaryInitParameters" type="tns:SoftLayer_Dns_SecondaryInitParameters"/>
+  </message>
+  <message name="convertToPrimary"/>
+  <message name="convertToPrimaryResponse">
+    <part name="convertToPrimaryReturn" type="xsd:boolean"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Dns_Secondary"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Dns_Secondary"/>
+  </message>
+  <message name="createObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Dns_SecondaryArray"/>
+  </message>
+  <message name="createObjectsResponse">
+    <part name="createObjectsReturn" type="tns:SoftLayer_Dns_SecondaryArray"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Dns_Secondary"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getByDomainName">
+    <part name="name" type="xsd:string"/>
+  </message>
+  <message name="getByDomainNameResponse">
+    <part name="getByDomainNameReturn" type="tns:SoftLayer_Dns_SecondaryArray"/>
+  </message>
+  <message name="getDomain"/>
+  <message name="getDomainResponse">
+    <part name="getDomainReturn" type="tns:SoftLayer_Dns_Domain"/>
+  </message>
+  <message name="getErrorMessages"/>
+  <message name="getErrorMessagesResponse">
+    <part name="getErrorMessagesReturn" type="tns:SoftLayer_Dns_MessageArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Dns_Secondary"/>
+  </message>
+  <message name="getStatus"/>
+  <message name="getStatusResponse">
+    <part name="getStatusReturn" type="tns:SoftLayer_Dns_Status"/>
+  </message>
+  <message name="transferNow"/>
+  <message name="transferNowResponse">
+    <part name="transferNowReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Dns_SecondaryObjectMaskHeader">
+    <part name="SoftLayer_Dns_SecondaryObjectMask" type="tns:SoftLayer_Dns_SecondaryObjectMask"/>
+  </message>
+  <message name="SoftLayer_Dns_SecondaryObjectFilterHeader">
+    <part name="SoftLayer_Dns_SecondaryObjectFilter" type="tns:SoftLayer_Dns_SecondaryObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Dns_SecondaryPortType">
+    <documentation>SoftLayer's secondary DNS service allows you to use SoftLayer's name servers as a secondary server to your domain's name servers. This is accomplished through the use of zone transfers. Each record created within the secondary DNS service defines which zone is transferred, what server it is transferred from, and the frequency that zone transfers occur at. Zone transfers are performed automatically based on the transfer frequency set on the secondary DNS record. Domains created via zone transfer may not be modified by the SoftLayer portal or API. 
+
+The secondary DNS service also provides the ability to manually initiate a zone transfer through the [[SoftLayer_Dns_Secondary::transferNow]] method. The daemon that performs zone transfers runs once a minute, therefore it could take a full minute for the zone transfer to be completed. 
+
+Secondary DNS transfers may periodically generate notification or error messages. Please use the [[SoftLayer_Dns_Message]] service to retrieve these notifications. </documentation>
+    <operation name="convertToPrimary">
+      <documentation>A secondary DNS record may be converted to a primary DNS record. By converting a secondary DNS record, the SoftLayer name servers will be the authoritative nameserver for this domain and will be directly editable in the SoftLayer API and Portal. 
+
+Primary DNS record conversion performs the following steps: 
+* The SOA record is updated with SoftLayer's primary name server.
+* All NS records are removed and replaced with SoftLayer's NS records.
+* The secondary DNS record is removed.
+
+
+After the DNS records are converted, the following restrictions will apply to the new domain record: 
+* You will need to manage the zone record using the [[SoftLayer_Dns_Domain]] service.
+* You may not edit the SOA or NS records.
+* You may only edit the following resource records: A, AAAA, CNAME, MX, TX, SRV.
+
+
+This change can not be undone, and the record can not be converted back into a secondary DNS record once the conversion is complete. </documentation>
+      <input message="tns:convertToPrimary"/>
+      <output message="tns:convertToPrimaryResponse"/>
+    </operation>
+    <operation name="createObject">
+      <documentation>Create a secondary DNS record. The ''zoneName'', ''masterIpAddress'', and ''transferFrequency'' properties in the templateObject parameter are required parameters to create a secondary DNS record. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="createObjects">
+      <documentation>Create multiple secondary DNS records. Each record passed to ''createObjects'' follows the logic in the SoftLayer_Dns_Secondary [[SoftLayer_Dns_Secondary::createObject|createObject]] method. </documentation>
+      <input message="tns:createObjects"/>
+      <output message="tns:createObjectsResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Delete a secondary DNS Record. This will also remove any associated domain records and resource records on the SoftLayer nameservers that were created as a result of the zone transfers. This action cannot be undone. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Edit the properties of a secondary DNS record by passing in a modified instance of a SoftLayer_Dns_Secondary object. You may only edit the ''masterIpAddress'' and ''transferFrequency'' properties of your secondary DNS record. ''ZoneName'' may not be altered after a secondary DNS record has been created.  Please remove and re-create the record if you need to make changes to your zone name. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the SoftLayer account that owns a secondary DNS record.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getByDomainName">
+      <documentation>Search for [[SoftLayer_Dns_Domain_Secondary]] records by domain name. getByDomainName() performs an inclusive search for secondary domain records, returning multiple records based on partial name matches. Use this method to locate secondary domain records if you don't have access to their id numbers. </documentation>
+      <input message="tns:getByDomainName"/>
+      <output message="tns:getByDomainNameResponse"/>
+    </operation>
+    <operation name="getDomain">
+      <documentation>Retrieve the domain record created by zone transfer from a secondary DNS record.</documentation>
+      <input message="tns:getDomain"/>
+      <output message="tns:getDomainResponse"/>
+    </operation>
+    <operation name="getErrorMessages">
+      <documentation>Retrieve the error messages created during secondary DNS record transfer.</documentation>
+      <input message="tns:getErrorMessages"/>
+      <output message="tns:getErrorMessagesResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Dns_Secondary object whose ID number corresponds to the ID number of the init paramater passed to the SoftLayer_Dns_Secondary service. You can only retrieve a secondary DNS record that is assigned to your SoftLayer customer account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getStatus">
+      <documentation>Retrieve the current status of the secondary DNS zone.</documentation>
+      <input message="tns:getStatus"/>
+      <output message="tns:getStatusResponse"/>
+    </operation>
+    <operation name="transferNow">
+      <documentation>Force a secondary DNS zone transfer by setting it's status &amp;quot;Transfer Now&amp;quot;.  A zone transfer will be initiated within a minute of receiving this API call. </documentation>
+      <input message="tns:transferNow"/>
+      <output message="tns:transferNowResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Dns_SecondaryBinding" type="tns:SoftLayer_Dns_SecondaryPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="convertToPrimary">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryInitParametersHeader" part="SoftLayer_Dns_SecondaryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectMaskHeader" part="SoftLayer_Dns_SecondaryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectMaskHeader" part="SoftLayer_Dns_SecondaryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryInitParametersHeader" part="SoftLayer_Dns_SecondaryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryInitParametersHeader" part="SoftLayer_Dns_SecondaryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectMaskHeader" part="SoftLayer_Dns_SecondaryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectFilterHeader" part="SoftLayer_Dns_SecondaryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryInitParametersHeader" part="SoftLayer_Dns_SecondaryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getByDomainName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectMaskHeader" part="SoftLayer_Dns_SecondaryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectFilterHeader" part="SoftLayer_Dns_SecondaryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectMaskHeader" part="SoftLayer_Dns_SecondaryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectFilterHeader" part="SoftLayer_Dns_SecondaryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryInitParametersHeader" part="SoftLayer_Dns_SecondaryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getErrorMessages">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectMaskHeader" part="SoftLayer_Dns_SecondaryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectFilterHeader" part="SoftLayer_Dns_SecondaryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryInitParametersHeader" part="SoftLayer_Dns_SecondaryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectMaskHeader" part="SoftLayer_Dns_SecondaryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectFilterHeader" part="SoftLayer_Dns_SecondaryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryInitParametersHeader" part="SoftLayer_Dns_SecondaryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectMaskHeader" part="SoftLayer_Dns_SecondaryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryObjectFilterHeader" part="SoftLayer_Dns_SecondaryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryInitParametersHeader" part="SoftLayer_Dns_SecondaryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="transferNow">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_SecondaryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_SecondaryInitParametersHeader" part="SoftLayer_Dns_SecondaryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Dns_SecondaryService">
+    <port name="SoftLayer_Dns_SecondaryPort" binding="tns:SoftLayer_Dns_SecondaryBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Dns_Secondary"/>
+    </port>
+  </service>
+</definitions>

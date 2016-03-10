@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Dns_Domain_Registration?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Dns_Domain_RegistrationInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Dns_Domain_RegistrationObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Dns_Domain_Registration"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Dns_Domain_RegistrationInitParametersHeader">
+    <part name="SoftLayer_Dns_Domain_RegistrationInitParameters" type="tns:SoftLayer_Dns_Domain_RegistrationInitParameters"/>
+  </message>
+  <message name="addNameserversToDomain">
+    <part name="nameservers" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="addNameserversToDomainResponse">
+    <part name="addNameserversToDomainReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteRegisteredNameserver">
+    <part name="nameserver" type="xsd:string"/>
+  </message>
+  <message name="deleteRegisteredNameserverResponse">
+    <part name="deleteRegisteredNameserverReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAuthenticationCode"/>
+  <message name="getAuthenticationCodeResponse">
+    <part name="getAuthenticationCodeReturn" type="xsd:string"/>
+  </message>
+  <message name="getDomainInformation"/>
+  <message name="getDomainInformationResponse">
+    <part name="getDomainInformationReturn" type="tns:SoftLayer_Container_Dns_Domain_Registration_Information"/>
+  </message>
+  <message name="getDomainNameservers"/>
+  <message name="getDomainNameserversResponse">
+    <part name="getDomainNameserversReturn" type="tns:SoftLayer_Container_Dns_Domain_Registration_NameserverArray"/>
+  </message>
+  <message name="getDomainRegistrationStatus"/>
+  <message name="getDomainRegistrationStatusResponse">
+    <part name="getDomainRegistrationStatusReturn" type="tns:SoftLayer_Dns_Domain_Registration_Status"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Dns_Domain_Registration"/>
+  </message>
+  <message name="getRegisteredNameserver"/>
+  <message name="getRegisteredNameserverResponse">
+    <part name="getRegisteredNameserverReturn" type="tns:SoftLayer_Container_Dns_Domain_Registration_Nameserver"/>
+  </message>
+  <message name="getRegistrantVerificationStatus"/>
+  <message name="getRegistrantVerificationStatusResponse">
+    <part name="getRegistrantVerificationStatusReturn" type="tns:SoftLayer_Dns_Domain_Registration_Registrant_Verification_Status"/>
+  </message>
+  <message name="getRegistrantVerificationStatusDetail"/>
+  <message name="getRegistrantVerificationStatusDetailResponse">
+    <part name="getRegistrantVerificationStatusDetailReturn" type="tns:SoftLayer_Container_Dns_Domain_Registration_Registrant_Verification_StatusDetail"/>
+  </message>
+  <message name="getServiceProvider"/>
+  <message name="getServiceProviderResponse">
+    <part name="getServiceProviderReturn" type="tns:SoftLayer_Service_Provider"/>
+  </message>
+  <message name="getTransferInformation">
+    <part name="domainName" type="xsd:string"/>
+  </message>
+  <message name="getTransferInformationResponse">
+    <part name="getTransferInformationReturn" type="tns:SoftLayer_Container_Dns_Domain_Registration_Transfer_Information"/>
+  </message>
+  <message name="lockDomain"/>
+  <message name="lockDomainResponse">
+    <part name="lockDomainReturn" type="xsd:boolean"/>
+  </message>
+  <message name="lookupDomain">
+    <part name="domainName" type="xsd:string"/>
+  </message>
+  <message name="lookupDomainResponse">
+    <part name="lookupDomainReturn" type="tns:SoftLayer_Container_Dns_Domain_Registration_LookupArray"/>
+  </message>
+  <message name="modifyContact">
+    <part name="contact" type="tns:SoftLayer_Container_Dns_Domain_Registration_Contact"/>
+  </message>
+  <message name="modifyContactResponse">
+    <part name="modifyContactReturn" type="xsd:boolean"/>
+  </message>
+  <message name="modifyRegisteredNameserver">
+    <part name="oldNameserver" type="xsd:string"/>
+    <part name="newNameserver" type="xsd:string"/>
+    <part name="ipAddress" type="xsd:string"/>
+  </message>
+  <message name="modifyRegisteredNameserverResponse">
+    <part name="modifyRegisteredNameserverReturn" type="xsd:boolean"/>
+  </message>
+  <message name="registerNameserver">
+    <part name="nameserver" type="xsd:string"/>
+    <part name="ipAddress" type="xsd:string"/>
+  </message>
+  <message name="registerNameserverResponse">
+    <part name="registerNameserverReturn" type="xsd:boolean"/>
+  </message>
+  <message name="removeNameserversFromDomain">
+    <part name="nameservers" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="removeNameserversFromDomainResponse">
+    <part name="removeNameserversFromDomainReturn" type="xsd:boolean"/>
+  </message>
+  <message name="sendAuthenticationCode"/>
+  <message name="sendAuthenticationCodeResponse">
+    <part name="sendAuthenticationCodeReturn" type="xsd:boolean"/>
+  </message>
+  <message name="sendRegistrantVerificationEmail"/>
+  <message name="sendRegistrantVerificationEmailResponse">
+    <part name="sendRegistrantVerificationEmailReturn" type="xsd:boolean"/>
+  </message>
+  <message name="sendTransferApprovalEmail"/>
+  <message name="sendTransferApprovalEmailResponse">
+    <part name="sendTransferApprovalEmailReturn" type="xsd:boolean"/>
+  </message>
+  <message name="setAuthenticationCode">
+    <part name="authenticationCode" type="xsd:string"/>
+  </message>
+  <message name="setAuthenticationCodeResponse">
+    <part name="setAuthenticationCodeReturn" type="xsd:boolean"/>
+  </message>
+  <message name="unlockDomain"/>
+  <message name="unlockDomainResponse">
+    <part name="unlockDomainReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Dns_Domain_RegistrationObjectMaskHeader">
+    <part name="SoftLayer_Dns_Domain_RegistrationObjectMask" type="tns:SoftLayer_Dns_Domain_RegistrationObjectMask"/>
+  </message>
+  <message name="SoftLayer_Dns_Domain_RegistrationObjectFilterHeader">
+    <part name="SoftLayer_Dns_Domain_RegistrationObjectFilter" type="tns:SoftLayer_Dns_Domain_RegistrationObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Dns_Domain_RegistrationPortType">
+    <documentation>Registration and management of domain names and domain related services. </documentation>
+    <operation name="addNameserversToDomain">
+      <documentation>The addNameserversToDomain method adds nameservers to a domain for a domain that already has nameservers assigned to it. This method does not create a nameserver; the nameserver must already exist. </documentation>
+      <input message="tns:addNameserversToDomain"/>
+      <output message="tns:addNameserversToDomainResponse"/>
+    </operation>
+    <operation name="deleteRegisteredNameserver">
+      <documentation>The deleteRegisteredNameserver method deletes a nameserver that was registered, provided it is not currently serving a domain </documentation>
+      <input message="tns:deleteRegisteredNameserver"/>
+      <output message="tns:deleteRegisteredNameserverResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the SoftLayer customer account that the domain is registered to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAuthenticationCode">
+      <documentation>The getAuthenticationCode method retrieves the authentication code for the domain. </documentation>
+      <input message="tns:getAuthenticationCode"/>
+      <output message="tns:getAuthenticationCodeResponse"/>
+    </operation>
+    <operation name="getDomainInformation">
+      <documentation>The getDomainInformation method retrieves all the information for a domain. </documentation>
+      <input message="tns:getDomainInformation"/>
+      <output message="tns:getDomainInformationResponse"/>
+    </operation>
+    <operation name="getDomainNameservers">
+      <documentation>The getDomainNameservers method retrieve nameservers information for domain. </documentation>
+      <input message="tns:getDomainNameservers"/>
+      <output message="tns:getDomainNameserversResponse"/>
+    </operation>
+    <operation name="getDomainRegistrationStatus">
+      <documentation>Retrieve the domain registration status.</documentation>
+      <input message="tns:getDomainRegistrationStatus"/>
+      <output message="tns:getDomainRegistrationStatusResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Dns_Domain_Registration object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Dns_Domain_Registration service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getRegisteredNameserver">
+      <documentation>The getRegisteredNameserver method retrieves registered nameservers. </documentation>
+      <input message="tns:getRegisteredNameserver"/>
+      <output message="tns:getRegisteredNameserverResponse"/>
+    </operation>
+    <operation name="getRegistrantVerificationStatus">
+      <documentation>Retrieve the registrant verification status.</documentation>
+      <input message="tns:getRegistrantVerificationStatus"/>
+      <output message="tns:getRegistrantVerificationStatusResponse"/>
+    </operation>
+    <operation name="getRegistrantVerificationStatusDetail">
+      <documentation>When a domain is registered or transferred, or when the registrant contact information is changed, the registrant must reply to an email requesting them to confirm that the submitted contact information is correct. This method returns the current state of the verification request. </documentation>
+      <input message="tns:getRegistrantVerificationStatusDetail"/>
+      <output message="tns:getRegistrantVerificationStatusDetailResponse"/>
+    </operation>
+    <operation name="getServiceProvider">
+      <documentation></documentation>
+      <input message="tns:getServiceProvider"/>
+      <output message="tns:getServiceProviderResponse"/>
+    </operation>
+    <operation name="getTransferInformation">
+      <documentation>The getTransferInformation method checks to see if the domain can be transferred and also can be used to check the status of the last transfer request. </documentation>
+      <input message="tns:getTransferInformation"/>
+      <output message="tns:getTransferInformationResponse"/>
+    </operation>
+    <operation name="lockDomain">
+      <documentation>The lockDomain method locks a domain to prevent unauthorized, unwanted or accidental changes to the domain name. When set, the following actions are prohibited: 
+* Transferring of the domain name
+* Deletion of the domain name</documentation>
+      <input message="tns:lockDomain"/>
+      <output message="tns:lockDomainResponse"/>
+    </operation>
+    <operation name="lookupDomain">
+      <documentation>The lookupDomain method checks whether a specified domain name is available for registration in TLD's, and suggests other similar domain names, and checks whether they are available as well. </documentation>
+      <input message="tns:lookupDomain"/>
+      <output message="tns:lookupDomainResponse"/>
+    </operation>
+    <operation name="modifyContact">
+      <documentation>The modifyContact method modifies contact information (admin, billing, owner, technical) for a domain. </documentation>
+      <input message="tns:modifyContact"/>
+      <output message="tns:modifyContactResponse"/>
+    </operation>
+    <operation name="modifyRegisteredNameserver">
+      <documentation>The modifyRegisteredNameserver method modifies a nameserver that was registered. </documentation>
+      <input message="tns:modifyRegisteredNameserver"/>
+      <output message="tns:modifyRegisteredNameserverResponse"/>
+    </operation>
+    <operation name="registerNameserver">
+      <documentation>The registerNameserver method creates a nameserver for the domain. </documentation>
+      <input message="tns:registerNameserver"/>
+      <output message="tns:registerNameserverResponse"/>
+    </operation>
+    <operation name="removeNameserversFromDomain">
+      <documentation>The removeNameserversFromDomain method removes nameservers from a domain for a domain that already has nameservers assigned to it. </documentation>
+      <input message="tns:removeNameserversFromDomain"/>
+      <output message="tns:removeNameserversFromDomainResponse"/>
+    </operation>
+    <operation name="sendAuthenticationCode">
+      <documentation>The sendAuthenticationCode method sends the authentication code to the administrative contact for the domain. </documentation>
+      <input message="tns:sendAuthenticationCode"/>
+      <output message="tns:sendAuthenticationCodeResponse"/>
+    </operation>
+    <operation name="sendRegistrantVerificationEmail">
+      <documentation>When a domain is registered or transferred, or when the registrant contact information is changed, the registrant must reply to an email requesting them to confirm that the submitted contact information is correct. This method sends the verification email to the registrant. </documentation>
+      <input message="tns:sendRegistrantVerificationEmail"/>
+      <output message="tns:sendRegistrantVerificationEmailResponse"/>
+    </operation>
+    <operation name="sendTransferApprovalEmail">
+      <documentation>The sendTransferApprovalEmail method resends a transfer approval email message for a transfer that is in 'pending owner approval' state, to the admin contact listed for the domain at the time that the transfer request was submitted </documentation>
+      <input message="tns:sendTransferApprovalEmail"/>
+      <output message="tns:sendTransferApprovalEmailResponse"/>
+    </operation>
+    <operation name="setAuthenticationCode">
+      <documentation>The setAuthenticationCode method sets the authentication code for the domain. The authentication code is a transfer key and provides an extra level of security, safeguarding domain names from unauthorized transfers. </documentation>
+      <input message="tns:setAuthenticationCode"/>
+      <output message="tns:setAuthenticationCodeResponse"/>
+    </operation>
+    <operation name="unlockDomain">
+      <documentation>The unlockDomain method unlocks a domain </documentation>
+      <input message="tns:unlockDomain"/>
+      <output message="tns:unlockDomainResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Dns_Domain_RegistrationBinding" type="tns:SoftLayer_Dns_Domain_RegistrationPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addNameserversToDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteRegisteredNameserver">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectMaskHeader" part="SoftLayer_Dns_Domain_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectFilterHeader" part="SoftLayer_Dns_Domain_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAuthenticationCode">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDomainInformation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDomainNameservers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDomainRegistrationStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectMaskHeader" part="SoftLayer_Dns_Domain_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectFilterHeader" part="SoftLayer_Dns_Domain_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectMaskHeader" part="SoftLayer_Dns_Domain_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectFilterHeader" part="SoftLayer_Dns_Domain_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegisteredNameserver">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegistrantVerificationStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectMaskHeader" part="SoftLayer_Dns_Domain_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectFilterHeader" part="SoftLayer_Dns_Domain_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegistrantVerificationStatusDetail">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceProvider">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectMaskHeader" part="SoftLayer_Dns_Domain_RegistrationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectFilterHeader" part="SoftLayer_Dns_Domain_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTransferInformation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="lockDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="lookupDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="modifyContact">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="modifyRegisteredNameserver">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="registerNameserver">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeNameserversFromDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="sendAuthenticationCode">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="sendRegistrantVerificationEmail">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="sendTransferApprovalEmail">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="setAuthenticationCode">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unlockDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Dns_Domain_RegistrationService">
+    <port name="SoftLayer_Dns_Domain_RegistrationPort" binding="tns:SoftLayer_Dns_Domain_RegistrationBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Dns_Domain_Registration"/>
+    </port>
+  </service>
+</definitions>

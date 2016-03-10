@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicense?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Software_VirtualLicenseInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Software_VirtualLicenseObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Software_VirtualLicense"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Software_VirtualLicenseInitParametersHeader">
+    <part name="SoftLayer_Software_VirtualLicenseInitParameters" type="tns:SoftLayer_Software_VirtualLicenseInitParameters"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getHostHardware"/>
+  <message name="getHostHardwareResponse">
+    <part name="getHostHardwareReturn" type="tns:SoftLayer_Hardware_Server"/>
+  </message>
+  <message name="getIpAddressRecord"/>
+  <message name="getIpAddressRecordResponse">
+    <part name="getIpAddressRecordReturn" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+  </message>
+  <message name="getLicenseFile"/>
+  <message name="getLicenseFileResponse">
+    <part name="getLicenseFileReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Software_VirtualLicense"/>
+  </message>
+  <message name="getSoftwareDescription"/>
+  <message name="getSoftwareDescriptionResponse">
+    <part name="getSoftwareDescriptionReturn" type="tns:SoftLayer_Software_Description"/>
+  </message>
+  <message name="getSubnet"/>
+  <message name="getSubnetResponse">
+    <part name="getSubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Software_VirtualLicenseObjectMaskHeader">
+    <part name="SoftLayer_Software_VirtualLicenseObjectMask" type="tns:SoftLayer_Software_VirtualLicenseObjectMask"/>
+  </message>
+  <message name="SoftLayer_Software_VirtualLicenseObjectFilterHeader">
+    <part name="SoftLayer_Software_VirtualLicenseObjectFilter" type="tns:SoftLayer_Software_VirtualLicenseObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Software_VirtualLicensePortType">
+    <documentation>SoftLayer_Software_VirtualLicense is the application class that handles a special type of Software License.  Most software licenses are licensed to a specific hardware ID;  virtual licenses are designed for virtual machines and therefore are assigned to an IP Address.  Not all software packages can be &amp;quot;virtual licensed&amp;quot;. 
+
+SoftLayer_Software_VirtualLicense's service allows you to retrieve the hard-copy license file for a virtual license, if one exists for your license instance. 
+
+You can also retrieve the subnet that the IP to which a software virtual license is licensed upon exists in, as well as the software description that this virtual license is for. </documentation>
+    <operation name="getAccount">
+      <documentation>Retrieve the customer account this Virtual License belongs to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the billing item for a software virtual license.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getHostHardware">
+      <documentation>Retrieve the hardware record to which the software virtual license is assigned.</documentation>
+      <input message="tns:getHostHardware"/>
+      <output message="tns:getHostHardwareResponse"/>
+    </operation>
+    <operation name="getIpAddressRecord">
+      <documentation>Retrieve the IP Address record associated with a virtual license.</documentation>
+      <input message="tns:getIpAddressRecord"/>
+      <output message="tns:getIpAddressRecordResponse"/>
+    </operation>
+    <operation name="getLicenseFile">
+      <documentation>Attempt to retrieve the file associated with a virtual license, if such a file exists.  If there is no file for this virtual license, calling this method will either throw an exception or return false. </documentation>
+      <input message="tns:getLicenseFile"/>
+      <output message="tns:getLicenseFileResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Software_VirtualLicense object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Software_VirtualLicense service. You can only retrieve Virtual Licenses assigned to your account number. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getSoftwareDescription">
+      <documentation>Retrieve the SoftLayer_Software_Description that this virtual license is for.</documentation>
+      <input message="tns:getSoftwareDescription"/>
+      <output message="tns:getSoftwareDescriptionResponse"/>
+    </operation>
+    <operation name="getSubnet">
+      <documentation>Retrieve the subnet this Virtual License's IP address belongs to.</documentation>
+      <input message="tns:getSubnet"/>
+      <output message="tns:getSubnetResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Software_VirtualLicenseBinding" type="tns:SoftLayer_Software_VirtualLicensePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectMaskHeader" part="SoftLayer_Software_VirtualLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectFilterHeader" part="SoftLayer_Software_VirtualLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseInitParametersHeader" part="SoftLayer_Software_VirtualLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectMaskHeader" part="SoftLayer_Software_VirtualLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectFilterHeader" part="SoftLayer_Software_VirtualLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseInitParametersHeader" part="SoftLayer_Software_VirtualLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHostHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectMaskHeader" part="SoftLayer_Software_VirtualLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectFilterHeader" part="SoftLayer_Software_VirtualLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseInitParametersHeader" part="SoftLayer_Software_VirtualLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getIpAddressRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectMaskHeader" part="SoftLayer_Software_VirtualLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectFilterHeader" part="SoftLayer_Software_VirtualLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseInitParametersHeader" part="SoftLayer_Software_VirtualLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLicenseFile">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicenseAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseInitParametersHeader" part="SoftLayer_Software_VirtualLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectMaskHeader" part="SoftLayer_Software_VirtualLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectFilterHeader" part="SoftLayer_Software_VirtualLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseInitParametersHeader" part="SoftLayer_Software_VirtualLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSoftwareDescription">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectMaskHeader" part="SoftLayer_Software_VirtualLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectFilterHeader" part="SoftLayer_Software_VirtualLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseInitParametersHeader" part="SoftLayer_Software_VirtualLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectMaskHeader" part="SoftLayer_Software_VirtualLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseObjectFilterHeader" part="SoftLayer_Software_VirtualLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_VirtualLicenseInitParametersHeader" part="SoftLayer_Software_VirtualLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Software_VirtualLicenseService">
+    <port name="SoftLayer_Software_VirtualLicensePort" binding="tns:SoftLayer_Software_VirtualLicenseBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Software_VirtualLicense"/>
+    </port>
+  </service>
+</definitions>

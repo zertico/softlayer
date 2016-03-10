@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Schedule?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Storage_ScheduleInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Storage_ScheduleObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Storage_Schedule"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Storage_ScheduleInitParametersHeader">
+    <part name="SoftLayer_Network_Storage_ScheduleInitParameters" type="tns:SoftLayer_Network_Storage_ScheduleInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Storage_Schedule"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Network_Storage_Schedule"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Storage_Schedule"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getDayOfMonth"/>
+  <message name="getDayOfMonthResponse">
+    <part name="getDayOfMonthReturn" type="xsd:string"/>
+  </message>
+  <message name="getDayOfWeek"/>
+  <message name="getDayOfWeekResponse">
+    <part name="getDayOfWeekReturn" type="xsd:string"/>
+  </message>
+  <message name="getEvents"/>
+  <message name="getEventsResponse">
+    <part name="getEventsReturn" type="tns:SoftLayer_Network_Storage_EventArray"/>
+  </message>
+  <message name="getHour"/>
+  <message name="getHourResponse">
+    <part name="getHourReturn" type="xsd:string"/>
+  </message>
+  <message name="getMinute"/>
+  <message name="getMinuteResponse">
+    <part name="getMinuteReturn" type="xsd:string"/>
+  </message>
+  <message name="getMonthOfYear"/>
+  <message name="getMonthOfYearResponse">
+    <part name="getMonthOfYearReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Storage_Schedule"/>
+  </message>
+  <message name="getPartnership"/>
+  <message name="getPartnershipResponse">
+    <part name="getPartnershipReturn" type="tns:SoftLayer_Network_Storage_Partnership"/>
+  </message>
+  <message name="getProperties"/>
+  <message name="getPropertiesResponse">
+    <part name="getPropertiesReturn" type="tns:SoftLayer_Network_Storage_Schedule_PropertyArray"/>
+  </message>
+  <message name="getRetentionCount"/>
+  <message name="getRetentionCountResponse">
+    <part name="getRetentionCountReturn" type="xsd:string"/>
+  </message>
+  <message name="getSnapshots"/>
+  <message name="getSnapshotsResponse">
+    <part name="getSnapshotsReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_Network_Storage_Schedule_Type"/>
+  </message>
+  <message name="getVolume"/>
+  <message name="getVolumeResponse">
+    <part name="getVolumeReturn" type="tns:SoftLayer_Network_Storage"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Storage_ScheduleObjectMaskHeader">
+    <part name="SoftLayer_Network_Storage_ScheduleObjectMask" type="tns:SoftLayer_Network_Storage_ScheduleObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Storage_ScheduleObjectFilterHeader">
+    <part name="SoftLayer_Network_Storage_ScheduleObjectFilter" type="tns:SoftLayer_Network_Storage_ScheduleObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Storage_SchedulePortType">
+    <documentation>Schedules can be created for select Storage services, such as iscsi. These schedules are used to perform various tasks such as scheduling snapshots or synchronizing replicants. 
+
+The schedule service can be used to create, edit, or delete a schedule. Schedules are defined by the properties associated with them to specify values such as the start date, interval, or end date of the schedule. </documentation>
+    <operation name="createObject">
+      <documentation>Create a nas volume schedule </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Delete a network storage schedule. '''This cannot be undone.''' ''deleteObject'' returns Boolean ''true'' on successful deletion or ''false'' if it was unable to remove a schedule; </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Edit a nas volume schedule </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getDayOfMonth">
+      <documentation>Retrieve the day of the month parameter of this schedule.</documentation>
+      <input message="tns:getDayOfMonth"/>
+      <output message="tns:getDayOfMonthResponse"/>
+    </operation>
+    <operation name="getDayOfWeek">
+      <documentation>Retrieve the day of the week parameter of this schedule.</documentation>
+      <input message="tns:getDayOfWeek"/>
+      <output message="tns:getDayOfWeekResponse"/>
+    </operation>
+    <operation name="getEvents">
+      <documentation>Retrieve events which have been created as the result of a schedule execution.</documentation>
+      <input message="tns:getEvents"/>
+      <output message="tns:getEventsResponse"/>
+    </operation>
+    <operation name="getHour">
+      <documentation>Retrieve the hour parameter of this schedule.</documentation>
+      <input message="tns:getHour"/>
+      <output message="tns:getHourResponse"/>
+    </operation>
+    <operation name="getMinute">
+      <documentation>Retrieve the minute parameter of this schedule.</documentation>
+      <input message="tns:getMinute"/>
+      <output message="tns:getMinuteResponse"/>
+    </operation>
+    <operation name="getMonthOfYear">
+      <documentation>Retrieve the month of the year parameter of this schedule.</documentation>
+      <input message="tns:getMonthOfYear"/>
+      <output message="tns:getMonthOfYearResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPartnership">
+      <documentation>Retrieve the associated partnership for a schedule.</documentation>
+      <input message="tns:getPartnership"/>
+      <output message="tns:getPartnershipResponse"/>
+    </operation>
+    <operation name="getProperties">
+      <documentation>Retrieve properties used for configuration of a schedule.</documentation>
+      <input message="tns:getProperties"/>
+      <output message="tns:getPropertiesResponse"/>
+    </operation>
+    <operation name="getRetentionCount">
+      <documentation>Retrieve the number of snapshots this schedule is configured to retain.</documentation>
+      <input message="tns:getRetentionCount"/>
+      <output message="tns:getRetentionCountResponse"/>
+    </operation>
+    <operation name="getSnapshots">
+      <documentation>Retrieve snapshots which have been created as the result of this schedule's execution.</documentation>
+      <input message="tns:getSnapshots"/>
+      <output message="tns:getSnapshotsResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve the type provides a standardized definition for a schedule.</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+    <operation name="getVolume">
+      <documentation>Retrieve the associated volume for a schedule.</documentation>
+      <input message="tns:getVolume"/>
+      <output message="tns:getVolumeResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Storage_ScheduleBinding" type="tns:SoftLayer_Network_Storage_SchedulePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDayOfMonth">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDayOfWeek">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEvents">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHour">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMinute">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMonthOfYear">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPartnership">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProperties">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRetentionCount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSnapshots">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVolume">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Storage_ScheduleService">
+    <port name="SoftLayer_Network_Storage_SchedulePort" binding="tns:SoftLayer_Network_Storage_ScheduleBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Schedule"/>
+    </port>
+  </service>
+</definitions>

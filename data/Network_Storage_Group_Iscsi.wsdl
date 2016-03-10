@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_Iscsi?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Storage_Group_IscsiInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Storage_Group_IscsiObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Storage_Group_Iscsi"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Storage_Group_IscsiInitParametersHeader">
+    <part name="SoftLayer_Network_Storage_Group_IscsiInitParameters" type="tns:SoftLayer_Network_Storage_Group_IscsiInitParameters"/>
+  </message>
+  <message name="addAllowedHost">
+    <part name="allowedHost" type="tns:SoftLayer_Network_Storage_Allowed_Host"/>
+  </message>
+  <message name="addAllowedHostResponse">
+    <part name="addAllowedHostReturn" type="xsd:boolean"/>
+  </message>
+  <message name="attachToVolume">
+    <part name="volume" type="tns:SoftLayer_Network_Storage"/>
+  </message>
+  <message name="attachToVolumeResponse">
+    <part name="attachToVolumeReturn" type="xsd:boolean"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Storage_Group_Iscsi"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Storage_Group_Iscsi"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Network_Storage_GroupArray"/>
+  </message>
+  <message name="getAllowedHosts"/>
+  <message name="getAllowedHostsResponse">
+    <part name="getAllowedHostsReturn" type="tns:SoftLayer_Network_Storage_Allowed_HostArray"/>
+  </message>
+  <message name="getAttachedVolumes"/>
+  <message name="getAttachedVolumesResponse">
+    <part name="getAttachedVolumesReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="getGroupType"/>
+  <message name="getGroupTypeResponse">
+    <part name="getGroupTypeReturn" type="tns:SoftLayer_Network_Storage_Group_Type"/>
+  </message>
+  <message name="getNetworkConnectionDetails"/>
+  <message name="getNetworkConnectionDetailsResponse">
+    <part name="getNetworkConnectionDetailsReturn" type="tns:SoftLayer_Container_Network_Storage_NetworkConnectionInformation"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Storage_Group_Iscsi"/>
+  </message>
+  <message name="getOsType"/>
+  <message name="getOsTypeResponse">
+    <part name="getOsTypeReturn" type="tns:SoftLayer_Network_Storage_Iscsi_OS_Type"/>
+  </message>
+  <message name="getServiceResource"/>
+  <message name="getServiceResourceResponse">
+    <part name="getServiceResourceReturn" type="tns:SoftLayer_Network_Service_Resource"/>
+  </message>
+  <message name="removeAllowedHost">
+    <part name="allowedHost" type="tns:SoftLayer_Network_Storage_Allowed_Host"/>
+  </message>
+  <message name="removeAllowedHostResponse">
+    <part name="removeAllowedHostReturn" type="xsd:boolean"/>
+  </message>
+  <message name="removeFromVolume">
+    <part name="volume" type="tns:SoftLayer_Network_Storage"/>
+  </message>
+  <message name="removeFromVolumeResponse">
+    <part name="removeFromVolumeReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Storage_Group_IscsiObjectMaskHeader">
+    <part name="SoftLayer_Network_Storage_Group_IscsiObjectMask" type="tns:SoftLayer_Network_Storage_Group_IscsiObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Storage_Group_IscsiObjectFilterHeader">
+    <part name="SoftLayer_Network_Storage_Group_IscsiObjectFilter" type="tns:SoftLayer_Network_Storage_Group_IscsiObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Storage_Group_IscsiPortType">
+    <documentation></documentation>
+    <operation name="addAllowedHost">
+      <documentation>Use this method to attach a SoftLayer_Network_Storage_Allowed_Host object to this group.  This will automatically enable access from this host to any SoftLayer_Network_Storage volumes currently attached to this group. </documentation>
+      <input message="tns:addAllowedHost"/>
+      <output message="tns:addAllowedHostResponse"/>
+    </operation>
+    <operation name="attachToVolume">
+      <documentation>Use this method to attach a SoftLayer_Network_Storage volume to this group.  This will automatically enable access to this volume for any SoftLayer_Network_Storage_Allowed_Host objects currently attached to this group. </documentation>
+      <input message="tns:attachToVolume"/>
+      <output message="tns:attachToVolumeResponse"/>
+    </operation>
+    <operation name="createObject">
+      <documentation></documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation></documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation></documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the SoftLayer_Account which owns this group.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAllObjects">
+      <documentation>Use this method to retrieve all network storage groups. </documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getAllowedHosts">
+      <documentation>Retrieve the allowed hosts list for this group.</documentation>
+      <input message="tns:getAllowedHosts"/>
+      <output message="tns:getAllowedHostsResponse"/>
+    </operation>
+    <operation name="getAttachedVolumes">
+      <documentation>Retrieve the network storage volumes this group is attached to.</documentation>
+      <input message="tns:getAttachedVolumes"/>
+      <output message="tns:getAttachedVolumesResponse"/>
+    </operation>
+    <operation name="getGroupType">
+      <documentation>Retrieve the type which defines this group.</documentation>
+      <input message="tns:getGroupType"/>
+      <output message="tns:getGroupTypeResponse"/>
+    </operation>
+    <operation name="getNetworkConnectionDetails">
+      <documentation>Use this method to retrieve network connection information for SoftLayer_Network_Storage_Allowed_Host objects within this group. </documentation>
+      <input message="tns:getNetworkConnectionDetails"/>
+      <output message="tns:getNetworkConnectionDetailsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOsType">
+      <documentation>Retrieve the OS Type this group is configured for.</documentation>
+      <input message="tns:getOsType"/>
+      <output message="tns:getOsTypeResponse"/>
+    </operation>
+    <operation name="getServiceResource">
+      <documentation>Retrieve the network resource this group is created on.</documentation>
+      <input message="tns:getServiceResource"/>
+      <output message="tns:getServiceResourceResponse"/>
+    </operation>
+    <operation name="removeAllowedHost">
+      <documentation>Use this method to remove a SoftLayer_Network_Storage_Allowed_Host object from this group.  This will automatically disable access from this host to any SoftLayer_Network_Storage volumes currently attached to this group. </documentation>
+      <input message="tns:removeAllowedHost"/>
+      <output message="tns:removeAllowedHostResponse"/>
+    </operation>
+    <operation name="removeFromVolume">
+      <documentation>Use this method to remove a SoftLayer_Network_Storage volume from this group.  This will automatically disable access to this volume for any SoftLayer_Network_Storage_Allowed_Host objects currently attached to this group. </documentation>
+      <input message="tns:removeFromVolume"/>
+      <output message="tns:removeFromVolumeResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Storage_Group_IscsiBinding" type="tns:SoftLayer_Network_Storage_Group_IscsiPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addAllowedHost">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="attachToVolume">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectMaskHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectFilterHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectMaskHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectFilterHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllowedHosts">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectMaskHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectFilterHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAttachedVolumes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectMaskHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectFilterHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGroupType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectMaskHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectFilterHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkConnectionDetails">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectMaskHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectFilterHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOsType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectMaskHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectFilterHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceResource">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectMaskHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiObjectFilterHeader" part="SoftLayer_Network_Storage_Group_IscsiObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeAllowedHost">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeFromVolume">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_IscsiAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Group_IscsiInitParametersHeader" part="SoftLayer_Network_Storage_Group_IscsiInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Storage_Group_IscsiService">
+    <port name="SoftLayer_Network_Storage_Group_IscsiPort" binding="tns:SoftLayer_Network_Storage_Group_IscsiBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Group_Iscsi"/>
+    </port>
+  </service>
+</definitions>

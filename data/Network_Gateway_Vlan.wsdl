@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Gateway_Vlan?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Gateway_VlanInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Gateway_VlanObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Gateway_Vlan"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Gateway_VlanInitParametersHeader">
+    <part name="SoftLayer_Network_Gateway_VlanInitParameters" type="tns:SoftLayer_Network_Gateway_VlanInitParameters"/>
+  </message>
+  <message name="bypass"/>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Gateway_Vlan"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Network_Gateway_Vlan"/>
+  </message>
+  <message name="createObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Network_Gateway_VlanArray"/>
+  </message>
+  <message name="createObjectsResponse">
+    <part name="createObjectsReturn" type="tns:SoftLayer_Network_Gateway_VlanArray"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Network_Gateway_VlanArray"/>
+  </message>
+  <message name="deleteObjectsResponse">
+    <part name="deleteObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getNetworkGateway"/>
+  <message name="getNetworkGatewayResponse">
+    <part name="getNetworkGatewayReturn" type="tns:SoftLayer_Network_Gateway"/>
+  </message>
+  <message name="getNetworkVlan"/>
+  <message name="getNetworkVlanResponse">
+    <part name="getNetworkVlanReturn" type="tns:SoftLayer_Network_Vlan"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Gateway_Vlan"/>
+  </message>
+  <message name="unbypass"/>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Gateway_VlanObjectMaskHeader">
+    <part name="SoftLayer_Network_Gateway_VlanObjectMask" type="tns:SoftLayer_Network_Gateway_VlanObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Gateway_VlanObjectFilterHeader">
+    <part name="SoftLayer_Network_Gateway_VlanObjectFilter" type="tns:SoftLayer_Network_Gateway_VlanObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Gateway_VlanPortType">
+    <documentation>An inside VLAN is a VLAN which is attached to a network gateway and can be routed or bypassed. </documentation>
+    <operation name="bypass">
+      <documentation>Start the asynchronous process to bypass/unroute the VLAN from this gateway. </documentation>
+      <input message="tns:bypass"/>
+    </operation>
+    <operation name="createObject">
+      <documentation>Create a new VLAN attachment. If the bypassFlag is false, this will also create an asynchronous process to route the VLAN through the gateway. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="createObjects">
+      <documentation>Create multiple new VLAN attachments. If the bypassFlag is false, this will also create an asynchronous process to route the VLANs through the gateway. </documentation>
+      <input message="tns:createObjects"/>
+      <output message="tns:createObjectsResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Start the asynchronous process to detach this VLANs from the gateway. </documentation>
+      <input message="tns:deleteObject"/>
+    </operation>
+    <operation name="deleteObjects">
+      <documentation>Detach several VLANs. This will not detach them right away, but rather start an asynchronous process to detach. </documentation>
+      <input message="tns:deleteObjects"/>
+      <output message="tns:deleteObjectsResponse"/>
+    </operation>
+    <operation name="getNetworkGateway">
+      <documentation>Retrieve the gateway this VLAN is attached to.</documentation>
+      <input message="tns:getNetworkGateway"/>
+      <output message="tns:getNetworkGatewayResponse"/>
+    </operation>
+    <operation name="getNetworkVlan">
+      <documentation>Retrieve the network VLAN record.</documentation>
+      <input message="tns:getNetworkVlan"/>
+      <output message="tns:getNetworkVlanResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="unbypass">
+      <documentation>Start the asynchronous process to route the VLAN to this gateway. </documentation>
+      <input message="tns:unbypass"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Gateway_VlanBinding" type="tns:SoftLayer_Network_Gateway_VlanPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="bypass">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Gateway_VlanAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanInitParametersHeader" part="SoftLayer_Network_Gateway_VlanInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Gateway_VlanAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanObjectMaskHeader" part="SoftLayer_Network_Gateway_VlanObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Gateway_VlanAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanObjectMaskHeader" part="SoftLayer_Network_Gateway_VlanObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Gateway_VlanAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanInitParametersHeader" part="SoftLayer_Network_Gateway_VlanInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="deleteObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Gateway_VlanAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkGateway">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Gateway_VlanAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanObjectMaskHeader" part="SoftLayer_Network_Gateway_VlanObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanObjectFilterHeader" part="SoftLayer_Network_Gateway_VlanObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanInitParametersHeader" part="SoftLayer_Network_Gateway_VlanInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlan">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Gateway_VlanAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanObjectMaskHeader" part="SoftLayer_Network_Gateway_VlanObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanObjectFilterHeader" part="SoftLayer_Network_Gateway_VlanObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanInitParametersHeader" part="SoftLayer_Network_Gateway_VlanInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Gateway_VlanAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanObjectMaskHeader" part="SoftLayer_Network_Gateway_VlanObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanObjectFilterHeader" part="SoftLayer_Network_Gateway_VlanObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanInitParametersHeader" part="SoftLayer_Network_Gateway_VlanInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unbypass">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Gateway_VlanAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Gateway_VlanInitParametersHeader" part="SoftLayer_Network_Gateway_VlanInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Gateway_VlanService">
+    <port name="SoftLayer_Network_Gateway_VlanPort" binding="tns:SoftLayer_Network_Gateway_VlanBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Gateway_Vlan"/>
+    </port>
+  </service>
+</definitions>

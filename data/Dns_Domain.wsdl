@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Dns_Domain?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Dns_DomainInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Dns_DomainObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Dns_Domain"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Dns_DomainInitParametersHeader">
+    <part name="SoftLayer_Dns_DomainInitParameters" type="tns:SoftLayer_Dns_DomainInitParameters"/>
+  </message>
+  <message name="createARecord">
+    <part name="host" type="xsd:string"/>
+    <part name="data" type="xsd:string"/>
+    <part name="ttl" type="xsd:int"/>
+  </message>
+  <message name="createARecordResponse">
+    <part name="createARecordReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord_AType"/>
+  </message>
+  <message name="createAaaaRecord">
+    <part name="host" type="xsd:string"/>
+    <part name="data" type="xsd:string"/>
+    <part name="ttl" type="xsd:int"/>
+  </message>
+  <message name="createAaaaRecordResponse">
+    <part name="createAaaaRecordReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord_AaaaType"/>
+  </message>
+  <message name="createCnameRecord">
+    <part name="host" type="xsd:string"/>
+    <part name="data" type="xsd:string"/>
+    <part name="ttl" type="xsd:int"/>
+  </message>
+  <message name="createCnameRecordResponse">
+    <part name="createCnameRecordReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord_CnameType"/>
+  </message>
+  <message name="createMxRecord">
+    <part name="host" type="xsd:string"/>
+    <part name="data" type="xsd:string"/>
+    <part name="ttl" type="xsd:int"/>
+    <part name="mxPriority" type="xsd:int"/>
+  </message>
+  <message name="createMxRecordResponse">
+    <part name="createMxRecordReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord_MxType"/>
+  </message>
+  <message name="createNsRecord">
+    <part name="host" type="xsd:string"/>
+    <part name="data" type="xsd:string"/>
+    <part name="ttl" type="xsd:int"/>
+  </message>
+  <message name="createNsRecordResponse">
+    <part name="createNsRecordReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord_NsType"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Dns_Domain"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Dns_Domain"/>
+  </message>
+  <message name="createObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Dns_DomainArray"/>
+  </message>
+  <message name="createObjectsResponse">
+    <part name="createObjectsReturn" type="tns:SoftLayer_Dns_DomainArray"/>
+  </message>
+  <message name="createPtrRecord">
+    <part name="ipAddress" type="xsd:string"/>
+    <part name="ptrRecord" type="xsd:string"/>
+    <part name="ttl" type="xsd:int"/>
+  </message>
+  <message name="createPtrRecordResponse">
+    <part name="createPtrRecordReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord"/>
+  </message>
+  <message name="createSpfRecord">
+    <part name="host" type="xsd:string"/>
+    <part name="data" type="xsd:string"/>
+    <part name="ttl" type="xsd:int"/>
+  </message>
+  <message name="createSpfRecordResponse">
+    <part name="createSpfRecordReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SpfType"/>
+  </message>
+  <message name="createTxtRecord">
+    <part name="host" type="xsd:string"/>
+    <part name="data" type="xsd:string"/>
+    <part name="ttl" type="xsd:int"/>
+  </message>
+  <message name="createTxtRecordResponse">
+    <part name="createTxtRecordReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord_TxtType"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getByDomainName">
+    <part name="name" type="xsd:string"/>
+  </message>
+  <message name="getByDomainNameResponse">
+    <part name="getByDomainNameReturn" type="tns:SoftLayer_Dns_DomainArray"/>
+  </message>
+  <message name="getManagedResourceFlag"/>
+  <message name="getManagedResourceFlagResponse">
+    <part name="getManagedResourceFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Dns_Domain"/>
+  </message>
+  <message name="getResourceRecords"/>
+  <message name="getResourceRecordsResponse">
+    <part name="getResourceRecordsReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecordArray"/>
+  </message>
+  <message name="getSecondary"/>
+  <message name="getSecondaryResponse">
+    <part name="getSecondaryReturn" type="tns:SoftLayer_Dns_Secondary"/>
+  </message>
+  <message name="getZoneFileContents"/>
+  <message name="getZoneFileContentsResponse">
+    <part name="getZoneFileContentsReturn" type="xsd:string"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Dns_DomainObjectMaskHeader">
+    <part name="SoftLayer_Dns_DomainObjectMask" type="tns:SoftLayer_Dns_DomainObjectMask"/>
+  </message>
+  <message name="SoftLayer_Dns_DomainObjectFilterHeader">
+    <part name="SoftLayer_Dns_DomainObjectFilter" type="tns:SoftLayer_Dns_DomainObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Dns_DomainPortType">
+    <documentation>SoftLayer customers have the option of hosting DNS domains on the SoftLayer name servers. Individual domains hosted on the SoftLayer name servers are handled through the SoftLayer_Dns_Domain service. 
+
+Domain changes are applied automatically by our nameservers, but changes may not be received by the other name servers on the Internet for 72 hours after your change. The SoftLayer_Dns_Domain service does not apply to customers who run their own nameservers on servers purchased from SoftLayer. 
+
+SoftLayer provides secondary DNS hosting services if you wish to maintain DNS records on your name server, but have records replicated on SoftLayer's name servers. Use the [[SoftLayer_Dns_Secondary]] service to manage secondary DNS zones and transfers. </documentation>
+    <operation name="createARecord">
+      <documentation>Create an A record on a SoftLayer domain. This is a shortcut method, meant to take the work out of creating a SoftLayer_Dns_Domain_ResourceRecord if you already have a domain record available. createARecord returns the newly created SoftLayer_Dns_Domain_ResourceRecord_AType. </documentation>
+      <input message="tns:createARecord"/>
+      <output message="tns:createARecordResponse"/>
+    </operation>
+    <operation name="createAaaaRecord">
+      <documentation>Create an AAAA record on a SoftLayer domain. This is a shortcut method, meant to take the work out of creating a SoftLayer_Dns_Domain_ResourceRecord if you already have a domain record available. createARecord returns the newly created SoftLayer_Dns_Domain_ResourceRecord_AaaaType. </documentation>
+      <input message="tns:createAaaaRecord"/>
+      <output message="tns:createAaaaRecordResponse"/>
+    </operation>
+    <operation name="createCnameRecord">
+      <documentation>Create a CNAME record on a SoftLayer domain. This is a shortcut method, meant to take the work out of creating a SoftLayer_Dns_Domain_ResourceRecord if you already have a domain record available. createCnameRecord returns the newly created SoftLayer_Dns_Domain_ResourceRecord_CnameType. </documentation>
+      <input message="tns:createCnameRecord"/>
+      <output message="tns:createCnameRecordResponse"/>
+    </operation>
+    <operation name="createMxRecord">
+      <documentation>Create an MX record on a SoftLayer domain. This is a shortcut method, meant to take the work out of creating a SoftLayer_Dns_Domain_ResourceRecord if you already have a domain record available. MX records are created with a default priority of 10. createMxRecord returns the newly created SoftLayer_Dns_Domain_ResourceRecord_MxType. </documentation>
+      <input message="tns:createMxRecord"/>
+      <output message="tns:createMxRecordResponse"/>
+    </operation>
+    <operation name="createNsRecord">
+      <documentation>Create an NS record on a SoftLayer domain. This is a shortcut method, meant to take the work out of creating a SoftLayer_Dns_Domain_ResourceRecord if you already have a domain record available. createNsRecord returns the newly created SoftLayer_Dns_Domain_ResourceRecord_NsType. </documentation>
+      <input message="tns:createNsRecord"/>
+      <output message="tns:createNsRecordResponse"/>
+    </operation>
+    <operation name="createObject">
+      <documentation>Create a new domain on the SoftLayer name servers. The SoftLayer_Dns_Domain object passed to this function must have at least one A or AAAA resource record. 
+
+createObject creates a default SOA record with the data: 
+* '''host''': &amp;quot;@&amp;quot;
+* '''data''': &amp;quot;ns1.softlayer.com.&amp;quot;
+* '''responsible person''': &amp;quot;root.[your domain name].&amp;quot;
+* '''expire''': 604800 seconds
+* '''refresh''': 3600 seconds
+* '''retry''': 300 seconds
+* '''minimum''': 3600 seconds
+
+
+If your new domain uses the .de top-level domain then SOA refresh is set to 10000 seconds, retry is set to 1800 seconds, and minimum to 10000 seconds. 
+
+If your domain doesn't contain NS resource records for ns1.softlayer.com or ns2.softlayer.com then ''createObject'' will create them for you. 
+
+''createObject'' returns a Boolean ''true'' on successful object creation or ''false'' if your domain was unable to be created.. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="createObjects">
+      <documentation>Create multiple domains on the SoftLayer name servers. Each domain record passed to ''createObjects'' follows the logic in the SoftLayer_Dns_Domain ''createObject'' method. </documentation>
+      <input message="tns:createObjects"/>
+      <output message="tns:createObjectsResponse"/>
+    </operation>
+    <operation name="createPtrRecord">
+      <documentation>setPtrRecordForIpAddress() sets a single reverse DNS record for a single IP address and returns the newly created or edited [[SoftLayer_Dns_Domain_ResourceRecord]] record. Currently this method only supports IPv4 addresses and performs no operation when given an IPv6 address. </documentation>
+      <input message="tns:createPtrRecord"/>
+      <output message="tns:createPtrRecordResponse"/>
+    </operation>
+    <operation name="createSpfRecord">
+      <documentation>Create an SPF record on a SoftLayer domain. This is a shortcut method, meant to take the work out of creating a SoftLayer_Dns_Domain_ResourceRecord if you already have a domain record available. createARecord returns the newly created SoftLayer_Dns_Domain_ResourceRecord_SpfType. </documentation>
+      <input message="tns:createSpfRecord"/>
+      <output message="tns:createSpfRecordResponse"/>
+    </operation>
+    <operation name="createTxtRecord">
+      <documentation>Create a TXT record on a SoftLayer domain. This is a shortcut method, meant to take the work out of creating a SoftLayer_Dns_Domain_ResourceRecord if you already have a domain record available. createARecord returns the newly created SoftLayer_Dns_Domain_ResourceRecord_TxtType. </documentation>
+      <input message="tns:createTxtRecord"/>
+      <output message="tns:createTxtRecordResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>deleteObject permanently removes a domain and all of it's associated resource records from the softlayer name servers. '''This cannot be undone.''' Be wary of running this method. If you remove a domain in error you will need to re-create it by creating a new SoftLayer_Dns_Domain object. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the SoftLayer customer account that owns a domain.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getByDomainName">
+      <documentation>Search for [[SoftLayer_Dns_Domain]] records by domain name. getByDomainName() performs an inclusive search for domain records, returning multiple records based on partial name matches. Use this method to locate domain records if you don't have access to their id numbers. </documentation>
+      <input message="tns:getByDomainName"/>
+      <output message="tns:getByDomainNameResponse"/>
+    </operation>
+    <operation name="getManagedResourceFlag">
+      <documentation>Retrieve a flag indicating that the dns domain record is a managed resource.</documentation>
+      <input message="tns:getManagedResourceFlag"/>
+      <output message="tns:getManagedResourceFlagResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Dns_Domain object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Dns_Domain service. You can only retrieve domains that are assigned to your SoftLayer account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getResourceRecords">
+      <documentation>Retrieve the individual records contained within a domain record. These include but are not limited to A, AAAA, MX, CTYPE, SPF and TXT records.</documentation>
+      <input message="tns:getResourceRecords"/>
+      <output message="tns:getResourceRecordsResponse"/>
+    </operation>
+    <operation name="getSecondary">
+      <documentation>Retrieve the secondary DNS record that defines this domain as being managed through zone transfers.</documentation>
+      <input message="tns:getSecondary"/>
+      <output message="tns:getSecondaryResponse"/>
+    </operation>
+    <operation name="getZoneFileContents">
+      <documentation>Return a SoftLayer hosted domain and resource records' data formatted as zone file. </documentation>
+      <input message="tns:getZoneFileContents"/>
+      <output message="tns:getZoneFileContentsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Dns_DomainBinding" type="tns:SoftLayer_Dns_DomainPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createARecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createAaaaRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createCnameRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createMxRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createNsRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createPtrRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createSpfRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createTxtRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectFilterHeader" part="SoftLayer_Dns_DomainObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getByDomainName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectFilterHeader" part="SoftLayer_Dns_DomainObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getManagedResourceFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectFilterHeader" part="SoftLayer_Dns_DomainObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectFilterHeader" part="SoftLayer_Dns_DomainObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getResourceRecords">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectFilterHeader" part="SoftLayer_Dns_DomainObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSecondary">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectMaskHeader" part="SoftLayer_Dns_DomainObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainObjectFilterHeader" part="SoftLayer_Dns_DomainObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getZoneFileContents">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_DomainAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_DomainInitParametersHeader" part="SoftLayer_Dns_DomainInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Dns_DomainService">
+    <port name="SoftLayer_Dns_DomainPort" binding="tns:SoftLayer_Dns_DomainBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Dns_Domain"/>
+    </port>
+  </service>
+</definitions>

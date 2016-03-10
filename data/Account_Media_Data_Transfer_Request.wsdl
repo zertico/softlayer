@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_Request?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Account_Media_Data_Transfer_Request"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader">
+    <part name="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" type="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParameters"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Account_Media_Data_Transfer_Request"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getActiveTickets"/>
+  <message name="getActiveTicketsResponse">
+    <part name="getActiveTicketsReturn" type="tns:SoftLayer_TicketArray"/>
+  </message>
+  <message name="getAllRequestStatuses"/>
+  <message name="getAllRequestStatusesResponse">
+    <part name="getAllRequestStatusesReturn" type="tns:SoftLayer_Account_Media_Data_Transfer_Request_StatusArray"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getCreateUser"/>
+  <message name="getCreateUserResponse">
+    <part name="getCreateUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="getMedia"/>
+  <message name="getMediaResponse">
+    <part name="getMediaReturn" type="tns:SoftLayer_Account_Media"/>
+  </message>
+  <message name="getModifyEmployee"/>
+  <message name="getModifyEmployeeResponse">
+    <part name="getModifyEmployeeReturn" type="tns:SoftLayer_User_Employee"/>
+  </message>
+  <message name="getModifyUser"/>
+  <message name="getModifyUserResponse">
+    <part name="getModifyUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Account_Media_Data_Transfer_Request"/>
+  </message>
+  <message name="getShipments"/>
+  <message name="getShipmentsResponse">
+    <part name="getShipmentsReturn" type="tns:SoftLayer_Account_ShipmentArray"/>
+  </message>
+  <message name="getStatus"/>
+  <message name="getStatusResponse">
+    <part name="getStatusReturn" type="tns:SoftLayer_Account_Media_Data_Transfer_Request_Status"/>
+  </message>
+  <message name="getTickets"/>
+  <message name="getTicketsResponse">
+    <part name="getTicketsReturn" type="tns:SoftLayer_TicketArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader">
+    <part name="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" type="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMask"/>
+  </message>
+  <message name="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader">
+    <part name="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" type="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Account_Media_Data_Transfer_RequestPortType">
+    <documentation>SoftLayer's Data Transfer Request Service allows users to send SoftLayer media devices such as DVDs, CDs, USB hard drives or USB flash/thumb drives. These media can be connected to SoftLayer servers and presented as ISCSI targets for use by the user. Currently, the initial usage period is two weeks and there is no charge for this service. Additional time for maintaining the media for continued may be purchased. Please contact sales for additional information regarding this. Once the usage period has elapsed. SoftLayer will disconnect the media and return it to the user. </documentation>
+    <operation name="editObject">
+      <documentation>Edit the properties of a data transfer request record by passing in a modified instance of a SoftLayer_Account_Media_Data_Transfer_Request object. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account to which the request belongs.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getActiveTickets">
+      <documentation>Retrieve the active tickets that are attached to the data transfer request.</documentation>
+      <input message="tns:getActiveTickets"/>
+      <output message="tns:getActiveTicketsResponse"/>
+    </operation>
+    <operation name="getAllRequestStatuses">
+      <documentation>Retrieves a list of all the possible statuses to which a request may be set.</documentation>
+      <input message="tns:getAllRequestStatuses"/>
+      <output message="tns:getAllRequestStatusesResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the billing item for the original request.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getCreateUser">
+      <documentation>Retrieve the customer user who created the request.</documentation>
+      <input message="tns:getCreateUser"/>
+      <output message="tns:getCreateUserResponse"/>
+    </operation>
+    <operation name="getMedia">
+      <documentation>Retrieve the media of the request.</documentation>
+      <input message="tns:getMedia"/>
+      <output message="tns:getMediaResponse"/>
+    </operation>
+    <operation name="getModifyEmployee">
+      <documentation>Retrieve the employee who last modified the request.</documentation>
+      <input message="tns:getModifyEmployee"/>
+      <output message="tns:getModifyEmployeeResponse"/>
+    </operation>
+    <operation name="getModifyUser">
+      <documentation>Retrieve the customer user who last modified the request.</documentation>
+      <input message="tns:getModifyUser"/>
+      <output message="tns:getModifyUserResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getShipments">
+      <documentation>Retrieve the shipments of the request.</documentation>
+      <input message="tns:getShipments"/>
+      <output message="tns:getShipmentsResponse"/>
+    </operation>
+    <operation name="getStatus">
+      <documentation>Retrieve the status of the request.</documentation>
+      <input message="tns:getStatus"/>
+      <output message="tns:getStatusResponse"/>
+    </operation>
+    <operation name="getTickets">
+      <documentation>Retrieve all tickets that are attached to the data transfer request.</documentation>
+      <input message="tns:getTickets"/>
+      <output message="tns:getTicketsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Account_Media_Data_Transfer_RequestBinding" type="tns:SoftLayer_Account_Media_Data_Transfer_RequestPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getActiveTickets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllRequestStatuses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCreateUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMedia">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getModifyEmployee">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getModifyUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getShipments">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTickets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectMaskHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestObjectFilterHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Media_Data_Transfer_RequestInitParametersHeader" part="SoftLayer_Account_Media_Data_Transfer_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Account_Media_Data_Transfer_RequestService">
+    <port name="SoftLayer_Account_Media_Data_Transfer_RequestPort" binding="tns:SoftLayer_Account_Media_Data_Transfer_RequestBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Account_Media_Data_Transfer_Request"/>
+    </port>
+  </service>
+</definitions>

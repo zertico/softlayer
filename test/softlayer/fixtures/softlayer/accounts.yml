@@ -1,0 +1,49 @@
+---
+Softlayer::Account:
+  SL000000:
+    attributes:
+      account_managed_resources_flag: false
+      account_status_id: 1001
+      address1: "Address 1"
+      address2: "Address 2"
+      allowed_pptp_vpn_quantity: 1
+      brand_id: 11111
+      city: "City"
+      claimed_tax_exempt_tx_flag: false
+      company_name: "Test Mock Example"
+      country: "BR"
+      create_date: <%= Date.parse("Tue, 28 Apr 2000 14:52:36 -0500") %>
+      email: "fernandes@zertico.com"
+      first_name: "Celso"
+      id: 111111
+      is_reseller: 0
+      last_name: "Fernandes"
+      late_fee_protection_flag: nil
+      modify_date: <%= Date.parse("Tue, 28 Apr 2000 14:55:39 -0500") %>
+      office_phone: "+1 (800) 111 1111"
+      postal_code: "11111"
+      state: "OT"
+      status_date: nil
+    relationships:
+      domains:
+      - type: Softlayer::Dns::Domain
+        id: zertico
+      - type: Softlayer::Dns::Domain
+        id: horus
+      owned_brands:
+      - type: Softlayer::Brand
+        id: zertico
+      users:
+      - type: Softlayer::User::Customer
+        id: customer1
+      - type: Softlayer::User::Customer
+        id: customer2
+      master_user:
+        type: Softlayer::User::Customer
+        id: customer1
+      tickets:
+        type: Softlayer::Ticket
+        id: ticket1
+      account_status:
+        type: Softlayer::Account::Status
+        id: status1

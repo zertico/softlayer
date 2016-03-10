@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Security_Certificate_Request?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Security_Certificate_RequestInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Security_Certificate_RequestObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Security_Certificate_Request"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Security_Certificate_RequestInitParametersHeader">
+    <part name="SoftLayer_Security_Certificate_RequestInitParameters" type="tns:SoftLayer_Security_Certificate_RequestInitParameters"/>
+  </message>
+  <message name="cancelSslOrder"/>
+  <message name="cancelSslOrderResponse">
+    <part name="cancelSslOrderReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAdministratorEmailDomains">
+    <part name="commonName" type="xsd:string"/>
+  </message>
+  <message name="getAdministratorEmailDomainsResponse">
+    <part name="getAdministratorEmailDomainsReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getAdministratorEmailPrefixes"/>
+  <message name="getAdministratorEmailPrefixesResponse">
+    <part name="getAdministratorEmailPrefixesReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getCertificateAuthorityName"/>
+  <message name="getCertificateAuthorityNameResponse">
+    <part name="getCertificateAuthorityNameReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Security_Certificate_Request"/>
+  </message>
+  <message name="getOrder"/>
+  <message name="getOrderResponse">
+    <part name="getOrderReturn" type="tns:SoftLayer_Billing_Order"/>
+  </message>
+  <message name="getOrderItem"/>
+  <message name="getOrderItemResponse">
+    <part name="getOrderItemReturn" type="tns:SoftLayer_Billing_Order_Item"/>
+  </message>
+  <message name="getPreviousOrderData"/>
+  <message name="getPreviousOrderDataResponse">
+    <part name="getPreviousOrderDataReturn" type="tns:SoftLayer_Container_Product_Order_Security_Certificate"/>
+  </message>
+  <message name="getSslCertificateRequests">
+    <part name="accountId" type="xsd:int"/>
+  </message>
+  <message name="getSslCertificateRequestsResponse">
+    <part name="getSslCertificateRequestsReturn" type="tns:SoftLayer_Security_Certificate_RequestArray"/>
+  </message>
+  <message name="getStatus"/>
+  <message name="getStatusResponse">
+    <part name="getStatusReturn" type="tns:SoftLayer_Security_Certificate_Request_Status"/>
+  </message>
+  <message name="resendEmail">
+    <part name="emailType" type="xsd:string"/>
+  </message>
+  <message name="resendEmailResponse">
+    <part name="resendEmailReturn" type="xsd:boolean"/>
+  </message>
+  <message name="validateCsr">
+    <part name="csr" type="xsd:string"/>
+    <part name="validityMonths" type="xsd:int"/>
+    <part name="itemId" type="xsd:int"/>
+    <part name="serverType" type="xsd:string"/>
+  </message>
+  <message name="validateCsrResponse">
+    <part name="validateCsrReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Security_Certificate_RequestObjectMaskHeader">
+    <part name="SoftLayer_Security_Certificate_RequestObjectMask" type="tns:SoftLayer_Security_Certificate_RequestObjectMask"/>
+  </message>
+  <message name="SoftLayer_Security_Certificate_RequestObjectFilterHeader">
+    <part name="SoftLayer_Security_Certificate_RequestObjectFilter" type="tns:SoftLayer_Security_Certificate_RequestObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Security_Certificate_RequestPortType">
+    <documentation>SoftLayer_Security_Certificate_Request holds your SSL certificate request data. This data is used to place an SSL certificate order with a Certificate Authority. 
+
+To create an SSL certificate order, pass a completed [[SoftLayer_Container_Product_Order_Security_Certificate|SSL order container]] to the [[SoftLayer_Product_Order::placeOrder|SoftLayer ordering service]]. </documentation>
+    <operation name="cancelSslOrder">
+      <documentation>Cancels a pending SSL certificate order at Certificate Authority </documentation>
+      <input message="tns:cancelSslOrder"/>
+      <output message="tns:cancelSslOrderResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account to which a SSL certificate request belongs.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAdministratorEmailDomains">
+      <documentation>Gets the email domains that can be used to validate a certificate to a domain. </documentation>
+      <input message="tns:getAdministratorEmailDomains"/>
+      <output message="tns:getAdministratorEmailDomainsResponse"/>
+    </operation>
+    <operation name="getAdministratorEmailPrefixes">
+      <documentation>Gets the email accounts that can be used to validate a certificate to a domain. </documentation>
+      <input message="tns:getAdministratorEmailPrefixes"/>
+      <output message="tns:getAdministratorEmailPrefixesResponse"/>
+    </operation>
+    <operation name="getCertificateAuthorityName">
+      <documentation>Retrieve the Certificate Authority name</documentation>
+      <input message="tns:getCertificateAuthorityName"/>
+      <output message="tns:getCertificateAuthorityNameResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOrder">
+      <documentation>Retrieve the order contains the information related to a SSL certificate request.</documentation>
+      <input message="tns:getOrder"/>
+      <output message="tns:getOrderResponse"/>
+    </operation>
+    <operation name="getOrderItem">
+      <documentation>Retrieve the associated order item for this SSL certificate request.</documentation>
+      <input message="tns:getOrderItem"/>
+      <output message="tns:getOrderItemResponse"/>
+    </operation>
+    <operation name="getPreviousOrderData">
+      <documentation>Returns previous SSL certificate order data. You can use this data for to place a renewal order for a completed SSL certificate. </documentation>
+      <input message="tns:getPreviousOrderData"/>
+      <output message="tns:getPreviousOrderDataResponse"/>
+    </operation>
+    <operation name="getSslCertificateRequests">
+      <documentation>Returns all the SSL certificate requests. </documentation>
+      <input message="tns:getSslCertificateRequests"/>
+      <output message="tns:getSslCertificateRequestsResponse"/>
+    </operation>
+    <operation name="getStatus">
+      <documentation>Retrieve the status of a SSL certificate request.</documentation>
+      <input message="tns:getStatus"/>
+      <output message="tns:getStatusResponse"/>
+    </operation>
+    <operation name="resendEmail">
+      <documentation>A Certificate Authority sends out various emails to your domain administrator or your technical contact. Use this service to re-send these emails if you did not receive them initially. </documentation>
+      <input message="tns:resendEmail"/>
+      <output message="tns:resendEmailResponse"/>
+    </operation>
+    <operation name="validateCsr">
+      <documentation>Allows you to validate a Certificate Signing Request (CSR) required for an SSL certificate with the certificate authority (CA).  This method sends the CSR, the length of the subscription in months, the certificate type, and the server type for validation against requirements of the CA.  Returns true if valid. 
+
+More information on CSR generation can be found at: [http://en.wikipedia.org/wiki/Certificate_signing_request Wikipedia] [https://knowledge.verisign.com/support/ssl-certificates-support/index?page=content&amp;amp;id=AR235&amp;amp;actp=LIST&amp;amp;viewlocale=en_US VeriSign] </documentation>
+      <input message="tns:validateCsr"/>
+      <output message="tns:validateCsrResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Security_Certificate_RequestBinding" type="tns:SoftLayer_Security_Certificate_RequestPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="cancelSslOrder">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestInitParametersHeader" part="SoftLayer_Security_Certificate_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectMaskHeader" part="SoftLayer_Security_Certificate_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectFilterHeader" part="SoftLayer_Security_Certificate_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestInitParametersHeader" part="SoftLayer_Security_Certificate_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAdministratorEmailDomains">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAdministratorEmailPrefixes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCertificateAuthorityName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectMaskHeader" part="SoftLayer_Security_Certificate_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectFilterHeader" part="SoftLayer_Security_Certificate_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestInitParametersHeader" part="SoftLayer_Security_Certificate_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectMaskHeader" part="SoftLayer_Security_Certificate_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectFilterHeader" part="SoftLayer_Security_Certificate_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestInitParametersHeader" part="SoftLayer_Security_Certificate_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOrder">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectMaskHeader" part="SoftLayer_Security_Certificate_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectFilterHeader" part="SoftLayer_Security_Certificate_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestInitParametersHeader" part="SoftLayer_Security_Certificate_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOrderItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectMaskHeader" part="SoftLayer_Security_Certificate_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectFilterHeader" part="SoftLayer_Security_Certificate_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestInitParametersHeader" part="SoftLayer_Security_Certificate_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPreviousOrderData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestInitParametersHeader" part="SoftLayer_Security_Certificate_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSslCertificateRequests">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectMaskHeader" part="SoftLayer_Security_Certificate_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectFilterHeader" part="SoftLayer_Security_Certificate_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectMaskHeader" part="SoftLayer_Security_Certificate_RequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestObjectFilterHeader" part="SoftLayer_Security_Certificate_RequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestInitParametersHeader" part="SoftLayer_Security_Certificate_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="resendEmail">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_RequestInitParametersHeader" part="SoftLayer_Security_Certificate_RequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="validateCsr">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_RequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Security_Certificate_RequestService">
+    <port name="SoftLayer_Security_Certificate_RequestPort" binding="tns:SoftLayer_Security_Certificate_RequestBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Security_Certificate_Request"/>
+    </port>
+  </service>
+</definitions>

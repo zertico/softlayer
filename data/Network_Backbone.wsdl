@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Backbone?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_BackboneInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_BackboneObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Backbone"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_BackboneInitParametersHeader">
+    <part name="SoftLayer_Network_BackboneInitParameters" type="tns:SoftLayer_Network_BackboneInitParameters"/>
+  </message>
+  <message name="getAllBackbones"/>
+  <message name="getAllBackbonesResponse">
+    <part name="getAllBackbonesReturn" type="tns:SoftLayer_Network_BackboneArray"/>
+  </message>
+  <message name="getBackbonesForLocationName">
+    <part name="locationName" type="xsd:string"/>
+  </message>
+  <message name="getBackbonesForLocationNameResponse">
+    <part name="getBackbonesForLocationNameReturn" type="tns:SoftLayer_Network_BackboneArray"/>
+  </message>
+  <message name="getGraphImage"/>
+  <message name="getGraphImageResponse">
+    <part name="getGraphImageReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getHealth"/>
+  <message name="getHealthResponse">
+    <part name="getHealthReturn" type="xsd:string"/>
+  </message>
+  <message name="getLocation"/>
+  <message name="getLocationResponse">
+    <part name="getLocationReturn" type="tns:SoftLayer_Location"/>
+  </message>
+  <message name="getNetworkComponent"/>
+  <message name="getNetworkComponentResponse">
+    <part name="getNetworkComponentReturn" type="tns:SoftLayer_Network_Component"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Backbone"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_BackboneObjectMaskHeader">
+    <part name="SoftLayer_Network_BackboneObjectMask" type="tns:SoftLayer_Network_BackboneObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_BackboneObjectFilterHeader">
+    <part name="SoftLayer_Network_BackboneObjectFilter" type="tns:SoftLayer_Network_BackboneObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_BackbonePortType">
+    <documentation>A SoftLayer_Network_Backbone represents a single backbone connection from SoftLayer to the public Internet, from the Internet to the SoftLayer private network, or a link that connects the private networks between SoftLayer's datacenters. The SoftLayer_Network_Backbone service is unique in that it is not referenced by any of the other SoftLayer API services. </documentation>
+    <operation name="getAllBackbones">
+      <documentation>Retrieve a list of all SoftLayer backbone connections. Use this method if you need all backbones or don't know the id number of a specific backbone. </documentation>
+      <input message="tns:getAllBackbones"/>
+      <output message="tns:getAllBackbonesResponse"/>
+    </operation>
+    <operation name="getBackbonesForLocationName">
+      <documentation>Retrieve a list of all SoftLayer backbone connections for a location name. </documentation>
+      <input message="tns:getBackbonesForLocationName"/>
+      <output message="tns:getBackbonesForLocationNameResponse"/>
+    </operation>
+    <operation name="getGraphImage">
+      <documentation>Retrieve a graph of a SoftLayer backbone's last 24 hours of activity. getGraphImage returns a PNG image measuring 827 pixels by 293 pixels.</documentation>
+      <input message="tns:getGraphImage"/>
+      <output message="tns:getGraphImageResponse"/>
+    </operation>
+    <operation name="getHealth">
+      <documentation>Retrieve a backbone's status.</documentation>
+      <input message="tns:getHealth"/>
+      <output message="tns:getHealthResponse"/>
+    </operation>
+    <operation name="getLocation">
+      <documentation>Retrieve which of the SoftLayer datacenters a backbone is connected to.</documentation>
+      <input message="tns:getLocation"/>
+      <output message="tns:getLocationResponse"/>
+    </operation>
+    <operation name="getNetworkComponent">
+      <documentation>Retrieve a backbone's primary network component.</documentation>
+      <input message="tns:getNetworkComponent"/>
+      <output message="tns:getNetworkComponentResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>Retrieve an individual SoftLayer_Network_Backbone record. Use the getAllBackbones() method to retrieve a list of all SoftLayer network backbones.</documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_BackboneBinding" type="tns:SoftLayer_Network_BackbonePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllBackbones">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_BackboneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectMaskHeader" part="SoftLayer_Network_BackboneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectFilterHeader" part="SoftLayer_Network_BackboneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBackbonesForLocationName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_BackboneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectMaskHeader" part="SoftLayer_Network_BackboneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGraphImage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_BackboneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneInitParametersHeader" part="SoftLayer_Network_BackboneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHealth">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_BackboneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectMaskHeader" part="SoftLayer_Network_BackboneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectFilterHeader" part="SoftLayer_Network_BackboneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneInitParametersHeader" part="SoftLayer_Network_BackboneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLocation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_BackboneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectMaskHeader" part="SoftLayer_Network_BackboneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectFilterHeader" part="SoftLayer_Network_BackboneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneInitParametersHeader" part="SoftLayer_Network_BackboneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkComponent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_BackboneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectMaskHeader" part="SoftLayer_Network_BackboneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectFilterHeader" part="SoftLayer_Network_BackboneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneInitParametersHeader" part="SoftLayer_Network_BackboneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_BackboneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectMaskHeader" part="SoftLayer_Network_BackboneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneObjectFilterHeader" part="SoftLayer_Network_BackboneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_BackboneInitParametersHeader" part="SoftLayer_Network_BackboneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_BackboneService">
+    <port name="SoftLayer_Network_BackbonePort" binding="tns:SoftLayer_Network_BackboneBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Backbone"/>
+    </port>
+  </service>
+</definitions>

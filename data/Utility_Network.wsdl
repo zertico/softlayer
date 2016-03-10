@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Utility_Network?xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="isPingable">
+    <part name="address" type="xsd:string"/>
+  </message>
+  <message name="isPingableResponse">
+    <part name="isPingableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="nsLookup">
+    <part name="address" type="xsd:string"/>
+    <part name="type" type="xsd:string"/>
+  </message>
+  <message name="nsLookupResponse">
+    <part name="nsLookupReturn" type="xsd:string"/>
+  </message>
+  <message name="ping">
+    <part name="address" type="xsd:string"/>
+  </message>
+  <message name="pingResponse">
+    <part name="pingReturn" type="xsd:string"/>
+  </message>
+  <message name="traceroute">
+    <part name="address" type="xsd:string"/>
+  </message>
+  <message name="tracerouteResponse">
+    <part name="tracerouteReturn" type="xsd:string"/>
+  </message>
+  <message name="whois">
+    <part name="address" type="xsd:string"/>
+  </message>
+  <message name="whoisResponse">
+    <part name="whoisReturn" type="xsd:string"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Utility_NetworkPortType">
+    <documentation>The SoftLayer_Utility_Network service allows users to send network diagnostic requests from SoftLayer's application servers to a given host on the Internet. </documentation>
+    <operation name="isPingable">
+      <documentation>Send a single ICMP ping from SoftLayer's application servers to the given IP address or hostname and return whether or not the remote host was pingable. Pinging is a good way to determine if a particular host is alive on the Internet. A host that's unreachable to ping may not necessarily be down, as many providers employ filtering to deny ICMP traffic. Pinging a hostname instead of an IP address may fail if DNS lookup for that hostname also fails. isPingable() differs from [[SoftLayer_Utility_Network::ping|ping()]] in that it returns whether an address was pingable while ping() retrieves the full results of the ping command. </documentation>
+      <input message="tns:isPingable"/>
+      <output message="tns:isPingableResponse"/>
+    </operation>
+    <operation name="nsLookup">
+      <documentation>A method used to return the nameserver information for a given address</documentation>
+      <input message="tns:nsLookup"/>
+      <output message="tns:nsLookupResponse"/>
+    </operation>
+    <operation name="ping">
+      <documentation>Send a single ICMP ping from SoftLayer's application servers to the given IP address or hostname and return the raw results of that command. The returned result is similar to the result received from running the command `ping -c 1` from a command shell. Pinging is a good way to determine if a particular host is alive on the Internet. A host that's unreachable to ping may not necessarily be down, as many providers employ filtering to deny ICMP traffic. Running ping on a hostname instead of an IP address may fail if DNS lookup for that hostname also fails. </documentation>
+      <input message="tns:ping"/>
+      <output message="tns:pingResponse"/>
+    </operation>
+    <operation name="traceroute">
+      <documentation>Perform an ICMP traceroute from SoftLayer's application servers to the given IP address or hostname and return the raw results of that command. The returned result is similar to the result received from running the command `traceroute` from a UNIX command shell. A traceroute sends small diagnostic packets to every hop along the network route to a given host. Traceroutes are useful tools for debugging network connectivity to a host on the Internet. Routing loops and intermediate hop timeouts help to narrow down problematic providers along the network chain. Some providers elect to deny ICMP on their networks, which may cause a traceroute to show skewed results. Furthermore, many providers assign a low priority to traceroutes in their infrastructure which may lead to inaccurate hop response times. Running traceroute on a hostname instead of an IP address may fail if DNS lookup for that hostname also fails. </documentation>
+      <input message="tns:traceroute"/>
+      <output message="tns:tracerouteResponse"/>
+    </operation>
+    <operation name="whois">
+      <documentation>Perform a WHOIS lookup from SoftLayer's application servers on the given IP address or hostname and return the raw results of that command. The returned result is similar to the result received from running the command `whois` from a UNIX command shell. A WHOIS lookup queries a host's registrar to retrieve domain registrant information including registration date, expiry date, and the administrative, technical, billing, and abuse contacts responsible for a domain. WHOIS lookups are useful for determining a physical contact responsible for a particular domain. WHOIS lookups are also useful for determining domain availability. Running a WHOIS lookup on an IP address queries ARIN for that IP block's ownership, and is helpful for determining a physical entity responsible for a certain IP address. </documentation>
+      <input message="tns:whois"/>
+      <output message="tns:whoisResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Utility_NetworkBinding" type="tns:SoftLayer_Utility_NetworkPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="isPingable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Utility_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="nsLookup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Utility_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="ping">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Utility_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="traceroute">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Utility_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="whois">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Utility_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Utility_NetworkService">
+    <port name="SoftLayer_Utility_NetworkPort" binding="tns:SoftLayer_Utility_NetworkBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Utility_Network"/>
+    </port>
+  </service>
+</definitions>

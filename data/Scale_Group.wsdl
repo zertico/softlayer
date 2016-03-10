@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Scale_Group?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Scale_GroupInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Scale_GroupObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Scale_Group"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Scale_GroupInitParametersHeader">
+    <part name="SoftLayer_Scale_GroupInitParameters" type="tns:SoftLayer_Scale_GroupInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Scale_Group"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Scale_Group"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Scale_Group"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="forceDeleteObject"/>
+  <message name="forceDeleteObjectResponse">
+    <part name="forceDeleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAvailableHourlyInstanceLimit"/>
+  <message name="getAvailableHourlyInstanceLimitResponse">
+    <part name="getAvailableHourlyInstanceLimitReturn" type="xsd:int"/>
+  </message>
+  <message name="getAvailableRegionalGroups"/>
+  <message name="getAvailableRegionalGroupsResponse">
+    <part name="getAvailableRegionalGroupsReturn" type="tns:SoftLayer_Location_GroupArray"/>
+  </message>
+  <message name="getLoadBalancers"/>
+  <message name="getLoadBalancersResponse">
+    <part name="getLoadBalancersReturn" type="tns:SoftLayer_Scale_LoadBalancerArray"/>
+  </message>
+  <message name="getLogs"/>
+  <message name="getLogsResponse">
+    <part name="getLogsReturn" type="tns:SoftLayer_Scale_Group_LogArray"/>
+  </message>
+  <message name="getNetworkVlans"/>
+  <message name="getNetworkVlansResponse">
+    <part name="getNetworkVlansReturn" type="tns:SoftLayer_Scale_Network_VlanArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Scale_Group"/>
+  </message>
+  <message name="getPolicies"/>
+  <message name="getPoliciesResponse">
+    <part name="getPoliciesReturn" type="tns:SoftLayer_Scale_PolicyArray"/>
+  </message>
+  <message name="getRegionalGroup"/>
+  <message name="getRegionalGroupResponse">
+    <part name="getRegionalGroupReturn" type="tns:SoftLayer_Location_Group_Regional"/>
+  </message>
+  <message name="getStatus"/>
+  <message name="getStatusResponse">
+    <part name="getStatusReturn" type="tns:SoftLayer_Scale_Group_Status"/>
+  </message>
+  <message name="getTerminationPolicy"/>
+  <message name="getTerminationPolicyResponse">
+    <part name="getTerminationPolicyReturn" type="tns:SoftLayer_Scale_Termination_Policy"/>
+  </message>
+  <message name="getVirtualGuestAssets"/>
+  <message name="getVirtualGuestAssetsResponse">
+    <part name="getVirtualGuestAssetsReturn" type="tns:SoftLayer_Scale_Asset_Virtual_GuestArray"/>
+  </message>
+  <message name="getVirtualGuestMembers"/>
+  <message name="getVirtualGuestMembersResponse">
+    <part name="getVirtualGuestMembersReturn" type="tns:SoftLayer_Scale_Member_Virtual_GuestArray"/>
+  </message>
+  <message name="resume"/>
+  <message name="scale">
+    <part name="delta" type="xsd:int"/>
+  </message>
+  <message name="scaleResponse">
+    <part name="scaleReturn" type="tns:SoftLayer_Scale_MemberArray"/>
+  </message>
+  <message name="scaleTo">
+    <part name="number" type="xsd:int"/>
+  </message>
+  <message name="scaleToResponse">
+    <part name="scaleToReturn" type="tns:SoftLayer_Scale_MemberArray"/>
+  </message>
+  <message name="suspend"/>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Scale_GroupObjectMaskHeader">
+    <part name="SoftLayer_Scale_GroupObjectMask" type="tns:SoftLayer_Scale_GroupObjectMask"/>
+  </message>
+  <message name="SoftLayer_Scale_GroupObjectFilterHeader">
+    <part name="SoftLayer_Scale_GroupObjectFilter" type="tns:SoftLayer_Scale_GroupObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Scale_GroupPortType">
+    <documentation>A scale group can contain a number of guest members which can fluctuate up and down, staying within a defined range, manually or automatically based on policies given. Groups are set of VLANs to be placed behind. Groups can also have static hardware/guests pinned to the group. These static resources can be used to effect things like moving averages for policy triggers but are not counted as group members and are not subject to automatic reclaim. </documentation>
+    <operation name="createObject">
+      <documentation></documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation></documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation></documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="forceDeleteObject">
+      <documentation></documentation>
+      <input message="tns:forceDeleteObject"/>
+      <output message="tns:forceDeleteObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account for this scaling group.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAvailableHourlyInstanceLimit">
+      <documentation></documentation>
+      <input message="tns:getAvailableHourlyInstanceLimit"/>
+      <output message="tns:getAvailableHourlyInstanceLimitResponse"/>
+    </operation>
+    <operation name="getAvailableRegionalGroups">
+      <documentation></documentation>
+      <input message="tns:getAvailableRegionalGroups"/>
+      <output message="tns:getAvailableRegionalGroupsResponse"/>
+    </operation>
+    <operation name="getLoadBalancers">
+      <documentation>Retrieve collection of load balancers for this auto scale group.</documentation>
+      <input message="tns:getLoadBalancers"/>
+      <output message="tns:getLoadBalancersResponse"/>
+    </operation>
+    <operation name="getLogs">
+      <documentation>Retrieve collection of log entries for this group.</documentation>
+      <input message="tns:getLogs"/>
+      <output message="tns:getLogsResponse"/>
+    </operation>
+    <operation name="getNetworkVlans">
+      <documentation>Retrieve collection of VLANs for this auto scale group. VLANs are optional. This can contain a public or private VLAN or both. When a single VLAN for a public/private type is given it can be a non-purchased VLAN only if the minimumMemberCount on the group is &amp;gt;= 1. This can also contain any number of public/private purchased VLANs and members are staggered across them when scaled up.</documentation>
+      <input message="tns:getNetworkVlans"/>
+      <output message="tns:getNetworkVlansResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPolicies">
+      <documentation>Retrieve collection of policies for this group. This can be empty.</documentation>
+      <input message="tns:getPolicies"/>
+      <output message="tns:getPoliciesResponse"/>
+    </operation>
+    <operation name="getRegionalGroup">
+      <documentation>Retrieve the regional group for this scale group.</documentation>
+      <input message="tns:getRegionalGroup"/>
+      <output message="tns:getRegionalGroupResponse"/>
+    </operation>
+    <operation name="getStatus">
+      <documentation>Retrieve the status for this scale group.</documentation>
+      <input message="tns:getStatus"/>
+      <output message="tns:getStatusResponse"/>
+    </operation>
+    <operation name="getTerminationPolicy">
+      <documentation>Retrieve the termination policy for this scaling group.</documentation>
+      <input message="tns:getTerminationPolicy"/>
+      <output message="tns:getTerminationPolicyResponse"/>
+    </operation>
+    <operation name="getVirtualGuestAssets">
+      <documentation>Retrieve collection of guests that have been pinned to this group. Guest assets are only used for certain trigger checks such as resource watches. They do not count towards the auto scaling guest counts of this group in anyway and are never automatically added or removed.</documentation>
+      <input message="tns:getVirtualGuestAssets"/>
+      <output message="tns:getVirtualGuestAssetsResponse"/>
+    </operation>
+    <operation name="getVirtualGuestMembers">
+      <documentation>Retrieve collection of guests that have been scaled with the group. When this group is active, the count of guests here is guaranteed to be between minimumMemberCount and maximumMemberCount inclusively.</documentation>
+      <input message="tns:getVirtualGuestMembers"/>
+      <output message="tns:getVirtualGuestMembersResponse"/>
+    </operation>
+    <operation name="resume">
+      <documentation></documentation>
+      <input message="tns:resume"/>
+    </operation>
+    <operation name="scale">
+      <documentation></documentation>
+      <input message="tns:scale"/>
+      <output message="tns:scaleResponse"/>
+    </operation>
+    <operation name="scaleTo">
+      <documentation></documentation>
+      <input message="tns:scaleTo"/>
+      <output message="tns:scaleToResponse"/>
+    </operation>
+    <operation name="suspend">
+      <documentation></documentation>
+      <input message="tns:suspend"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Scale_GroupBinding" type="tns:SoftLayer_Scale_GroupPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="forceDeleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAvailableHourlyInstanceLimit">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAvailableRegionalGroups">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLoadBalancers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLogs">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlans">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPolicies">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegionalGroup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTerminationPolicy">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVirtualGuestAssets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVirtualGuestMembers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectFilterHeader" part="SoftLayer_Scale_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="resume">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="scale">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="scaleTo">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupObjectMaskHeader" part="SoftLayer_Scale_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="suspend">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_GroupInitParametersHeader" part="SoftLayer_Scale_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Scale_GroupService">
+    <port name="SoftLayer_Scale_GroupPort" binding="tns:SoftLayer_Scale_GroupBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Scale_Group"/>
+    </port>
+  </service>
+</definitions>

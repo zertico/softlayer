@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Ticket_Subject?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Ticket_SubjectInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Ticket_SubjectObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Ticket_Subject"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Ticket_SubjectInitParametersHeader">
+    <part name="SoftLayer_Ticket_SubjectInitParameters" type="tns:SoftLayer_Ticket_SubjectInitParameters"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Ticket_SubjectArray"/>
+  </message>
+  <message name="getGroup"/>
+  <message name="getGroupResponse">
+    <part name="getGroupReturn" type="tns:SoftLayer_Ticket_Group"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Ticket_Subject"/>
+  </message>
+  <message name="getTopFiveKnowledgeLayerQuestions"/>
+  <message name="getTopFiveKnowledgeLayerQuestionsResponse">
+    <part name="getTopFiveKnowledgeLayerQuestionsReturn" type="tns:SoftLayer_Container_KnowledgeLayer_QuestionAnswerArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Ticket_SubjectObjectMaskHeader">
+    <part name="SoftLayer_Ticket_SubjectObjectMask" type="tns:SoftLayer_Ticket_SubjectObjectMask"/>
+  </message>
+  <message name="SoftLayer_Ticket_SubjectObjectFilterHeader">
+    <part name="SoftLayer_Ticket_SubjectObjectFilter" type="tns:SoftLayer_Ticket_SubjectObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Ticket_SubjectPortType">
+    <documentation>Every standard support ticket submitted to SoftLayer contains a relationship to a pre-determined subject which populates that ticket's title. The SoftLayer_Ticket_Subject service retrieves these subjects. These ticket subjects also determine which department a ticket is opened for. </documentation>
+    <operation name="getAllObjects">
+      <documentation>Retrieve all possible ticket subjects. The SoftLayer customer portal uses this method in the add standard support ticket form.</documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getGroup">
+      <documentation></documentation>
+      <input message="tns:getGroup"/>
+      <output message="tns:getGroupResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Ticket_Subject object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Ticket_Subject service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getTopFiveKnowledgeLayerQuestions">
+      <documentation>SoftLayer maintains relationships between the generic subjects for standard administration and the top five commonly asked questions about these subjects. getTopFileKnowledgeLayerQuestions() retrieves the top five questions and answers from the SoftLayer KnowledgeLayer related to the given ticket subject. </documentation>
+      <input message="tns:getTopFiveKnowledgeLayerQuestions"/>
+      <output message="tns:getTopFiveKnowledgeLayerQuestionsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Ticket_SubjectBinding" type="tns:SoftLayer_Ticket_SubjectPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_SubjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_SubjectObjectMaskHeader" part="SoftLayer_Ticket_SubjectObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_SubjectObjectFilterHeader" part="SoftLayer_Ticket_SubjectObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGroup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_SubjectAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Ticket_SubjectObjectMaskHeader" part="SoftLayer_Ticket_SubjectObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_SubjectObjectFilterHeader" part="SoftLayer_Ticket_SubjectObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_SubjectInitParametersHeader" part="SoftLayer_Ticket_SubjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_SubjectAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Ticket_SubjectObjectMaskHeader" part="SoftLayer_Ticket_SubjectObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_SubjectObjectFilterHeader" part="SoftLayer_Ticket_SubjectObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_SubjectInitParametersHeader" part="SoftLayer_Ticket_SubjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopFiveKnowledgeLayerQuestions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_SubjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Ticket_SubjectInitParametersHeader" part="SoftLayer_Ticket_SubjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Ticket_SubjectService">
+    <port name="SoftLayer_Ticket_SubjectPort" binding="tns:SoftLayer_Ticket_SubjectBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Ticket_Subject"/>
+    </port>
+  </service>
+</definitions>

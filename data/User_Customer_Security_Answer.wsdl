@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_Security_Answer?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_User_Customer_Security_AnswerInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_User_Customer_Security_AnswerObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_User_Customer_Security_Answer"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_User_Customer_Security_AnswerInitParametersHeader">
+    <part name="SoftLayer_User_Customer_Security_AnswerInitParameters" type="tns:SoftLayer_User_Customer_Security_AnswerInitParameters"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_User_Customer_Security_Answer"/>
+  </message>
+  <message name="getQuestion"/>
+  <message name="getQuestionResponse">
+    <part name="getQuestionReturn" type="tns:SoftLayer_User_Security_Question"/>
+  </message>
+  <message name="getUser"/>
+  <message name="getUserResponse">
+    <part name="getUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_User_Customer_Security_AnswerObjectMaskHeader">
+    <part name="SoftLayer_User_Customer_Security_AnswerObjectMask" type="tns:SoftLayer_User_Customer_Security_AnswerObjectMask"/>
+  </message>
+  <message name="SoftLayer_User_Customer_Security_AnswerObjectFilterHeader">
+    <part name="SoftLayer_User_Customer_Security_AnswerObjectFilter" type="tns:SoftLayer_User_Customer_Security_AnswerObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_User_Customer_Security_AnswerPortType">
+    <documentation>An account's user have security answers for secondary security measures. These questions/answers can be found during login and password update. These questions/answers are also needed for password reset. </documentation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_User_Customer_Security_Answer object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_User_Customer_Security_Answer service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getQuestion">
+      <documentation>Retrieve the question the security answer is associated with.</documentation>
+      <input message="tns:getQuestion"/>
+      <output message="tns:getQuestionResponse"/>
+    </operation>
+    <operation name="getUser">
+      <documentation>Retrieve the user who the security answer belongs to.</documentation>
+      <input message="tns:getUser"/>
+      <output message="tns:getUserResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_User_Customer_Security_AnswerBinding" type="tns:SoftLayer_User_Customer_Security_AnswerPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Security_AnswerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_Security_AnswerObjectMaskHeader" part="SoftLayer_User_Customer_Security_AnswerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Security_AnswerObjectFilterHeader" part="SoftLayer_User_Customer_Security_AnswerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Security_AnswerInitParametersHeader" part="SoftLayer_User_Customer_Security_AnswerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getQuestion">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Security_AnswerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_Security_AnswerObjectMaskHeader" part="SoftLayer_User_Customer_Security_AnswerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Security_AnswerObjectFilterHeader" part="SoftLayer_User_Customer_Security_AnswerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Security_AnswerInitParametersHeader" part="SoftLayer_User_Customer_Security_AnswerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_Security_AnswerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_Security_AnswerObjectMaskHeader" part="SoftLayer_User_Customer_Security_AnswerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Security_AnswerObjectFilterHeader" part="SoftLayer_User_Customer_Security_AnswerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Security_AnswerInitParametersHeader" part="SoftLayer_User_Customer_Security_AnswerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_User_Customer_Security_AnswerService">
+    <port name="SoftLayer_User_Customer_Security_AnswerPort" binding="tns:SoftLayer_User_Customer_Security_AnswerBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_Security_Answer"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpyware?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Software_Component_AntivirusSpywareInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Software_Component_AntivirusSpywareObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Software_Component_AntivirusSpyware"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader">
+    <part name="SoftLayer_Software_Component_AntivirusSpywareInitParameters" type="tns:SoftLayer_Software_Component_AntivirusSpywareInitParameters"/>
+  </message>
+  <message name="getAverageInstallationDuration"/>
+  <message name="getAverageInstallationDurationResponse">
+    <part name="getAverageInstallationDurationReturn" type="xsd:unsignedLong"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getHardware"/>
+  <message name="getHardwareResponse">
+    <part name="getHardwareReturn" type="tns:SoftLayer_Hardware"/>
+  </message>
+  <message name="getLicenseFile"/>
+  <message name="getLicenseFileResponse">
+    <part name="getLicenseFileReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Software_Component_AntivirusSpyware"/>
+  </message>
+  <message name="getPasswordHistory"/>
+  <message name="getPasswordHistoryResponse">
+    <part name="getPasswordHistoryReturn" type="tns:SoftLayer_Software_Component_Password_HistoryArray"/>
+  </message>
+  <message name="getPasswords"/>
+  <message name="getPasswordsResponse">
+    <part name="getPasswordsReturn" type="tns:SoftLayer_Software_Component_PasswordArray"/>
+  </message>
+  <message name="getSoftwareDescription"/>
+  <message name="getSoftwareDescriptionResponse">
+    <part name="getSoftwareDescriptionReturn" type="tns:SoftLayer_Software_Description"/>
+  </message>
+  <message name="getSoftwareLicense"/>
+  <message name="getSoftwareLicenseResponse">
+    <part name="getSoftwareLicenseReturn" type="tns:SoftLayer_Software_License"/>
+  </message>
+  <message name="getVendorSetUpConfiguration"/>
+  <message name="getVendorSetUpConfigurationResponse">
+    <part name="getVendorSetUpConfigurationReturn" type="xsd:string"/>
+  </message>
+  <message name="getVirtualGuest"/>
+  <message name="getVirtualGuestResponse">
+    <part name="getVirtualGuestReturn" type="tns:SoftLayer_Virtual_Guest"/>
+  </message>
+  <message name="updateAntivirusSpywarePolicy">
+    <part name="newPolicy" type="xsd:string"/>
+  </message>
+  <message name="updateAntivirusSpywarePolicyResponse">
+    <part name="updateAntivirusSpywarePolicyReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader">
+    <part name="SoftLayer_Software_Component_AntivirusSpywareObjectMask" type="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMask"/>
+  </message>
+  <message name="SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader">
+    <part name="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" type="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Software_Component_AntivirusSpywarePortType">
+    <documentation>This object specifies a specific type of Software Component:  An Anti-virus/spyware instance. </documentation>
+    <operation name="getAverageInstallationDuration">
+      <documentation>Retrieve the average amount of time that a software component takes to install.</documentation>
+      <input message="tns:getAverageInstallationDuration"/>
+      <output message="tns:getAverageInstallationDurationResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the billing item for a software component.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getHardware">
+      <documentation>Retrieve the hardware this Software Component is installed upon.</documentation>
+      <input message="tns:getHardware"/>
+      <output message="tns:getHardwareResponse"/>
+    </operation>
+    <operation name="getLicenseFile">
+      <documentation>Attempt to retrieve the file associated with a software component.  If the software component does not support downloading license files an exception will be thrown. </documentation>
+      <input message="tns:getLicenseFile"/>
+      <output message="tns:getLicenseFileResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPasswordHistory">
+      <documentation>Retrieve history Records for Software Passwords.</documentation>
+      <input message="tns:getPasswordHistory"/>
+      <output message="tns:getPasswordHistoryResponse"/>
+    </operation>
+    <operation name="getPasswords">
+      <documentation>Retrieve username/Password pairs used for access to this Software Installation.</documentation>
+      <input message="tns:getPasswords"/>
+      <output message="tns:getPasswordsResponse"/>
+    </operation>
+    <operation name="getSoftwareDescription">
+      <documentation>Retrieve the Software Description of this Software Component.</documentation>
+      <input message="tns:getSoftwareDescription"/>
+      <output message="tns:getSoftwareDescriptionResponse"/>
+    </operation>
+    <operation name="getSoftwareLicense">
+      <documentation>Retrieve the License this Software Component uses.</documentation>
+      <input message="tns:getSoftwareLicense"/>
+      <output message="tns:getSoftwareLicenseResponse"/>
+    </operation>
+    <operation name="getVendorSetUpConfiguration">
+      <documentation></documentation>
+      <input message="tns:getVendorSetUpConfiguration"/>
+      <output message="tns:getVendorSetUpConfigurationResponse"/>
+    </operation>
+    <operation name="getVirtualGuest">
+      <documentation>Retrieve the virtual guest this software component is installed upon.</documentation>
+      <input message="tns:getVirtualGuest"/>
+      <output message="tns:getVirtualGuestResponse"/>
+    </operation>
+    <operation name="updateAntivirusSpywarePolicy">
+      <documentation>Update an anti-virus/spyware policy. The policy options that it accepts are the following: 
+*1 - Minimal
+*2 - Relaxed
+*3 - Default
+*4 - High
+*5 - Ultimate</documentation>
+      <input message="tns:updateAntivirusSpywarePolicy"/>
+      <output message="tns:updateAntivirusSpywarePolicyResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Software_Component_AntivirusSpywareBinding" type="tns:SoftLayer_Software_Component_AntivirusSpywarePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAverageInstallationDuration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLicenseFile">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPasswordHistory">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPasswords">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSoftwareDescription">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSoftwareLicense">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVendorSetUpConfiguration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVirtualGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectMaskHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareObjectFilterHeader" part="SoftLayer_Software_Component_AntivirusSpywareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateAntivirusSpywarePolicy">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpywareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_Component_AntivirusSpywareInitParametersHeader" part="SoftLayer_Software_Component_AntivirusSpywareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Software_Component_AntivirusSpywareService">
+    <port name="SoftLayer_Software_Component_AntivirusSpywarePort" binding="tns:SoftLayer_Software_Component_AntivirusSpywareBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Software_Component_AntivirusSpyware"/>
+    </port>
+  </service>
+</definitions>

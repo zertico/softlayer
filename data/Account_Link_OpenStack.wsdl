@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStack?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Account_Link_OpenStackInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Account_Link_OpenStackObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Account_Link_OpenStack"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Account_Link_OpenStackInitParametersHeader">
+    <part name="SoftLayer_Account_Link_OpenStackInitParameters" type="tns:SoftLayer_Account_Link_OpenStackInitParameters"/>
+  </message>
+  <message name="createOSDomain">
+    <part name="request" type="tns:SoftLayer_Account_Link_OpenStack_LinkRequest"/>
+  </message>
+  <message name="createOSDomainResponse">
+    <part name="createOSDomainReturn" type="tns:SoftLayer_Account_Link_OpenStack_DomainCreationDetails"/>
+  </message>
+  <message name="createOSProject">
+    <part name="request" type="tns:SoftLayer_Account_Link_OpenStack_LinkRequest"/>
+  </message>
+  <message name="createOSProjectResponse">
+    <part name="createOSProjectReturn" type="tns:SoftLayer_Account_Link_OpenStack_ProjectCreationDetails"/>
+  </message>
+  <message name="deleteOSDomain">
+    <part name="domainId" type="xsd:string"/>
+  </message>
+  <message name="deleteOSDomainResponse">
+    <part name="deleteOSDomainReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteOSProject">
+    <part name="projectId" type="xsd:string"/>
+  </message>
+  <message name="deleteOSProjectResponse">
+    <part name="deleteOSProjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getOSProject">
+    <part name="projectId" type="xsd:string"/>
+  </message>
+  <message name="getOSProjectResponse">
+    <part name="getOSProjectReturn" type="tns:SoftLayer_Account_Link_OpenStack_ProjectDetails"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Account_Link_OpenStack"/>
+  </message>
+  <message name="getServiceProvider"/>
+  <message name="getServiceProviderResponse">
+    <part name="getServiceProviderReturn" type="tns:SoftLayer_Service_Provider"/>
+  </message>
+  <message name="listOSProjects"/>
+  <message name="listOSProjectsResponse">
+    <part name="listOSProjectsReturn" type="tns:SoftLayer_Account_Link_OpenStack_ProjectDetailsArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Account_Link_OpenStackObjectMaskHeader">
+    <part name="SoftLayer_Account_Link_OpenStackObjectMask" type="tns:SoftLayer_Account_Link_OpenStackObjectMask"/>
+  </message>
+  <message name="SoftLayer_Account_Link_OpenStackObjectFilterHeader">
+    <part name="SoftLayer_Account_Link_OpenStackObjectFilter" type="tns:SoftLayer_Account_Link_OpenStackObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Account_Link_OpenStackPortType">
+    <documentation>Service for linking account to OpenStack project </documentation>
+    <operation name="createOSDomain">
+      <documentation></documentation>
+      <input message="tns:createOSDomain"/>
+      <output message="tns:createOSDomainResponse"/>
+    </operation>
+    <operation name="createOSProject">
+      <documentation></documentation>
+      <input message="tns:createOSProject"/>
+      <output message="tns:createOSProjectResponse"/>
+    </operation>
+    <operation name="deleteOSDomain">
+      <documentation></documentation>
+      <input message="tns:deleteOSDomain"/>
+      <output message="tns:deleteOSDomainResponse"/>
+    </operation>
+    <operation name="deleteOSProject">
+      <documentation></documentation>
+      <input message="tns:deleteOSProject"/>
+      <output message="tns:deleteOSProjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>deleteObject permanently removes an account link and all of it's associated keystone data (including users for the associated project). '''This cannot be undone.''' Be wary of running this method. If you remove an account link in error you will need to re-create it by creating a new SoftLayer_Account_Link_OpenStack object. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation></documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getOSProject">
+      <documentation></documentation>
+      <input message="tns:getOSProject"/>
+      <output message="tns:getOSProjectResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getServiceProvider">
+      <documentation></documentation>
+      <input message="tns:getServiceProvider"/>
+      <output message="tns:getServiceProviderResponse"/>
+    </operation>
+    <operation name="listOSProjects">
+      <documentation></documentation>
+      <input message="tns:listOSProjects"/>
+      <output message="tns:listOSProjectsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Account_Link_OpenStackBinding" type="tns:SoftLayer_Account_Link_OpenStackPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createOSDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createOSProject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteOSDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteOSProject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackInitParametersHeader" part="SoftLayer_Account_Link_OpenStackInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackObjectMaskHeader" part="SoftLayer_Account_Link_OpenStackObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackObjectFilterHeader" part="SoftLayer_Account_Link_OpenStackObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackInitParametersHeader" part="SoftLayer_Account_Link_OpenStackInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOSProject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackObjectMaskHeader" part="SoftLayer_Account_Link_OpenStackObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackObjectFilterHeader" part="SoftLayer_Account_Link_OpenStackObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackInitParametersHeader" part="SoftLayer_Account_Link_OpenStackInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceProvider">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackObjectMaskHeader" part="SoftLayer_Account_Link_OpenStackObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackObjectFilterHeader" part="SoftLayer_Account_Link_OpenStackObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_OpenStackInitParametersHeader" part="SoftLayer_Account_Link_OpenStackInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="listOSProjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStackAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Account_Link_OpenStackService">
+    <port name="SoftLayer_Account_Link_OpenStackPort" binding="tns:SoftLayer_Account_Link_OpenStackBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Account_Link_OpenStack"/>
+    </port>
+  </service>
+</definitions>

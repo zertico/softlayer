@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader">
+    <part name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters"/>
+  </message>
+  <message name="getGraphImage">
+    <part name="graphType" type="xsd:string"/>
+    <part name="metric" type="xsd:string"/>
+  </message>
+  <message name="getGraphImageResponse">
+    <part name="getGraphImageReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group"/>
+  </message>
+  <message name="getRoutingMethod"/>
+  <message name="getRoutingMethodResponse">
+    <part name="getRoutingMethodReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Routing_Method"/>
+  </message>
+  <message name="getRoutingType"/>
+  <message name="getRoutingTypeResponse">
+    <part name="getRoutingTypeReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Routing_Type"/>
+  </message>
+  <message name="getServiceReferences"/>
+  <message name="getServiceReferencesResponse">
+    <part name="getServiceReferencesReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group_CrossReferenceArray"/>
+  </message>
+  <message name="getServices"/>
+  <message name="getServicesResponse">
+    <part name="getServicesReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceArray"/>
+  </message>
+  <message name="getVirtualServers"/>
+  <message name="getVirtualServersResponse">
+    <part name="getVirtualServersReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualServerArray"/>
+  </message>
+  <message name="kickAllConnections"/>
+  <message name="kickAllConnectionsResponse">
+    <part name="kickAllConnectionsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMaskHeader">
+    <part name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilterHeader">
+    <part name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupPortType">
+    <documentation></documentation>
+    <operation name="getGraphImage">
+      <documentation>Get the graph image for a load balancer service group based on the supplied graph type and metric.  The only available graph type currently is: 'connections', and the available metrics are: 'day', 'week' and 'month'. 
+
+This method returns the raw binary image data. </documentation>
+      <input message="tns:getGraphImage"/>
+      <output message="tns:getGraphImageResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getRoutingMethod">
+      <documentation></documentation>
+      <input message="tns:getRoutingMethod"/>
+      <output message="tns:getRoutingMethodResponse"/>
+    </operation>
+    <operation name="getRoutingType">
+      <documentation></documentation>
+      <input message="tns:getRoutingType"/>
+      <output message="tns:getRoutingTypeResponse"/>
+    </operation>
+    <operation name="getServiceReferences">
+      <documentation></documentation>
+      <input message="tns:getServiceReferences"/>
+      <output message="tns:getServiceReferencesResponse"/>
+    </operation>
+    <operation name="getServices">
+      <documentation></documentation>
+      <input message="tns:getServices"/>
+      <output message="tns:getServicesResponse"/>
+    </operation>
+    <operation name="getVirtualServers">
+      <documentation></documentation>
+      <input message="tns:getVirtualServers"/>
+      <output message="tns:getVirtualServersResponse"/>
+    </operation>
+    <operation name="kickAllConnections">
+      <documentation></documentation>
+      <input message="tns:kickAllConnections"/>
+      <output message="tns:kickAllConnectionsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupBinding" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getGraphImage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRoutingMethod">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRoutingType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceReferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServices">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVirtualServers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="kickAllConnections">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupService">
+    <port name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupPort" binding="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group"/>
+    </port>
+  </service>
+</definitions>

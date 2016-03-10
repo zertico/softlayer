@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Check?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Check"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParametersHeader">
+    <part name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParameters" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParameters"/>
+  </message>
+  <message name="getAttributes"/>
+  <message name="getAttributesResponse">
+    <part name="getAttributesReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_AttributeArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Check"/>
+  </message>
+  <message name="getScaleLoadBalancers"/>
+  <message name="getScaleLoadBalancersResponse">
+    <part name="getScaleLoadBalancersReturn" type="tns:SoftLayer_Scale_LoadBalancerArray"/>
+  </message>
+  <message name="getServices"/>
+  <message name="getServicesResponse">
+    <part name="getServicesReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceArray"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Check_Type"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMaskHeader">
+    <part name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMask" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilterHeader">
+    <part name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilter" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckPortType">
+    <documentation></documentation>
+    <operation name="getAttributes">
+      <documentation></documentation>
+      <input message="tns:getAttributes"/>
+      <output message="tns:getAttributesResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getScaleLoadBalancers">
+      <documentation>Retrieve collection of scale load balancers that use this health check.</documentation>
+      <input message="tns:getScaleLoadBalancers"/>
+      <output message="tns:getScaleLoadBalancersResponse"/>
+    </operation>
+    <operation name="getServices">
+      <documentation></documentation>
+      <input message="tns:getServices"/>
+      <output message="tns:getServicesResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation></documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckBinding" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAttributes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getScaleLoadBalancers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServices">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckService">
+    <port name="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckPort" binding="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Check"/>
+    </port>
+  </service>
+</definitions>

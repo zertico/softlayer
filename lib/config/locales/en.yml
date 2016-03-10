@@ -1,0 +1,33 @@
+en:
+  softlayer:
+    errors:
+      messages:
+        missing_config:
+          message: "Missing configuration."
+          summary: "SoftLayer requires an API login ID and key."
+          resolution: "Create a SoftLayer merchant account at http://www.softlayer.com.
+            Add a website to your SoftLayer account. This will generate an API ID and 
+            API Key that you will need to use the service. Configure the SoftLayer
+            gem. For example, add the following to `config/initializers/softlayer.rb`.\n
+            \_\_SoftLayer.configure do |config|\n
+            \_\_\_config.username = 'your_softlayer_username'\n
+            \_\_\_config.api_key = 'your_softlayer_api_key'
+            \_\_end\n"
+        missing_config_option:
+          message: "Missing configuration option: %{name}."
+          summary: "A configuration option was not provided when configuring SoftLayer."
+          resolution: "Review your `Softlayer.configure` code. Are you using an environment
+          variable that has not been set?"
+        soap_error:
+          message: "%{message}"
+          summary: "The server returned a %{code} error."
+          resolution: "Review the parameters passed to the request."
+        unexpected_soap_response:
+          message: "Expected a value for `%{key}` in `%{chain}` in the SoftLayer response."
+          summary: "SoftLayer returned an unexpected response: `%{raw}`."
+          resolution: "This is possibly a bug in the tax_cloud gem.\n
+          Please report it in https://github.com/fernandes/softlayer/issues."
+        api_error:
+          message: "%{message}"
+          summary: "The SoftLayer server returned an error in the response: `%{raw}`"
+          resolution: "Check the request parameters."

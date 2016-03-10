@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_NetworkInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_NetworkObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_NetworkInitParametersHeader">
+    <part name="SoftLayer_NetworkInitParameters" type="tns:SoftLayer_NetworkInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Network"/>
+  </message>
+  <message name="createSubnet">
+    <part name="subnet" type="tns:SoftLayer_Network_Subnet"/>
+    <part name="pod" type="tns:SoftLayer_Network_Pod"/>
+  </message>
+  <message name="createSubnetResponse">
+    <part name="createSubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteSubnet">
+    <part name="subnet" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="deleteSubnetResponse">
+    <part name="deleteSubnetReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_NetworkArray"/>
+  </message>
+  <message name="getCidr"/>
+  <message name="getCidrResponse">
+    <part name="getCidrReturn" type="xsd:int"/>
+  </message>
+  <message name="getName"/>
+  <message name="getNameResponse">
+    <part name="getNameReturn" type="xsd:string"/>
+  </message>
+  <message name="getNetworkIdentifier"/>
+  <message name="getNetworkIdentifierResponse">
+    <part name="getNetworkIdentifierReturn" type="xsd:string"/>
+  </message>
+  <message name="getNotes"/>
+  <message name="getNotesResponse">
+    <part name="getNotesReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network"/>
+  </message>
+  <message name="getSubnets"/>
+  <message name="getSubnetsResponse">
+    <part name="getSubnetsReturn" type="tns:SoftLayer_Network_SubnetArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_NetworkObjectMaskHeader">
+    <part name="SoftLayer_NetworkObjectMask" type="tns:SoftLayer_NetworkObjectMask"/>
+  </message>
+  <message name="SoftLayer_NetworkObjectFilterHeader">
+    <part name="SoftLayer_NetworkObjectFilter" type="tns:SoftLayer_NetworkObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_NetworkPortType">
+    <documentation>A SoftLayer_Network represents a container for which subnetting is managed by the Account and not SoftLayer's automated network management. It provides an isolated network segment on the backend network in which a portion of RFC 1918 IP address space must be used. This feature replaces SoftLayer's automated network management on the backend network, but retains automated management on the frontend network. Thus, public IP assignment will remain dynamic and on-demand. This service and related operations are only available to Accounts with no existing network or compute resources. 
+
+A Network consists of a root subnet specification which defines the bounds of all Subnets within the Network. Subnets created within the Network must not exceed the Network's bounds nor overlap with one another. However, multiple Networks may specify identical or overlapping root subnets. 
+
+The following constraints apply to Network creation: 
+* The Network's size must only be between CIDR /16 and /24, inclusive.
+* The Network's IP address space must be within that defined by RFC 1918.
+* All RFC 1918 is available, but only a subset is available per Network.
+The following range of blocks are valid: 
+* 192.168.0.0 - 192.168.255.0 /16 - 24
+* 172.16.0.0 - 172.31.255.0 /16 - 24
+* 10.0.0.0 - 10.255.255.0 /16 - 24
+
+
+Management of a Network occurs entirely via the SoftLayer_Network service. This includes the addition and removal of Subnets. Subnets are required before compute resources may be provisioned. A subnet defines the portion of a Network that is available within a [[SoftLayer_Network_Pod|Pods]]. 
+
+See [[SoftLayer_Network/createObject]] and [[SoftLayer_Network/createSubnet]]. </documentation>
+    <operation name="createObject">
+      <documentation>Provide a template containing the following properties to create a Network: 
+* networkIdentifier
+* cidr
+* name
+
+
+The ``networkIdentifier`` must be an IP address within RFC 1918 blocks: 
+* 192.168.0.0/16
+* 172.16.0.0/12
+* 10.0.0.0/8
+The ``cidr`` must be an integer between 16 and 24, inclusive. The ``networkIdentifier``/``cidr`` must represent a valid subnet specification. The ``name`` must not be empty, but otherwise can contain up to 50 characters of user specified information to identify the Network. 
+
+The subnet specification of the Network bounds the IP address space which can be utilized and constrains the creation of Subnets within the Network. 
+
+Example networkIdentifier/CIDR combinations: 
+* 192.168.0.0/16
+* 192.168.0.0/17
+* 172.16.0.0/16
+* 172.31.0.0/16
+* 10.0.0.0/16
+* 10.255.0.0/16</documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="createSubnet">
+      <documentation>Creation of a Subnet is necessary prior to provisioning compute resources into a Network. In order to create a Subnet, both a [[SoftLayer_Network_Subnet|Subnet]] and [[SoftLayer_Network_Pod|Pod]] must be specified. The Pod determines where the Subnet will be available for use by compute resources. 
+
+Provide a Subnet template containing the following properties: 
+* networkIdentifier
+* cidr
+The ``networkIdentifier`` must represent an IP address within that specified by the Network. The ``cidr`` must be an integer between 24 and 29, inclusive, and represent a subnet size smaller than the Network's. The ``networkIdentifier``/``cidr`` must represent a valid subnet specification. 
+
+Provide a Pod template containing the following property: 
+* name
+The ``name`` must represent a valid Pod e.g. sjc01.pod02. See [[SoftLayer_Network_Pod (type)]] for more information. 
+
+The following constraints apply to Subnet creation: 
+* It must fit within the bounds of the Network.
+* It must be no larger than /24 and no smaller than /29.
+* Its size must not equal that of the Network. This implies that a fully
+utilized Network will have a minimum of two Subnets. 
+* The Pod must support the ability to create Networks by having the
+SUPPORTS_CUSTOMER_DEFINED_NETWORK capability. See [[SoftLayer_Network_Pod/getCapabilities]]. </documentation>
+      <input message="tns:createSubnet"/>
+      <output message="tns:createSubnetResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Remove the specified Network. This operation may only be completed if the Network has no Subnets. Attempting to remove a Network with subnets will result in an error. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="deleteSubnet">
+      <documentation>```Currently not supported. If attempted and if the subnet would be removed, an error will be presented.``` 
+
+Remove a Subnet from the Network. Specification of the Subnet to be removed may be done by specifying the ``ID`` property, or by specifying both the ``networkIdentifier`` and ``cidr`` properties on the Subnet template parameter. If the ``ID`` is provided, the ``networkIdentifier``/``cidr`` will be ignored. 
+
+Subnets may only be removed when no compute resources are utilizing them. </documentation>
+      <input message="tns:deleteSubnet"/>
+      <output message="tns:deleteSubnetResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Modify either the ``name`` or ``notes`` properties of a Network. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAllObjects">
+      <documentation></documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getCidr">
+      <documentation>Retrieve the size of the Network specified in CIDR notation. Specified in conjunction with the ``networkIdentifier`` to describe the bounding subnet size for the Network. Required for creation. See [[SoftLayer_Network/createObject]] documentation for creation details.</documentation>
+      <input message="tns:getCidr"/>
+      <output message="tns:getCidrResponse"/>
+    </operation>
+    <operation name="getName">
+      <documentation>Retrieve a name for the Network. This is required during creation of a Network and is entirely user defined.</documentation>
+      <input message="tns:getName"/>
+      <output message="tns:getNameResponse"/>
+    </operation>
+    <operation name="getNetworkIdentifier">
+      <documentation>Retrieve the starting IP address of the Network. Specified in conjunction with the ``cidr`` property to specify the bounding IP address space for the Network. Required for creation. See [[SoftLayer_Network/createObject]] documentation for creation details.</documentation>
+      <input message="tns:getNetworkIdentifier"/>
+      <output message="tns:getNetworkIdentifierResponse"/>
+    </operation>
+    <operation name="getNotes">
+      <documentation>Retrieve notes, or a description of the Network. This is entirely user defined.</documentation>
+      <input message="tns:getNotes"/>
+      <output message="tns:getNotesResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getSubnets">
+      <documentation>Retrieve the Subnets within the Network. These represent the realized segments of the Network and reside within a [[SoftLayer_Network_Pod|Pod]]. A Subnet must be specified when provisioning a compute resource within a Network.</documentation>
+      <input message="tns:getSubnets"/>
+      <output message="tns:getSubnetsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_NetworkBinding" type="tns:SoftLayer_NetworkPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectMaskHeader" part="SoftLayer_NetworkObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createSubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectMaskHeader" part="SoftLayer_NetworkObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteSubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectMaskHeader" part="SoftLayer_NetworkObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectFilterHeader" part="SoftLayer_NetworkObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCidr">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_NetworkObjectMaskHeader" part="SoftLayer_NetworkObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectFilterHeader" part="SoftLayer_NetworkObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_NetworkObjectMaskHeader" part="SoftLayer_NetworkObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectFilterHeader" part="SoftLayer_NetworkObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkIdentifier">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_NetworkObjectMaskHeader" part="SoftLayer_NetworkObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectFilterHeader" part="SoftLayer_NetworkObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNotes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_NetworkObjectMaskHeader" part="SoftLayer_NetworkObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectFilterHeader" part="SoftLayer_NetworkObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_NetworkObjectMaskHeader" part="SoftLayer_NetworkObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectFilterHeader" part="SoftLayer_NetworkObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_NetworkAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_NetworkObjectMaskHeader" part="SoftLayer_NetworkObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkObjectFilterHeader" part="SoftLayer_NetworkObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_NetworkInitParametersHeader" part="SoftLayer_NetworkInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_NetworkService">
+    <port name="SoftLayer_NetworkPort" binding="tns:SoftLayer_NetworkBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Application_Delivery_ControllerInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Application_Delivery_ControllerObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Application_Delivery_Controller"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader">
+    <part name="SoftLayer_Network_Application_Delivery_ControllerInitParameters" type="tns:SoftLayer_Network_Application_Delivery_ControllerInitParameters"/>
+  </message>
+  <message name="createLiveLoadBalancer">
+    <part name="loadBalancer" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddress"/>
+  </message>
+  <message name="createLiveLoadBalancerResponse">
+    <part name="createLiveLoadBalancerReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteLiveLoadBalancer">
+    <part name="loadBalancer" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddress"/>
+  </message>
+  <message name="deleteLiveLoadBalancerResponse">
+    <part name="deleteLiveLoadBalancerReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteLiveLoadBalancerService">
+    <part name="service" type="tns:SoftLayer_Network_LoadBalancer_Service"/>
+  </message>
+  <message name="deleteLiveLoadBalancerServiceResponse">
+    <part name="deleteLiveLoadBalancerServiceReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Application_Delivery_Controller"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAverageDailyPublicBandwidthUsage"/>
+  <message name="getAverageDailyPublicBandwidthUsageResponse">
+    <part name="getAverageDailyPublicBandwidthUsageReturn" type="xsd:float"/>
+  </message>
+  <message name="getBandwidthDataByDate">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+    <part name="networkType" type="xsd:string"/>
+  </message>
+  <message name="getBandwidthDataByDateResponse">
+    <part name="getBandwidthDataByDateReturn" type="tns:SoftLayer_Metric_Tracking_Object_DataArray"/>
+  </message>
+  <message name="getBandwidthImageByDate">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+    <part name="networkType" type="xsd:string"/>
+  </message>
+  <message name="getBandwidthImageByDateResponse">
+    <part name="getBandwidthImageByDateReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item_Network_Application_Delivery_Controller"/>
+  </message>
+  <message name="getConfigurationHistory"/>
+  <message name="getConfigurationHistoryResponse">
+    <part name="getConfigurationHistoryReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_HistoryArray"/>
+  </message>
+  <message name="getCustomBandwidthDataByDate">
+    <part name="graphData" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getCustomBandwidthDataByDateResponse">
+    <part name="getCustomBandwidthDataByDateReturn" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getDatacenter"/>
+  <message name="getDatacenterResponse">
+    <part name="getDatacenterReturn" type="tns:SoftLayer_Location"/>
+  </message>
+  <message name="getDescription"/>
+  <message name="getDescriptionResponse">
+    <part name="getDescriptionReturn" type="xsd:string"/>
+  </message>
+  <message name="getLicenseExpirationDate"/>
+  <message name="getLicenseExpirationDateResponse">
+    <part name="getLicenseExpirationDateReturn" type="xsd:dateTime"/>
+  </message>
+  <message name="getLiveLoadBalancerServiceGraphImage">
+    <part name="service" type="tns:SoftLayer_Network_LoadBalancer_Service"/>
+    <part name="graphType" type="xsd:string"/>
+    <part name="metric" type="xsd:string"/>
+  </message>
+  <message name="getLiveLoadBalancerServiceGraphImageResponse">
+    <part name="getLiveLoadBalancerServiceGraphImageReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getLoadBalancers"/>
+  <message name="getLoadBalancersResponse">
+    <part name="getLoadBalancersReturn" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressArray"/>
+  </message>
+  <message name="getManagedResourceFlag"/>
+  <message name="getManagedResourceFlagResponse">
+    <part name="getManagedResourceFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getManagementIpAddress"/>
+  <message name="getManagementIpAddressResponse">
+    <part name="getManagementIpAddressReturn" type="xsd:string"/>
+  </message>
+  <message name="getNetworkVlan"/>
+  <message name="getNetworkVlanResponse">
+    <part name="getNetworkVlanReturn" type="tns:SoftLayer_Network_Vlan"/>
+  </message>
+  <message name="getNetworkVlans"/>
+  <message name="getNetworkVlansResponse">
+    <part name="getNetworkVlansReturn" type="tns:SoftLayer_Network_VlanArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller"/>
+  </message>
+  <message name="getOutboundPublicBandwidthUsage"/>
+  <message name="getOutboundPublicBandwidthUsageResponse">
+    <part name="getOutboundPublicBandwidthUsageReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getPassword"/>
+  <message name="getPasswordResponse">
+    <part name="getPasswordReturn" type="tns:SoftLayer_Software_Component_Password"/>
+  </message>
+  <message name="getPrimaryIpAddress"/>
+  <message name="getPrimaryIpAddressResponse">
+    <part name="getPrimaryIpAddressReturn" type="xsd:string"/>
+  </message>
+  <message name="getProjectedPublicBandwidthUsage"/>
+  <message name="getProjectedPublicBandwidthUsageResponse">
+    <part name="getProjectedPublicBandwidthUsageReturn" type="xsd:float"/>
+  </message>
+  <message name="getSubnets"/>
+  <message name="getSubnetsResponse">
+    <part name="getSubnetsReturn" type="tns:SoftLayer_Network_SubnetArray"/>
+  </message>
+  <message name="getTagReferences"/>
+  <message name="getTagReferencesResponse">
+    <part name="getTagReferencesReturn" type="tns:SoftLayer_Tag_ReferenceArray"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_Type"/>
+  </message>
+  <message name="getVirtualIpAddresses"/>
+  <message name="getVirtualIpAddressesResponse">
+    <part name="getVirtualIpAddressesReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualIpAddressArray"/>
+  </message>
+  <message name="restoreBaseConfiguration"/>
+  <message name="restoreBaseConfigurationResponse">
+    <part name="restoreBaseConfigurationReturn" type="xsd:boolean"/>
+  </message>
+  <message name="restoreConfiguration">
+    <part name="configurationHistoryId" type="xsd:int"/>
+  </message>
+  <message name="restoreConfigurationResponse">
+    <part name="restoreConfigurationReturn" type="xsd:boolean"/>
+  </message>
+  <message name="saveCurrentConfiguration">
+    <part name="notes" type="xsd:string"/>
+  </message>
+  <message name="saveCurrentConfigurationResponse">
+    <part name="saveCurrentConfigurationReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_Configuration_History"/>
+  </message>
+  <message name="updateLiveLoadBalancer">
+    <part name="loadBalancer" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddress"/>
+  </message>
+  <message name="updateLiveLoadBalancerResponse">
+    <part name="updateLiveLoadBalancerReturn" type="xsd:boolean"/>
+  </message>
+  <message name="updateNetScalerLicense"/>
+  <message name="updateNetScalerLicenseResponse">
+    <part name="updateNetScalerLicenseReturn" type="tns:SoftLayer_Provisioning_Version1_Transaction"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader">
+    <part name="SoftLayer_Network_Application_Delivery_ControllerObjectMask" type="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader">
+    <part name="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" type="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Application_Delivery_ControllerPortType">
+    <documentation>SoftLayer_Network_Application_Delivery_Controller controls a single instance of SoftLayer's application delivery controller offerings. Application delivery controllers are capable of application filtering, layer 4 and layer 7 load balancing, and many other functions. Currently SoftLayer employs them as high power load balancers. Load balancing is accomplished similarly to SoftLayer's other load balancer options, through a collection of virtual IP address interfaces. 
+
+Application delivery controllers support an &amp;quot;advanced&amp;quot; configuration scheme, enabling access directly to the controller's backend management interface. Enable access to this interface via the [[SoftLayer_Network_Application_Delivery_Controller::enableAdvancedView|enableAdvancedView]] method in this service. Use the username &amp;quot;root&amp;quot; and password retrieved from this service along with the management IP address retrieved from this service. Be warned that direct access to the application delivery controller exposes a high degree of functionality. Be careful when directly editing your service to avoid interruption via misconfiguration. </documentation>
+    <operation name="createLiveLoadBalancer">
+      <documentation>Create or add to an application delivery controller based load balancer service. The loadBalancer parameter must have its ''name'', ''type'', ''sourcePort'', and ''virtualIpAddress'' properties populated. Changes are reflected immediately in the application delivery controller. </documentation>
+      <input message="tns:createLiveLoadBalancer"/>
+      <output message="tns:createLiveLoadBalancerResponse"/>
+    </operation>
+    <operation name="deleteLiveLoadBalancer">
+      <documentation>Remove a virtual IP address from an application delivery controller based load balancer. Only the ''name'' property in the loadBalancer parameter must be populated. Changes are reflected immediately in the application delivery controller. </documentation>
+      <input message="tns:deleteLiveLoadBalancer"/>
+      <output message="tns:deleteLiveLoadBalancerResponse"/>
+    </operation>
+    <operation name="deleteLiveLoadBalancerService">
+      <documentation>Remove an entire load balancer service, including all virtual IP addresses, from and application delivery controller based load balancer. The ''name'' property the and ''name'' property within the ''vip'' property of the service parameter must be provided. Changes are reflected immediately in the application delivery controller. </documentation>
+      <input message="tns:deleteLiveLoadBalancerService"/>
+      <output message="tns:deleteLiveLoadBalancerServiceResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Edit an applications delivery controller record. Currently only a controller's notes property is editable. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the SoftLayer customer account that owns an application delivery controller record.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAverageDailyPublicBandwidthUsage">
+      <documentation>Retrieve the average daily public bandwidth usage for the current billing cycle.</documentation>
+      <input message="tns:getAverageDailyPublicBandwidthUsage"/>
+      <output message="tns:getAverageDailyPublicBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getBandwidthDataByDate">
+      <documentation></documentation>
+      <input message="tns:getBandwidthDataByDate"/>
+      <output message="tns:getBandwidthDataByDateResponse"/>
+    </operation>
+    <operation name="getBandwidthImageByDate">
+      <documentation>Use this method when needing a bandwidth image for a single application delivery controller. It will gather the correct input parameters for the generic graphing utility based on the date ranges </documentation>
+      <input message="tns:getBandwidthImageByDate"/>
+      <output message="tns:getBandwidthImageByDateResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the billing item for a Application Delivery Controller.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getConfigurationHistory">
+      <documentation>Retrieve previous configurations for an Application Delivery Controller.</documentation>
+      <input message="tns:getConfigurationHistory"/>
+      <output message="tns:getConfigurationHistoryResponse"/>
+    </operation>
+    <operation name="getCustomBandwidthDataByDate">
+      <documentation>Retrieve bandwidth graph by date. </documentation>
+      <input message="tns:getCustomBandwidthDataByDate"/>
+      <output message="tns:getCustomBandwidthDataByDateResponse"/>
+    </operation>
+    <operation name="getDatacenter">
+      <documentation>Retrieve the datacenter that the application delivery controller resides in.</documentation>
+      <input message="tns:getDatacenter"/>
+      <output message="tns:getDatacenterResponse"/>
+    </operation>
+    <operation name="getDescription">
+      <documentation>Retrieve a brief description of an application delivery controller record.</documentation>
+      <input message="tns:getDescription"/>
+      <output message="tns:getDescriptionResponse"/>
+    </operation>
+    <operation name="getLicenseExpirationDate">
+      <documentation>Retrieve the date in which the license for this application delivery controller will expire.</documentation>
+      <input message="tns:getLicenseExpirationDate"/>
+      <output message="tns:getLicenseExpirationDateResponse"/>
+    </operation>
+    <operation name="getLiveLoadBalancerServiceGraphImage">
+      <documentation>Get the graph image for an application delivery controller service based on the supplied graph type and metric.  The available graph types are: 'connections' and 'status', and the available metrics are: 'day', 'week' and 'month'. 
+
+This method returns the raw binary image data. </documentation>
+      <input message="tns:getLiveLoadBalancerServiceGraphImage"/>
+      <output message="tns:getLiveLoadBalancerServiceGraphImageResponse"/>
+    </operation>
+    <operation name="getLoadBalancers">
+      <documentation>Retrieve the virtual IP address records that belong to an application delivery controller based load balancer.</documentation>
+      <input message="tns:getLoadBalancers"/>
+      <output message="tns:getLoadBalancersResponse"/>
+    </operation>
+    <operation name="getManagedResourceFlag">
+      <documentation>Retrieve a flag indicating that this Application Delivery Controller is a managed resource.</documentation>
+      <input message="tns:getManagedResourceFlag"/>
+      <output message="tns:getManagedResourceFlagResponse"/>
+    </operation>
+    <operation name="getManagementIpAddress">
+      <documentation>Retrieve an application delivery controller's management ip address.</documentation>
+      <input message="tns:getManagementIpAddress"/>
+      <output message="tns:getManagementIpAddressResponse"/>
+    </operation>
+    <operation name="getNetworkVlan">
+      <documentation>Retrieve the network VLAN that an application delivery controller resides on.</documentation>
+      <input message="tns:getNetworkVlan"/>
+      <output message="tns:getNetworkVlanResponse"/>
+    </operation>
+    <operation name="getNetworkVlans">
+      <documentation>Retrieve the network VLANs that an application delivery controller resides on.</documentation>
+      <input message="tns:getNetworkVlans"/>
+      <output message="tns:getNetworkVlansResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Network_Application_Delivery_Controller object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Network_Application_Delivery_Controller service. You can only retrieve application delivery controllers that are associated with your SoftLayer customer account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOutboundPublicBandwidthUsage">
+      <documentation>Retrieve the total public outbound bandwidth for the current billing cycle.</documentation>
+      <input message="tns:getOutboundPublicBandwidthUsage"/>
+      <output message="tns:getOutboundPublicBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getPassword">
+      <documentation>Retrieve the password used to connect to an application delivery controller's management interface when it is operating in advanced view mode.</documentation>
+      <input message="tns:getPassword"/>
+      <output message="tns:getPasswordResponse"/>
+    </operation>
+    <operation name="getPrimaryIpAddress">
+      <documentation>Retrieve an application delivery controller's primary public IP address.</documentation>
+      <input message="tns:getPrimaryIpAddress"/>
+      <output message="tns:getPrimaryIpAddressResponse"/>
+    </operation>
+    <operation name="getProjectedPublicBandwidthUsage">
+      <documentation>Retrieve the projected public outbound bandwidth for the current billing cycle.</documentation>
+      <input message="tns:getProjectedPublicBandwidthUsage"/>
+      <output message="tns:getProjectedPublicBandwidthUsageResponse"/>
+    </operation>
+    <operation name="getSubnets">
+      <documentation>Retrieve a network application controller's subnets. A subnet is a group of IP addresses</documentation>
+      <input message="tns:getSubnets"/>
+      <output message="tns:getSubnetsResponse"/>
+    </operation>
+    <operation name="getTagReferences">
+      <documentation></documentation>
+      <input message="tns:getTagReferences"/>
+      <output message="tns:getTagReferencesResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation></documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+    <operation name="getVirtualIpAddresses">
+      <documentation></documentation>
+      <input message="tns:getVirtualIpAddresses"/>
+      <output message="tns:getVirtualIpAddressesResponse"/>
+    </operation>
+    <operation name="restoreBaseConfiguration">
+      <documentation>Restore an application delivery controller's base configuration state. The configuration will be set to what it was when initially provisioned. </documentation>
+      <input message="tns:restoreBaseConfiguration"/>
+      <output message="tns:restoreBaseConfigurationResponse"/>
+    </operation>
+    <operation name="restoreConfiguration">
+      <documentation>Restore an application delivery controller's configuration state. </documentation>
+      <input message="tns:restoreConfiguration"/>
+      <output message="tns:restoreConfigurationResponse"/>
+    </operation>
+    <operation name="saveCurrentConfiguration">
+      <documentation>Save an application delivery controller's configuration state. The notes property for this method is optional. </documentation>
+      <input message="tns:saveCurrentConfiguration"/>
+      <output message="tns:saveCurrentConfigurationResponse"/>
+    </operation>
+    <operation name="updateLiveLoadBalancer">
+      <documentation>Update the the virtual IP address interface within an application delivery controller based load balancer identified by the ''name'' property in the loadBalancer parameter. You only need to set the properties in the loadBalancer parameter that you wish to change. Any virtual IP properties omitted or left empty are ignored. Changes are reflected immediately in the application delivery controller. </documentation>
+      <input message="tns:updateLiveLoadBalancer"/>
+      <output message="tns:updateLiveLoadBalancerResponse"/>
+    </operation>
+    <operation name="updateNetScalerLicense">
+      <documentation>Update the NetScaler VPX License. 
+
+This service will create a transaction to update a NetScaler VPX License.  After the license is updated the load balancer will reboot in order to apply the newly issued license 
+
+The load balancer will be unavailable during the reboot. </documentation>
+      <input message="tns:updateNetScalerLicense"/>
+      <output message="tns:updateNetScalerLicenseResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Application_Delivery_ControllerBinding" type="tns:SoftLayer_Network_Application_Delivery_ControllerPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createLiveLoadBalancer">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteLiveLoadBalancer">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteLiveLoadBalancerService">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAverageDailyPublicBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBandwidthDataByDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBandwidthImageByDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getConfigurationHistory">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCustomBandwidthDataByDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDatacenter">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDescription">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLicenseExpirationDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLiveLoadBalancerServiceGraphImage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLoadBalancers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getManagedResourceFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getManagementIpAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlan">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlans">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOutboundPublicBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPassword">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimaryIpAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProjectedPublicBandwidthUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTagReferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVirtualIpAddresses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="restoreBaseConfiguration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="restoreConfiguration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="saveCurrentConfiguration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateLiveLoadBalancer">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateNetScalerLicense">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_ControllerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerInitParametersHeader" part="SoftLayer_Network_Application_Delivery_ControllerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_ControllerObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_ControllerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Application_Delivery_ControllerService">
+    <port name="SoftLayer_Network_Application_Delivery_ControllerPort" binding="tns:SoftLayer_Network_Application_Delivery_ControllerBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Application_Delivery_Controller"/>
+    </port>
+  </service>
+</definitions>

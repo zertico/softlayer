@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Monitor?xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="getIpAddressesByHardware">
+    <part name="hardware" type="tns:SoftLayer_Hardware"/>
+    <part name="partialIpAddress" type="xsd:string"/>
+  </message>
+  <message name="getIpAddressesByHardwareResponse">
+    <part name="getIpAddressesByHardwareReturn" type="tns:SoftLayer_Network_Subnet_IpAddressArray"/>
+  </message>
+  <message name="getIpAddressesByVirtualGuest">
+    <part name="guest" type="tns:SoftLayer_Virtual_Guest"/>
+    <part name="partialIpAddress" type="xsd:string"/>
+  </message>
+  <message name="getIpAddressesByVirtualGuestResponse">
+    <part name="getIpAddressesByVirtualGuestReturn" type="tns:SoftLayer_Network_Subnet_IpAddressArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_MonitorPortType">
+    <documentation></documentation>
+    <operation name="getIpAddressesByHardware">
+      <documentation>This will return an arrayObject of objects containing the ipaddresses.  Using an string parameter you can send a partial ipaddress to search within a given ipaddress.  You can also set the max limit as well using the setting the resultLimit. </documentation>
+      <input message="tns:getIpAddressesByHardware"/>
+      <output message="tns:getIpAddressesByHardwareResponse"/>
+    </operation>
+    <operation name="getIpAddressesByVirtualGuest">
+      <documentation>This will return an arrayObject of objects containing the ipaddresses.  Using an string parameter you can send a partial ipaddress to search within a given ipaddress.  You can also set the max limit as well using the setting the resultLimit. </documentation>
+      <input message="tns:getIpAddressesByVirtualGuest"/>
+      <output message="tns:getIpAddressesByVirtualGuestResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_MonitorBinding" type="tns:SoftLayer_Network_MonitorPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getIpAddressesByHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_MonitorAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getIpAddressesByVirtualGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_MonitorAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_MonitorService">
+    <port name="SoftLayer_Network_MonitorPort" binding="tns:SoftLayer_Network_MonitorBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Monitor"/>
+    </port>
+  </service>
+</definitions>

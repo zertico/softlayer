@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Resource_Metadata?xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="getBackendMacAddresses"/>
+  <message name="getBackendMacAddressesResponse">
+    <part name="getBackendMacAddressesReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getDatacenter"/>
+  <message name="getDatacenterResponse">
+    <part name="getDatacenterReturn" type="xsd:string"/>
+  </message>
+  <message name="getDatacenterId"/>
+  <message name="getDatacenterIdResponse">
+    <part name="getDatacenterIdReturn" type="xsd:int"/>
+  </message>
+  <message name="getDomain"/>
+  <message name="getDomainResponse">
+    <part name="getDomainReturn" type="xsd:string"/>
+  </message>
+  <message name="getFrontendMacAddresses"/>
+  <message name="getFrontendMacAddressesResponse">
+    <part name="getFrontendMacAddressesReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getFullyQualifiedDomainName"/>
+  <message name="getFullyQualifiedDomainNameResponse">
+    <part name="getFullyQualifiedDomainNameReturn" type="xsd:string"/>
+  </message>
+  <message name="getHostname"/>
+  <message name="getHostnameResponse">
+    <part name="getHostnameReturn" type="xsd:string"/>
+  </message>
+  <message name="getId"/>
+  <message name="getIdResponse">
+    <part name="getIdReturn" type="xsd:int"/>
+  </message>
+  <message name="getPrimaryBackendIpAddress"/>
+  <message name="getPrimaryBackendIpAddressResponse">
+    <part name="getPrimaryBackendIpAddressReturn" type="xsd:string"/>
+  </message>
+  <message name="getPrimaryIpAddress"/>
+  <message name="getPrimaryIpAddressResponse">
+    <part name="getPrimaryIpAddressReturn" type="xsd:string"/>
+  </message>
+  <message name="getProvisionState"/>
+  <message name="getProvisionStateResponse">
+    <part name="getProvisionStateReturn" type="xsd:string"/>
+  </message>
+  <message name="getRouter">
+    <part name="macAddress" type="xsd:string"/>
+  </message>
+  <message name="getRouterResponse">
+    <part name="getRouterReturn" type="xsd:string"/>
+  </message>
+  <message name="getServiceResource">
+    <part name="serviceName" type="xsd:string"/>
+    <part name="index" type="xsd:int"/>
+  </message>
+  <message name="getServiceResourceResponse">
+    <part name="getServiceResourceReturn" type="xsd:string"/>
+  </message>
+  <message name="getServiceResources"/>
+  <message name="getServiceResourcesResponse">
+    <part name="getServiceResourcesReturn" type="tns:SoftLayer_Network_Service_ResourceArray"/>
+  </message>
+  <message name="getTags"/>
+  <message name="getTagsResponse">
+    <part name="getTagsReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getUserMetadata"/>
+  <message name="getUserMetadataResponse">
+    <part name="getUserMetadataReturn" type="xsd:string"/>
+  </message>
+  <message name="getVlanIds">
+    <part name="macAddress" type="xsd:string"/>
+  </message>
+  <message name="getVlanIdsResponse">
+    <part name="getVlanIdsReturn" type="tns:ArrayOfint"/>
+  </message>
+  <message name="getVlans">
+    <part name="macAddress" type="xsd:string"/>
+  </message>
+  <message name="getVlansResponse">
+    <part name="getVlansReturn" type="tns:ArrayOfint"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Resource_MetadataPortType">
+    <documentation>The Resource Metadata service enables the user to obtain information regarding the resource from which the request originates. Due to the requirement that the request originate from the backend network of the resource, no API key is necessary to perform the request. 
+
+The primary use of this service is to allow self-discovery for newly provisioned resources, enabling further automated setup by the user. </documentation>
+    <operation name="getBackendMacAddresses">
+      <documentation>The getBackendMacAddresses method retrieves a list of backend MAC addresses for the resource</documentation>
+      <input message="tns:getBackendMacAddresses"/>
+      <output message="tns:getBackendMacAddressesResponse"/>
+    </operation>
+    <operation name="getDatacenter">
+      <documentation>The getDatacenter method retrieves the name of the datacenter in which the resource is located.</documentation>
+      <input message="tns:getDatacenter"/>
+      <output message="tns:getDatacenterResponse"/>
+    </operation>
+    <operation name="getDatacenterId">
+      <documentation>The getDatacenterId retrieves the ID for the datacenter in which the resource is located.</documentation>
+      <input message="tns:getDatacenterId"/>
+      <output message="tns:getDatacenterIdResponse"/>
+    </operation>
+    <operation name="getDomain">
+      <documentation>The getDomain method retrieves the hostname for the resource.</documentation>
+      <input message="tns:getDomain"/>
+      <output message="tns:getDomainResponse"/>
+    </operation>
+    <operation name="getFrontendMacAddresses">
+      <documentation>The getFrontendMacAddresses method retrieves a list of frontend MAC addresses for the resource</documentation>
+      <input message="tns:getFrontendMacAddresses"/>
+      <output message="tns:getFrontendMacAddressesResponse"/>
+    </operation>
+    <operation name="getFullyQualifiedDomainName">
+      <documentation>The getFullyQualifiedDomainName method provides the user with a combined return which includes the hostname and domain for the resource. Because this method returns multiple pieces of information, it avoids the need to use multiple methods to return the desired information. </documentation>
+      <input message="tns:getFullyQualifiedDomainName"/>
+      <output message="tns:getFullyQualifiedDomainNameResponse"/>
+    </operation>
+    <operation name="getHostname">
+      <documentation>The getHostname method retrieves the hostname for the resource.</documentation>
+      <input message="tns:getHostname"/>
+      <output message="tns:getHostnameResponse"/>
+    </operation>
+    <operation name="getId">
+      <documentation>The getId method retrieves the ID for the resource</documentation>
+      <input message="tns:getId"/>
+      <output message="tns:getIdResponse"/>
+    </operation>
+    <operation name="getPrimaryBackendIpAddress">
+      <documentation>The getPrimaryBackendIpAddress method retrieves the primary backend IP address for the resource</documentation>
+      <input message="tns:getPrimaryBackendIpAddress"/>
+      <output message="tns:getPrimaryBackendIpAddressResponse"/>
+    </operation>
+    <operation name="getPrimaryIpAddress">
+      <documentation>The getPrimaryIpAddress method retrieves the primary IP address for the resource. For resources with a frontend network, the frontend IP address will be returned. For resources that have been provisioned with only a backend network, the backend IP address will be returned, as a frontend address will not exist. </documentation>
+      <input message="tns:getPrimaryIpAddress"/>
+      <output message="tns:getPrimaryIpAddressResponse"/>
+    </operation>
+    <operation name="getProvisionState">
+      <documentation>The getProvisionState method retrieves the provision state of the resource. The provision state may be used to determine when it is considered safe to perform additional setup operations. The method returns 'PROCESSING' to indicate the provision is in progress and 'COMPLETE' when the provision is complete. </documentation>
+      <input message="tns:getProvisionState"/>
+      <output message="tns:getProvisionStateResponse"/>
+    </operation>
+    <operation name="getRouter">
+      <documentation>The getRouter method will return the router associated with a network component. When the router is redundant, the hostname of the redundant group will be returned, rather than the router hostname. </documentation>
+      <input message="tns:getRouter"/>
+      <output message="tns:getRouterResponse"/>
+    </operation>
+    <operation name="getServiceResource">
+      <documentation>The getServiceResource method retrieves a specific service resource associated with the resource. Service resources are additional resources that may be used by this resource. </documentation>
+      <input message="tns:getServiceResource"/>
+      <output message="tns:getServiceResourceResponse"/>
+    </operation>
+    <operation name="getServiceResources">
+      <documentation>The getServiceResources method retrieves all service resources associated with the resource. Service resources are additional resources that may be used by this resource. The output format is &amp;lt;type&amp;gt;=&amp;lt;address&amp;gt; for each service resource. </documentation>
+      <input message="tns:getServiceResources"/>
+      <output message="tns:getServiceResourcesResponse"/>
+    </operation>
+    <operation name="getTags">
+      <documentation>The getTags method retrieves all tags associated with the resource. Tags are single keywords assigned to a resource that assist the user in identifying the resource and its roles when performing a simple search. Tags are assigned by any user with access to the resource. </documentation>
+      <input message="tns:getTags"/>
+      <output message="tns:getTagsResponse"/>
+    </operation>
+    <operation name="getUserMetadata">
+      <documentation>The getUserMetadata method retrieves metadata completed by users who interact with the resource. Metadata gathered using this method is unique to parameters set using the '''setUserMetadata''' method, which must be executed prior to completing this method. User metadata may also be provided while placing an order for a resource. </documentation>
+      <input message="tns:getUserMetadata"/>
+      <output message="tns:getUserMetadataResponse"/>
+    </operation>
+    <operation name="getVlanIds">
+      <documentation>The getVlanIds method returns a list of VLAN IDs for the network component matching the provided MAC address associated with the resource. For each return, the native VLAN will appear first, followed by any trunked VLANs associated with the network component. </documentation>
+      <input message="tns:getVlanIds"/>
+      <output message="tns:getVlanIdsResponse"/>
+    </operation>
+    <operation name="getVlans">
+      <documentation>The getVlans method returns a list of VLAN numbers for the network component matching the provided MAC address associated with the resource. For each return, the native VLAN will appear first, followed by any trunked VLANs associated with the network component. </documentation>
+      <input message="tns:getVlans"/>
+      <output message="tns:getVlansResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Resource_MetadataBinding" type="tns:SoftLayer_Resource_MetadataPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getBackendMacAddresses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDatacenter">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDatacenterId">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFrontendMacAddresses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFullyQualifiedDomainName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHostname">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getId">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimaryBackendIpAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimaryIpAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProvisionState">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRouter">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceResource">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceResources">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTags">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUserMetadata">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVlanIds">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVlans">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Resource_MetadataAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Resource_MetadataService">
+    <port name="SoftLayer_Resource_MetadataPort" binding="tns:SoftLayer_Resource_MetadataBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Resource_Metadata"/>
+    </port>
+  </service>
+</definitions>

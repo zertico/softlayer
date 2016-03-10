@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_Hardware?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Storage_Allowed_Host_Hardware"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader">
+    <part name="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" type="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Storage_Allowed_Host_Hardware"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Storage_Allowed_Host_Hardware"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAssignedGroups"/>
+  <message name="getAssignedGroupsResponse">
+    <part name="getAssignedGroupsReturn" type="tns:SoftLayer_Network_Storage_GroupArray"/>
+  </message>
+  <message name="getAssignedReplicationVolumes"/>
+  <message name="getAssignedReplicationVolumesResponse">
+    <part name="getAssignedReplicationVolumesReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="getAssignedVolumes"/>
+  <message name="getAssignedVolumesResponse">
+    <part name="getAssignedVolumesReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="getCredential"/>
+  <message name="getCredentialResponse">
+    <part name="getCredentialReturn" type="tns:SoftLayer_Network_Storage_Credential"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Storage_Allowed_Host_Hardware"/>
+  </message>
+  <message name="getResource"/>
+  <message name="getResourceResponse">
+    <part name="getResourceReturn" type="tns:SoftLayer_Hardware"/>
+  </message>
+  <message name="setCredentialPassword">
+    <part name="password" type="xsd:string"/>
+  </message>
+  <message name="setCredentialPasswordResponse">
+    <part name="setCredentialPasswordReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMaskHeader">
+    <part name="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMask" type="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilterHeader">
+    <part name="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilter" type="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Storage_Allowed_Host_HardwarePortType">
+    <documentation></documentation>
+    <operation name="createObject">
+      <documentation></documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation></documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation></documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAssignedGroups">
+      <documentation>Retrieve the SoftLayer_Network_Storage_Group objects this SoftLayer_Network_Storage_Allowed_Host is present in.</documentation>
+      <input message="tns:getAssignedGroups"/>
+      <output message="tns:getAssignedGroupsResponse"/>
+    </operation>
+    <operation name="getAssignedReplicationVolumes">
+      <documentation>Retrieve the SoftLayer_Network_Storage primary volumes whose replicas are allowed access.</documentation>
+      <input message="tns:getAssignedReplicationVolumes"/>
+      <output message="tns:getAssignedReplicationVolumesResponse"/>
+    </operation>
+    <operation name="getAssignedVolumes">
+      <documentation>Retrieve the SoftLayer_Network_Storage volumes to which this SoftLayer_Network_Storage_Allowed_Host is allowed access.</documentation>
+      <input message="tns:getAssignedVolumes"/>
+      <output message="tns:getAssignedVolumesResponse"/>
+    </operation>
+    <operation name="getCredential">
+      <documentation>Retrieve the SoftLayer_Network_Storage_Credential this allowed host uses.</documentation>
+      <input message="tns:getCredential"/>
+      <output message="tns:getCredentialResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getResource">
+      <documentation>Retrieve the SoftLayer_Hardware object which this SoftLayer_Network_Storage_Allowed_Host is referencing.</documentation>
+      <input message="tns:getResource"/>
+      <output message="tns:getResourceResponse"/>
+    </operation>
+    <operation name="setCredentialPassword">
+      <documentation>Use this method to modify the credential password for a SoftLayer_Network_Storage_Allowed_Host object. </documentation>
+      <input message="tns:setCredentialPassword"/>
+      <output message="tns:setCredentialPasswordResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Storage_Allowed_Host_HardwareBinding" type="tns:SoftLayer_Network_Storage_Allowed_Host_HardwarePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAssignedGroups">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMaskHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilterHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAssignedReplicationVolumes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMaskHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilterHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAssignedVolumes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMaskHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilterHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCredential">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMaskHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilterHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMaskHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilterHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getResource">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMaskHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilterHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="setCredentialPassword">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_HardwareAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareInitParametersHeader" part="SoftLayer_Network_Storage_Allowed_Host_HardwareInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Storage_Allowed_Host_HardwareService">
+    <port name="SoftLayer_Network_Storage_Allowed_Host_HardwarePort" binding="tns:SoftLayer_Network_Storage_Allowed_Host_HardwareBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage_Allowed_Host_Hardware"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Notification_Occurrence_User?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Notification_Occurrence_UserInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Notification_Occurrence_UserObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Notification_Occurrence_User"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Notification_Occurrence_UserInitParametersHeader">
+    <part name="SoftLayer_Notification_Occurrence_UserInitParameters" type="tns:SoftLayer_Notification_Occurrence_UserInitParameters"/>
+  </message>
+  <message name="acknowledge"/>
+  <message name="acknowledgeResponse">
+    <part name="acknowledgeReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Notification_Occurrence_UserArray"/>
+  </message>
+  <message name="getImpactedDeviceCount"/>
+  <message name="getImpactedDeviceCountResponse">
+    <part name="getImpactedDeviceCountReturn" type="xsd:int"/>
+  </message>
+  <message name="getImpactedResources"/>
+  <message name="getImpactedResourcesResponse">
+    <part name="getImpactedResourcesReturn" type="tns:SoftLayer_Notification_Occurrence_ResourceArray"/>
+  </message>
+  <message name="getNotificationOccurrenceEvent"/>
+  <message name="getNotificationOccurrenceEventResponse">
+    <part name="getNotificationOccurrenceEventReturn" type="tns:SoftLayer_Notification_Occurrence_Event"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Notification_Occurrence_User"/>
+  </message>
+  <message name="getUser"/>
+  <message name="getUserResponse">
+    <part name="getUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Notification_Occurrence_UserObjectMaskHeader">
+    <part name="SoftLayer_Notification_Occurrence_UserObjectMask" type="tns:SoftLayer_Notification_Occurrence_UserObjectMask"/>
+  </message>
+  <message name="SoftLayer_Notification_Occurrence_UserObjectFilterHeader">
+    <part name="SoftLayer_Notification_Occurrence_UserObjectFilter" type="tns:SoftLayer_Notification_Occurrence_UserObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Notification_Occurrence_UserPortType">
+    <documentation></documentation>
+    <operation name="acknowledge">
+      <documentation></documentation>
+      <input message="tns:acknowledge"/>
+      <output message="tns:acknowledgeResponse"/>
+    </operation>
+    <operation name="getAllObjects">
+      <documentation></documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getImpactedDeviceCount">
+      <documentation></documentation>
+      <input message="tns:getImpactedDeviceCount"/>
+      <output message="tns:getImpactedDeviceCountResponse"/>
+    </operation>
+    <operation name="getImpactedResources">
+      <documentation>Retrieve a collection of resources impacted by the associated event.</documentation>
+      <input message="tns:getImpactedResources"/>
+      <output message="tns:getImpactedResourcesResponse"/>
+    </operation>
+    <operation name="getNotificationOccurrenceEvent">
+      <documentation>Retrieve the associated event.</documentation>
+      <input message="tns:getNotificationOccurrenceEvent"/>
+      <output message="tns:getNotificationOccurrenceEventResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getUser">
+      <documentation>Retrieve the impacted user.</documentation>
+      <input message="tns:getUser"/>
+      <output message="tns:getUserResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Notification_Occurrence_UserBinding" type="tns:SoftLayer_Notification_Occurrence_UserPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="acknowledge">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_Occurrence_UserAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserInitParametersHeader" part="SoftLayer_Notification_Occurrence_UserInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_Occurrence_UserAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectMaskHeader" part="SoftLayer_Notification_Occurrence_UserObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectFilterHeader" part="SoftLayer_Notification_Occurrence_UserObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getImpactedDeviceCount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_Occurrence_UserAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserInitParametersHeader" part="SoftLayer_Notification_Occurrence_UserInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getImpactedResources">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_Occurrence_UserAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectMaskHeader" part="SoftLayer_Notification_Occurrence_UserObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectFilterHeader" part="SoftLayer_Notification_Occurrence_UserObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserInitParametersHeader" part="SoftLayer_Notification_Occurrence_UserInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNotificationOccurrenceEvent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_Occurrence_UserAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectMaskHeader" part="SoftLayer_Notification_Occurrence_UserObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectFilterHeader" part="SoftLayer_Notification_Occurrence_UserObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserInitParametersHeader" part="SoftLayer_Notification_Occurrence_UserInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_Occurrence_UserAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectMaskHeader" part="SoftLayer_Notification_Occurrence_UserObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectFilterHeader" part="SoftLayer_Notification_Occurrence_UserObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserInitParametersHeader" part="SoftLayer_Notification_Occurrence_UserInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_Occurrence_UserAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectMaskHeader" part="SoftLayer_Notification_Occurrence_UserObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserObjectFilterHeader" part="SoftLayer_Notification_Occurrence_UserObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_UserInitParametersHeader" part="SoftLayer_Notification_Occurrence_UserInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Notification_Occurrence_UserService">
+    <port name="SoftLayer_Notification_Occurrence_UserPort" binding="tns:SoftLayer_Notification_Occurrence_UserBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Notification_Occurrence_User"/>
+    </port>
+  </service>
+</definitions>

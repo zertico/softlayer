@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddress?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddress"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader">
+    <part name="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters"/>
+  </message>
+  <message name="disable"/>
+  <message name="disableResponse">
+    <part name="disableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddress"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="enable"/>
+  <message name="enableResponse">
+    <part name="enableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getCustomerManagedFlag"/>
+  <message name="getCustomerManagedFlagResponse">
+    <part name="getCustomerManagedFlagReturn" type="xsd:int"/>
+  </message>
+  <message name="getManagedResourceFlag"/>
+  <message name="getManagedResourceFlagResponse">
+    <part name="getManagedResourceFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddress"/>
+  </message>
+  <message name="getServices"/>
+  <message name="getServicesResponse">
+    <part name="getServicesReturn" type="tns:SoftLayer_Network_LoadBalancer_ServiceArray"/>
+  </message>
+  <message name="kickAllConnections"/>
+  <message name="kickAllConnectionsResponse">
+    <part name="kickAllConnectionsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="upgradeConnectionLimit"/>
+  <message name="upgradeConnectionLimitResponse">
+    <part name="upgradeConnectionLimitReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMaskHeader">
+    <part name="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMask" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilterHeader">
+    <part name="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilter" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_LoadBalancer_VirtualIpAddressPortType">
+    <documentation>Each SoftLayer customer that has purchased a load balancer will have one defined in the SoftLayer_Network_LoadBalancer_VirtualIpAddress service.  Load balancers have a virtual IP address and a number of SoftLayer_Network_LoadBalancer_Service objects associated with them.  The SoftLayer_Network_LoadBalancer_VirtualIpAddress object is the only way for a customer to make changes to their load balancer service. 
+
+Load balancers can be upgraded by using the upgradeConnectionLimit function, but this will upgrade your billing accordingly.  Downgrades are currently not supported, please open a ticket to accomplish a downgrade. </documentation>
+    <operation name="disable">
+      <documentation>Disable a Virtual IP Address, removing it from load balancer rotation and denying all connections to that IP address. </documentation>
+      <input message="tns:disable"/>
+      <output message="tns:disableResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Like any other API object, the load balancers can have their exposed properties edited by passing in a modified version of the object.  The load balancer object also can modify its services in this way.  Simply request the load balancer object you wish to edit, then modify the objects in the services array and pass the modified object to this function.  WARNING:  Services cannot be deleted in this manner, you must call deleteObject() on the service to physically remove them from the load balancer. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="enable">
+      <documentation>Enable a disabled Virtual IP Address, allowing connections back to the IP address. </documentation>
+      <input message="tns:enable"/>
+      <output message="tns:enableResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account that owns this load balancer.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the current billing item for the Load Balancer.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getCustomerManagedFlag">
+      <documentation>Retrieve if false, this VIP and associated services may be edited via the portal or the API. If true, you must configure this VIP manually on the device.</documentation>
+      <input message="tns:getCustomerManagedFlag"/>
+      <output message="tns:getCustomerManagedFlagResponse"/>
+    </operation>
+    <operation name="getManagedResourceFlag">
+      <documentation>Retrieve a flag indicating that the load balancer is a managed resource.</documentation>
+      <input message="tns:getManagedResourceFlag"/>
+      <output message="tns:getManagedResourceFlagResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Network_LoadBalancer_VirtualIpAddress object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Network_LoadBalancer_VirtualIpAddress service. You can only retrieve Load Balancers assigned to your account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getServices">
+      <documentation>Retrieve the services on this load balancer.</documentation>
+      <input message="tns:getServices"/>
+      <output message="tns:getServicesResponse"/>
+    </operation>
+    <operation name="kickAllConnections">
+      <documentation>Quickly remove all active external connections to a Virtual IP Address. </documentation>
+      <input message="tns:kickAllConnections"/>
+      <output message="tns:kickAllConnectionsResponse"/>
+    </operation>
+    <operation name="upgradeConnectionLimit">
+      <documentation>Upgrades the connection limit on the VirtualIp and changes the billing item on your account to reflect the change. This function will only upgrade you to the next &amp;quot;level&amp;quot; of service.  The next level follows this pattern Current Level  =&amp;gt;  Next Level 50                 100 100                200 200                500 500                1000 1000               1200 1200               1500 1500               2000 2000               2500 2500               3000 </documentation>
+      <input message="tns:upgradeConnectionLimit"/>
+      <output message="tns:upgradeConnectionLimitResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_LoadBalancer_VirtualIpAddressBinding" type="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="disable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="enable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMaskHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilterHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMaskHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilterHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCustomerManagedFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMaskHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilterHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getManagedResourceFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMaskHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilterHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMaskHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilterHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServices">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMaskHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilterHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="kickAllConnections">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="upgradeConnectionLimit">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParametersHeader" part="SoftLayer_Network_LoadBalancer_VirtualIpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_LoadBalancer_VirtualIpAddressService">
+    <port name="SoftLayer_Network_LoadBalancer_VirtualIpAddressPort" binding="tns:SoftLayer_Network_LoadBalancer_VirtualIpAddressBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_LoadBalancer_VirtualIpAddress"/>
+    </port>
+  </service>
+</definitions>

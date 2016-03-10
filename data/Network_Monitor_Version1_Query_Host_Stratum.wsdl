@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_Host_Stratum?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host_Stratum"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumInitParametersHeader">
+    <part name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumInitParameters" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumInitParameters"/>
+  </message>
+  <message name="getAllQueryTypes"/>
+  <message name="getAllQueryTypesResponse">
+    <part name="getAllQueryTypesReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_TypeArray"/>
+  </message>
+  <message name="getAllResponseTypes"/>
+  <message name="getAllResponseTypesResponse">
+    <part name="getAllResponseTypesReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_ResponseTypeArray"/>
+  </message>
+  <message name="getHardware"/>
+  <message name="getHardwareResponse">
+    <part name="getHardwareReturn" type="tns:SoftLayer_Hardware"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host_Stratum"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMaskHeader">
+    <part name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMask" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectFilterHeader">
+    <part name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectFilter" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumPortType">
+    <documentation>This service is for reference only.  It can be changed by purchasing higher monitoring levels through the portal. </documentation>
+    <operation name="getAllQueryTypes">
+      <documentation>Calling this function returns all possible query type objects. These objects are to be used to set the values on the SoftLayer_Network_Monitor_Version1_Query_Host when creating new monitoring instances. </documentation>
+      <input message="tns:getAllQueryTypes"/>
+      <output message="tns:getAllQueryTypesResponse"/>
+    </operation>
+    <operation name="getAllResponseTypes">
+      <documentation>Calling this function returns all possible response type objects. These objects are to be used to set the values on the SoftLayer_Network_Monitor_Version1_Query_Host when creating new monitoring instances. </documentation>
+      <input message="tns:getAllResponseTypes"/>
+      <output message="tns:getAllResponseTypesResponse"/>
+    </operation>
+    <operation name="getHardware">
+      <documentation>Retrieve the hardware object that these monitoring permissions applies to.</documentation>
+      <input message="tns:getHardware"/>
+      <output message="tns:getHardwareResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Network_Monitor_Version1_Query_Host_Stratum object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Network_Monitor_Version1_Query_Host_Stratum service. You can only retrieve strata attached to hardware that belong to your account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumBinding" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllQueryTypes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_Host_StratumAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllResponseTypes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_Host_StratumAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_Host_StratumAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectFilterHeader" part="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_Host_StratumInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_Host_StratumAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectFilterHeader" part="SoftLayer_Network_Monitor_Version1_Query_Host_StratumObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_Host_StratumInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumService">
+    <port name="SoftLayer_Network_Monitor_Version1_Query_Host_StratumPort" binding="tns:SoftLayer_Network_Monitor_Version1_Query_Host_StratumBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_Host_Stratum"/>
+    </port>
+  </service>
+</definitions>

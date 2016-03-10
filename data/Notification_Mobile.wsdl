@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Notification_Mobile?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Notification_MobileInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Notification_MobileObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Notification_Mobile"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Notification_MobileInitParametersHeader">
+    <part name="SoftLayer_Notification_MobileInitParameters" type="tns:SoftLayer_Notification_MobileInitParameters"/>
+  </message>
+  <message name="createSubscriberForMobileDevice">
+    <part name="keyName" type="xsd:string"/>
+    <part name="resourceTableId" type="xsd:int"/>
+    <part name="userRecordId" type="xsd:int"/>
+  </message>
+  <message name="createSubscriberForMobileDeviceResponse">
+    <part name="createSubscriberForMobileDeviceReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_NotificationArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Notification_Mobile"/>
+  </message>
+  <message name="getPreferences"/>
+  <message name="getPreferencesResponse">
+    <part name="getPreferencesReturn" type="tns:SoftLayer_Notification_PreferenceArray"/>
+  </message>
+  <message name="getRequiredPreferences"/>
+  <message name="getRequiredPreferencesResponse">
+    <part name="getRequiredPreferencesReturn" type="tns:SoftLayer_Notification_PreferenceArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Notification_MobileObjectMaskHeader">
+    <part name="SoftLayer_Notification_MobileObjectMask" type="tns:SoftLayer_Notification_MobileObjectMask"/>
+  </message>
+  <message name="SoftLayer_Notification_MobileObjectFilterHeader">
+    <part name="SoftLayer_Notification_MobileObjectFilter" type="tns:SoftLayer_Notification_MobileObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Notification_MobilePortType">
+    <documentation>SoftLayer Customers can use this service to view all of the available mobile notifications that can be subscribed to.  No mobile notifications are required. </documentation>
+    <operation name="createSubscriberForMobileDevice">
+      <documentation>Create a new subscriber for a given resource. </documentation>
+      <input message="tns:createSubscriberForMobileDevice"/>
+      <output message="tns:createSubscriberForMobileDeviceResponse"/>
+    </operation>
+    <operation name="getAllObjects">
+      <documentation>Use this method to retrieve all active notifications that can be subscribed to. </documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPreferences">
+      <documentation>Retrieve the preferences related to the notification. These are preferences are configurable and optional for subscribers to use.</documentation>
+      <input message="tns:getPreferences"/>
+      <output message="tns:getPreferencesResponse"/>
+    </operation>
+    <operation name="getRequiredPreferences">
+      <documentation>Retrieve the required preferences related to the notification. While configurable, the subscriber does not have the option whether to use the preference.</documentation>
+      <input message="tns:getRequiredPreferences"/>
+      <output message="tns:getRequiredPreferencesResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Notification_MobileBinding" type="tns:SoftLayer_Notification_MobilePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createSubscriberForMobileDevice">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_MobileAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_MobileAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_MobileObjectMaskHeader" part="SoftLayer_Notification_MobileObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_MobileObjectFilterHeader" part="SoftLayer_Notification_MobileObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_MobileAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_MobileObjectMaskHeader" part="SoftLayer_Notification_MobileObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_MobileObjectFilterHeader" part="SoftLayer_Notification_MobileObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_MobileInitParametersHeader" part="SoftLayer_Notification_MobileInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPreferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_MobileAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_MobileObjectMaskHeader" part="SoftLayer_Notification_MobileObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_MobileObjectFilterHeader" part="SoftLayer_Notification_MobileObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_MobileInitParametersHeader" part="SoftLayer_Notification_MobileInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRequiredPreferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_MobileAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_MobileObjectMaskHeader" part="SoftLayer_Notification_MobileObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_MobileObjectFilterHeader" part="SoftLayer_Notification_MobileObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_MobileInitParametersHeader" part="SoftLayer_Notification_MobileInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Notification_MobileService">
+    <port name="SoftLayer_Notification_MobilePort" binding="tns:SoftLayer_Notification_MobileBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Notification_Mobile"/>
+    </port>
+  </service>
+</definitions>

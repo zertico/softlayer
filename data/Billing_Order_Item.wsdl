@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Order_Item?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Billing_Order_ItemInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Billing_Order_ItemObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Billing_Order_Item"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Billing_Order_ItemInitParametersHeader">
+    <part name="SoftLayer_Billing_Order_ItemInitParameters" type="tns:SoftLayer_Billing_Order_ItemInitParameters"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getBundledItems"/>
+  <message name="getBundledItemsResponse">
+    <part name="getBundledItemsReturn" type="tns:SoftLayer_Billing_Order_ItemArray"/>
+  </message>
+  <message name="getCategory"/>
+  <message name="getCategoryResponse">
+    <part name="getCategoryReturn" type="tns:SoftLayer_Product_Item_Category"/>
+  </message>
+  <message name="getChildren"/>
+  <message name="getChildrenResponse">
+    <part name="getChildrenReturn" type="tns:SoftLayer_Billing_Order_ItemArray"/>
+  </message>
+  <message name="getGlobalIdentifier"/>
+  <message name="getGlobalIdentifierResponse">
+    <part name="getGlobalIdentifierReturn" type="xsd:string"/>
+  </message>
+  <message name="getHardwareGenericComponent"/>
+  <message name="getHardwareGenericComponentResponse">
+    <part name="getHardwareGenericComponentReturn" type="tns:SoftLayer_Hardware_Component_Model_Generic"/>
+  </message>
+  <message name="getItem"/>
+  <message name="getItemResponse">
+    <part name="getItemReturn" type="tns:SoftLayer_Product_Item"/>
+  </message>
+  <message name="getItemCategoryAnswers"/>
+  <message name="getItemCategoryAnswersResponse">
+    <part name="getItemCategoryAnswersReturn" type="tns:SoftLayer_Billing_Order_Item_Category_AnswerArray"/>
+  </message>
+  <message name="getItemPrice"/>
+  <message name="getItemPriceResponse">
+    <part name="getItemPriceReturn" type="tns:SoftLayer_Product_Item_Price"/>
+  </message>
+  <message name="getLocation"/>
+  <message name="getLocationResponse">
+    <part name="getLocationReturn" type="tns:SoftLayer_Location"/>
+  </message>
+  <message name="getNextOrderChildren"/>
+  <message name="getNextOrderChildrenResponse">
+    <part name="getNextOrderChildrenReturn" type="tns:SoftLayer_Billing_Order_ItemArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Billing_Order_Item"/>
+  </message>
+  <message name="getOldBillingItem"/>
+  <message name="getOldBillingItemResponse">
+    <part name="getOldBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getOrder"/>
+  <message name="getOrderResponse">
+    <part name="getOrderReturn" type="tns:SoftLayer_Billing_Order"/>
+  </message>
+  <message name="getOrderApprovalDate"/>
+  <message name="getOrderApprovalDateResponse">
+    <part name="getOrderApprovalDateReturn" type="xsd:dateTime"/>
+  </message>
+  <message name="getPackage"/>
+  <message name="getPackageResponse">
+    <part name="getPackageReturn" type="tns:SoftLayer_Product_Package"/>
+  </message>
+  <message name="getParent"/>
+  <message name="getParentResponse">
+    <part name="getParentReturn" type="tns:SoftLayer_Billing_Order_Item"/>
+  </message>
+  <message name="getRedundantPowerSupplyCount"/>
+  <message name="getRedundantPowerSupplyCountResponse">
+    <part name="getRedundantPowerSupplyCountReturn" type="xsd:unsignedInt"/>
+  </message>
+  <message name="getSoftwareDescription"/>
+  <message name="getSoftwareDescriptionResponse">
+    <part name="getSoftwareDescriptionReturn" type="tns:SoftLayer_Software_Description"/>
+  </message>
+  <message name="getStorageGroups"/>
+  <message name="getStorageGroupsResponse">
+    <part name="getStorageGroupsReturn" type="tns:SoftLayer_Configuration_Storage_Group_OrderArray"/>
+  </message>
+  <message name="getTotalRecurringAmount"/>
+  <message name="getTotalRecurringAmountResponse">
+    <part name="getTotalRecurringAmountReturn" type="xsd:float"/>
+  </message>
+  <message name="getUpgradeItem"/>
+  <message name="getUpgradeItemResponse">
+    <part name="getUpgradeItemReturn" type="tns:SoftLayer_Product_Item"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Billing_Order_ItemObjectMaskHeader">
+    <part name="SoftLayer_Billing_Order_ItemObjectMask" type="tns:SoftLayer_Billing_Order_ItemObjectMask"/>
+  </message>
+  <message name="SoftLayer_Billing_Order_ItemObjectFilterHeader">
+    <part name="SoftLayer_Billing_Order_ItemObjectFilter" type="tns:SoftLayer_Billing_Order_ItemObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Billing_Order_ItemPortType">
+    <documentation>The SoftLayer_Billing_Order_Item datatype provides information regarding a single ordered item. When a server order or any other order is placed, the information about that order is stored as SoftLayer_Billing_Order_items. 
+
+This also provides information about software or hardware related to an ordered item,what package the item is in, and all pricing information related to this ordered item. </documentation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the SoftLayer_Billing_Item tied to the order item.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getBundledItems">
+      <documentation>Retrieve the other items included with an ordered item.</documentation>
+      <input message="tns:getBundledItems"/>
+      <output message="tns:getBundledItemsResponse"/>
+    </operation>
+    <operation name="getCategory">
+      <documentation>Retrieve the item category tied to an order item.</documentation>
+      <input message="tns:getCategory"/>
+      <output message="tns:getCategoryResponse"/>
+    </operation>
+    <operation name="getChildren">
+      <documentation>Retrieve the child order items for an order item. All server order items should have children. These children are considered a part of the server.</documentation>
+      <input message="tns:getChildren"/>
+      <output message="tns:getChildrenResponse"/>
+    </operation>
+    <operation name="getGlobalIdentifier">
+      <documentation>Retrieve a hardware's universally unique identifier.</documentation>
+      <input message="tns:getGlobalIdentifier"/>
+      <output message="tns:getGlobalIdentifierResponse"/>
+    </operation>
+    <operation name="getHardwareGenericComponent">
+      <documentation>Retrieve the component type tied to an order item. All hardware-specific items should have a generic hardware component.</documentation>
+      <input message="tns:getHardwareGenericComponent"/>
+      <output message="tns:getHardwareGenericComponentResponse"/>
+    </operation>
+    <operation name="getItem">
+      <documentation>Retrieve the SoftLayer_Product_Item tied to an order item. The item is the actual definition of the product being sold.</documentation>
+      <input message="tns:getItem"/>
+      <output message="tns:getItemResponse"/>
+    </operation>
+    <operation name="getItemCategoryAnswers">
+      <documentation>Retrieve this is an item's category answers.</documentation>
+      <input message="tns:getItemCategoryAnswers"/>
+      <output message="tns:getItemCategoryAnswersResponse"/>
+    </operation>
+    <operation name="getItemPrice">
+      <documentation>Retrieve the SoftLayer_Product_Item_Price tied to an order item. The item price object describes the cost of an item.</documentation>
+      <input message="tns:getItemPrice"/>
+      <output message="tns:getItemPriceResponse"/>
+    </operation>
+    <operation name="getLocation">
+      <documentation>Retrieve the location of an ordered item. This is usually the same as the server it is being ordered with. Otherwise it describes the location of the additional service being ordered.</documentation>
+      <input message="tns:getLocation"/>
+      <output message="tns:getLocationResponse"/>
+    </operation>
+    <operation name="getNextOrderChildren">
+      <documentation></documentation>
+      <input message="tns:getNextOrderChildren"/>
+      <output message="tns:getNextOrderChildrenResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Billing_Item object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Billing_Item service. You can only retrieve billing items tied to the account that your portal user is assigned to. Billing items are an account's items of billable items. There are &amp;quot;parent&amp;quot; billing items and &amp;quot;child&amp;quot; billing items. The server billing item is generally referred to as a parent billing item. The items tied to a server, such as ram, harddrives, and operating systems are considered &amp;quot;child&amp;quot; billing items. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOldBillingItem">
+      <documentation>Retrieve this is only populated when an upgrade order is placed. The old billing item represents what the billing was before the upgrade happened.</documentation>
+      <input message="tns:getOldBillingItem"/>
+      <output message="tns:getOldBillingItemResponse"/>
+    </operation>
+    <operation name="getOrder">
+      <documentation>Retrieve the order to which this item belongs. The order contains all the information related to the items included in an order</documentation>
+      <input message="tns:getOrder"/>
+      <output message="tns:getOrderResponse"/>
+    </operation>
+    <operation name="getOrderApprovalDate">
+      <documentation></documentation>
+      <input message="tns:getOrderApprovalDate"/>
+      <output message="tns:getOrderApprovalDateResponse"/>
+    </operation>
+    <operation name="getPackage">
+      <documentation>Retrieve the SoftLayer_Product_Package an order item is a part of.</documentation>
+      <input message="tns:getPackage"/>
+      <output message="tns:getPackageResponse"/>
+    </operation>
+    <operation name="getParent">
+      <documentation>Retrieve the parent order item ID for an item. Items that are associated with a server will have a parent. The parent will be the server item itself.</documentation>
+      <input message="tns:getParent"/>
+      <output message="tns:getParentResponse"/>
+    </operation>
+    <operation name="getRedundantPowerSupplyCount">
+      <documentation>Retrieve a count of power supplies contained within this SoftLayer_Billing_Order</documentation>
+      <input message="tns:getRedundantPowerSupplyCount"/>
+      <output message="tns:getRedundantPowerSupplyCountResponse"/>
+    </operation>
+    <operation name="getSoftwareDescription">
+      <documentation>Retrieve for ordered items that are software items, a full description of that software can be found with this property. </documentation>
+      <input message="tns:getSoftwareDescription"/>
+      <output message="tns:getSoftwareDescriptionResponse"/>
+    </operation>
+    <operation name="getStorageGroups">
+      <documentation>Retrieve the drive storage groups that are attached to this billing order item.</documentation>
+      <input message="tns:getStorageGroups"/>
+      <output message="tns:getStorageGroupsResponse"/>
+    </operation>
+    <operation name="getTotalRecurringAmount">
+      <documentation>Retrieve the recurring fee of an ordered item. This amount represents the fees that will be charged on a recurring (usually monthly) basis.</documentation>
+      <input message="tns:getTotalRecurringAmount"/>
+      <output message="tns:getTotalRecurringAmountResponse"/>
+    </operation>
+    <operation name="getUpgradeItem">
+      <documentation>Retrieve the next SoftLayer_Product_Item in the upgrade path for this order item.</documentation>
+      <input message="tns:getUpgradeItem"/>
+      <output message="tns:getUpgradeItemResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Billing_Order_ItemBinding" type="tns:SoftLayer_Billing_Order_ItemPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBundledItems">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCategory">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getChildren">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGlobalIdentifier">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardwareGenericComponent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getItemCategoryAnswers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getItemPrice">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLocation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNextOrderChildren">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOldBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOrder">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOrderApprovalDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPackage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getParent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRedundantPowerSupplyCount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSoftwareDescription">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStorageGroups">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTotalRecurringAmount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUpgradeItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_ItemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectMaskHeader" part="SoftLayer_Billing_Order_ItemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemObjectFilterHeader" part="SoftLayer_Billing_Order_ItemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_ItemInitParametersHeader" part="SoftLayer_Billing_Order_ItemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Billing_Order_ItemService">
+    <port name="SoftLayer_Billing_Order_ItemPort" binding="tns:SoftLayer_Billing_Order_ItemBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Order_Item"/>
+    </port>
+  </service>
+</definitions>

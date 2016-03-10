@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Catalyst_Enrollment?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Catalyst_EnrollmentInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Catalyst_EnrollmentObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Catalyst_Enrollment"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Catalyst_EnrollmentInitParametersHeader">
+    <part name="SoftLayer_Catalyst_EnrollmentInitParameters" type="tns:SoftLayer_Catalyst_EnrollmentInitParameters"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAffiliate"/>
+  <message name="getAffiliateResponse">
+    <part name="getAffiliateReturn" type="tns:SoftLayer_Catalyst_Affiliate"/>
+  </message>
+  <message name="getAffiliates"/>
+  <message name="getAffiliatesResponse">
+    <part name="getAffiliatesReturn" type="tns:SoftLayer_Catalyst_AffiliateArray"/>
+  </message>
+  <message name="getCompanyType"/>
+  <message name="getCompanyTypeResponse">
+    <part name="getCompanyTypeReturn" type="tns:SoftLayer_Catalyst_Company_Type"/>
+  </message>
+  <message name="getCompanyTypes"/>
+  <message name="getCompanyTypesResponse">
+    <part name="getCompanyTypesReturn" type="tns:SoftLayer_Catalyst_Company_TypeArray"/>
+  </message>
+  <message name="getEnrollmentRequestAnnualRevenueOptions"/>
+  <message name="getEnrollmentRequestAnnualRevenueOptionsResponse">
+    <part name="getEnrollmentRequestAnnualRevenueOptionsReturn" type="tns:SoftLayer_Catalyst_Enrollment_Request_Container_AnswerOptionArray"/>
+  </message>
+  <message name="getEnrollmentRequestUserCountOptions"/>
+  <message name="getEnrollmentRequestUserCountOptionsResponse">
+    <part name="getEnrollmentRequestUserCountOptionsReturn" type="tns:SoftLayer_Catalyst_Enrollment_Request_Container_AnswerOptionArray"/>
+  </message>
+  <message name="getEnrollmentRequestYearsInOperationOptions"/>
+  <message name="getEnrollmentRequestYearsInOperationOptionsResponse">
+    <part name="getEnrollmentRequestYearsInOperationOptionsReturn" type="tns:SoftLayer_Catalyst_Enrollment_Request_Container_AnswerOptionArray"/>
+  </message>
+  <message name="getIsActiveFlag"/>
+  <message name="getIsActiveFlagResponse">
+    <part name="getIsActiveFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Catalyst_Enrollment"/>
+  </message>
+  <message name="getRepresentative"/>
+  <message name="getRepresentativeResponse">
+    <part name="getRepresentativeReturn" type="tns:SoftLayer_User_Employee"/>
+  </message>
+  <message name="requestManualEnrollment">
+    <part name="request" type="tns:SoftLayer_Container_Catalyst_ManualEnrollmentRequest"/>
+  </message>
+  <message name="requestSelfEnrollment">
+    <part name="enrollmentRequest" type="tns:SoftLayer_Catalyst_Enrollment_Request"/>
+  </message>
+  <message name="requestSelfEnrollmentResponse">
+    <part name="requestSelfEnrollmentReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Catalyst_EnrollmentObjectMaskHeader">
+    <part name="SoftLayer_Catalyst_EnrollmentObjectMask" type="tns:SoftLayer_Catalyst_EnrollmentObjectMask"/>
+  </message>
+  <message name="SoftLayer_Catalyst_EnrollmentObjectFilterHeader">
+    <part name="SoftLayer_Catalyst_EnrollmentObjectFilter" type="tns:SoftLayer_Catalyst_EnrollmentObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Catalyst_EnrollmentPortType">
+    <documentation></documentation>
+    <operation name="getAccount">
+      <documentation></documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAffiliate">
+      <documentation></documentation>
+      <input message="tns:getAffiliate"/>
+      <output message="tns:getAffiliateResponse"/>
+    </operation>
+    <operation name="getAffiliates">
+      <documentation></documentation>
+      <input message="tns:getAffiliates"/>
+      <output message="tns:getAffiliatesResponse"/>
+    </operation>
+    <operation name="getCompanyType">
+      <documentation></documentation>
+      <input message="tns:getCompanyType"/>
+      <output message="tns:getCompanyTypeResponse"/>
+    </operation>
+    <operation name="getCompanyTypes">
+      <documentation></documentation>
+      <input message="tns:getCompanyTypes"/>
+      <output message="tns:getCompanyTypesResponse"/>
+    </operation>
+    <operation name="getEnrollmentRequestAnnualRevenueOptions">
+      <documentation></documentation>
+      <input message="tns:getEnrollmentRequestAnnualRevenueOptions"/>
+      <output message="tns:getEnrollmentRequestAnnualRevenueOptionsResponse"/>
+    </operation>
+    <operation name="getEnrollmentRequestUserCountOptions">
+      <documentation></documentation>
+      <input message="tns:getEnrollmentRequestUserCountOptions"/>
+      <output message="tns:getEnrollmentRequestUserCountOptionsResponse"/>
+    </operation>
+    <operation name="getEnrollmentRequestYearsInOperationOptions">
+      <documentation></documentation>
+      <input message="tns:getEnrollmentRequestYearsInOperationOptions"/>
+      <output message="tns:getEnrollmentRequestYearsInOperationOptionsResponse"/>
+    </operation>
+    <operation name="getIsActiveFlag">
+      <documentation></documentation>
+      <input message="tns:getIsActiveFlag"/>
+      <output message="tns:getIsActiveFlagResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getRepresentative">
+      <documentation></documentation>
+      <input message="tns:getRepresentative"/>
+      <output message="tns:getRepresentativeResponse"/>
+    </operation>
+    <operation name="requestManualEnrollment">
+      <documentation></documentation>
+      <input message="tns:requestManualEnrollment"/>
+    </operation>
+    <operation name="requestSelfEnrollment">
+      <documentation></documentation>
+      <input message="tns:requestSelfEnrollment"/>
+      <output message="tns:requestSelfEnrollmentResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Catalyst_EnrollmentBinding" type="tns:SoftLayer_Catalyst_EnrollmentPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectMaskHeader" part="SoftLayer_Catalyst_EnrollmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectFilterHeader" part="SoftLayer_Catalyst_EnrollmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentInitParametersHeader" part="SoftLayer_Catalyst_EnrollmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAffiliate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectMaskHeader" part="SoftLayer_Catalyst_EnrollmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectFilterHeader" part="SoftLayer_Catalyst_EnrollmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentInitParametersHeader" part="SoftLayer_Catalyst_EnrollmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAffiliates">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectMaskHeader" part="SoftLayer_Catalyst_EnrollmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCompanyType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectMaskHeader" part="SoftLayer_Catalyst_EnrollmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectFilterHeader" part="SoftLayer_Catalyst_EnrollmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentInitParametersHeader" part="SoftLayer_Catalyst_EnrollmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCompanyTypes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectMaskHeader" part="SoftLayer_Catalyst_EnrollmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEnrollmentRequestAnnualRevenueOptions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEnrollmentRequestUserCountOptions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEnrollmentRequestYearsInOperationOptions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getIsActiveFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectMaskHeader" part="SoftLayer_Catalyst_EnrollmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectFilterHeader" part="SoftLayer_Catalyst_EnrollmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentInitParametersHeader" part="SoftLayer_Catalyst_EnrollmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectMaskHeader" part="SoftLayer_Catalyst_EnrollmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectFilterHeader" part="SoftLayer_Catalyst_EnrollmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentInitParametersHeader" part="SoftLayer_Catalyst_EnrollmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRepresentative">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectMaskHeader" part="SoftLayer_Catalyst_EnrollmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectFilterHeader" part="SoftLayer_Catalyst_EnrollmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentInitParametersHeader" part="SoftLayer_Catalyst_EnrollmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="requestManualEnrollment">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="requestSelfEnrollment">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Catalyst_EnrollmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Catalyst_EnrollmentObjectMaskHeader" part="SoftLayer_Catalyst_EnrollmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Catalyst_EnrollmentService">
+    <port name="SoftLayer_Catalyst_EnrollmentPort" binding="tns:SoftLayer_Catalyst_EnrollmentBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Catalyst_Enrollment"/>
+    </port>
+  </service>
+</definitions>

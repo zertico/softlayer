@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Location_Datacenter?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Location_DatacenterInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Location_DatacenterObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Location_Datacenter"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Location_DatacenterInitParametersHeader">
+    <part name="SoftLayer_Location_DatacenterInitParameters" type="tns:SoftLayer_Location_DatacenterInitParameters"/>
+  </message>
+  <message name="getActiveItemPresaleEvents"/>
+  <message name="getActiveItemPresaleEventsResponse">
+    <part name="getActiveItemPresaleEventsReturn" type="tns:SoftLayer_Sales_Presale_EventArray"/>
+  </message>
+  <message name="getActivePresaleEvents"/>
+  <message name="getActivePresaleEventsResponse">
+    <part name="getActivePresaleEventsReturn" type="tns:SoftLayer_Sales_Presale_EventArray"/>
+  </message>
+  <message name="getAvailableObjectStorageDatacenters"/>
+  <message name="getAvailableObjectStorageDatacentersResponse">
+    <part name="getAvailableObjectStorageDatacentersReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="getBackboneDependents"/>
+  <message name="getBackboneDependentsResponse">
+    <part name="getBackboneDependentsReturn" type="tns:SoftLayer_Network_Backbone_Location_DependentArray"/>
+  </message>
+  <message name="getBackendHardwareRouters"/>
+  <message name="getBackendHardwareRoutersResponse">
+    <part name="getBackendHardwareRoutersReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getBoundSubnets"/>
+  <message name="getBoundSubnetsResponse">
+    <part name="getBoundSubnetsReturn" type="tns:SoftLayer_Network_SubnetArray"/>
+  </message>
+  <message name="getBrandCountryRestrictions"/>
+  <message name="getBrandCountryRestrictionsResponse">
+    <part name="getBrandCountryRestrictionsReturn" type="tns:SoftLayer_Brand_Restriction_Location_CustomerCountryArray"/>
+  </message>
+  <message name="getDatacenters"/>
+  <message name="getDatacentersResponse">
+    <part name="getDatacentersReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="getDatacentersWithVirtualImageStoreServiceResourceRecord"/>
+  <message name="getDatacentersWithVirtualImageStoreServiceResourceRecordResponse">
+    <part name="getDatacentersWithVirtualImageStoreServiceResourceRecordReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="getFrontendHardwareRouters"/>
+  <message name="getFrontendHardwareRoutersResponse">
+    <part name="getFrontendHardwareRoutersReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getGroups"/>
+  <message name="getGroupsResponse">
+    <part name="getGroupsReturn" type="tns:SoftLayer_Location_GroupArray"/>
+  </message>
+  <message name="getHardwareFirewalls"/>
+  <message name="getHardwareFirewallsResponse">
+    <part name="getHardwareFirewallsReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getHardwareRouters"/>
+  <message name="getHardwareRoutersResponse">
+    <part name="getHardwareRoutersReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getLocationAddress"/>
+  <message name="getLocationAddressResponse">
+    <part name="getLocationAddressReturn" type="tns:SoftLayer_Account_Address"/>
+  </message>
+  <message name="getLocationReservationMember"/>
+  <message name="getLocationReservationMemberResponse">
+    <part name="getLocationReservationMemberReturn" type="tns:SoftLayer_Location_Reservation_Rack_Member"/>
+  </message>
+  <message name="getLocationStatus"/>
+  <message name="getLocationStatusResponse">
+    <part name="getLocationStatusReturn" type="tns:SoftLayer_Location_Status"/>
+  </message>
+  <message name="getNetworkConfigurationAttribute"/>
+  <message name="getNetworkConfigurationAttributeResponse">
+    <part name="getNetworkConfigurationAttributeReturn" type="tns:SoftLayer_Hardware_Attribute"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Location_Datacenter"/>
+  </message>
+  <message name="getOnlinePptpVpnUserCount"/>
+  <message name="getOnlinePptpVpnUserCountResponse">
+    <part name="getOnlinePptpVpnUserCountReturn" type="xsd:int"/>
+  </message>
+  <message name="getOnlineSslVpnUserCount"/>
+  <message name="getOnlineSslVpnUserCountResponse">
+    <part name="getOnlineSslVpnUserCountReturn" type="xsd:int"/>
+  </message>
+  <message name="getPathString"/>
+  <message name="getPathStringResponse">
+    <part name="getPathStringReturn" type="xsd:string"/>
+  </message>
+  <message name="getPresaleEvents"/>
+  <message name="getPresaleEventsResponse">
+    <part name="getPresaleEventsReturn" type="tns:SoftLayer_Sales_Presale_EventArray"/>
+  </message>
+  <message name="getPriceGroups"/>
+  <message name="getPriceGroupsResponse">
+    <part name="getPriceGroupsReturn" type="tns:SoftLayer_Location_GroupArray"/>
+  </message>
+  <message name="getRegionalGroup"/>
+  <message name="getRegionalGroupResponse">
+    <part name="getRegionalGroupReturn" type="tns:SoftLayer_Location_Group_Regional"/>
+  </message>
+  <message name="getRegionalInternetRegistry"/>
+  <message name="getRegionalInternetRegistryResponse">
+    <part name="getRegionalInternetRegistryReturn" type="tns:SoftLayer_Network_Regional_Internet_Registry"/>
+  </message>
+  <message name="getRegions"/>
+  <message name="getRegionsResponse">
+    <part name="getRegionsReturn" type="tns:SoftLayer_Location_RegionArray"/>
+  </message>
+  <message name="getRoutableBoundSubnets"/>
+  <message name="getRoutableBoundSubnetsResponse">
+    <part name="getRoutableBoundSubnetsReturn" type="tns:SoftLayer_Network_SubnetArray"/>
+  </message>
+  <message name="getStatisticsGraphImage"/>
+  <message name="getStatisticsGraphImageResponse">
+    <part name="getStatisticsGraphImageReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getTimezone"/>
+  <message name="getTimezoneResponse">
+    <part name="getTimezoneReturn" type="tns:SoftLayer_Locale_Timezone"/>
+  </message>
+  <message name="getVdrGroup"/>
+  <message name="getVdrGroupResponse">
+    <part name="getVdrGroupReturn" type="tns:SoftLayer_Location_Group_Location_CrossReference"/>
+  </message>
+  <message name="getViewableDatacenters"/>
+  <message name="getViewableDatacentersResponse">
+    <part name="getViewableDatacentersReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="getViewablePopsAndDataCenters"/>
+  <message name="getViewablePopsAndDataCentersResponse">
+    <part name="getViewablePopsAndDataCentersReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="getViewablepointOfPresence"/>
+  <message name="getViewablepointOfPresenceResponse">
+    <part name="getViewablepointOfPresenceReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="getpointOfPresence"/>
+  <message name="getpointOfPresenceResponse">
+    <part name="getpointOfPresenceReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Location_DatacenterObjectMaskHeader">
+    <part name="SoftLayer_Location_DatacenterObjectMask" type="tns:SoftLayer_Location_DatacenterObjectMask"/>
+  </message>
+  <message name="SoftLayer_Location_DatacenterObjectFilterHeader">
+    <part name="SoftLayer_Location_DatacenterObjectFilter" type="tns:SoftLayer_Location_DatacenterObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Location_DatacenterPortType">
+    <documentation>SoftLayer_Location_Datacenter exposes functionality to access datacenter-specific portions of SoftLayer's backend network. SoftLayer maintains datacenters within it's location hierarchy. Datacenters are located in city locations and each contain server room locations, racks, then slots. Each slot location houses a piece of SoftLayer hardware. </documentation>
+    <operation name="getActiveItemPresaleEvents">
+      <documentation></documentation>
+      <input message="tns:getActiveItemPresaleEvents"/>
+      <output message="tns:getActiveItemPresaleEventsResponse"/>
+    </operation>
+    <operation name="getActivePresaleEvents">
+      <documentation></documentation>
+      <input message="tns:getActivePresaleEvents"/>
+      <output message="tns:getActivePresaleEventsResponse"/>
+    </operation>
+    <operation name="getAvailableObjectStorageDatacenters">
+      <documentation>Object Storage is only available in select datacenters. This method will return all the datacenters where object storage is available. </documentation>
+      <input message="tns:getAvailableObjectStorageDatacenters"/>
+      <output message="tns:getAvailableObjectStorageDatacentersResponse"/>
+    </operation>
+    <operation name="getBackboneDependents">
+      <documentation></documentation>
+      <input message="tns:getBackboneDependents"/>
+      <output message="tns:getBackboneDependentsResponse"/>
+    </operation>
+    <operation name="getBackendHardwareRouters">
+      <documentation></documentation>
+      <input message="tns:getBackendHardwareRouters"/>
+      <output message="tns:getBackendHardwareRoutersResponse"/>
+    </operation>
+    <operation name="getBoundSubnets">
+      <documentation>Retrieve subnets which are directly bound to one or more routers in a given datacenter, and currently allow routing.</documentation>
+      <input message="tns:getBoundSubnets"/>
+      <output message="tns:getBoundSubnetsResponse"/>
+    </operation>
+    <operation name="getBrandCountryRestrictions">
+      <documentation>Retrieve this references relationship between brands, locations and countries associated with a user's account that are ineligible when ordering products. For example, the India datacenter may not be available on this brand for customers that live in Great Britain.</documentation>
+      <input message="tns:getBrandCountryRestrictions"/>
+      <output message="tns:getBrandCountryRestrictionsResponse"/>
+    </operation>
+    <operation name="getDatacenters">
+      <documentation>Retrieve all datacenter locations. SoftLayer's datacenters exist in various cities and each contain one or more server rooms which house network and server infrastructure. </documentation>
+      <input message="tns:getDatacenters"/>
+      <output message="tns:getDatacentersResponse"/>
+    </operation>
+    <operation name="getDatacentersWithVirtualImageStoreServiceResourceRecord">
+      <documentation></documentation>
+      <input message="tns:getDatacentersWithVirtualImageStoreServiceResourceRecord"/>
+      <output message="tns:getDatacentersWithVirtualImageStoreServiceResourceRecordResponse"/>
+    </operation>
+    <operation name="getFrontendHardwareRouters">
+      <documentation></documentation>
+      <input message="tns:getFrontendHardwareRouters"/>
+      <output message="tns:getFrontendHardwareRoutersResponse"/>
+    </operation>
+    <operation name="getGroups">
+      <documentation>Retrieve a location can be a member of 1 or more groups. This will show which groups to which a location belongs.</documentation>
+      <input message="tns:getGroups"/>
+      <output message="tns:getGroupsResponse"/>
+    </operation>
+    <operation name="getHardwareFirewalls">
+      <documentation></documentation>
+      <input message="tns:getHardwareFirewalls"/>
+      <output message="tns:getHardwareFirewallsResponse"/>
+    </operation>
+    <operation name="getHardwareRouters">
+      <documentation></documentation>
+      <input message="tns:getHardwareRouters"/>
+      <output message="tns:getHardwareRoutersResponse"/>
+    </operation>
+    <operation name="getLocationAddress">
+      <documentation>Retrieve a location's physical address.</documentation>
+      <input message="tns:getLocationAddress"/>
+      <output message="tns:getLocationAddressResponse"/>
+    </operation>
+    <operation name="getLocationReservationMember">
+      <documentation>Retrieve a location's Dedicated Rack member</documentation>
+      <input message="tns:getLocationReservationMember"/>
+      <output message="tns:getLocationReservationMemberResponse"/>
+    </operation>
+    <operation name="getLocationStatus">
+      <documentation>Retrieve the current locations status.</documentation>
+      <input message="tns:getLocationStatus"/>
+      <output message="tns:getLocationStatusResponse"/>
+    </operation>
+    <operation name="getNetworkConfigurationAttribute">
+      <documentation></documentation>
+      <input message="tns:getNetworkConfigurationAttribute"/>
+      <output message="tns:getNetworkConfigurationAttributeResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOnlinePptpVpnUserCount">
+      <documentation>Retrieve the total number of users online using SoftLayer's PPTP VPN service for a location.</documentation>
+      <input message="tns:getOnlinePptpVpnUserCount"/>
+      <output message="tns:getOnlinePptpVpnUserCountResponse"/>
+    </operation>
+    <operation name="getOnlineSslVpnUserCount">
+      <documentation>Retrieve the total number of users online using SoftLayer's SSL VPN service for a location.</documentation>
+      <input message="tns:getOnlineSslVpnUserCount"/>
+      <output message="tns:getOnlineSslVpnUserCountResponse"/>
+    </operation>
+    <operation name="getPathString">
+      <documentation></documentation>
+      <input message="tns:getPathString"/>
+      <output message="tns:getPathStringResponse"/>
+    </operation>
+    <operation name="getPresaleEvents">
+      <documentation></documentation>
+      <input message="tns:getPresaleEvents"/>
+      <output message="tns:getPresaleEventsResponse"/>
+    </operation>
+    <operation name="getPriceGroups">
+      <documentation>Retrieve a location can be a member of 1 or more Price Groups. This will show which groups to which a location belongs.</documentation>
+      <input message="tns:getPriceGroups"/>
+      <output message="tns:getPriceGroupsResponse"/>
+    </operation>
+    <operation name="getRegionalGroup">
+      <documentation>Retrieve the regional group this datacenter belongs to.</documentation>
+      <input message="tns:getRegionalGroup"/>
+      <output message="tns:getRegionalGroupResponse"/>
+    </operation>
+    <operation name="getRegionalInternetRegistry">
+      <documentation></documentation>
+      <input message="tns:getRegionalInternetRegistry"/>
+      <output message="tns:getRegionalInternetRegistryResponse"/>
+    </operation>
+    <operation name="getRegions">
+      <documentation>Retrieve a location can be a member of 1 or more regions. This will show which regions to which a location belongs.</documentation>
+      <input message="tns:getRegions"/>
+      <output message="tns:getRegionsResponse"/>
+    </operation>
+    <operation name="getRoutableBoundSubnets">
+      <documentation>Retrieve retrieve all subnets that are eligible to be routed; those which the account has permission to associate with a vlan.</documentation>
+      <input message="tns:getRoutableBoundSubnets"/>
+      <output message="tns:getRoutableBoundSubnetsResponse"/>
+    </operation>
+    <operation name="getStatisticsGraphImage">
+      <documentation>Retrieve a graph of a SoftLayer datacenter's last 48 hours of network activity. Statistics graphs show traffic outbound from a datacenter on top and inbound traffic on the bottom followed by a legend of the network services tracked in the graph. getStatisticsGraphImage returns a PNG image of variable width and height depending on the number of services reported in the image. </documentation>
+      <input message="tns:getStatisticsGraphImage"/>
+      <output message="tns:getStatisticsGraphImageResponse"/>
+    </operation>
+    <operation name="getTimezone">
+      <documentation></documentation>
+      <input message="tns:getTimezone"/>
+      <output message="tns:getTimezoneResponse"/>
+    </operation>
+    <operation name="getVdrGroup">
+      <documentation>Retrieve a location can be a member of 1 Bandwidth Pooling Group. This will show which group to which a location belongs.</documentation>
+      <input message="tns:getVdrGroup"/>
+      <output message="tns:getVdrGroupResponse"/>
+    </operation>
+    <operation name="getViewableDatacenters">
+      <documentation>Retrieve all datacenter locations. SoftLayer's datacenters exist in various cities and each contain one or more server rooms which house network and server infrastructure. </documentation>
+      <input message="tns:getViewableDatacenters"/>
+      <output message="tns:getViewableDatacentersResponse"/>
+    </operation>
+    <operation name="getViewablePopsAndDataCenters">
+      <documentation>Retrieve all viewable pop and datacenter locations. </documentation>
+      <input message="tns:getViewablePopsAndDataCenters"/>
+      <output message="tns:getViewablePopsAndDataCentersResponse"/>
+    </operation>
+    <operation name="getViewablepointOfPresence">
+      <documentation>Retrieve all viewable network locations. </documentation>
+      <input message="tns:getViewablepointOfPresence"/>
+      <output message="tns:getViewablepointOfPresenceResponse"/>
+    </operation>
+    <operation name="getpointOfPresence">
+      <documentation>Retrieve all point of presence locations. </documentation>
+      <input message="tns:getpointOfPresence"/>
+      <output message="tns:getpointOfPresenceResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Location_DatacenterBinding" type="tns:SoftLayer_Location_DatacenterPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getActiveItemPresaleEvents">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getActivePresaleEvents">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAvailableObjectStorageDatacenters">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBackboneDependents">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBackendHardwareRouters">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBoundSubnets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBrandCountryRestrictions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDatacenters">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDatacentersWithVirtualImageStoreServiceResourceRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFrontendHardwareRouters">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGroups">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardwareFirewalls">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardwareRouters">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLocationAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLocationReservationMember">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLocationStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkConfigurationAttribute">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOnlinePptpVpnUserCount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOnlineSslVpnUserCount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPathString">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPresaleEvents">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPriceGroups">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegionalGroup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegionalInternetRegistry">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRoutableBoundSubnets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatisticsGraphImage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTimezone">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVdrGroup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectFilterHeader" part="SoftLayer_Location_DatacenterObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterInitParametersHeader" part="SoftLayer_Location_DatacenterInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getViewableDatacenters">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getViewablePopsAndDataCenters">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getViewablepointOfPresence">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getpointOfPresence">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_DatacenterAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Location_DatacenterObjectMaskHeader" part="SoftLayer_Location_DatacenterObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Location_DatacenterService">
+    <port name="SoftLayer_Location_DatacenterPort" binding="tns:SoftLayer_Location_DatacenterBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Location_Datacenter"/>
+    </port>
+  </service>
+</definitions>

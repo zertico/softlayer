@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_Node?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Message_Queue_NodeInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Message_Queue_NodeObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Message_Queue_Node"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Message_Queue_NodeInitParametersHeader">
+    <part name="SoftLayer_Network_Message_Queue_NodeInitParameters" type="tns:SoftLayer_Network_Message_Queue_NodeInitParameters"/>
+  </message>
+  <message name="addUser">
+    <part name="username" type="xsd:string"/>
+  </message>
+  <message name="addUserResponse">
+    <part name="addUserReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteUser">
+    <part name="username" type="xsd:string"/>
+  </message>
+  <message name="deleteUserResponse">
+    <part name="deleteUserReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAllUsers"/>
+  <message name="getAllUsersResponse">
+    <part name="getAllUsersReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getMessageQueue"/>
+  <message name="getMessageQueueResponse">
+    <part name="getMessageQueueReturn" type="tns:SoftLayer_Network_Message_Queue"/>
+  </message>
+  <message name="getMetricTrackingObject"/>
+  <message name="getMetricTrackingObjectResponse">
+    <part name="getMetricTrackingObjectReturn" type="tns:SoftLayer_Metric_Tracking_Object"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Message_Queue_Node"/>
+  </message>
+  <message name="getServiceResource"/>
+  <message name="getServiceResourceResponse">
+    <part name="getServiceResourceReturn" type="tns:SoftLayer_Network_Service_Resource"/>
+  </message>
+  <message name="getUsage">
+    <part name="startDate" type="xsd:dateTime"/>
+    <part name="endDate" type="xsd:dateTime"/>
+  </message>
+  <message name="getUsageResponse">
+    <part name="getUsageReturn" type="tns:SoftLayer_Metric_Tracking_Object_DataArray"/>
+  </message>
+  <message name="getUsageGraph">
+    <part name="graphData" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getUsageGraphResponse">
+    <part name="getUsageGraphReturn" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Message_Queue_NodeObjectMaskHeader">
+    <part name="SoftLayer_Network_Message_Queue_NodeObjectMask" type="tns:SoftLayer_Network_Message_Queue_NodeObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Message_Queue_NodeObjectFilterHeader">
+    <part name="SoftLayer_Network_Message_Queue_NodeObjectFilter" type="tns:SoftLayer_Network_Message_Queue_NodeObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Message_Queue_NodePortType">
+    <documentation>Message queue account has multiple nodes in different data center. This object represents a message queue node. </documentation>
+    <operation name="addUser">
+      <documentation></documentation>
+      <input message="tns:addUser"/>
+      <output message="tns:addUserResponse"/>
+    </operation>
+    <operation name="deleteUser">
+      <documentation></documentation>
+      <input message="tns:deleteUser"/>
+      <output message="tns:deleteUserResponse"/>
+    </operation>
+    <operation name="getAllUsers">
+      <documentation></documentation>
+      <input message="tns:getAllUsers"/>
+      <output message="tns:getAllUsersResponse"/>
+    </operation>
+    <operation name="getMessageQueue">
+      <documentation>Retrieve the message queue account this node belongs to.</documentation>
+      <input message="tns:getMessageQueue"/>
+      <output message="tns:getMessageQueueResponse"/>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <documentation>Retrieve a message queue node's metric tracking object. This object records all request and notification count data for this message queue node.</documentation>
+      <input message="tns:getMetricTrackingObject"/>
+      <output message="tns:getMetricTrackingObjectResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getServiceResource">
+      <documentation></documentation>
+      <input message="tns:getServiceResource"/>
+      <output message="tns:getServiceResourceResponse"/>
+    </operation>
+    <operation name="getUsage">
+      <documentation>Retrieve usage graph by date. </documentation>
+      <input message="tns:getUsage"/>
+      <output message="tns:getUsageResponse"/>
+    </operation>
+    <operation name="getUsageGraph">
+      <documentation>Retrieve usage graph by date. </documentation>
+      <input message="tns:getUsageGraph"/>
+      <output message="tns:getUsageGraphResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Message_Queue_NodeBinding" type="tns:SoftLayer_Network_Message_Queue_NodePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_NodeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeInitParametersHeader" part="SoftLayer_Network_Message_Queue_NodeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_NodeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeInitParametersHeader" part="SoftLayer_Network_Message_Queue_NodeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllUsers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_NodeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeInitParametersHeader" part="SoftLayer_Network_Message_Queue_NodeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMessageQueue">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_NodeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeObjectMaskHeader" part="SoftLayer_Network_Message_Queue_NodeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeObjectFilterHeader" part="SoftLayer_Network_Message_Queue_NodeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeInitParametersHeader" part="SoftLayer_Network_Message_Queue_NodeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_NodeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeObjectMaskHeader" part="SoftLayer_Network_Message_Queue_NodeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeObjectFilterHeader" part="SoftLayer_Network_Message_Queue_NodeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeInitParametersHeader" part="SoftLayer_Network_Message_Queue_NodeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_NodeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeObjectMaskHeader" part="SoftLayer_Network_Message_Queue_NodeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeObjectFilterHeader" part="SoftLayer_Network_Message_Queue_NodeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeInitParametersHeader" part="SoftLayer_Network_Message_Queue_NodeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceResource">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_NodeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeObjectMaskHeader" part="SoftLayer_Network_Message_Queue_NodeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeObjectFilterHeader" part="SoftLayer_Network_Message_Queue_NodeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeInitParametersHeader" part="SoftLayer_Network_Message_Queue_NodeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUsage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_NodeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeInitParametersHeader" part="SoftLayer_Network_Message_Queue_NodeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUsageGraph">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_NodeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Message_Queue_NodeInitParametersHeader" part="SoftLayer_Network_Message_Queue_NodeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Message_Queue_NodeService">
+    <port name="SoftLayer_Network_Message_Queue_NodePort" binding="tns:SoftLayer_Network_Message_Queue_NodeBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Message_Queue_Node"/>
+    </port>
+  </service>
+</definitions>

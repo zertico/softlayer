@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Account_Shipment?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Account_ShipmentInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Account_ShipmentObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Account_Shipment"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Account_ShipmentInitParametersHeader">
+    <part name="SoftLayer_Account_ShipmentInitParameters" type="tns:SoftLayer_Account_ShipmentInitParameters"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Account_Shipment"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAllCouriers"/>
+  <message name="getAllCouriersResponse">
+    <part name="getAllCouriersReturn" type="tns:SoftLayer_Auxiliary_Shipping_CourierArray"/>
+  </message>
+  <message name="getAllCouriersByType">
+    <part name="courierTypeKeyName" type="xsd:string"/>
+  </message>
+  <message name="getAllCouriersByTypeResponse">
+    <part name="getAllCouriersByTypeReturn" type="tns:SoftLayer_Auxiliary_Shipping_CourierArray"/>
+  </message>
+  <message name="getAllShipmentStatuses"/>
+  <message name="getAllShipmentStatusesResponse">
+    <part name="getAllShipmentStatusesReturn" type="tns:SoftLayer_Account_Shipment_StatusArray"/>
+  </message>
+  <message name="getAllShipmentTypes"/>
+  <message name="getAllShipmentTypesResponse">
+    <part name="getAllShipmentTypesReturn" type="tns:SoftLayer_Account_Shipment_TypeArray"/>
+  </message>
+  <message name="getCourier"/>
+  <message name="getCourierResponse">
+    <part name="getCourierReturn" type="tns:SoftLayer_Auxiliary_Shipping_Courier"/>
+  </message>
+  <message name="getCreateEmployee"/>
+  <message name="getCreateEmployeeResponse">
+    <part name="getCreateEmployeeReturn" type="tns:SoftLayer_User_Employee"/>
+  </message>
+  <message name="getCreateUser"/>
+  <message name="getCreateUserResponse">
+    <part name="getCreateUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="getDestinationAddress"/>
+  <message name="getDestinationAddressResponse">
+    <part name="getDestinationAddressReturn" type="tns:SoftLayer_Account_Address"/>
+  </message>
+  <message name="getModifyEmployee"/>
+  <message name="getModifyEmployeeResponse">
+    <part name="getModifyEmployeeReturn" type="tns:SoftLayer_User_Employee"/>
+  </message>
+  <message name="getModifyUser"/>
+  <message name="getModifyUserResponse">
+    <part name="getModifyUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Account_Shipment"/>
+  </message>
+  <message name="getOriginationAddress"/>
+  <message name="getOriginationAddressResponse">
+    <part name="getOriginationAddressReturn" type="tns:SoftLayer_Account_Address"/>
+  </message>
+  <message name="getShipmentItems"/>
+  <message name="getShipmentItemsResponse">
+    <part name="getShipmentItemsReturn" type="tns:SoftLayer_Account_Shipment_ItemArray"/>
+  </message>
+  <message name="getStatus"/>
+  <message name="getStatusResponse">
+    <part name="getStatusReturn" type="tns:SoftLayer_Account_Shipment_Status"/>
+  </message>
+  <message name="getTrackingData"/>
+  <message name="getTrackingDataResponse">
+    <part name="getTrackingDataReturn" type="tns:SoftLayer_Account_Shipment_Tracking_DataArray"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_Account_Shipment_Type"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Account_ShipmentObjectMaskHeader">
+    <part name="SoftLayer_Account_ShipmentObjectMask" type="tns:SoftLayer_Account_ShipmentObjectMask"/>
+  </message>
+  <message name="SoftLayer_Account_ShipmentObjectFilterHeader">
+    <part name="SoftLayer_Account_ShipmentObjectFilter" type="tns:SoftLayer_Account_ShipmentObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Account_ShipmentPortType">
+    <documentation>SoftLayer's shipment service allows the user to access information pertaining to a shipment from the user to SoftLayer or from SoftLayer to the user. </documentation>
+    <operation name="editObject">
+      <documentation>Edit the properties of a shipment record by passing in a modified instance of a SoftLayer_Account_Shipment object. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account to which the shipment belongs.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAllCouriers">
+      <documentation>Retrieve a list of available shipping couriers.</documentation>
+      <input message="tns:getAllCouriers"/>
+      <output message="tns:getAllCouriersResponse"/>
+    </operation>
+    <operation name="getAllCouriersByType">
+      <documentation>Retrieve a list of available shipping couriers.</documentation>
+      <input message="tns:getAllCouriersByType"/>
+      <output message="tns:getAllCouriersByTypeResponse"/>
+    </operation>
+    <operation name="getAllShipmentStatuses">
+      <documentation>Retrieve a a list of shipment statuses.</documentation>
+      <input message="tns:getAllShipmentStatuses"/>
+      <output message="tns:getAllShipmentStatusesResponse"/>
+    </operation>
+    <operation name="getAllShipmentTypes">
+      <documentation>Retrieve a a list of shipment types.</documentation>
+      <input message="tns:getAllShipmentTypes"/>
+      <output message="tns:getAllShipmentTypesResponse"/>
+    </operation>
+    <operation name="getCourier">
+      <documentation>Retrieve the courier handling the shipment.</documentation>
+      <input message="tns:getCourier"/>
+      <output message="tns:getCourierResponse"/>
+    </operation>
+    <operation name="getCreateEmployee">
+      <documentation>Retrieve the employee who created the shipment.</documentation>
+      <input message="tns:getCreateEmployee"/>
+      <output message="tns:getCreateEmployeeResponse"/>
+    </operation>
+    <operation name="getCreateUser">
+      <documentation>Retrieve the customer user who created the shipment.</documentation>
+      <input message="tns:getCreateUser"/>
+      <output message="tns:getCreateUserResponse"/>
+    </operation>
+    <operation name="getDestinationAddress">
+      <documentation>Retrieve the address at which the shipment is received.</documentation>
+      <input message="tns:getDestinationAddress"/>
+      <output message="tns:getDestinationAddressResponse"/>
+    </operation>
+    <operation name="getModifyEmployee">
+      <documentation>Retrieve the employee who last modified the shipment.</documentation>
+      <input message="tns:getModifyEmployee"/>
+      <output message="tns:getModifyEmployeeResponse"/>
+    </operation>
+    <operation name="getModifyUser">
+      <documentation>Retrieve the customer user who last modified the shipment.</documentation>
+      <input message="tns:getModifyUser"/>
+      <output message="tns:getModifyUserResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOriginationAddress">
+      <documentation>Retrieve the address from which the shipment is sent.</documentation>
+      <input message="tns:getOriginationAddress"/>
+      <output message="tns:getOriginationAddressResponse"/>
+    </operation>
+    <operation name="getShipmentItems">
+      <documentation>Retrieve the items in the shipment.</documentation>
+      <input message="tns:getShipmentItems"/>
+      <output message="tns:getShipmentItemsResponse"/>
+    </operation>
+    <operation name="getStatus">
+      <documentation>Retrieve the status of the shipment.</documentation>
+      <input message="tns:getStatus"/>
+      <output message="tns:getStatusResponse"/>
+    </operation>
+    <operation name="getTrackingData">
+      <documentation>Retrieve the tracking data for the shipment.</documentation>
+      <input message="tns:getTrackingData"/>
+      <output message="tns:getTrackingDataResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve the type of shipment (e.g. for Data Transfer Service or Colocation Service).</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Account_ShipmentBinding" type="tns:SoftLayer_Account_ShipmentPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllCouriers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllCouriersByType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllShipmentStatuses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllShipmentTypes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCourier">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCreateEmployee">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCreateUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDestinationAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getModifyEmployee">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getModifyUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOriginationAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getShipmentItems">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTrackingData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_ShipmentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectMaskHeader" part="SoftLayer_Account_ShipmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentObjectFilterHeader" part="SoftLayer_Account_ShipmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_ShipmentInitParametersHeader" part="SoftLayer_Account_ShipmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Account_ShipmentService">
+    <port name="SoftLayer_Account_ShipmentPort" binding="tns:SoftLayer_Account_ShipmentBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Account_Shipment"/>
+    </port>
+  </service>
+</definitions>

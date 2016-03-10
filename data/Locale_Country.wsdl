@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Locale_Country?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Locale_CountryInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Locale_CountryObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Locale_Country"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Locale_CountryInitParametersHeader">
+    <part name="SoftLayer_Locale_CountryInitParameters" type="tns:SoftLayer_Locale_CountryInitParameters"/>
+  </message>
+  <message name="getAvailableCountries"/>
+  <message name="getAvailableCountriesResponse">
+    <part name="getAvailableCountriesReturn" type="tns:SoftLayer_Locale_CountryArray"/>
+  </message>
+  <message name="getCountries"/>
+  <message name="getCountriesResponse">
+    <part name="getCountriesReturn" type="tns:SoftLayer_Locale_CountryArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Locale_Country"/>
+  </message>
+  <message name="getStates"/>
+  <message name="getStatesResponse">
+    <part name="getStatesReturn" type="tns:SoftLayer_Locale_StateProvinceArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Locale_CountryObjectMaskHeader">
+    <part name="SoftLayer_Locale_CountryObjectMask" type="tns:SoftLayer_Locale_CountryObjectMask"/>
+  </message>
+  <message name="SoftLayer_Locale_CountryObjectFilterHeader">
+    <part name="SoftLayer_Locale_CountryObjectFilter" type="tns:SoftLayer_Locale_CountryObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Locale_CountryPortType">
+    <documentation>This service provides methods to retrieve country locale information. </documentation>
+    <operation name="getAvailableCountries">
+      <documentation>Use this method to retrieve a list of countries and locale information available to the current user. </documentation>
+      <input message="tns:getAvailableCountries"/>
+      <output message="tns:getAvailableCountriesResponse"/>
+    </operation>
+    <operation name="getCountries">
+      <documentation>Use this method to retrieve a list of countries and locale information such as country code and state/provinces. </documentation>
+      <input message="tns:getCountries"/>
+      <output message="tns:getCountriesResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getStates">
+      <documentation>Retrieve states that belong to this country.</documentation>
+      <input message="tns:getStates"/>
+      <output message="tns:getStatesResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Locale_CountryBinding" type="tns:SoftLayer_Locale_CountryPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAvailableCountries">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Locale_CountryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Locale_CountryObjectMaskHeader" part="SoftLayer_Locale_CountryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCountries">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Locale_CountryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Locale_CountryObjectMaskHeader" part="SoftLayer_Locale_CountryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Locale_CountryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Locale_CountryObjectMaskHeader" part="SoftLayer_Locale_CountryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Locale_CountryObjectFilterHeader" part="SoftLayer_Locale_CountryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Locale_CountryInitParametersHeader" part="SoftLayer_Locale_CountryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStates">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Locale_CountryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Locale_CountryObjectMaskHeader" part="SoftLayer_Locale_CountryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Locale_CountryObjectFilterHeader" part="SoftLayer_Locale_CountryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Locale_CountryInitParametersHeader" part="SoftLayer_Locale_CountryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Locale_CountryService">
+    <port name="SoftLayer_Locale_CountryPort" binding="tns:SoftLayer_Locale_CountryBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Locale_Country"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Module_Context_Interface?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Firewall_Module_Context_InterfaceInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Firewall_Module_Context_Interface"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Firewall_Module_Context_InterfaceInitParametersHeader">
+    <part name="SoftLayer_Network_Firewall_Module_Context_InterfaceInitParameters" type="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceInitParameters"/>
+  </message>
+  <message name="getFirewallContextAccessControlLists"/>
+  <message name="getFirewallContextAccessControlListsResponse">
+    <part name="getFirewallContextAccessControlListsReturn" type="tns:SoftLayer_Network_Firewall_AccessControlListArray"/>
+  </message>
+  <message name="getNetworkVlan"/>
+  <message name="getNetworkVlanResponse">
+    <part name="getNetworkVlanReturn" type="tns:SoftLayer_Network_Vlan"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Firewall_Module_Context_Interface"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMaskHeader">
+    <part name="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMask" type="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectFilterHeader">
+    <part name="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectFilter" type="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Firewall_Module_Context_InterfacePortType">
+    <documentation></documentation>
+    <operation name="getFirewallContextAccessControlLists">
+      <documentation></documentation>
+      <input message="tns:getFirewallContextAccessControlLists"/>
+      <output message="tns:getFirewallContextAccessControlListsResponse"/>
+    </operation>
+    <operation name="getNetworkVlan">
+      <documentation></documentation>
+      <input message="tns:getNetworkVlan"/>
+      <output message="tns:getNetworkVlanResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Firewall_Module_Context_InterfaceBinding" type="tns:SoftLayer_Network_Firewall_Module_Context_InterfacePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getFirewallContextAccessControlLists">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Module_Context_InterfaceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMaskHeader" part="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceObjectFilterHeader" part="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceInitParametersHeader" part="SoftLayer_Network_Firewall_Module_Context_InterfaceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlan">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Module_Context_InterfaceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMaskHeader" part="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceObjectFilterHeader" part="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceInitParametersHeader" part="SoftLayer_Network_Firewall_Module_Context_InterfaceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Module_Context_InterfaceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMaskHeader" part="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceObjectFilterHeader" part="SoftLayer_Network_Firewall_Module_Context_InterfaceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceInitParametersHeader" part="SoftLayer_Network_Firewall_Module_Context_InterfaceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Firewall_Module_Context_InterfaceService">
+    <port name="SoftLayer_Network_Firewall_Module_Context_InterfacePort" binding="tns:SoftLayer_Network_Firewall_Module_Context_InterfaceBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Module_Context_Interface"/>
+    </port>
+  </service>
+</definitions>

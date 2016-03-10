@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Layout_Profile_Preference?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Layout_Profile_PreferenceInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Layout_Profile_PreferenceObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Layout_Profile_Preference"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Layout_Profile_PreferenceInitParametersHeader">
+    <part name="SoftLayer_Layout_Profile_PreferenceInitParameters" type="tns:SoftLayer_Layout_Profile_PreferenceInitParameters"/>
+  </message>
+  <message name="getLayoutContainer"/>
+  <message name="getLayoutContainerResponse">
+    <part name="getLayoutContainerReturn" type="tns:SoftLayer_Layout_Container"/>
+  </message>
+  <message name="getLayoutItem"/>
+  <message name="getLayoutItemResponse">
+    <part name="getLayoutItemReturn" type="tns:SoftLayer_Layout_Item"/>
+  </message>
+  <message name="getLayoutPreference"/>
+  <message name="getLayoutPreferenceResponse">
+    <part name="getLayoutPreferenceReturn" type="tns:SoftLayer_Layout_Preference"/>
+  </message>
+  <message name="getLayoutProfile"/>
+  <message name="getLayoutProfileResponse">
+    <part name="getLayoutProfileReturn" type="tns:SoftLayer_Layout_Profile"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Layout_Profile_Preference"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Layout_Profile_PreferenceObjectMaskHeader">
+    <part name="SoftLayer_Layout_Profile_PreferenceObjectMask" type="tns:SoftLayer_Layout_Profile_PreferenceObjectMask"/>
+  </message>
+  <message name="SoftLayer_Layout_Profile_PreferenceObjectFilterHeader">
+    <part name="SoftLayer_Layout_Profile_PreferenceObjectFilter" type="tns:SoftLayer_Layout_Profile_PreferenceObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Layout_Profile_PreferencePortType">
+    <documentation>The profile preferences are an aggregation of the default preferences and the customized preferences. 
+
+For each [[SoftLayer_Layout_Profile_Containers|associated container]] on a [[SoftLayer_Layout_Profile|profile]], the [[SoftLayer_Layout_Preference|default preferences]] are inherited through the profile preferences. However, any one of these may be overridden through the [[SoftLayer_Layout_Profile::modifyPreference()]] method. Rather than maintaining two different sets of preferences, all preferences are grouped together through the profile preferences, presenting the customized preferences in place of the default preferences they are overriding. </documentation>
+    <operation name="getLayoutContainer">
+      <documentation></documentation>
+      <input message="tns:getLayoutContainer"/>
+      <output message="tns:getLayoutContainerResponse"/>
+    </operation>
+    <operation name="getLayoutItem">
+      <documentation></documentation>
+      <input message="tns:getLayoutItem"/>
+      <output message="tns:getLayoutItemResponse"/>
+    </operation>
+    <operation name="getLayoutPreference">
+      <documentation></documentation>
+      <input message="tns:getLayoutPreference"/>
+      <output message="tns:getLayoutPreferenceResponse"/>
+    </operation>
+    <operation name="getLayoutProfile">
+      <documentation></documentation>
+      <input message="tns:getLayoutProfile"/>
+      <output message="tns:getLayoutProfileResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Layout_Profile_PreferenceBinding" type="tns:SoftLayer_Layout_Profile_PreferencePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getLayoutContainer">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectMaskHeader" part="SoftLayer_Layout_Profile_PreferenceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectFilterHeader" part="SoftLayer_Layout_Profile_PreferenceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceInitParametersHeader" part="SoftLayer_Layout_Profile_PreferenceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLayoutItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectMaskHeader" part="SoftLayer_Layout_Profile_PreferenceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectFilterHeader" part="SoftLayer_Layout_Profile_PreferenceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceInitParametersHeader" part="SoftLayer_Layout_Profile_PreferenceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLayoutPreference">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectMaskHeader" part="SoftLayer_Layout_Profile_PreferenceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectFilterHeader" part="SoftLayer_Layout_Profile_PreferenceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceInitParametersHeader" part="SoftLayer_Layout_Profile_PreferenceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLayoutProfile">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectMaskHeader" part="SoftLayer_Layout_Profile_PreferenceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectFilterHeader" part="SoftLayer_Layout_Profile_PreferenceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceInitParametersHeader" part="SoftLayer_Layout_Profile_PreferenceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Layout_Profile_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectMaskHeader" part="SoftLayer_Layout_Profile_PreferenceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceObjectFilterHeader" part="SoftLayer_Layout_Profile_PreferenceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Layout_Profile_PreferenceInitParametersHeader" part="SoftLayer_Layout_Profile_PreferenceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Layout_Profile_PreferenceService">
+    <port name="SoftLayer_Layout_Profile_PreferencePort" binding="tns:SoftLayer_Layout_Profile_PreferenceBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Layout_Profile_Preference"/>
+    </port>
+  </service>
+</definitions>

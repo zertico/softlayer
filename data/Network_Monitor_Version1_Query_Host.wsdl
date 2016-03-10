@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_Host?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader">
+    <part name="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host"/>
+  </message>
+  <message name="createObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostArray"/>
+  </message>
+  <message name="createObjectsResponse">
+    <part name="createObjectsReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostArray"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostArray"/>
+  </message>
+  <message name="deleteObjectsResponse">
+    <part name="deleteObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostArray"/>
+  </message>
+  <message name="editObjectsResponse">
+    <part name="editObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="findByHardwareId">
+    <part name="hardwareId" type="xsd:int"/>
+  </message>
+  <message name="findByHardwareIdResponse">
+    <part name="findByHardwareIdReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostArray"/>
+  </message>
+  <message name="getHardware"/>
+  <message name="getHardwareResponse">
+    <part name="getHardwareReturn" type="tns:SoftLayer_Hardware"/>
+  </message>
+  <message name="getLastResult"/>
+  <message name="getLastResultResponse">
+    <part name="getLastResultReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_Result"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_Host"/>
+  </message>
+  <message name="getQueryType"/>
+  <message name="getQueryTypeResponse">
+    <part name="getQueryTypeReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_Type"/>
+  </message>
+  <message name="getResponseAction"/>
+  <message name="getResponseActionResponse">
+    <part name="getResponseActionReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_ResponseType"/>
+  </message>
+  <message name="getSubnet"/>
+  <message name="getSubnetResponse">
+    <part name="getSubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader">
+    <part name="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Monitor_Version1_Query_HostObjectFilterHeader">
+    <part name="SoftLayer_Network_Monitor_Version1_Query_HostObjectFilter" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Monitor_Version1_Query_HostPortType">
+    <documentation>The Query_Host service is the core of the monitoring system.  Each instance of this service represents a monitoring instance.  Each monitoring instance consists of a hardware ID to monitor, an IP address attached to that hardware ID, a method of monitoring, and what to do in the instance that the monitor ever fails. 
+
+The monitoring services are scheduled jobs, and cannot be initiated by the user.  Simply creating the object is enough, the monitor will begin working in 5-10 minutes.  Deleting a monitor will immediately remove it from the monitoring queue.  Modifications will take effect in 5-10 minutes. 
+
+If the user wishes to be notified, or have other users on the account notified when a monitoring instance fails, a response type that includes &amp;quot;notify users&amp;quot; must be included on the query host object, and a SoftLayer_User_Customer_Notification_Hardware instance must be saved linking the desired users to the hardware being monitored.  In order for users to be notified, a SoftLayer_User_Customer_Notification_Hardware object MUST exist linking them to a hardware object, and a monitoring instance on that hardware object must be set to &amp;quot;notify users&amp;quot; </documentation>
+    <operation name="createObject">
+      <documentation>Passing in an unsaved instances of a Query_Host object into this function will create the object and return the results to the user. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="createObjects">
+      <documentation>Passing in a collection of unsaved instances of Query_Host objects into this function will create all objects and return the results to the user. </documentation>
+      <input message="tns:createObjects"/>
+      <output message="tns:createObjectsResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Like any other API object, the monitoring objects can be deleted by passing an instance of them into this function.  The ID on the object must be set. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="deleteObjects">
+      <documentation>Like any other API object, the monitoring objects can be deleted by passing an instance of them into this function.  The ID on the object must be set. </documentation>
+      <input message="tns:deleteObjects"/>
+      <output message="tns:deleteObjectsResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Like any other API object, the monitoring objects can have their exposed properties edited by passing in a modified version of the object. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="editObjects">
+      <documentation>Like any other API object, the monitoring objects can have their exposed properties edited by passing in a modified version of the object. </documentation>
+      <input message="tns:editObjects"/>
+      <output message="tns:editObjectsResponse"/>
+    </operation>
+    <operation name="findByHardwareId">
+      <documentation>This method returns all Query_Host objects associated with the passed in hardware ID as long as that hardware ID is owned by the current user's account. 
+
+This behavior can also be accomplished by simply tapping networkMonitors on the Hardware_Server object. </documentation>
+      <input message="tns:findByHardwareId"/>
+      <output message="tns:findByHardwareIdResponse"/>
+    </operation>
+    <operation name="getHardware">
+      <documentation>Retrieve the hardware that is being monitored by this monitoring instance</documentation>
+      <input message="tns:getHardware"/>
+      <output message="tns:getHardwareResponse"/>
+    </operation>
+    <operation name="getLastResult">
+      <documentation>Retrieve the most recent result for this particular monitoring instance.</documentation>
+      <input message="tns:getLastResult"/>
+      <output message="tns:getLastResultResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Network_Monitor_Version1_Query_Host object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Network_Monitor_Version1_Query_Host service. You can only retrieve query hosts attached to hardware that belong to your account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getQueryType">
+      <documentation>Retrieve the type of monitoring query that is executed when this hardware is monitored.</documentation>
+      <input message="tns:getQueryType"/>
+      <output message="tns:getQueryTypeResponse"/>
+    </operation>
+    <operation name="getResponseAction">
+      <documentation>Retrieve the action taken when a monitor fails.</documentation>
+      <input message="tns:getResponseAction"/>
+      <output message="tns:getResponseActionResponse"/>
+    </operation>
+    <operation name="getSubnet">
+      <documentation>Retrieve the subnet object that holds the IP address associated with this query host.</documentation>
+      <input message="tns:getSubnet"/>
+      <output message="tns:getSubnetResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Monitor_Version1_Query_HostBinding" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="findByHardwareId">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectFilterHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLastResult">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectFilterHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectFilterHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getQueryType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectFilterHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getResponseAction">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectFilterHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectFilterHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Monitor_Version1_Query_HostService">
+    <port name="SoftLayer_Network_Monitor_Version1_Query_HostPort" binding="tns:SoftLayer_Network_Monitor_Version1_Query_HostBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Monitor_Version1_Query_Host"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_Watch?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_Watch"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParametersHeader">
+    <part name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_Watch"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_Watch"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_Watch"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAllPossibleAlgorithms"/>
+  <message name="getAllPossibleAlgorithmsResponse">
+    <part name="getAllPossibleAlgorithmsReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getAllPossibleMetrics"/>
+  <message name="getAllPossibleMetricsResponse">
+    <part name="getAllPossibleMetricsReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getAllPossibleOperators"/>
+  <message name="getAllPossibleOperatorsResponse">
+    <part name="getAllPossibleOperatorsReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_Watch"/>
+  </message>
+  <message name="getScalePolicyTrigger"/>
+  <message name="getScalePolicyTriggerResponse">
+    <part name="getScalePolicyTriggerReturn" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMaskHeader">
+    <part name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMask" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMask"/>
+  </message>
+  <message name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectFilterHeader">
+    <part name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectFilter" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchPortType">
+    <documentation>This is a specific watch for a resource use policy trigger.</documentation>
+    <operation name="createObject">
+      <documentation></documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation></documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation></documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAllPossibleAlgorithms">
+      <documentation></documentation>
+      <input message="tns:getAllPossibleAlgorithms"/>
+      <output message="tns:getAllPossibleAlgorithmsResponse"/>
+    </operation>
+    <operation name="getAllPossibleMetrics">
+      <documentation></documentation>
+      <input message="tns:getAllPossibleMetrics"/>
+      <output message="tns:getAllPossibleMetricsResponse"/>
+    </operation>
+    <operation name="getAllPossibleOperators">
+      <documentation></documentation>
+      <input message="tns:getAllPossibleOperators"/>
+      <output message="tns:getAllPossibleOperatorsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getScalePolicyTrigger">
+      <documentation>Retrieve the trigger this watch is on.</documentation>
+      <input message="tns:getScalePolicyTrigger"/>
+      <output message="tns:getScalePolicyTriggerResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchBinding" type="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMaskHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParametersHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParametersHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllPossibleAlgorithms">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParametersHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllPossibleMetrics">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParametersHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllPossibleOperators">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParametersHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMaskHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectFilterHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParametersHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getScalePolicyTrigger">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMaskHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectFilterHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParametersHeader" part="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchService">
+    <port name="SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchPort" binding="tns:SoftLayer_Scale_Policy_Trigger_ResourceUse_WatchBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Scale_Policy_Trigger_ResourceUse_Watch"/>
+    </port>
+  </service>
+</definitions>

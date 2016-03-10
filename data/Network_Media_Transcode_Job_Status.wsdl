@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Media_Transcode_Job_Status?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Media_Transcode_Job_StatusInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Media_Transcode_Job_StatusObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Media_Transcode_Job_Status"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Media_Transcode_Job_StatusInitParametersHeader">
+    <part name="SoftLayer_Network_Media_Transcode_Job_StatusInitParameters" type="tns:SoftLayer_Network_Media_Transcode_Job_StatusInitParameters"/>
+  </message>
+  <message name="getAllStatuses"/>
+  <message name="getAllStatusesResponse">
+    <part name="getAllStatusesReturn" type="tns:SoftLayer_Network_Media_Transcode_Job_StatusArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Media_Transcode_Job_Status"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Media_Transcode_Job_StatusObjectMaskHeader">
+    <part name="SoftLayer_Network_Media_Transcode_Job_StatusObjectMask" type="tns:SoftLayer_Network_Media_Transcode_Job_StatusObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Media_Transcode_Job_StatusObjectFilterHeader">
+    <part name="SoftLayer_Network_Media_Transcode_Job_StatusObjectFilter" type="tns:SoftLayer_Network_Media_Transcode_Job_StatusObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Media_Transcode_Job_StatusPortType">
+    <documentation>A Transcode job's status. It can be Pending, Processing, Complete, Error or Deleted. </documentation>
+    <operation name="getAllStatuses">
+      <documentation>This method returns all transcode job statuses. </documentation>
+      <input message="tns:getAllStatuses"/>
+      <output message="tns:getAllStatusesResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Media_Transcode_Job_StatusBinding" type="tns:SoftLayer_Network_Media_Transcode_Job_StatusPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllStatuses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Media_Transcode_Job_StatusAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Media_Transcode_Job_StatusObjectMaskHeader" part="SoftLayer_Network_Media_Transcode_Job_StatusObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Media_Transcode_Job_StatusAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Media_Transcode_Job_StatusObjectMaskHeader" part="SoftLayer_Network_Media_Transcode_Job_StatusObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Media_Transcode_Job_StatusObjectFilterHeader" part="SoftLayer_Network_Media_Transcode_Job_StatusObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Media_Transcode_Job_StatusInitParametersHeader" part="SoftLayer_Network_Media_Transcode_Job_StatusInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Media_Transcode_Job_StatusService">
+    <port name="SoftLayer_Network_Media_Transcode_Job_StatusPort" binding="tns:SoftLayer_Network_Media_Transcode_Job_StatusBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Media_Transcode_Job_Status"/>
+    </port>
+  </service>
+</definitions>

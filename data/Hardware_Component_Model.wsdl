@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Model?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Hardware_Component_ModelInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Hardware_Component_ModelObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Hardware_Component_Model"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Hardware_Component_ModelInitParametersHeader">
+    <part name="SoftLayer_Hardware_Component_ModelInitParameters" type="tns:SoftLayer_Hardware_Component_ModelInitParameters"/>
+  </message>
+  <message name="getArchitectureType"/>
+  <message name="getArchitectureTypeResponse">
+    <part name="getArchitectureTypeReturn" type="tns:SoftLayer_Hardware_Component_Model_Architecture_Type"/>
+  </message>
+  <message name="getAttributes"/>
+  <message name="getAttributesResponse">
+    <part name="getAttributesReturn" type="tns:SoftLayer_Hardware_Component_Model_AttributeArray"/>
+  </message>
+  <message name="getCompatibleArrayTypes"/>
+  <message name="getCompatibleArrayTypesResponse">
+    <part name="getCompatibleArrayTypesReturn" type="tns:SoftLayer_Configuration_Storage_Group_Array_TypeArray"/>
+  </message>
+  <message name="getCompatibleChildComponentModels"/>
+  <message name="getCompatibleChildComponentModelsResponse">
+    <part name="getCompatibleChildComponentModelsReturn" type="tns:SoftLayer_Hardware_Component_ModelArray"/>
+  </message>
+  <message name="getCompatibleParentComponentModels"/>
+  <message name="getCompatibleParentComponentModelsResponse">
+    <part name="getCompatibleParentComponentModelsReturn" type="tns:SoftLayer_Hardware_Component_ModelArray"/>
+  </message>
+  <message name="getHardwareComponents"/>
+  <message name="getHardwareComponentsResponse">
+    <part name="getHardwareComponentsReturn" type="tns:SoftLayer_Hardware_ComponentArray"/>
+  </message>
+  <message name="getHardwareGenericComponentModel"/>
+  <message name="getHardwareGenericComponentModelResponse">
+    <part name="getHardwareGenericComponentModelReturn" type="tns:SoftLayer_Hardware_Component_Model_Generic"/>
+  </message>
+  <message name="getInfinibandCompatibleAttribute"/>
+  <message name="getInfinibandCompatibleAttributeResponse">
+    <part name="getInfinibandCompatibleAttributeReturn" type="tns:SoftLayer_Hardware_Component_Model_Attribute"/>
+  </message>
+  <message name="getIsInfinibandCompatible"/>
+  <message name="getIsInfinibandCompatibleResponse">
+    <part name="getIsInfinibandCompatibleReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Hardware_Component_Model"/>
+  </message>
+  <message name="getRebootTime"/>
+  <message name="getRebootTimeResponse">
+    <part name="getRebootTimeReturn" type="tns:SoftLayer_Hardware_Component_Motherboard_Reboot_Time"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="xsd:string"/>
+  </message>
+  <message name="getValidAttributeTypes"/>
+  <message name="getValidAttributeTypesResponse">
+    <part name="getValidAttributeTypesReturn" type="tns:SoftLayer_Hardware_Component_Model_Attribute_TypeArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Hardware_Component_ModelObjectMaskHeader">
+    <part name="SoftLayer_Hardware_Component_ModelObjectMask" type="tns:SoftLayer_Hardware_Component_ModelObjectMask"/>
+  </message>
+  <message name="SoftLayer_Hardware_Component_ModelObjectFilterHeader">
+    <part name="SoftLayer_Hardware_Component_ModelObjectFilter" type="tns:SoftLayer_Hardware_Component_ModelObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Hardware_Component_ModelPortType">
+    <documentation>Every hardware component is associated with a model. A hardware component model defines the type of hardware component to which it is associated. The '''SoftLayer_Hardware_Component_Model''' class provides detailed information regarding the hardware component. </documentation>
+    <operation name="getArchitectureType">
+      <documentation></documentation>
+      <input message="tns:getArchitectureType"/>
+      <output message="tns:getArchitectureTypeResponse"/>
+    </operation>
+    <operation name="getAttributes">
+      <documentation></documentation>
+      <input message="tns:getAttributes"/>
+      <output message="tns:getAttributesResponse"/>
+    </operation>
+    <operation name="getCompatibleArrayTypes">
+      <documentation></documentation>
+      <input message="tns:getCompatibleArrayTypes"/>
+      <output message="tns:getCompatibleArrayTypesResponse"/>
+    </operation>
+    <operation name="getCompatibleChildComponentModels">
+      <documentation>Retrieve all the component models that are compatible with a hardware component model.</documentation>
+      <input message="tns:getCompatibleChildComponentModels"/>
+      <output message="tns:getCompatibleChildComponentModelsResponse"/>
+    </operation>
+    <operation name="getCompatibleParentComponentModels">
+      <documentation>Retrieve all the component models that a hardware component model is compatible with.</documentation>
+      <input message="tns:getCompatibleParentComponentModels"/>
+      <output message="tns:getCompatibleParentComponentModelsResponse"/>
+    </operation>
+    <operation name="getHardwareComponents">
+      <documentation>Retrieve a hardware component model's physical components in inventory.</documentation>
+      <input message="tns:getHardwareComponents"/>
+      <output message="tns:getHardwareComponentsResponse"/>
+    </operation>
+    <operation name="getHardwareGenericComponentModel">
+      <documentation>Retrieve the non-vendor specific generic component model for a hardware component model.</documentation>
+      <input message="tns:getHardwareGenericComponentModel"/>
+      <output message="tns:getHardwareGenericComponentModelResponse"/>
+    </operation>
+    <operation name="getInfinibandCompatibleAttribute">
+      <documentation></documentation>
+      <input message="tns:getInfinibandCompatibleAttribute"/>
+      <output message="tns:getInfinibandCompatibleAttributeResponse"/>
+    </operation>
+    <operation name="getIsInfinibandCompatible">
+      <documentation></documentation>
+      <input message="tns:getIsInfinibandCompatible"/>
+      <output message="tns:getIsInfinibandCompatibleResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Hardware_Component_Model object. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getRebootTime">
+      <documentation>Retrieve a motherboard's average reboot time.</documentation>
+      <input message="tns:getRebootTime"/>
+      <output message="tns:getRebootTimeResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve a hardware component model's type.</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+    <operation name="getValidAttributeTypes">
+      <documentation>Retrieve the types of attributes that are allowed for a given hardware component model.</documentation>
+      <input message="tns:getValidAttributeTypes"/>
+      <output message="tns:getValidAttributeTypesResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Hardware_Component_ModelBinding" type="tns:SoftLayer_Hardware_Component_ModelPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getArchitectureType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAttributes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCompatibleArrayTypes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCompatibleChildComponentModels">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCompatibleParentComponentModels">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardwareComponents">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardwareGenericComponentModel">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInfinibandCompatibleAttribute">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getIsInfinibandCompatible">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRebootTime">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getValidAttributeTypes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_ModelAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectMaskHeader" part="SoftLayer_Hardware_Component_ModelObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelObjectFilterHeader" part="SoftLayer_Hardware_Component_ModelObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_ModelInitParametersHeader" part="SoftLayer_Hardware_Component_ModelInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Hardware_Component_ModelService">
+    <port name="SoftLayer_Hardware_Component_ModelPort" binding="tns:SoftLayer_Hardware_Component_ModelBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Model"/>
+    </port>
+  </service>
+</definitions>

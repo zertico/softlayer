@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_Transaction?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Subnet_Swip_TransactionInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Subnet_Swip_TransactionObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Subnet_Swip_Transaction"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Subnet_Swip_TransactionInitParametersHeader">
+    <part name="SoftLayer_Network_Subnet_Swip_TransactionInitParameters" type="tns:SoftLayer_Network_Subnet_Swip_TransactionInitParameters"/>
+  </message>
+  <message name="findMyTransactions"/>
+  <message name="findMyTransactionsResponse">
+    <part name="findMyTransactionsReturn" type="tns:SoftLayer_Network_Subnet_Swip_TransactionArray"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Subnet_Swip_Transaction"/>
+  </message>
+  <message name="getSubnet"/>
+  <message name="getSubnetResponse">
+    <part name="getSubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="removeAllSubnetSwips"/>
+  <message name="removeAllSubnetSwipsResponse">
+    <part name="removeAllSubnetSwipsReturn" type="xsd:int"/>
+  </message>
+  <message name="removeSwipData"/>
+  <message name="removeSwipDataResponse">
+    <part name="removeSwipDataReturn" type="xsd:boolean"/>
+  </message>
+  <message name="resendSwipData"/>
+  <message name="resendSwipDataResponse">
+    <part name="resendSwipDataReturn" type="xsd:boolean"/>
+  </message>
+  <message name="swipAllSubnets"/>
+  <message name="swipAllSubnetsResponse">
+    <part name="swipAllSubnetsReturn" type="xsd:int"/>
+  </message>
+  <message name="updateAllSubnetSwips"/>
+  <message name="updateAllSubnetSwipsResponse">
+    <part name="updateAllSubnetSwipsReturn" type="xsd:int"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Subnet_Swip_TransactionObjectMaskHeader">
+    <part name="SoftLayer_Network_Subnet_Swip_TransactionObjectMask" type="tns:SoftLayer_Network_Subnet_Swip_TransactionObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Subnet_Swip_TransactionObjectFilterHeader">
+    <part name="SoftLayer_Network_Subnet_Swip_TransactionObjectFilter" type="tns:SoftLayer_Network_Subnet_Swip_TransactionObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Subnet_Swip_TransactionPortType">
+    <documentation>SoftLayer's Automated Swip System is a finite state machine; it works by locally tracking a transaction between SoftLayer and the relevant Regional Internet Registry (RIR), assigning responsibility of a subnet to a customer. Transactions are dictated by the RIR's processing system, and the nature of the communication medium with each RIR, namely their REST API. 
+
+Using this API, SoftLayer Customers are able to initiate, monitor, update, and remove Swip system transactions with ARIN and RIPE. </documentation>
+    <operation name="findMyTransactions">
+      <documentation>This function will return an array of SoftLayer_Network_Subnet_Swip_Transaction objects, one for each SWIP that is currently in transaction with ARIN.  This includes all swip registrations, swip removal requests, and SWIP objects that are currently OK. </documentation>
+      <input message="tns:findMyTransactions"/>
+      <output message="tns:findMyTransactionsResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the Account whose RWHOIS data was used to SWIP this subnet</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Network_Subnet_Swip_Transaction object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Network_Subnet_Swip_transaction service. You can only retrieve Swip transactions tied to the account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getSubnet">
+      <documentation>Retrieve the subnet that this SWIP transaction was created for.</documentation>
+      <input message="tns:getSubnet"/>
+      <output message="tns:getSubnetResponse"/>
+    </operation>
+    <operation name="removeAllSubnetSwips">
+      <documentation>This method finds all subnets attached to your account that are in OK status and starts &amp;quot;DELETE&amp;quot; transactions with ARIN, allowing you to remove your SWIP registration information. </documentation>
+      <input message="tns:removeAllSubnetSwips"/>
+      <output message="tns:removeAllSubnetSwipsResponse"/>
+    </operation>
+    <operation name="removeSwipData">
+      <documentation>This function, when called on an instantiated SWIP transaction, will allow you to start a &amp;quot;DELETE&amp;quot; transaction with ARIN, allowing you to remove your SWIP registration information. </documentation>
+      <input message="tns:removeSwipData"/>
+      <output message="tns:removeSwipDataResponse"/>
+    </operation>
+    <operation name="resendSwipData">
+      <documentation>This function will allow you to update ARIN's registration data for a subnet to your current RWHOIS data. </documentation>
+      <input message="tns:resendSwipData"/>
+      <output message="tns:resendSwipDataResponse"/>
+    </operation>
+    <operation name="swipAllSubnets">
+      <documentation>swipAllSubnets finds all subnets attached to your account and attempts to create a SWIP transaction for all subnets that do not already have a SWIP transaction in progress. </documentation>
+      <input message="tns:swipAllSubnets"/>
+      <output message="tns:swipAllSubnetsResponse"/>
+    </operation>
+    <operation name="updateAllSubnetSwips">
+      <documentation>This method finds all subnets attached to your account that are in &amp;quot;OK&amp;quot; status and updates their data with ARIN.  Use this function after you have updated your RWHOIS data if you want to keep SWIP up to date. </documentation>
+      <input message="tns:updateAllSubnetSwips"/>
+      <output message="tns:updateAllSubnetSwipsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Subnet_Swip_TransactionBinding" type="tns:SoftLayer_Network_Subnet_Swip_TransactionPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="findMyTransactions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_TransactionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionObjectMaskHeader" part="SoftLayer_Network_Subnet_Swip_TransactionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_TransactionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionObjectMaskHeader" part="SoftLayer_Network_Subnet_Swip_TransactionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionObjectFilterHeader" part="SoftLayer_Network_Subnet_Swip_TransactionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionInitParametersHeader" part="SoftLayer_Network_Subnet_Swip_TransactionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_TransactionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionObjectMaskHeader" part="SoftLayer_Network_Subnet_Swip_TransactionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionObjectFilterHeader" part="SoftLayer_Network_Subnet_Swip_TransactionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionInitParametersHeader" part="SoftLayer_Network_Subnet_Swip_TransactionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_TransactionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionObjectMaskHeader" part="SoftLayer_Network_Subnet_Swip_TransactionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionObjectFilterHeader" part="SoftLayer_Network_Subnet_Swip_TransactionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionInitParametersHeader" part="SoftLayer_Network_Subnet_Swip_TransactionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeAllSubnetSwips">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_TransactionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeSwipData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_TransactionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionInitParametersHeader" part="SoftLayer_Network_Subnet_Swip_TransactionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="resendSwipData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_TransactionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_Swip_TransactionInitParametersHeader" part="SoftLayer_Network_Subnet_Swip_TransactionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="swipAllSubnets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_TransactionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateAllSubnetSwips">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_TransactionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Subnet_Swip_TransactionService">
+    <port name="SoftLayer_Network_Subnet_Swip_TransactionPort" binding="tns:SoftLayer_Network_Subnet_Swip_TransactionBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Subnet_Swip_Transaction"/>
+    </port>
+  </service>
+</definitions>

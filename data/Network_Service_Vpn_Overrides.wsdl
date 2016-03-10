@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Service_Vpn_Overrides?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Service_Vpn_OverridesInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Service_Vpn_OverridesObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Service_Vpn_Overrides"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Service_Vpn_OverridesInitParametersHeader">
+    <part name="SoftLayer_Network_Service_Vpn_OverridesInitParameters" type="tns:SoftLayer_Network_Service_Vpn_OverridesInitParameters"/>
+  </message>
+  <message name="createObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Network_Service_Vpn_OverridesArray"/>
+  </message>
+  <message name="createObjectsResponse">
+    <part name="createObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Network_Service_Vpn_OverridesArray"/>
+  </message>
+  <message name="deleteObjectsResponse">
+    <part name="deleteObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Service_Vpn_Overrides"/>
+  </message>
+  <message name="getSubnet"/>
+  <message name="getSubnetResponse">
+    <part name="getSubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="getUser"/>
+  <message name="getUserResponse">
+    <part name="getUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Service_Vpn_OverridesObjectMaskHeader">
+    <part name="SoftLayer_Network_Service_Vpn_OverridesObjectMask" type="tns:SoftLayer_Network_Service_Vpn_OverridesObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Service_Vpn_OverridesObjectFilterHeader">
+    <part name="SoftLayer_Network_Service_Vpn_OverridesObjectFilter" type="tns:SoftLayer_Network_Service_Vpn_OverridesObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Service_Vpn_OverridesPortType">
+    <documentation>Use to manually decide which subnets within your virtual private address space a SoftLayer portal VPN user may access.  Stores a 'white list' consisting of a collection of subnet ids matched up against user ids. This class will reject any subnets or users, that don't belong to the account holder.  Note that simply assigning overrides to a user does not enforce the rule change.  You must set the manual override flag for the VPN user in the SoftLayer_User_Customer class.  It is recommended that before you create new VPN subnet overrides, you delete any old ones for a user, since the VPN authentication system limits the number of accessible subnets by a single user to sixty four.  This holds true regardless of whether the VPN user accesses the network via SSL or PPTP.  After making any changes to a user's VPN settings, you should call SoftLayer_User_Customer::updateVpnUser() on that customer object. 
+
+</documentation>
+    <operation name="createObjects">
+      <documentation>Create Softlayer portal user VPN overrides. </documentation>
+      <input message="tns:createObjects"/>
+      <output message="tns:createObjectsResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Use this method to delete a single SoftLayer portal VPN user subnet override. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="deleteObjects">
+      <documentation>Use this method to delete a collection of SoftLayer portal VPN user subnet overrides. </documentation>
+      <input message="tns:deleteObjects"/>
+      <output message="tns:deleteObjectsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getSubnet">
+      <documentation>Retrieve subnet components accessible by a SoftLayer VPN portal user.</documentation>
+      <input message="tns:getSubnet"/>
+      <output message="tns:getSubnetResponse"/>
+    </operation>
+    <operation name="getUser">
+      <documentation>Retrieve softLayer VPN portal user.</documentation>
+      <input message="tns:getUser"/>
+      <output message="tns:getUserResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Service_Vpn_OverridesBinding" type="tns:SoftLayer_Network_Service_Vpn_OverridesPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Service_Vpn_OverridesAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Service_Vpn_OverridesAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesInitParametersHeader" part="SoftLayer_Network_Service_Vpn_OverridesInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Service_Vpn_OverridesAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Service_Vpn_OverridesAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesObjectMaskHeader" part="SoftLayer_Network_Service_Vpn_OverridesObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesObjectFilterHeader" part="SoftLayer_Network_Service_Vpn_OverridesObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesInitParametersHeader" part="SoftLayer_Network_Service_Vpn_OverridesInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Service_Vpn_OverridesAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesObjectMaskHeader" part="SoftLayer_Network_Service_Vpn_OverridesObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesObjectFilterHeader" part="SoftLayer_Network_Service_Vpn_OverridesObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesInitParametersHeader" part="SoftLayer_Network_Service_Vpn_OverridesInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Service_Vpn_OverridesAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesObjectMaskHeader" part="SoftLayer_Network_Service_Vpn_OverridesObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesObjectFilterHeader" part="SoftLayer_Network_Service_Vpn_OverridesObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Service_Vpn_OverridesInitParametersHeader" part="SoftLayer_Network_Service_Vpn_OverridesInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Service_Vpn_OverridesService">
+    <port name="SoftLayer_Network_Service_Vpn_OverridesPort" binding="tns:SoftLayer_Network_Service_Vpn_OverridesBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Service_Vpn_Overrides"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Configuration_Template_Section?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Configuration_Template_SectionInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Configuration_Template_SectionObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Configuration_Template_Section"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Configuration_Template_SectionInitParametersHeader">
+    <part name="SoftLayer_Configuration_Template_SectionInitParameters" type="tns:SoftLayer_Configuration_Template_SectionInitParameters"/>
+  </message>
+  <message name="getDefinitions"/>
+  <message name="getDefinitionsResponse">
+    <part name="getDefinitionsReturn" type="tns:SoftLayer_Configuration_Template_Section_DefinitionArray"/>
+  </message>
+  <message name="getDisallowedDeletionFlag"/>
+  <message name="getDisallowedDeletionFlagResponse">
+    <part name="getDisallowedDeletionFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getLinkedTemplate"/>
+  <message name="getLinkedTemplateResponse">
+    <part name="getLinkedTemplateReturn" type="tns:SoftLayer_Configuration_Template"/>
+  </message>
+  <message name="getLinkedTemplateReference"/>
+  <message name="getLinkedTemplateReferenceResponse">
+    <part name="getLinkedTemplateReferenceReturn" type="tns:SoftLayer_Configuration_Template_Section_Reference"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Configuration_Template_Section"/>
+  </message>
+  <message name="getProfiles"/>
+  <message name="getProfilesResponse">
+    <part name="getProfilesReturn" type="tns:SoftLayer_Configuration_Template_Section_ProfileArray"/>
+  </message>
+  <message name="getSectionType"/>
+  <message name="getSectionTypeResponse">
+    <part name="getSectionTypeReturn" type="tns:SoftLayer_Configuration_Template_Section_Type"/>
+  </message>
+  <message name="getSectionTypeName"/>
+  <message name="getSectionTypeNameResponse">
+    <part name="getSectionTypeNameReturn" type="xsd:string"/>
+  </message>
+  <message name="getSubSections"/>
+  <message name="getSubSectionsResponse">
+    <part name="getSubSectionsReturn" type="tns:SoftLayer_Configuration_Template_SectionArray"/>
+  </message>
+  <message name="getTemplate"/>
+  <message name="getTemplateResponse">
+    <part name="getTemplateReturn" type="tns:SoftLayer_Configuration_Template"/>
+  </message>
+  <message name="hasSubSections"/>
+  <message name="hasSubSectionsResponse">
+    <part name="hasSubSectionsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Configuration_Template_SectionObjectMaskHeader">
+    <part name="SoftLayer_Configuration_Template_SectionObjectMask" type="tns:SoftLayer_Configuration_Template_SectionObjectMask"/>
+  </message>
+  <message name="SoftLayer_Configuration_Template_SectionObjectFilterHeader">
+    <part name="SoftLayer_Configuration_Template_SectionObjectFilter" type="tns:SoftLayer_Configuration_Template_SectionObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Configuration_Template_SectionPortType">
+    <documentation>Configuration section allow you to divide a large configuration values into a smaller pieces. </documentation>
+    <operation name="getDefinitions">
+      <documentation></documentation>
+      <input message="tns:getDefinitions"/>
+      <output message="tns:getDefinitionsResponse"/>
+    </operation>
+    <operation name="getDisallowedDeletionFlag">
+      <documentation></documentation>
+      <input message="tns:getDisallowedDeletionFlag"/>
+      <output message="tns:getDisallowedDeletionFlagResponse"/>
+    </operation>
+    <operation name="getLinkedTemplate">
+      <documentation></documentation>
+      <input message="tns:getLinkedTemplate"/>
+      <output message="tns:getLinkedTemplateResponse"/>
+    </operation>
+    <operation name="getLinkedTemplateReference">
+      <documentation></documentation>
+      <input message="tns:getLinkedTemplateReference"/>
+      <output message="tns:getLinkedTemplateReferenceResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getProfiles">
+      <documentation></documentation>
+      <input message="tns:getProfiles"/>
+      <output message="tns:getProfilesResponse"/>
+    </operation>
+    <operation name="getSectionType">
+      <documentation></documentation>
+      <input message="tns:getSectionType"/>
+      <output message="tns:getSectionTypeResponse"/>
+    </operation>
+    <operation name="getSectionTypeName">
+      <documentation></documentation>
+      <input message="tns:getSectionTypeName"/>
+      <output message="tns:getSectionTypeNameResponse"/>
+    </operation>
+    <operation name="getSubSections">
+      <documentation></documentation>
+      <input message="tns:getSubSections"/>
+      <output message="tns:getSubSectionsResponse"/>
+    </operation>
+    <operation name="getTemplate">
+      <documentation></documentation>
+      <input message="tns:getTemplate"/>
+      <output message="tns:getTemplateResponse"/>
+    </operation>
+    <operation name="hasSubSections">
+      <documentation>Returns true if the object has sub-sections </documentation>
+      <input message="tns:hasSubSections"/>
+      <output message="tns:hasSubSectionsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Configuration_Template_SectionBinding" type="tns:SoftLayer_Configuration_Template_SectionPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getDefinitions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDisallowedDeletionFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLinkedTemplate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLinkedTemplateReference">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProfiles">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSectionType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSectionTypeName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubSections">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTemplate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectMaskHeader" part="SoftLayer_Configuration_Template_SectionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionObjectFilterHeader" part="SoftLayer_Configuration_Template_SectionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="hasSubSections">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Configuration_Template_SectionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Configuration_Template_SectionInitParametersHeader" part="SoftLayer_Configuration_Template_SectionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Configuration_Template_SectionService">
+    <port name="SoftLayer_Configuration_Template_SectionPort" binding="tns:SoftLayer_Configuration_Template_SectionBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Configuration_Template_Section"/>
+    </port>
+  </service>
+</definitions>

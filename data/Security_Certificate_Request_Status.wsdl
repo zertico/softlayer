@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Security_Certificate_Request_Status?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Security_Certificate_Request_StatusInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Security_Certificate_Request_StatusObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Security_Certificate_Request_Status"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Security_Certificate_Request_StatusInitParametersHeader">
+    <part name="SoftLayer_Security_Certificate_Request_StatusInitParameters" type="tns:SoftLayer_Security_Certificate_Request_StatusInitParameters"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Security_Certificate_Request_Status"/>
+  </message>
+  <message name="getSslRequestStatuses"/>
+  <message name="getSslRequestStatusesResponse">
+    <part name="getSslRequestStatusesReturn" type="tns:SoftLayer_Security_Certificate_Request_StatusArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Security_Certificate_Request_StatusObjectMaskHeader">
+    <part name="SoftLayer_Security_Certificate_Request_StatusObjectMask" type="tns:SoftLayer_Security_Certificate_Request_StatusObjectMask"/>
+  </message>
+  <message name="SoftLayer_Security_Certificate_Request_StatusObjectFilterHeader">
+    <part name="SoftLayer_Security_Certificate_Request_StatusObjectFilter" type="tns:SoftLayer_Security_Certificate_Request_StatusObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Security_Certificate_Request_StatusPortType">
+    <documentation>SoftLayer_Security_Certificate_Request_Status indicates the status of your SSL certificate order. When you submit an SSL certificate order, it will be in &amp;quot;Pending CA Approval&amp;quot; status. This is the only status that you can cancel your order if you want. 
+
+If a Certificate Authority approve your order, your order status will change to &amp;quot;Approved&amp;quot;. Once your order is approved, you will receive your fulfillment email from CA that contains your SSL certificate. SoftLayer does not store your SSL certificate in our system. So, if you lose the email from your CA, you can have them to resend the fulfillment email via SoftLayer customer portal. Your approved order will be picked up by SoftLayer's billing system and it will complete the payment process. Finally, your order will change to &amp;quot;Complete&amp;quot; status when the payment process was successful. 
+
+There might be a chance that your SSL certificate order could rejected by a CA. Our automated system will put a rejected order into &amp;quot;Canceled&amp;quot; status. You can contact SoftLayer Support for more details. </documentation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getSslRequestStatuses">
+      <documentation>Returns all SSL certificate request status objects </documentation>
+      <input message="tns:getSslRequestStatuses"/>
+      <output message="tns:getSslRequestStatusesResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Security_Certificate_Request_StatusBinding" type="tns:SoftLayer_Security_Certificate_Request_StatusPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_Request_StatusAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Security_Certificate_Request_StatusObjectMaskHeader" part="SoftLayer_Security_Certificate_Request_StatusObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_Request_StatusObjectFilterHeader" part="SoftLayer_Security_Certificate_Request_StatusObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_Request_StatusInitParametersHeader" part="SoftLayer_Security_Certificate_Request_StatusInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSslRequestStatuses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Security_Certificate_Request_StatusAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Security_Certificate_Request_StatusObjectMaskHeader" part="SoftLayer_Security_Certificate_Request_StatusObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Security_Certificate_Request_StatusService">
+    <port name="SoftLayer_Security_Certificate_Request_StatusPort" binding="tns:SoftLayer_Security_Certificate_Request_StatusBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Security_Certificate_Request_Status"/>
+    </port>
+  </service>
+</definitions>

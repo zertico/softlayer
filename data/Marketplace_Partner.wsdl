@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Marketplace_Partner?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Marketplace_PartnerInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Marketplace_PartnerObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Marketplace_Partner"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Marketplace_PartnerInitParametersHeader">
+    <part name="SoftLayer_Marketplace_PartnerInitParameters" type="tns:SoftLayer_Marketplace_PartnerInitParameters"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Marketplace_PartnerArray"/>
+  </message>
+  <message name="getAllPublishedPartners">
+    <part name="searchTerm" type="xsd:string"/>
+  </message>
+  <message name="getAllPublishedPartnersResponse">
+    <part name="getAllPublishedPartnersReturn" type="tns:SoftLayer_Marketplace_PartnerArray"/>
+  </message>
+  <message name="getAttachments"/>
+  <message name="getAttachmentsResponse">
+    <part name="getAttachmentsReturn" type="tns:SoftLayer_Marketplace_Partner_AttachmentArray"/>
+  </message>
+  <message name="getFeaturedPartners">
+    <part name="non" type="xsd:boolean"/>
+  </message>
+  <message name="getFeaturedPartnersResponse">
+    <part name="getFeaturedPartnersReturn" type="tns:SoftLayer_Marketplace_PartnerArray"/>
+  </message>
+  <message name="getFile">
+    <part name="name" type="xsd:string"/>
+  </message>
+  <message name="getFileResponse">
+    <part name="getFileReturn" type="tns:SoftLayer_Marketplace_Partner_File"/>
+  </message>
+  <message name="getLogoMedium"/>
+  <message name="getLogoMediumResponse">
+    <part name="getLogoMediumReturn" type="tns:SoftLayer_Marketplace_Partner_Attachment"/>
+  </message>
+  <message name="getLogoMediumTemp"/>
+  <message name="getLogoMediumTempResponse">
+    <part name="getLogoMediumTempReturn" type="tns:SoftLayer_Marketplace_Partner_Attachment"/>
+  </message>
+  <message name="getLogoSmall"/>
+  <message name="getLogoSmallResponse">
+    <part name="getLogoSmallReturn" type="tns:SoftLayer_Marketplace_Partner_Attachment"/>
+  </message>
+  <message name="getLogoSmallTemp"/>
+  <message name="getLogoSmallTempResponse">
+    <part name="getLogoSmallTempReturn" type="tns:SoftLayer_Marketplace_Partner_Attachment"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Marketplace_Partner"/>
+  </message>
+  <message name="getPartnerByUrlIdentifier">
+    <part name="urlIdentifier" type="xsd:string"/>
+  </message>
+  <message name="getPartnerByUrlIdentifierResponse">
+    <part name="getPartnerByUrlIdentifierReturn" type="tns:SoftLayer_Marketplace_Partner"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Marketplace_PartnerObjectMaskHeader">
+    <part name="SoftLayer_Marketplace_PartnerObjectMask" type="tns:SoftLayer_Marketplace_PartnerObjectMask"/>
+  </message>
+  <message name="SoftLayer_Marketplace_PartnerObjectFilterHeader">
+    <part name="SoftLayer_Marketplace_PartnerObjectFilter" type="tns:SoftLayer_Marketplace_PartnerObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Marketplace_PartnerPortType">
+    <documentation></documentation>
+    <operation name="getAllObjects">
+      <documentation></documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getAllPublishedPartners">
+      <documentation></documentation>
+      <input message="tns:getAllPublishedPartners"/>
+      <output message="tns:getAllPublishedPartnersResponse"/>
+    </operation>
+    <operation name="getAttachments">
+      <documentation></documentation>
+      <input message="tns:getAttachments"/>
+      <output message="tns:getAttachmentsResponse"/>
+    </operation>
+    <operation name="getFeaturedPartners">
+      <documentation></documentation>
+      <input message="tns:getFeaturedPartners"/>
+      <output message="tns:getFeaturedPartnersResponse"/>
+    </operation>
+    <operation name="getFile">
+      <documentation></documentation>
+      <input message="tns:getFile"/>
+      <output message="tns:getFileResponse"/>
+    </operation>
+    <operation name="getLogoMedium">
+      <documentation></documentation>
+      <input message="tns:getLogoMedium"/>
+      <output message="tns:getLogoMediumResponse"/>
+    </operation>
+    <operation name="getLogoMediumTemp">
+      <documentation></documentation>
+      <input message="tns:getLogoMediumTemp"/>
+      <output message="tns:getLogoMediumTempResponse"/>
+    </operation>
+    <operation name="getLogoSmall">
+      <documentation></documentation>
+      <input message="tns:getLogoSmall"/>
+      <output message="tns:getLogoSmallResponse"/>
+    </operation>
+    <operation name="getLogoSmallTemp">
+      <documentation></documentation>
+      <input message="tns:getLogoSmallTemp"/>
+      <output message="tns:getLogoSmallTempResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPartnerByUrlIdentifier">
+      <documentation></documentation>
+      <input message="tns:getPartnerByUrlIdentifier"/>
+      <output message="tns:getPartnerByUrlIdentifierResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Marketplace_PartnerBinding" type="tns:SoftLayer_Marketplace_PartnerPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectFilterHeader" part="SoftLayer_Marketplace_PartnerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllPublishedPartners">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAttachments">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectFilterHeader" part="SoftLayer_Marketplace_PartnerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerInitParametersHeader" part="SoftLayer_Marketplace_PartnerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFeaturedPartners">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFile">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerInitParametersHeader" part="SoftLayer_Marketplace_PartnerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLogoMedium">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectFilterHeader" part="SoftLayer_Marketplace_PartnerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerInitParametersHeader" part="SoftLayer_Marketplace_PartnerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLogoMediumTemp">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectFilterHeader" part="SoftLayer_Marketplace_PartnerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerInitParametersHeader" part="SoftLayer_Marketplace_PartnerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLogoSmall">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectFilterHeader" part="SoftLayer_Marketplace_PartnerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerInitParametersHeader" part="SoftLayer_Marketplace_PartnerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLogoSmallTemp">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectFilterHeader" part="SoftLayer_Marketplace_PartnerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerInitParametersHeader" part="SoftLayer_Marketplace_PartnerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectFilterHeader" part="SoftLayer_Marketplace_PartnerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerInitParametersHeader" part="SoftLayer_Marketplace_PartnerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPartnerByUrlIdentifier">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Marketplace_PartnerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Marketplace_PartnerObjectMaskHeader" part="SoftLayer_Marketplace_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Marketplace_PartnerService">
+    <port name="SoftLayer_Marketplace_PartnerPort" binding="tns:SoftLayer_Marketplace_PartnerBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Marketplace_Partner"/>
+    </port>
+  </service>
+</definitions>

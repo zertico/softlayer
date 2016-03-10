@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_Token?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_ContentDelivery_Authentication_TokenInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_ContentDelivery_Authentication_Token"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_ContentDelivery_Authentication_TokenInitParametersHeader">
+    <part name="SoftLayer_Network_ContentDelivery_Authentication_TokenInitParameters" type="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_ContentDelivery_Authentication_Token"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Network_ContentDelivery_Authentication_Token"/>
+  </message>
+  <message name="getAllManagedTokens">
+    <part name="cdnAccountId" type="xsd:int"/>
+  </message>
+  <message name="getAllManagedTokensResponse">
+    <part name="getAllManagedTokensReturn" type="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_ContentDelivery_Authentication_Token"/>
+  </message>
+  <message name="getTimedToken">
+    <part name="cdnAccountId" type="xsd:int"/>
+    <part name="tokenLife" type="xsd:int"/>
+    <part name="clientIp" type="xsd:string"/>
+    <part name="referrer" type="xsd:string"/>
+    <part name="mediaType" type="xsd:string"/>
+  </message>
+  <message name="getTimedTokenResponse">
+    <part name="getTimedTokenReturn" type="xsd:string"/>
+  </message>
+  <message name="revokeAllManagedTokens">
+    <part name="cdnAccountId" type="xsd:int"/>
+  </message>
+  <message name="revokeAllManagedTokensResponse">
+    <part name="revokeAllManagedTokensReturn" type="xsd:boolean"/>
+  </message>
+  <message name="revokeAllTokens">
+    <part name="cdnAccountId" type="xsd:int"/>
+    <part name="mediaType" type="xsd:string"/>
+  </message>
+  <message name="revokeAllTokensResponse">
+    <part name="revokeAllTokensReturn" type="xsd:boolean"/>
+  </message>
+  <message name="revokeManagedToken">
+    <part name="cdnAccountId" type="xsd:int"/>
+    <part name="token" type="xsd:string"/>
+  </message>
+  <message name="revokeManagedTokenResponse">
+    <part name="revokeManagedTokenReturn" type="xsd:boolean"/>
+  </message>
+  <message name="revokeManagedTokens">
+    <part name="templateObjects" type="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenArray"/>
+  </message>
+  <message name="revokeManagedTokensResponse">
+    <part name="revokeManagedTokensReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMaskHeader">
+    <part name="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMask" type="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectFilterHeader">
+    <part name="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectFilter" type="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_ContentDelivery_Authentication_TokenPortType">
+    <documentation>CDN's content authentication service is the technology that allows only authorized user to access your content. It performs a token based authentication before delivering content. An authentication token can be obtained from the SoftLayer customer portal or API and it needs to be appended to the CDN URL. When an end-user requests a file, CDN server will check the validity of the token passed via HTTP GET string. Then the content will be delivered if the token is validated otherwise the connection will be rejected. 
+
+There are several scenarios where this authentication capability could be useful. If a website doesn't require authentication, it runs the risk of other sites hot-linking to its images. Content owners can prevent others sites from passing HTTP links to images by requiring authentication in order to view a site's contents. Leverage the API to add this additional layer of security through our Content Authentication service. 
+
+To begin using the Content Authentication service, define secure directions using the [[SoftLayer_Network_ContentDelivery_Account::createTokenAuthenticationDirectory|createTokenAuthenticationDirectory]] method. Refer to the table below for examples of token authentication URLs. 
+
+{| cellspacing=&amp;quot;5&amp;quot; style=&amp;quot;width: 90%; border: 0px; margin-left: auto; margin-right: auto; padding: 10px;&amp;quot; 
+|-
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''Media Type'''
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''Token Auth Directory'''
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''CDN URL Type'''
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''Example URL'''
+|-
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|HTTP
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|(FTP) /securehttp
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|Default
+|style=&amp;quot;background: #e7e7e7&amp;quot;|http://(CDN_NAME).http.cdn.softlayer.net/00(CDN_NAME)/securehttp/example.jpg?ramdomTokenString
+|-
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|HTTP
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|(Customer Origin) http://myorigin.com/securehttp
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|Default
+|style=&amp;quot;background: #e7e7e7&amp;quot;|http://(CDN_NAME).http.cdn.softlayer.net/80(CDN_NAME)/myorigin.com/securehttp/example.jpg?ramdomTokenString
+|-
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|HTTP
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|(FTP or Custom Origin)
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|CNAME
+|style=&amp;quot;background: #e7e7e7&amp;quot;|http://cdn.mydomain.com/example.jpg?ramdomTokenString
+|-
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|Streaming Flash
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|(FTP) /secureflash
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|Default
+|style=&amp;quot;background: #e7e7e7&amp;quot;|rtmp://(CDN_NAME).flash.cdn.softlayer.net/00(CDN_NAME)/secureflash/example.flv?ramdomTokenString
+|-
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|Streaming Flash
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|(Customer Origin) http://myorigin.com/secureflash
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|Default
+|style=&amp;quot;background: #e7e7e7&amp;quot;|rtmp://(CDN_NAME).flash.cdn.softlayer.net/80(CDN_NAME)/myorigin.com/secureflash/example.flv?ramdomTokenString
+|-
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|Streaming Flash
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|(FTP or Custom Origin)
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|CNAME
+|style=&amp;quot;background: #e7e7e7&amp;quot;|rtmp://flash.mydomain.com/example.flv?ramdomTokenString
+|-
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|Streaming Windows Media
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|(FTP) /securewm
+|style=&amp;quot;background: #e7e7e7; text-align: center;&amp;quot;|Default
+|style=&amp;quot;background: #e7e7e7&amp;quot;| mms://(CDN_NAME).flash.cdn.softlayer.net/00(CDN_NAME)/securewm/example.wmv?ramdomTokenString
+|-
+|}
+
+
+Note. Windows Media does not support customer origin. Token authentication can be ordered as a CDN add-on item. 
+
+'''Authentication Token''' 
+
+Authentication tokens expire after the specified time (in seconds) has elapsed. Set a token's expiration time by passing the number of seconds the token should remain active to the [[SoftLayer_Network_ContentDelivery_Authentication_Token::getTimedToken|getTimedToken]] method. For example, if you pass 3600 for the token life to the [[SoftLayer_Network_ContentDelivery_Authentication_Token::getTimedToken|getTimedToken]] method, it will return a token that will expire after an hour of its creation. There is no way to revoke a timed token.  To create a timed token, use the [[SoftLayer_Network_ContentDelivery_Authentication_Token::getTimedToken|getTimedToken]] method and it takes 3 parameters: 
+
+&amp;lt;dl&amp;gt; &amp;lt;dt&amp;gt;'''Token Life (required)'''&amp;lt;/dt&amp;gt; &amp;lt;dd&amp;gt;This value is defined in seconds and outlines the amount of time a token remains valid. To create a token that expires in an hour, pass a Token Life of 3600. The minimum value for Token Life is 60 seconds and the maximum value is 604800 seconds, or one week.&amp;lt;/dd&amp;gt; 
+
+&amp;lt;dt&amp;gt;'''Client IP (optional)'''&amp;lt;/dt&amp;gt; &amp;lt;dd&amp;gt;If set, the token validation process will match the client IP address. A valid IP address should be an IPv4 format or an IP block. If you want to block access from IP 211.37.0.0/16, you can enter &amp;quot;211.37.&amp;quot; instead. IP blocks can be specified in the manner of &amp;quot;8bit times n&amp;quot;.&amp;lt;/dd&amp;gt; 
+
+&amp;lt;dt&amp;gt;'''Referring domain (optional)'''&amp;lt;/dt&amp;gt; &amp;lt;dd&amp;gt;The referrer or referring page is the URL of the previous webpage from which a link was followed. You can further restrict access to your contents by matching referrer information. Set this value only if you are certain about referrer you're expecting. You can only set a domain or an IP address without a path or a file name in it. This can be a part of your domain. If you want to grant access from any of your subdomains, set the root domain as a referring domain.&amp;lt;/dd&amp;gt; &amp;lt;/dl&amp;gt; </documentation>
+    <operation name="createObject">
+      <documentation>This method is deprecated! Use the [[SoftLayer_Network_ContentDelivery_Authentication_Token::getTimedToken|getTimedToken]] method. 
+
+This method creates a managed authentication token. When passing a parameter, the only required value is your CDN account id which can be obtained from the [[SoftLayer_Account::getCdnAccounts|getCdnAccounts]] method. There are 3 optional parameters you can pass: 
+
+
+* name - This helps you keep track of managed tokens.
+* referrer - If set, the token validation will check the client's referrer. Keep in mind, if a client doesn't have the referrer information, the token validation will fail.
+* clientIp - If set, the token validation will check the client's IP address.
+
+</documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="getAllManagedTokens">
+      <documentation>This method is deprecated! 
+
+This method returns all managed tokens for a CDN account. </documentation>
+      <input message="tns:getAllManagedTokens"/>
+      <output message="tns:getAllManagedTokensResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>This method is deprecated! 
+
+getObject retrieves the SoftLayer_Network_ContentDelivery_Authentication_Token object whose ID number corresponds to the ID number of the initial parameter passed to the SoftLayer_Network_ContentDelivery_Authentication_Token service. You can only retrieve managed tokens assigned to one of your CDN account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getTimedToken">
+      <documentation>This method returns an authentication token that expires after the seconds you specify. You can provide number of seconds to manage the token life.  This parameter sets the expiration time for a token. A valid life time must be an integer between 60 and 604800 (1 week). A customer can also provide client ip and (or) referrer information.  If used, a client from the same IP and referrer can view the protected contents. 
+
+A valid IP address must be an IPv4 format or an IP block. if you want to block access from IP 211.37.0.0/16, you can enter &amp;quot;211.37.&amp;quot; instead. IP blocks can be specified in the manner of &amp;quot;8bit times n&amp;quot;. 
+
+The referrer is the URL of the previous webpage from which a link was followed.  A referrer should not include &amp;quot;http://&amp;quot; prefix and it can be maximum of 30 characters. </documentation>
+      <input message="tns:getTimedToken"/>
+      <output message="tns:getTimedTokenResponse"/>
+    </operation>
+    <operation name="revokeAllManagedTokens">
+      <documentation>This method is deprecated! 
+
+This method revokes all managed tokens belong to a CDN account. </documentation>
+      <input message="tns:revokeAllManagedTokens"/>
+      <output message="tns:revokeAllManagedTokensResponse"/>
+    </operation>
+    <operation name="revokeAllTokens">
+      <documentation>This method revokes all tokens belong to a CDN account.  Valid media types are &amp;quot;HTTP&amp;quot;, &amp;quot;FLASH&amp;quot; and &amp;quot;WM&amp;quot;. </documentation>
+      <input message="tns:revokeAllTokens"/>
+      <output message="tns:revokeAllTokensResponse"/>
+    </operation>
+    <operation name="revokeManagedToken">
+      <documentation>This method is deprecated! 
+
+Revokes a managed token. If you revoke a token, the token will be removed from SoftLayer's system but it will not remove your content on CDN FTP. The content that requires token validation will not be available to the visitor who is using a revoked token. </documentation>
+      <input message="tns:revokeManagedToken"/>
+      <output message="tns:revokeManagedTokenResponse"/>
+    </operation>
+    <operation name="revokeManagedTokens">
+      <documentation>This method is deprecated! 
+
+Deletes multiple managed tokens </documentation>
+      <input message="tns:revokeManagedTokens"/>
+      <output message="tns:revokeManagedTokensResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_ContentDelivery_Authentication_TokenBinding" type="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_TokenAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMaskHeader" part="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllManagedTokens">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_TokenAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMaskHeader" part="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenObjectFilterHeader" part="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_TokenAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMaskHeader" part="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenObjectFilterHeader" part="SoftLayer_Network_ContentDelivery_Authentication_TokenObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenInitParametersHeader" part="SoftLayer_Network_ContentDelivery_Authentication_TokenInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTimedToken">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_TokenAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="revokeAllManagedTokens">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_TokenAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="revokeAllTokens">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_TokenAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="revokeManagedToken">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_TokenAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="revokeManagedTokens">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_TokenAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_ContentDelivery_Authentication_TokenService">
+    <port name="SoftLayer_Network_ContentDelivery_Authentication_TokenPort" binding="tns:SoftLayer_Network_ContentDelivery_Authentication_TokenBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_Token"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Component?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_ComponentInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_ComponentObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Component"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_ComponentInitParametersHeader">
+    <part name="SoftLayer_Network_ComponentInitParameters" type="tns:SoftLayer_Network_ComponentInitParameters"/>
+  </message>
+  <message name="addNetworkVlanTrunks">
+    <part name="networkVlans" type="tns:SoftLayer_Network_VlanArray"/>
+  </message>
+  <message name="addNetworkVlanTrunksResponse">
+    <part name="addNetworkVlanTrunksReturn" type="tns:SoftLayer_Network_VlanArray"/>
+  </message>
+  <message name="clearNetworkVlanTrunks"/>
+  <message name="clearNetworkVlanTrunksResponse">
+    <part name="clearNetworkVlanTrunksReturn" type="tns:SoftLayer_Network_VlanArray"/>
+  </message>
+  <message name="getActiveCommand"/>
+  <message name="getActiveCommandResponse">
+    <part name="getActiveCommandReturn" type="tns:SoftLayer_Hardware_Component_RemoteManagement_Command_Request"/>
+  </message>
+  <message name="getCustomBandwidthDataByDate">
+    <part name="graphData" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getCustomBandwidthDataByDateResponse">
+    <part name="getCustomBandwidthDataByDateReturn" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getDownlinkComponent"/>
+  <message name="getDownlinkComponentResponse">
+    <part name="getDownlinkComponentReturn" type="tns:SoftLayer_Network_Component"/>
+  </message>
+  <message name="getDuplexMode"/>
+  <message name="getDuplexModeResponse">
+    <part name="getDuplexModeReturn" type="tns:SoftLayer_Network_Component_Duplex_Mode"/>
+  </message>
+  <message name="getHardware"/>
+  <message name="getHardwareResponse">
+    <part name="getHardwareReturn" type="tns:SoftLayer_Hardware"/>
+  </message>
+  <message name="getHighAvailabilityFirewallFlag"/>
+  <message name="getHighAvailabilityFirewallFlagResponse">
+    <part name="getHighAvailabilityFirewallFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getInterface"/>
+  <message name="getInterfaceResponse">
+    <part name="getInterfaceReturn" type="tns:SoftLayer_Network_Bandwidth_Version1_Interface"/>
+  </message>
+  <message name="getIpAddressBindings"/>
+  <message name="getIpAddressBindingsResponse">
+    <part name="getIpAddressBindingsReturn" type="tns:SoftLayer_Network_Component_IpAddressArray"/>
+  </message>
+  <message name="getIpAddresses"/>
+  <message name="getIpAddressesResponse">
+    <part name="getIpAddressesReturn" type="tns:SoftLayer_Network_Subnet_IpAddressArray"/>
+  </message>
+  <message name="getLastCommand"/>
+  <message name="getLastCommandResponse">
+    <part name="getLastCommandReturn" type="tns:SoftLayer_Hardware_Component_RemoteManagement_Command_Request"/>
+  </message>
+  <message name="getMetricTrackingObject"/>
+  <message name="getMetricTrackingObjectResponse">
+    <part name="getMetricTrackingObjectReturn" type="tns:SoftLayer_Metric_Tracking_Object"/>
+  </message>
+  <message name="getNetworkComponentFirewall"/>
+  <message name="getNetworkComponentFirewallResponse">
+    <part name="getNetworkComponentFirewallReturn" type="tns:SoftLayer_Network_Component_Firewall"/>
+  </message>
+  <message name="getNetworkComponentGroup"/>
+  <message name="getNetworkComponentGroupResponse">
+    <part name="getNetworkComponentGroupReturn" type="tns:SoftLayer_Network_Component_Group"/>
+  </message>
+  <message name="getNetworkHardware"/>
+  <message name="getNetworkHardwareResponse">
+    <part name="getNetworkHardwareReturn" type="tns:SoftLayer_HardwareArray"/>
+  </message>
+  <message name="getNetworkVlan"/>
+  <message name="getNetworkVlanResponse">
+    <part name="getNetworkVlanReturn" type="tns:SoftLayer_Network_Vlan"/>
+  </message>
+  <message name="getNetworkVlanTrunks"/>
+  <message name="getNetworkVlanTrunksResponse">
+    <part name="getNetworkVlanTrunksReturn" type="tns:SoftLayer_Network_Component_Network_Vlan_TrunkArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Component"/>
+  </message>
+  <message name="getPortStatistics"/>
+  <message name="getPortStatisticsResponse">
+    <part name="getPortStatisticsReturn" type="tns:SoftLayer_Container_Network_Port_Statistic"/>
+  </message>
+  <message name="getPrimaryIpAddressRecord"/>
+  <message name="getPrimaryIpAddressRecordResponse">
+    <part name="getPrimaryIpAddressRecordReturn" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+  </message>
+  <message name="getPrimarySubnet"/>
+  <message name="getPrimarySubnetResponse">
+    <part name="getPrimarySubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="getPrimaryVersion6IpAddressRecord"/>
+  <message name="getPrimaryVersion6IpAddressRecordResponse">
+    <part name="getPrimaryVersion6IpAddressRecordReturn" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+  </message>
+  <message name="getRecentCommands"/>
+  <message name="getRecentCommandsResponse">
+    <part name="getRecentCommandsReturn" type="tns:SoftLayer_Hardware_Component_RemoteManagement_Command_RequestArray"/>
+  </message>
+  <message name="getRedundancyCapableFlag"/>
+  <message name="getRedundancyCapableFlagResponse">
+    <part name="getRedundancyCapableFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getRedundancyEnabledFlag"/>
+  <message name="getRedundancyEnabledFlagResponse">
+    <part name="getRedundancyEnabledFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getRemoteManagementUsers"/>
+  <message name="getRemoteManagementUsersResponse">
+    <part name="getRemoteManagementUsersReturn" type="tns:SoftLayer_Hardware_Component_RemoteManagement_UserArray"/>
+  </message>
+  <message name="getRouter"/>
+  <message name="getRouterResponse">
+    <part name="getRouterReturn" type="tns:SoftLayer_Hardware"/>
+  </message>
+  <message name="getStorageNetworkFlag"/>
+  <message name="getStorageNetworkFlagResponse">
+    <part name="getStorageNetworkFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getSubnets"/>
+  <message name="getSubnetsResponse">
+    <part name="getSubnetsReturn" type="tns:SoftLayer_Network_SubnetArray"/>
+  </message>
+  <message name="getUplinkComponent"/>
+  <message name="getUplinkComponentResponse">
+    <part name="getUplinkComponentReturn" type="tns:SoftLayer_Network_Component"/>
+  </message>
+  <message name="getUplinkDuplexMode"/>
+  <message name="getUplinkDuplexModeResponse">
+    <part name="getUplinkDuplexModeReturn" type="tns:SoftLayer_Network_Component_Duplex_Mode"/>
+  </message>
+  <message name="removeNetworkVlanTrunks">
+    <part name="networkVlans" type="tns:SoftLayer_Network_VlanArray"/>
+  </message>
+  <message name="removeNetworkVlanTrunksResponse">
+    <part name="removeNetworkVlanTrunksReturn" type="tns:SoftLayer_Network_VlanArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_ComponentObjectMaskHeader">
+    <part name="SoftLayer_Network_ComponentObjectMask" type="tns:SoftLayer_Network_ComponentObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_ComponentObjectFilterHeader">
+    <part name="SoftLayer_Network_ComponentObjectFilter" type="tns:SoftLayer_Network_ComponentObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_ComponentPortType">
+    <documentation></documentation>
+    <operation name="addNetworkVlanTrunks">
+      <documentation>Add VLANs as trunks to a network component. The VLANs given must be assigned to your account, and on the router to which this network component is connected. The current native VLAN (networkVlanId/networkVlan) cannot be added as a trunk. This method should be called on a network component attached directly to customer assigned hardware, though all trunking operations will occur on the uplinkComponent. A current list of VLAN trunks for a network component on a customer server can be found at 'uplinkComponent-&amp;gt;networkVlanTrunks'. 
+
+This method returns an array of SoftLayer_Network_Vlans which were added as trunks. Any requested trunks which are already trunked will be silently ignored, and will not be returned. 
+
+Configuration of network hardware is done asynchronously, do not depend on the return of this call as an indication that the newly trunked VLANs will be accessible. </documentation>
+      <input message="tns:addNetworkVlanTrunks"/>
+      <output message="tns:addNetworkVlanTrunksResponse"/>
+    </operation>
+    <operation name="clearNetworkVlanTrunks">
+      <documentation>This method will remove all VLANs trunked to this network component. The native VLAN (networkVlanId/networkVlan) will remain active, and cannot be removed via the API. Returns a list of SoftLayer_Network_Vlan objects for which the trunks were removed. </documentation>
+      <input message="tns:clearNetworkVlanTrunks"/>
+      <output message="tns:clearNetworkVlanTrunksResponse"/>
+    </operation>
+    <operation name="getActiveCommand">
+      <documentation>Retrieve reboot/power (rebootDefault, rebootSoft, rebootHard, powerOn, powerOff and powerCycle) command currently executing by the server's remote management card.</documentation>
+      <input message="tns:getActiveCommand"/>
+      <output message="tns:getActiveCommandResponse"/>
+    </operation>
+    <operation name="getCustomBandwidthDataByDate">
+      <documentation>Retrieve bandwidth graph by date. </documentation>
+      <input message="tns:getCustomBandwidthDataByDate"/>
+      <output message="tns:getCustomBandwidthDataByDateResponse"/>
+    </operation>
+    <operation name="getDownlinkComponent">
+      <documentation>Retrieve the network component linking this object to a child device</documentation>
+      <input message="tns:getDownlinkComponent"/>
+      <output message="tns:getDownlinkComponentResponse"/>
+    </operation>
+    <operation name="getDuplexMode">
+      <documentation>Retrieve the duplex mode of a network component.</documentation>
+      <input message="tns:getDuplexMode"/>
+      <output message="tns:getDuplexModeResponse"/>
+    </operation>
+    <operation name="getHardware">
+      <documentation>Retrieve the hardware that a network component resides in.</documentation>
+      <input message="tns:getHardware"/>
+      <output message="tns:getHardwareResponse"/>
+    </operation>
+    <operation name="getHighAvailabilityFirewallFlag">
+      <documentation></documentation>
+      <input message="tns:getHighAvailabilityFirewallFlag"/>
+      <output message="tns:getHighAvailabilityFirewallFlagResponse"/>
+    </operation>
+    <operation name="getInterface">
+      <documentation>Retrieve a hardware switch's interface to the bandwidth pod.</documentation>
+      <input message="tns:getInterface"/>
+      <output message="tns:getInterfaceResponse"/>
+    </operation>
+    <operation name="getIpAddressBindings">
+      <documentation>Retrieve the records of all IP addresses bound to a network component.</documentation>
+      <input message="tns:getIpAddressBindings"/>
+      <output message="tns:getIpAddressBindingsResponse"/>
+    </operation>
+    <operation name="getIpAddresses">
+      <documentation></documentation>
+      <input message="tns:getIpAddresses"/>
+      <output message="tns:getIpAddressesResponse"/>
+    </operation>
+    <operation name="getLastCommand">
+      <documentation>Retrieve last reboot/power (rebootDefault, rebootSoft, rebootHard, powerOn, powerOff and powerCycle) command issued to the server's remote management card.</documentation>
+      <input message="tns:getLastCommand"/>
+      <output message="tns:getLastCommandResponse"/>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <documentation>Retrieve the metric tracking object for this network component.</documentation>
+      <input message="tns:getMetricTrackingObject"/>
+      <output message="tns:getMetricTrackingObjectResponse"/>
+    </operation>
+    <operation name="getNetworkComponentFirewall">
+      <documentation>Retrieve the upstream network component firewall.</documentation>
+      <input message="tns:getNetworkComponentFirewall"/>
+      <output message="tns:getNetworkComponentFirewallResponse"/>
+    </operation>
+    <operation name="getNetworkComponentGroup">
+      <documentation>Retrieve a network component's associated group.</documentation>
+      <input message="tns:getNetworkComponentGroup"/>
+      <output message="tns:getNetworkComponentGroupResponse"/>
+    </operation>
+    <operation name="getNetworkHardware">
+      <documentation>Retrieve all network devices in SoftLayer's network hierarchy that this device is connected to.</documentation>
+      <input message="tns:getNetworkHardware"/>
+      <output message="tns:getNetworkHardwareResponse"/>
+    </operation>
+    <operation name="getNetworkVlan">
+      <documentation>Retrieve the VLAN that a network component's subnet is associated with.</documentation>
+      <input message="tns:getNetworkVlan"/>
+      <output message="tns:getNetworkVlanResponse"/>
+    </operation>
+    <operation name="getNetworkVlanTrunks">
+      <documentation>Retrieve the VLANs that are trunked to this network component.</documentation>
+      <input message="tns:getNetworkVlanTrunks"/>
+      <output message="tns:getNetworkVlanTrunksResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPortStatistics">
+      <documentation>Retrieve various network statistics.  The network statistics are retrieved from the network device using snmpget. Below is a list of statistics retrieved: 
+* Administrative Status
+* Operational Status
+* Maximum Transmission Unit
+* In Octets
+* Out Octets
+* In Unicast Packets
+* Out Unicast Packets
+* In Multicast Packets
+* Out Multicast Packets</documentation>
+      <input message="tns:getPortStatistics"/>
+      <output message="tns:getPortStatisticsResponse"/>
+    </operation>
+    <operation name="getPrimaryIpAddressRecord">
+      <documentation>Retrieve the primary IPv4 Address record for a network component.</documentation>
+      <input message="tns:getPrimaryIpAddressRecord"/>
+      <output message="tns:getPrimaryIpAddressRecordResponse"/>
+    </operation>
+    <operation name="getPrimarySubnet">
+      <documentation>Retrieve a network component's subnet for its primary IP address</documentation>
+      <input message="tns:getPrimarySubnet"/>
+      <output message="tns:getPrimarySubnetResponse"/>
+    </operation>
+    <operation name="getPrimaryVersion6IpAddressRecord">
+      <documentation>Retrieve the primary IPv6 Address record for a network component.</documentation>
+      <input message="tns:getPrimaryVersion6IpAddressRecord"/>
+      <output message="tns:getPrimaryVersion6IpAddressRecordResponse"/>
+    </operation>
+    <operation name="getRecentCommands">
+      <documentation>Retrieve the last five reboot/power (rebootDefault, rebootSoft, rebootHard, powerOn, powerOff and powerCycle) commands issued to the server's remote management card.</documentation>
+      <input message="tns:getRecentCommands"/>
+      <output message="tns:getRecentCommandsResponse"/>
+    </operation>
+    <operation name="getRedundancyCapableFlag">
+      <documentation>Retrieve indicates whether the network component is participating in a group of two or more components capable of being operationally redundant, if enabled.</documentation>
+      <input message="tns:getRedundancyCapableFlag"/>
+      <output message="tns:getRedundancyCapableFlagResponse"/>
+    </operation>
+    <operation name="getRedundancyEnabledFlag">
+      <documentation>Retrieve indicates whether the network component is participating in a group of two or more components which is actively providing link redundancy.</documentation>
+      <input message="tns:getRedundancyEnabledFlag"/>
+      <output message="tns:getRedundancyEnabledFlagResponse"/>
+    </operation>
+    <operation name="getRemoteManagementUsers">
+      <documentation>Retrieve user(s) credentials to issue commands and/or interact with the server's remote management card.</documentation>
+      <input message="tns:getRemoteManagementUsers"/>
+      <output message="tns:getRemoteManagementUsersResponse"/>
+    </operation>
+    <operation name="getRouter">
+      <documentation>Retrieve a network component's routers.</documentation>
+      <input message="tns:getRouter"/>
+      <output message="tns:getRouterResponse"/>
+    </operation>
+    <operation name="getStorageNetworkFlag">
+      <documentation>Retrieve whether a network component's primary ip address is from a storage network subnet or not.</documentation>
+      <input message="tns:getStorageNetworkFlag"/>
+      <output message="tns:getStorageNetworkFlagResponse"/>
+    </operation>
+    <operation name="getSubnets">
+      <documentation>Retrieve a network component's subnets. A subnet is a group of IP addresses</documentation>
+      <input message="tns:getSubnets"/>
+      <output message="tns:getSubnetsResponse"/>
+    </operation>
+    <operation name="getUplinkComponent">
+      <documentation>Retrieve the network component linking this object to parent</documentation>
+      <input message="tns:getUplinkComponent"/>
+      <output message="tns:getUplinkComponentResponse"/>
+    </operation>
+    <operation name="getUplinkDuplexMode">
+      <documentation>Retrieve the duplex mode of the uplink network component linking to this object</documentation>
+      <input message="tns:getUplinkDuplexMode"/>
+      <output message="tns:getUplinkDuplexModeResponse"/>
+    </operation>
+    <operation name="removeNetworkVlanTrunks">
+      <documentation>Remove one or more VLANs currently attached to the uplinkComponent of this networkComponent. The VLANs given must be assigned to your account, and on the router the network component is connected to. If any VLANs not currently trunked are given, they will be silently ignored. 
+
+This method should be called on a network component attached directly to customer assigned hardware, though all trunking operations will occur on the uplinkComponent. A current list of VLAN trunks for a network component on a customer server can be found at 'uplinkComponent-&amp;gt;networkVlanTrunks'. 
+
+Configuration of network hardware is done asynchronously, do not depend on the return of this call as an indication that the removed VLANs will be inaccessible. </documentation>
+      <input message="tns:removeNetworkVlanTrunks"/>
+      <output message="tns:removeNetworkVlanTrunksResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_ComponentBinding" type="tns:SoftLayer_Network_ComponentPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addNetworkVlanTrunks">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="clearNetworkVlanTrunks">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getActiveCommand">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCustomBandwidthDataByDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDownlinkComponent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDuplexMode">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHighAvailabilityFirewallFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInterface">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getIpAddressBindings">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getIpAddresses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLastCommand">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkComponentFirewall">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkComponentGroup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlan">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlanTrunks">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPortStatistics">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimaryIpAddressRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimarySubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimaryVersion6IpAddressRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRecentCommands">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRedundancyCapableFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRedundancyEnabledFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRemoteManagementUsers">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRouter">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStorageNetworkFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUplinkComponent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUplinkDuplexMode">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectFilterHeader" part="SoftLayer_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeNetworkVlanTrunks">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentInitParametersHeader" part="SoftLayer_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ComponentObjectMaskHeader" part="SoftLayer_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_ComponentService">
+    <port name="SoftLayer_Network_ComponentPort" binding="tns:SoftLayer_Network_ComponentBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Component"/>
+    </port>
+  </service>
+</definitions>

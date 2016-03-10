@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_Phone?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_User_Customer_External_Binding_PhoneInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_User_Customer_External_Binding_PhoneObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_User_Customer_External_Binding_Phone"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader">
+    <part name="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" type="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParameters"/>
+  </message>
+  <message name="checkPhoneValidationResult">
+    <part name="token" type="xsd:string"/>
+  </message>
+  <message name="checkPhoneValidationResultResponse">
+    <part name="checkPhoneValidationResultReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="disable">
+    <part name="reason" type="xsd:string"/>
+  </message>
+  <message name="disableResponse">
+    <part name="disableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="enable"/>
+  <message name="enableResponse">
+    <part name="enableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAllAuthenticationModes"/>
+  <message name="getAllAuthenticationModesResponse">
+    <part name="getAllAuthenticationModesReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getAllAuthenticationPinModes">
+    <part name="authenticationModeKeyName" type="xsd:string"/>
+  </message>
+  <message name="getAllAuthenticationPinModesResponse">
+    <part name="getAllAuthenticationPinModesReturn" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getAttributes"/>
+  <message name="getAttributesResponse">
+    <part name="getAttributesReturn" type="tns:SoftLayer_User_External_Binding_AttributeArray"/>
+  </message>
+  <message name="getAuthenticationMode"/>
+  <message name="getAuthenticationModeResponse">
+    <part name="getAuthenticationModeReturn" type="tns:SoftLayer_Container_User_Customer_External_Binding_Phone_Mode"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getBindingStatus"/>
+  <message name="getBindingStatusResponse">
+    <part name="getBindingStatusReturn" type="xsd:string"/>
+  </message>
+  <message name="getNote"/>
+  <message name="getNoteResponse">
+    <part name="getNoteReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_User_Customer_External_Binding_Phone"/>
+  </message>
+  <message name="getPhoneAppActivationCode"/>
+  <message name="getPhoneAppActivationCodeResponse">
+    <part name="getPhoneAppActivationCodeReturn" type="tns:SoftLayer_User_External_Binding_AttributeArray"/>
+  </message>
+  <message name="getPhoneData"/>
+  <message name="getPhoneDataResponse">
+    <part name="getPhoneDataReturn" type="tns:SoftLayer_Container_User_Data_PhoneArray"/>
+  </message>
+  <message name="getPinLength"/>
+  <message name="getPinLengthResponse">
+    <part name="getPinLengthReturn" type="xsd:string"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_User_External_Binding_Type"/>
+  </message>
+  <message name="getUser"/>
+  <message name="getUserResponse">
+    <part name="getUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="getVendor"/>
+  <message name="getVendorResponse">
+    <part name="getVendorReturn" type="tns:SoftLayer_User_External_Binding_Vendor"/>
+  </message>
+  <message name="requestPhoneValidation">
+    <part name="phoneData" type="tns:SoftLayer_Container_User_Data_Phone"/>
+  </message>
+  <message name="requestPhoneValidationResponse">
+    <part name="requestPhoneValidationReturn" type="xsd:string"/>
+  </message>
+  <message name="updateAuthenticationMode">
+    <part name="mode" type="tns:SoftLayer_Container_User_Customer_External_Binding_Phone_Mode"/>
+  </message>
+  <message name="updateAuthenticationModeResponse">
+    <part name="updateAuthenticationModeReturn" type="xsd:boolean"/>
+  </message>
+  <message name="updateNote">
+    <part name="text" type="xsd:string"/>
+  </message>
+  <message name="updateNoteResponse">
+    <part name="updateNoteReturn" type="xsd:boolean"/>
+  </message>
+  <message name="updatePhone">
+    <part name="phoneData" type="tns:SoftLayer_Container_User_Data_PhoneArray"/>
+  </message>
+  <message name="updatePhoneResponse">
+    <part name="updatePhoneReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader">
+    <part name="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" type="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMask"/>
+  </message>
+  <message name="SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader">
+    <part name="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" type="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_User_Customer_External_Binding_PhonePortType">
+    <documentation>SoftLayer provides its customers the ability to add an additional layer of security to the SoftLayer customer portal by requiring that a user login and authenticate with a trusted 3rd party before they are given access to their SoftLayer account.  This is accomplished by creating an external binding for a specific vendor such as PhoneFactor.  When the SoftLayer user attempts to log in to the SoftLayer customer portal or VPN, they will first be prompted for their normal SoftLayer username and password.  Once that information is verified they will be asked to authenticate via phone, SMS or mobile phone application. Once authenticated with the trusted vendor the user will be allowed access to the SoftLayer customer portal or VPN. 
+
+The Phone external binding service allows a user to create an external binding, enable, disable, or unlock an external binding, and delete an external binding. 
+
+Once a SoftLayer user has a valid and active external binding, they will be required to always use their credential to login to the SoftLayer customer portal.  In addition any user with an active external binding will be prohibited from using the API. </documentation>
+    <operation name="checkPhoneValidationResult">
+      <documentation>Return a phone validation result. </documentation>
+      <input message="tns:checkPhoneValidationResult"/>
+      <output message="tns:checkPhoneValidationResultResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Delete an external authentication binding.  If the external binding currently has an active billing item associated you will be prevented from deleting the binding.  The alternative method to remove an external authentication binding is to use the service cancellation form. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="disable">
+      <documentation>Disabling an external binding will allow you to keep the external binding on your SoftLayer account, but will not require you to authentication with our trusted 2 form factor vendor when logging into the SoftLayer customer portal. 
+
+You may supply one of the following reason when you disable an external binding: 
+*Unspecified
+*TemporarilyUnavailable
+*Lost
+*Stolen</documentation>
+      <input message="tns:disable"/>
+      <output message="tns:disableResponse"/>
+    </operation>
+    <operation name="enable">
+      <documentation>Enabling an external binding will activate the binding on your account and require you to authenticate with our trusted 3rd party 2 form factor vendor when logging into the SoftLayer customer portal. 
+
+Please note that API access will be disabled for users that have an active external binding. </documentation>
+      <input message="tns:enable"/>
+      <output message="tns:enableResponse"/>
+    </operation>
+    <operation name="getAllAuthenticationModes">
+      <documentation>This service returns key names of all available authentication modes. See [[SoftLayer_Container_User_Customer_External_Binding_Phone_Mode|authentication mode]] container for details. </documentation>
+      <input message="tns:getAllAuthenticationModes"/>
+      <output message="tns:getAllAuthenticationModesResponse"/>
+    </operation>
+    <operation name="getAllAuthenticationPinModes">
+      <documentation>This service returns key names of all available authentication modes. Refer to [[SoftLayer_User_Customer_External_Binding_Phone::getAllAuthenticationModes|getAllAuthenticationModes]] to retrieve authentication mode key names. </documentation>
+      <input message="tns:getAllAuthenticationPinModes"/>
+      <output message="tns:getAllAuthenticationPinModesResponse"/>
+    </operation>
+    <operation name="getAttributes">
+      <documentation>Retrieve attributes of an external authentication binding.</documentation>
+      <input message="tns:getAttributes"/>
+      <output message="tns:getAttributesResponse"/>
+    </operation>
+    <operation name="getAuthenticationMode">
+      <documentation></documentation>
+      <input message="tns:getAuthenticationMode"/>
+      <output message="tns:getAuthenticationModeResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the current billing item for an external binding.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getBindingStatus">
+      <documentation>Retrieve the current external binding status. It can be &amp;quot;ACTIVE&amp;quot; or &amp;quot;BLOCKED&amp;quot;.</documentation>
+      <input message="tns:getBindingStatus"/>
+      <output message="tns:getBindingStatusResponse"/>
+    </operation>
+    <operation name="getNote">
+      <documentation>Retrieve an optional note for identifying the external binding.</documentation>
+      <input message="tns:getNote"/>
+      <output message="tns:getNoteResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPhoneAppActivationCode">
+      <documentation>Some vendor's mobile app requires an activation code. Use this method to get an activation data. </documentation>
+      <input message="tns:getPhoneAppActivationCode"/>
+      <output message="tns:getPhoneAppActivationCodeResponse"/>
+    </operation>
+    <operation name="getPhoneData">
+      <documentation></documentation>
+      <input message="tns:getPhoneData"/>
+      <output message="tns:getPhoneDataResponse"/>
+    </operation>
+    <operation name="getPinLength">
+      <documentation></documentation>
+      <input message="tns:getPinLength"/>
+      <output message="tns:getPinLengthResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve the type of external authentication binding.</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+    <operation name="getUser">
+      <documentation>Retrieve the SoftLayer user that the external authentication binding belongs to.</documentation>
+      <input message="tns:getUser"/>
+      <output message="tns:getUserResponse"/>
+    </operation>
+    <operation name="getVendor">
+      <documentation>Retrieve the vendor of an external authentication binding.</documentation>
+      <input message="tns:getVendor"/>
+      <output message="tns:getVendorResponse"/>
+    </operation>
+    <operation name="requestPhoneValidation">
+      <documentation>Initiates a phone validation requests and returns a unique token. Use [[SoftLayer_User_Customer_External_Binding_Phone::checkPhoneValidationResult|checkPhoneValidationResult]] to find the phone validation result. </documentation>
+      <input message="tns:requestPhoneValidation"/>
+      <output message="tns:requestPhoneValidationResponse"/>
+    </operation>
+    <operation name="updateAuthenticationMode">
+      <documentation>This service allow you to change your phone authentication mode. See [[SoftLayer_Container_User_Customer_External_Binding_Phone_Mode|authentication mode]] container for available modes. </documentation>
+      <input message="tns:updateAuthenticationMode"/>
+      <output message="tns:updateAuthenticationModeResponse"/>
+    </operation>
+    <operation name="updateNote">
+      <documentation>Update the note of an external binding.  The note is an optional property that is used to store information about a binding. </documentation>
+      <input message="tns:updateNote"/>
+      <output message="tns:updateNoteResponse"/>
+    </operation>
+    <operation name="updatePhone">
+      <documentation>Phone external binding supports a primary and a backup phone number. You can use this method to update your phone number used for the phone authentication. You can provide an array of [[SoftLayer_Container_User_Data_Phone|User Phone]] objects. You have to mark one as the primary phone number by setting &amp;quot;phoneType&amp;quot; to &amp;quot;PRIMARY&amp;quot;. 
+
+
+*countryCode: Country code number for the phone number. Default: 1 (United States &amp;amp; Canada +1)
+*phone: Phone number that 2 Form Factor system will call or text for user authentication. The phone number format must match the format selected in the Country Code.
+*extension: Specify the extension that will be dialed after the call is answered. Digits, commas, *, and # are allowed.  Commas can be used for a one second pause to navigate phone system menus.
+*phoneType: Specify the primary and backup phone number by setting this value to &amp;quot;PRIMARY&amp;quot; or &amp;quot;BACKUP&amp;quot;. If omitted, it will be considered to be the primary phone number. If you are passing two Phone objects, you must specify the phone type of each phone number.
+
+</documentation>
+      <input message="tns:updatePhone"/>
+      <output message="tns:updatePhoneResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_User_Customer_External_Binding_PhoneBinding" type="tns:SoftLayer_User_Customer_External_Binding_PhonePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="checkPhoneValidationResult">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="disable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="enable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllAuthenticationModes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllAuthenticationPinModes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAttributes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAuthenticationMode">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBindingStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPhoneAppActivationCode">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPhoneData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPinLength">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVendor">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_PhoneObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="requestPhoneValidation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateAuthenticationMode">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateNote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updatePhone">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_PhoneAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_PhoneInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_PhoneInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_User_Customer_External_Binding_PhoneService">
+    <port name="SoftLayer_User_Customer_External_Binding_PhonePort" binding="tns:SoftLayer_User_Customer_External_Binding_PhoneBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_Phone"/>
+    </port>
+  </service>
+</definitions>

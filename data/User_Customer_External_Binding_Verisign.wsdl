@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_Verisign?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_User_Customer_External_Binding_VerisignInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_User_Customer_External_Binding_VerisignObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_User_Customer_External_Binding_Verisign"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader">
+    <part name="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" type="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParameters"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="disable">
+    <part name="reason" type="xsd:string"/>
+  </message>
+  <message name="disableResponse">
+    <part name="disableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="enable"/>
+  <message name="enableResponse">
+    <part name="enableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getActivationCodeForMobileClient"/>
+  <message name="getActivationCodeForMobileClientResponse">
+    <part name="getActivationCodeForMobileClientReturn" type="xsd:string"/>
+  </message>
+  <message name="getAttributes"/>
+  <message name="getAttributesResponse">
+    <part name="getAttributesReturn" type="tns:SoftLayer_User_External_Binding_AttributeArray"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getCredentialExpirationDate"/>
+  <message name="getCredentialExpirationDateResponse">
+    <part name="getCredentialExpirationDateReturn" type="xsd:string"/>
+  </message>
+  <message name="getCredentialLastUpdateDate"/>
+  <message name="getCredentialLastUpdateDateResponse">
+    <part name="getCredentialLastUpdateDateReturn" type="xsd:string"/>
+  </message>
+  <message name="getCredentialState"/>
+  <message name="getCredentialStateResponse">
+    <part name="getCredentialStateReturn" type="xsd:string"/>
+  </message>
+  <message name="getCredentialType"/>
+  <message name="getCredentialTypeResponse">
+    <part name="getCredentialTypeReturn" type="xsd:string"/>
+  </message>
+  <message name="getNote"/>
+  <message name="getNoteResponse">
+    <part name="getNoteReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_User_Customer_External_Binding_Verisign"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_User_External_Binding_Type"/>
+  </message>
+  <message name="getUser"/>
+  <message name="getUserResponse">
+    <part name="getUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="getVendor"/>
+  <message name="getVendorResponse">
+    <part name="getVendorReturn" type="tns:SoftLayer_User_External_Binding_Vendor"/>
+  </message>
+  <message name="unlock">
+    <part name="securityCode" type="xsd:string"/>
+  </message>
+  <message name="unlockResponse">
+    <part name="unlockReturn" type="xsd:boolean"/>
+  </message>
+  <message name="updateNote">
+    <part name="text" type="xsd:string"/>
+  </message>
+  <message name="updateNoteResponse">
+    <part name="updateNoteReturn" type="xsd:boolean"/>
+  </message>
+  <message name="validateCredentialId">
+    <part name="userId" type="xsd:int"/>
+    <part name="externalId" type="xsd:string"/>
+  </message>
+  <message name="validateCredentialIdResponse">
+    <part name="validateCredentialIdReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader">
+    <part name="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" type="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMask"/>
+  </message>
+  <message name="SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader">
+    <part name="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" type="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_User_Customer_External_Binding_VerisignPortType">
+    <documentation>SoftLayer provides its customers the ability to add an additional layer of security to the SoftLayer customer portal by requiring that a user login and authenticate with a trusted 3rd party before they are given access to their SoftLayer account.  This is accomplished by creating an external binding for a specific vendor, in this case VeriSign.  When the SoftLayer user attempts to log in to the SoftLayer customer portal they will first be prompted for their normal SoftLayer username and password.  Once that information is verified they will be asked to generate and provide a security code from their VeriSign credential. Once the security code has been authenticated with VeriSign the user will be allowed access to the SoftLayer customer portal. 
+
+The VeriSign external binding service allows a user to create an external binding, enable, disable, or unlock an external binding, and delete an external binding. Currently SoftLayer provides the master account user of a SoftLayer account with one free VeriSign external binding. All subsequent VeriSign external bindings will need to be created by placing an order. 
+
+Once a SoftLayer user has a valid and active VeriSign external binding, they will be required to always use their credential to login to the SoftLayer customer portal.  In addition any user with an active external binding will be prohibited from using the API. </documentation>
+    <operation name="deleteObject">
+      <documentation>Delete a VeriSign external binding.  The only VeriSign external binding that can be deleted through this method is the free VeriSign external binding for the master user of a SoftLayer account. All other external bindings must be canceled using the SoftLayer service cancellation form. 
+
+When a VeriSign external binding is deleted the credential is deactivated in VeriSign's system for use on the SoftLayer site and the $0 billing item associated with the free VeriSign external binding is cancelled. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="disable">
+      <documentation>Disabling an external binding will allow you to keep the external binding on your SoftLayer account, but will not require you to authentication with our trusted 2 form factor vendor when logging into the SoftLayer customer portal. 
+
+You may supply one of the following reason when you disable an external binding: 
+*Unspecified
+*TemporarilyUnavailable
+*Lost
+*Stolen</documentation>
+      <input message="tns:disable"/>
+      <output message="tns:disableResponse"/>
+    </operation>
+    <operation name="enable">
+      <documentation>Enabling an external binding will activate the binding on your account and require you to authenticate with our trusted 3rd party 2 form factor vendor when logging into the SoftLayer customer portal. 
+
+Please note that API access will be disabled for users that have an active external binding. </documentation>
+      <input message="tns:enable"/>
+      <output message="tns:enableResponse"/>
+    </operation>
+    <operation name="getActivationCodeForMobileClient">
+      <documentation>An activation code is required when provisioning a new mobile credential from Verisign.  This method will return the required activation code. </documentation>
+      <input message="tns:getActivationCodeForMobileClient"/>
+      <output message="tns:getActivationCodeForMobileClientResponse"/>
+    </operation>
+    <operation name="getAttributes">
+      <documentation>Retrieve attributes of an external authentication binding.</documentation>
+      <input message="tns:getAttributes"/>
+      <output message="tns:getAttributesResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the current billing item for an external binding.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getCredentialExpirationDate">
+      <documentation>Retrieve the date that a VeriSign credential expires.</documentation>
+      <input message="tns:getCredentialExpirationDate"/>
+      <output message="tns:getCredentialExpirationDateResponse"/>
+    </operation>
+    <operation name="getCredentialLastUpdateDate">
+      <documentation>Retrieve the last time a VeriSign credential was updated.</documentation>
+      <input message="tns:getCredentialLastUpdateDate"/>
+      <output message="tns:getCredentialLastUpdateDateResponse"/>
+    </operation>
+    <operation name="getCredentialState">
+      <documentation>Retrieve the current state of a VeriSign credential. This can be 'Enabled', 'Disabled', or 'Locked'.</documentation>
+      <input message="tns:getCredentialState"/>
+      <output message="tns:getCredentialStateResponse"/>
+    </operation>
+    <operation name="getCredentialType">
+      <documentation>Retrieve the type of VeriSign credential. This can be either 'Hardware' or 'Software'.</documentation>
+      <input message="tns:getCredentialType"/>
+      <output message="tns:getCredentialTypeResponse"/>
+    </operation>
+    <operation name="getNote">
+      <documentation>Retrieve an optional note for identifying the external binding.</documentation>
+      <input message="tns:getNote"/>
+      <output message="tns:getNoteResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve the type of external authentication binding.</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+    <operation name="getUser">
+      <documentation>Retrieve the SoftLayer user that the external authentication binding belongs to.</documentation>
+      <input message="tns:getUser"/>
+      <output message="tns:getUserResponse"/>
+    </operation>
+    <operation name="getVendor">
+      <documentation>Retrieve the vendor of an external authentication binding.</documentation>
+      <input message="tns:getVendor"/>
+      <output message="tns:getVendorResponse"/>
+    </operation>
+    <operation name="unlock">
+      <documentation>If a VeriSign credential becomes locked because of too many failed login attempts the unlock method can be used to unlock a VeriSign credential. As a security precaution a valid security code generated by the credential will be required before the credential is unlocked. </documentation>
+      <input message="tns:unlock"/>
+      <output message="tns:unlockResponse"/>
+    </operation>
+    <operation name="updateNote">
+      <documentation>Update the note of an external binding.  The note is an optional property that is used to store information about a binding. </documentation>
+      <input message="tns:updateNote"/>
+      <output message="tns:updateNoteResponse"/>
+    </operation>
+    <operation name="validateCredentialId">
+      <documentation>Validate the user id and VeriSign credential id used to create an external authentication binding. </documentation>
+      <input message="tns:validateCredentialId"/>
+      <output message="tns:validateCredentialIdResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_User_Customer_External_Binding_VerisignBinding" type="tns:SoftLayer_User_Customer_External_Binding_VerisignPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="disable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="enable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getActivationCodeForMobileClient">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAttributes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCredentialExpirationDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCredentialLastUpdateDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCredentialState">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCredentialType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVendor">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectMaskHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignObjectFilterHeader" part="SoftLayer_User_Customer_External_Binding_VerisignObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unlock">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateNote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_External_Binding_VerisignInitParametersHeader" part="SoftLayer_User_Customer_External_Binding_VerisignInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="validateCredentialId">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_VerisignAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_User_Customer_External_Binding_VerisignService">
+    <port name="SoftLayer_User_Customer_External_Binding_VerisignPort" binding="tns:SoftLayer_User_Customer_External_Binding_VerisignBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_User_Customer_External_Binding_Verisign"/>
+    </port>
+  </service>
+</definitions>

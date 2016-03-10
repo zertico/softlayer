@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_Template?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Hardware_Component_Partition_TemplateInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Hardware_Component_Partition_TemplateObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Hardware_Component_Partition_Template"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Hardware_Component_Partition_TemplateInitParametersHeader">
+    <part name="SoftLayer_Hardware_Component_Partition_TemplateInitParameters" type="tns:SoftLayer_Hardware_Component_Partition_TemplateInitParameters"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getData"/>
+  <message name="getDataResponse">
+    <part name="getDataReturn" type="tns:SoftLayer_Hardware_Component_Partition_Template_PartitionArray"/>
+  </message>
+  <message name="getExpireDate"/>
+  <message name="getExpireDateResponse">
+    <part name="getExpireDateReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Hardware_Component_Partition_Template"/>
+  </message>
+  <message name="getPartitionOperatingSystem"/>
+  <message name="getPartitionOperatingSystemResponse">
+    <part name="getPartitionOperatingSystemReturn" type="tns:SoftLayer_Hardware_Component_Partition_OperatingSystem"/>
+  </message>
+  <message name="getPartitionTemplatePartition"/>
+  <message name="getPartitionTemplatePartitionResponse">
+    <part name="getPartitionTemplatePartitionReturn" type="tns:SoftLayer_Hardware_Component_Partition_Template_PartitionArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Hardware_Component_Partition_TemplateObjectMaskHeader">
+    <part name="SoftLayer_Hardware_Component_Partition_TemplateObjectMask" type="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectMask"/>
+  </message>
+  <message name="SoftLayer_Hardware_Component_Partition_TemplateObjectFilterHeader">
+    <part name="SoftLayer_Hardware_Component_Partition_TemplateObjectFilter" type="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Hardware_Component_Partition_TemplatePortType">
+    <documentation>Every SoftLayer Partition Template is defined in the SoftLayer_Hardware_Component_Partition_Template service. The '''SoftLayer_Hardware_Component_Partition_Template''' service defines all SoftLayer Partition Templates that exist. SoftLayer Partition Templates group together several partitions that define a configuration of templates for a particular hard drive. </documentation>
+    <operation name="getAccount">
+      <documentation>Retrieve a partition template's associated [[SoftLayer_Account|Account]].</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getData">
+      <documentation>Retrieve an individual partition for a partition template. This is identical to 'partitionTemplatePartition' except this will sort unix partitions.</documentation>
+      <input message="tns:getData"/>
+      <output message="tns:getDataResponse"/>
+    </operation>
+    <operation name="getExpireDate">
+      <documentation></documentation>
+      <input message="tns:getExpireDate"/>
+      <output message="tns:getExpireDateResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Hardware_Component_Partition_Template object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Hardware_Component_Partition_Template service. You can only retrieve the partition templates that your account created or the templates predefined by SoftLayer. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPartitionOperatingSystem">
+      <documentation>Retrieve a partition template's associated [[SoftLayer_Hardware_Component_Partition_OperatingSystem|Operating System]].</documentation>
+      <input message="tns:getPartitionOperatingSystem"/>
+      <output message="tns:getPartitionOperatingSystemResponse"/>
+    </operation>
+    <operation name="getPartitionTemplatePartition">
+      <documentation>Retrieve an individual partition for a partition template.</documentation>
+      <input message="tns:getPartitionTemplatePartition"/>
+      <output message="tns:getPartitionTemplatePartitionResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Hardware_Component_Partition_TemplateBinding" type="tns:SoftLayer_Hardware_Component_Partition_TemplatePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_TemplateAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectFilterHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateInitParametersHeader" part="SoftLayer_Hardware_Component_Partition_TemplateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_TemplateAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectFilterHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateInitParametersHeader" part="SoftLayer_Hardware_Component_Partition_TemplateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getExpireDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_TemplateAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectFilterHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateInitParametersHeader" part="SoftLayer_Hardware_Component_Partition_TemplateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_TemplateAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectFilterHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateInitParametersHeader" part="SoftLayer_Hardware_Component_Partition_TemplateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPartitionOperatingSystem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_TemplateAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectFilterHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateInitParametersHeader" part="SoftLayer_Hardware_Component_Partition_TemplateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPartitionTemplatePartition">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_TemplateAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateObjectFilterHeader" part="SoftLayer_Hardware_Component_Partition_TemplateObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_TemplateInitParametersHeader" part="SoftLayer_Hardware_Component_Partition_TemplateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Hardware_Component_Partition_TemplateService">
+    <port name="SoftLayer_Hardware_Component_Partition_TemplatePort" binding="tns:SoftLayer_Hardware_Component_Partition_TemplateBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_Template"/>
+    </port>
+  </service>
+</definitions>

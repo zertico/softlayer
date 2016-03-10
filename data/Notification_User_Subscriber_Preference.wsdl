@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Notification_User_Subscriber_Preference?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Notification_User_Subscriber_PreferenceInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Notification_User_Subscriber_PreferenceObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Notification_User_Subscriber_Preference"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Notification_User_Subscriber_PreferenceInitParametersHeader">
+    <part name="SoftLayer_Notification_User_Subscriber_PreferenceInitParameters" type="tns:SoftLayer_Notification_User_Subscriber_PreferenceInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Notification_User_Subscriber_Preference"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Notification_User_Subscriber_PreferenceArray"/>
+  </message>
+  <message name="editObjectsResponse">
+    <part name="editObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getDefaultPreference"/>
+  <message name="getDefaultPreferenceResponse">
+    <part name="getDefaultPreferenceReturn" type="tns:SoftLayer_Notification_Preference"/>
+  </message>
+  <message name="getNotificationUserSubscriber"/>
+  <message name="getNotificationUserSubscriberResponse">
+    <part name="getNotificationUserSubscriberReturn" type="tns:SoftLayer_Notification_User_Subscriber"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Notification_User_Subscriber_Preference"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Notification_User_Subscriber_PreferenceObjectMaskHeader">
+    <part name="SoftLayer_Notification_User_Subscriber_PreferenceObjectMask" type="tns:SoftLayer_Notification_User_Subscriber_PreferenceObjectMask"/>
+  </message>
+  <message name="SoftLayer_Notification_User_Subscriber_PreferenceObjectFilterHeader">
+    <part name="SoftLayer_Notification_User_Subscriber_PreferenceObjectFilter" type="tns:SoftLayer_Notification_User_Subscriber_PreferenceObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Notification_User_Subscriber_PreferencePortType">
+    <documentation></documentation>
+    <operation name="createObject">
+      <documentation>Use the method to create a new notification preference for a subscriber </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="editObjects">
+      <documentation></documentation>
+      <input message="tns:editObjects"/>
+      <output message="tns:editObjectsResponse"/>
+    </operation>
+    <operation name="getDefaultPreference">
+      <documentation>Retrieve details such name, keyname, minimum and maximum values for the preference.</documentation>
+      <input message="tns:getDefaultPreference"/>
+      <output message="tns:getDefaultPreferenceResponse"/>
+    </operation>
+    <operation name="getNotificationUserSubscriber">
+      <documentation>Retrieve details of the subscriber tied to the preference.</documentation>
+      <input message="tns:getNotificationUserSubscriber"/>
+      <output message="tns:getNotificationUserSubscriberResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Notification_User_Subscriber_PreferenceBinding" type="tns:SoftLayer_Notification_User_Subscriber_PreferencePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_User_Subscriber_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_User_Subscriber_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDefaultPreference">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_User_Subscriber_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_User_Subscriber_PreferenceObjectMaskHeader" part="SoftLayer_Notification_User_Subscriber_PreferenceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_User_Subscriber_PreferenceObjectFilterHeader" part="SoftLayer_Notification_User_Subscriber_PreferenceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_User_Subscriber_PreferenceInitParametersHeader" part="SoftLayer_Notification_User_Subscriber_PreferenceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNotificationUserSubscriber">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_User_Subscriber_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_User_Subscriber_PreferenceObjectMaskHeader" part="SoftLayer_Notification_User_Subscriber_PreferenceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_User_Subscriber_PreferenceObjectFilterHeader" part="SoftLayer_Notification_User_Subscriber_PreferenceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_User_Subscriber_PreferenceInitParametersHeader" part="SoftLayer_Notification_User_Subscriber_PreferenceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Notification_User_Subscriber_PreferenceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_User_Subscriber_PreferenceObjectMaskHeader" part="SoftLayer_Notification_User_Subscriber_PreferenceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_User_Subscriber_PreferenceObjectFilterHeader" part="SoftLayer_Notification_User_Subscriber_PreferenceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_User_Subscriber_PreferenceInitParametersHeader" part="SoftLayer_Notification_User_Subscriber_PreferenceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Notification_User_Subscriber_PreferenceService">
+    <port name="SoftLayer_Notification_User_Subscriber_PreferencePort" binding="tns:SoftLayer_Notification_User_Subscriber_PreferenceBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Notification_User_Subscriber_Preference"/>
+    </port>
+  </service>
+</definitions>

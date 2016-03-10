@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Product_Item_Category?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Product_Item_CategoryInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Product_Item_CategoryObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Product_Item_Category"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Product_Item_CategoryInitParametersHeader">
+    <part name="SoftLayer_Product_Item_CategoryInitParameters" type="tns:SoftLayer_Product_Item_CategoryInitParameters"/>
+  </message>
+  <message name="getAdditionalProductsForCategory"/>
+  <message name="getAdditionalProductsForCategoryResponse">
+    <part name="getAdditionalProductsForCategoryReturn" type="tns:SoftLayer_Product_ItemArray"/>
+  </message>
+  <message name="getBandwidthCategories"/>
+  <message name="getBandwidthCategoriesResponse">
+    <part name="getBandwidthCategoriesReturn" type="tns:SoftLayer_Product_Item_CategoryArray"/>
+  </message>
+  <message name="getBillingItems"/>
+  <message name="getBillingItemsResponse">
+    <part name="getBillingItemsReturn" type="tns:SoftLayer_Billing_ItemArray"/>
+  </message>
+  <message name="getComputingCategories">
+    <part name="resetCache" type="xsd:boolean"/>
+  </message>
+  <message name="getComputingCategoriesResponse">
+    <part name="getComputingCategoriesReturn" type="tns:SoftLayer_Product_Item_CategoryArray"/>
+  </message>
+  <message name="getCustomUsageRatesCategories"/>
+  <message name="getCustomUsageRatesCategoriesResponse">
+    <part name="getCustomUsageRatesCategoriesReturn" type="tns:SoftLayer_Product_Item_CategoryArray"/>
+  </message>
+  <message name="getGroup"/>
+  <message name="getGroupResponse">
+    <part name="getGroupReturn" type="tns:SoftLayer_Product_Item_Category_Group"/>
+  </message>
+  <message name="getGroups"/>
+  <message name="getGroupsResponse">
+    <part name="getGroupsReturn" type="tns:SoftLayer_Product_Package_Item_Category_GroupArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Product_Item_Category"/>
+  </message>
+  <message name="getOrderOptions"/>
+  <message name="getOrderOptionsResponse">
+    <part name="getOrderOptionsReturn" type="tns:SoftLayer_Product_Item_Category_Order_Option_TypeArray"/>
+  </message>
+  <message name="getPackageConfigurations"/>
+  <message name="getPackageConfigurationsResponse">
+    <part name="getPackageConfigurationsReturn" type="tns:SoftLayer_Product_Package_Order_ConfigurationArray"/>
+  </message>
+  <message name="getPresetConfigurations"/>
+  <message name="getPresetConfigurationsResponse">
+    <part name="getPresetConfigurationsReturn" type="tns:SoftLayer_Product_Package_Preset_ConfigurationArray"/>
+  </message>
+  <message name="getQuestionReferences"/>
+  <message name="getQuestionReferencesResponse">
+    <part name="getQuestionReferencesReturn" type="tns:SoftLayer_Product_Item_Category_Question_XrefArray"/>
+  </message>
+  <message name="getQuestions"/>
+  <message name="getQuestionsResponse">
+    <part name="getQuestionsReturn" type="tns:SoftLayer_Product_Item_Category_QuestionArray"/>
+  </message>
+  <message name="getSoftwareCategories"/>
+  <message name="getSoftwareCategoriesResponse">
+    <part name="getSoftwareCategoriesReturn" type="tns:SoftLayer_Product_Item_CategoryArray"/>
+  </message>
+  <message name="getSubnetCategories"/>
+  <message name="getSubnetCategoriesResponse">
+    <part name="getSubnetCategoriesReturn" type="tns:SoftLayer_Product_Item_CategoryArray"/>
+  </message>
+  <message name="getTopLevelCategories">
+    <part name="resetCache" type="xsd:boolean"/>
+  </message>
+  <message name="getTopLevelCategoriesResponse">
+    <part name="getTopLevelCategoriesReturn" type="tns:SoftLayer_Product_Item_CategoryArray"/>
+  </message>
+  <message name="getValidCancelableServiceItemCategories"/>
+  <message name="getValidCancelableServiceItemCategoriesResponse">
+    <part name="getValidCancelableServiceItemCategoriesReturn" type="tns:SoftLayer_Product_Item_CategoryArray"/>
+  </message>
+  <message name="getVlanCategories"/>
+  <message name="getVlanCategoriesResponse">
+    <part name="getVlanCategoriesReturn" type="tns:SoftLayer_Product_Item_CategoryArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Product_Item_CategoryObjectMaskHeader">
+    <part name="SoftLayer_Product_Item_CategoryObjectMask" type="tns:SoftLayer_Product_Item_CategoryObjectMask"/>
+  </message>
+  <message name="SoftLayer_Product_Item_CategoryObjectFilterHeader">
+    <part name="SoftLayer_Product_Item_CategoryObjectFilter" type="tns:SoftLayer_Product_Item_CategoryObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Product_Item_CategoryPortType">
+    <documentation>Retrieve the category information for a product item.</documentation>
+    <operation name="getAdditionalProductsForCategory">
+      <documentation>Returns a list of of active Items in the &amp;quot;Additional Services&amp;quot; package with their active prices for a given product item category and sorts them by price.</documentation>
+      <input message="tns:getAdditionalProductsForCategory"/>
+      <output message="tns:getAdditionalProductsForCategoryResponse"/>
+    </operation>
+    <operation name="getBandwidthCategories">
+      <documentation></documentation>
+      <input message="tns:getBandwidthCategories"/>
+      <output message="tns:getBandwidthCategoriesResponse"/>
+    </operation>
+    <operation name="getBillingItems">
+      <documentation>Retrieve the billing items associated with an account that share a category code with an item category's category code.</documentation>
+      <input message="tns:getBillingItems"/>
+      <output message="tns:getBillingItemsResponse"/>
+    </operation>
+    <operation name="getComputingCategories">
+      <documentation>This method returns a collection of computing categories. These categories are also top level items in a service offering. </documentation>
+      <input message="tns:getComputingCategories"/>
+      <output message="tns:getComputingCategoriesResponse"/>
+    </operation>
+    <operation name="getCustomUsageRatesCategories">
+      <documentation></documentation>
+      <input message="tns:getCustomUsageRatesCategories"/>
+      <output message="tns:getCustomUsageRatesCategoriesResponse"/>
+    </operation>
+    <operation name="getGroup">
+      <documentation>Retrieve this invoice item's &amp;quot;item category group&amp;quot;. </documentation>
+      <input message="tns:getGroup"/>
+      <output message="tns:getGroupResponse"/>
+    </operation>
+    <operation name="getGroups">
+      <documentation>Retrieve a collection of service offering category groups. Each group contains a collection of items associated with this category.</documentation>
+      <input message="tns:getGroups"/>
+      <output message="tns:getGroupsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>Each product item price must be tied to a category for it to be sold. These categories describe how a particular product item is sold. For example, the 250GB hard drive can be sold as disk0, disk1, ... disk11. There are different prices for this product item depending on which category it is. This keeps down the number of products in total. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOrderOptions">
+      <documentation>Retrieve any unique options associated with an itme category.</documentation>
+      <input message="tns:getOrderOptions"/>
+      <output message="tns:getOrderOptionsResponse"/>
+    </operation>
+    <operation name="getPackageConfigurations">
+      <documentation>Retrieve a list of configuration available in this category.'</documentation>
+      <input message="tns:getPackageConfigurations"/>
+      <output message="tns:getPackageConfigurationsResponse"/>
+    </operation>
+    <operation name="getPresetConfigurations">
+      <documentation>Retrieve a list of preset configurations this category is used in.'</documentation>
+      <input message="tns:getPresetConfigurations"/>
+      <output message="tns:getPresetConfigurationsResponse"/>
+    </operation>
+    <operation name="getQuestionReferences">
+      <documentation>Retrieve the question references that are associated with an item category.</documentation>
+      <input message="tns:getQuestionReferences"/>
+      <output message="tns:getQuestionReferencesResponse"/>
+    </operation>
+    <operation name="getQuestions">
+      <documentation>Retrieve the questions that are associated with an item category.</documentation>
+      <input message="tns:getQuestions"/>
+      <output message="tns:getQuestionsResponse"/>
+    </operation>
+    <operation name="getSoftwareCategories">
+      <documentation></documentation>
+      <input message="tns:getSoftwareCategories"/>
+      <output message="tns:getSoftwareCategoriesResponse"/>
+    </operation>
+    <operation name="getSubnetCategories">
+      <documentation>This method returns a list of subnet categories.</documentation>
+      <input message="tns:getSubnetCategories"/>
+      <output message="tns:getSubnetCategoriesResponse"/>
+    </operation>
+    <operation name="getTopLevelCategories">
+      <documentation>This method returns a collection of computing categories. These categories are also top level items in a service offering. </documentation>
+      <input message="tns:getTopLevelCategories"/>
+      <output message="tns:getTopLevelCategoriesResponse"/>
+    </operation>
+    <operation name="getValidCancelableServiceItemCategories">
+      <documentation>This method returns service product categories that can be canceled via API.  You can use these categories to find the billing items you wish to cancel. </documentation>
+      <input message="tns:getValidCancelableServiceItemCategories"/>
+      <output message="tns:getValidCancelableServiceItemCategoriesResponse"/>
+    </operation>
+    <operation name="getVlanCategories">
+      <documentation></documentation>
+      <input message="tns:getVlanCategories"/>
+      <output message="tns:getVlanCategoriesResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Product_Item_CategoryBinding" type="tns:SoftLayer_Product_Item_CategoryPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAdditionalProductsForCategory">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBandwidthCategories">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItems">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectFilterHeader" part="SoftLayer_Product_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getComputingCategories">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCustomUsageRatesCategories">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGroup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectFilterHeader" part="SoftLayer_Product_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGroups">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectFilterHeader" part="SoftLayer_Product_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectFilterHeader" part="SoftLayer_Product_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOrderOptions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectFilterHeader" part="SoftLayer_Product_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPackageConfigurations">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectFilterHeader" part="SoftLayer_Product_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPresetConfigurations">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectFilterHeader" part="SoftLayer_Product_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getQuestionReferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectFilterHeader" part="SoftLayer_Product_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getQuestions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectFilterHeader" part="SoftLayer_Product_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryInitParametersHeader" part="SoftLayer_Product_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSoftwareCategories">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnetCategories">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopLevelCategories">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getValidCancelableServiceItemCategories">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVlanCategories">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Item_CategoryObjectMaskHeader" part="SoftLayer_Product_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Product_Item_CategoryService">
+    <port name="SoftLayer_Product_Item_CategoryPort" binding="tns:SoftLayer_Product_Item_CategoryBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Product_Item_Category"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Invoice?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Billing_InvoiceInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Billing_InvoiceObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Billing_Invoice"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Billing_InvoiceInitParametersHeader">
+    <part name="SoftLayer_Billing_InvoiceInitParameters" type="tns:SoftLayer_Billing_InvoiceInitParameters"/>
+  </message>
+  <message name="emailInvoices">
+    <part name="options" type="tns:SoftLayer_Container_Billing_Invoice_Email"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAmount"/>
+  <message name="getAmountResponse">
+    <part name="getAmountReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getBrandAtInvoiceCreation"/>
+  <message name="getBrandAtInvoiceCreationResponse">
+    <part name="getBrandAtInvoiceCreationReturn" type="tns:SoftLayer_Brand"/>
+  </message>
+  <message name="getDetailedPdfGeneratedFlag"/>
+  <message name="getDetailedPdfGeneratedFlagResponse">
+    <part name="getDetailedPdfGeneratedFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getExcel"/>
+  <message name="getExcelResponse">
+    <part name="getExcelReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getInvoiceTopLevelItems"/>
+  <message name="getInvoiceTopLevelItemsResponse">
+    <part name="getInvoiceTopLevelItemsReturn" type="tns:SoftLayer_Billing_Invoice_ItemArray"/>
+  </message>
+  <message name="getInvoiceTotalAmount"/>
+  <message name="getInvoiceTotalAmountResponse">
+    <part name="getInvoiceTotalAmountReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getInvoiceTotalOneTimeAmount"/>
+  <message name="getInvoiceTotalOneTimeAmountResponse">
+    <part name="getInvoiceTotalOneTimeAmountReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getInvoiceTotalOneTimeTaxAmount"/>
+  <message name="getInvoiceTotalOneTimeTaxAmountResponse">
+    <part name="getInvoiceTotalOneTimeTaxAmountReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getInvoiceTotalPreTaxAmount"/>
+  <message name="getInvoiceTotalPreTaxAmountResponse">
+    <part name="getInvoiceTotalPreTaxAmountReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getInvoiceTotalRecurringAmount"/>
+  <message name="getInvoiceTotalRecurringAmountResponse">
+    <part name="getInvoiceTotalRecurringAmountReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getInvoiceTotalRecurringTaxAmount"/>
+  <message name="getInvoiceTotalRecurringTaxAmountResponse">
+    <part name="getInvoiceTotalRecurringTaxAmountReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getItems"/>
+  <message name="getItemsResponse">
+    <part name="getItemsReturn" type="tns:SoftLayer_Billing_Invoice_ItemArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Billing_Invoice"/>
+  </message>
+  <message name="getPayment"/>
+  <message name="getPaymentResponse">
+    <part name="getPaymentReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getPayments"/>
+  <message name="getPaymentsResponse">
+    <part name="getPaymentsReturn" type="tns:SoftLayer_Billing_Invoice_Receivable_PaymentArray"/>
+  </message>
+  <message name="getPdf"/>
+  <message name="getPdfResponse">
+    <part name="getPdfReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getPdfDetailed"/>
+  <message name="getPdfDetailedResponse">
+    <part name="getPdfDetailedReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getPdfDetailedFilename"/>
+  <message name="getPdfDetailedFilenameResponse">
+    <part name="getPdfDetailedFilenameReturn" type="xsd:string"/>
+  </message>
+  <message name="getPdfFileSize"/>
+  <message name="getPdfFileSizeResponse">
+    <part name="getPdfFileSizeReturn" type="xsd:int"/>
+  </message>
+  <message name="getPdfFilename"/>
+  <message name="getPdfFilenameResponse">
+    <part name="getPdfFilenameReturn" type="xsd:string"/>
+  </message>
+  <message name="getPreliminaryExcel"/>
+  <message name="getPreliminaryExcelResponse">
+    <part name="getPreliminaryExcelReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getPreliminaryPdf"/>
+  <message name="getPreliminaryPdfResponse">
+    <part name="getPreliminaryPdfReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getPreliminaryPdfDetailed"/>
+  <message name="getPreliminaryPdfDetailedResponse">
+    <part name="getPreliminaryPdfDetailedReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getSellerRegistration"/>
+  <message name="getSellerRegistrationResponse">
+    <part name="getSellerRegistrationReturn" type="xsd:string"/>
+  </message>
+  <message name="getTaxInfo"/>
+  <message name="getTaxInfoResponse">
+    <part name="getTaxInfoReturn" type="tns:SoftLayer_Billing_Invoice_Tax_Info"/>
+  </message>
+  <message name="getTaxInfoHistory"/>
+  <message name="getTaxInfoHistoryResponse">
+    <part name="getTaxInfoHistoryReturn" type="tns:SoftLayer_Billing_Invoice_Tax_InfoArray"/>
+  </message>
+  <message name="getTaxMessage"/>
+  <message name="getTaxMessageResponse">
+    <part name="getTaxMessageReturn" type="xsd:string"/>
+  </message>
+  <message name="getTaxType"/>
+  <message name="getTaxTypeResponse">
+    <part name="getTaxTypeReturn" type="tns:SoftLayer_Billing_Invoice_Tax_Type"/>
+  </message>
+  <message name="getXlsFilename"/>
+  <message name="getXlsFilenameResponse">
+    <part name="getXlsFilenameReturn" type="xsd:string"/>
+  </message>
+  <message name="getZeroFeeItemCounts"/>
+  <message name="getZeroFeeItemCountsResponse">
+    <part name="getZeroFeeItemCountsReturn" type="tns:SoftLayer_Container_Product_Item_Category_ZeroFee_CountArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Billing_InvoiceObjectMaskHeader">
+    <part name="SoftLayer_Billing_InvoiceObjectMask" type="tns:SoftLayer_Billing_InvoiceObjectMask"/>
+  </message>
+  <message name="SoftLayer_Billing_InvoiceObjectFilterHeader">
+    <part name="SoftLayer_Billing_InvoiceObjectFilter" type="tns:SoftLayer_Billing_InvoiceObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Billing_InvoicePortType">
+    <documentation>The SoftLayer_Billing_Invoice service controls the invoices that are created whenever a SoftLayer customer's account balance changes. Invoices exist in three states: 
+*'''OPEN''': Invoices which have not been paid yet. Invoices are created in the OPEN state.
+*'''CLOSED''': Invoices that SoftLayer has received payment for.
+*'''CLOSED_FAILED''': Invoices which were closed but were not paid for. Customers who are terminated for non-payment typically have invoices in this state.
+
+
+Once an invoice is paid it moves from OPEN to CLOSED state. Invoices are created under varying types, which are defined in the type property of the [[SoftLayer_Invoice (type)|SoftLayer_Invoice data type]]. Invoices are created under one of the following type categories: 
+*'''NEW''': An invoice for new service. A SoftLayer customer's first invoice is of the NEW type.
+*'''RECURRING''': Invoices that are generated on a SoftLayer customer's anniversary billing date for monthly services.
+*'''ONE-TIME-CHARGE''': Invoices that are generated when one-time charges are applied to an account for fees incurred from products or services procured outside of the standard purchasing processes.
+*'''CREDIT''': Invoices that are generated whenever SoftLayer applies a credit against an account's balance.
+*'''REFUND''': Account credits that are applied against a customer's account balance along with the receivables on their account. REFUND type invoices are generated whenever a customer receives a service credit on their account balance and has their invoice items changed due to the credit.
+*'''MANUAL_PAYMENT_CREDIT''': Invoice credits that are generated whenever a customer makes an manual payment.
+
+
+Invoices are created with contact information duplicated from the [[SoftLayer_Account (type)|SoftLayer_Account data type]]. We do this in order to maintain a history of an account's contact information as invoices are generated. Likewise each invoice record keeps track of an account's balance as the invoice is opened and closed. 
+
+Query the [[SoftLayer_Account]] service to get a list of invoices for your account. </documentation>
+    <operation name="emailInvoices">
+      <documentation>Create a transaction to email PDF and/or Excel invoice links to the requesting user's email address. You must have a PDF reader installed in order to view these files. </documentation>
+      <input message="tns:emailInvoices"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account that an invoice belongs to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAmount">
+      <documentation>Retrieve this is the amount of this invoice.</documentation>
+      <input message="tns:getAmount"/>
+      <output message="tns:getAmountResponse"/>
+    </operation>
+    <operation name="getBrandAtInvoiceCreation">
+      <documentation></documentation>
+      <input message="tns:getBrandAtInvoiceCreation"/>
+      <output message="tns:getBrandAtInvoiceCreationResponse"/>
+    </operation>
+    <operation name="getDetailedPdfGeneratedFlag">
+      <documentation>Retrieve a flag that will reflect whether the detailed version of the pdf has been generated.</documentation>
+      <input message="tns:getDetailedPdfGeneratedFlag"/>
+      <output message="tns:getDetailedPdfGeneratedFlagResponse"/>
+    </operation>
+    <operation name="getExcel">
+      <documentation>Retrieve a Microsoft Excel spreadsheet of a SoftLayer invoice. You must have a Microsoft Excel reader installed in order to view these invoice files. </documentation>
+      <input message="tns:getExcel"/>
+      <output message="tns:getExcelResponse"/>
+    </operation>
+    <operation name="getInvoiceTopLevelItems">
+      <documentation>Retrieve a list of top-level invoice items that are on the currently pending invoice.</documentation>
+      <input message="tns:getInvoiceTopLevelItems"/>
+      <output message="tns:getInvoiceTopLevelItemsResponse"/>
+    </operation>
+    <operation name="getInvoiceTotalAmount">
+      <documentation>Retrieve the total amount of this invoice.</documentation>
+      <input message="tns:getInvoiceTotalAmount"/>
+      <output message="tns:getInvoiceTotalAmountResponse"/>
+    </operation>
+    <operation name="getInvoiceTotalOneTimeAmount">
+      <documentation>Retrieve the total one-time charges for this invoice. This is the sum of one-time charges + setup fees + labor fees. This does not include taxes.</documentation>
+      <input message="tns:getInvoiceTotalOneTimeAmount"/>
+      <output message="tns:getInvoiceTotalOneTimeAmountResponse"/>
+    </operation>
+    <operation name="getInvoiceTotalOneTimeTaxAmount">
+      <documentation>Retrieve a sum of all the taxes related to one time charges for this invoice.</documentation>
+      <input message="tns:getInvoiceTotalOneTimeTaxAmount"/>
+      <output message="tns:getInvoiceTotalOneTimeTaxAmountResponse"/>
+    </operation>
+    <operation name="getInvoiceTotalPreTaxAmount">
+      <documentation>Retrieve the total amount of this invoice. This does not include taxes.</documentation>
+      <input message="tns:getInvoiceTotalPreTaxAmount"/>
+      <output message="tns:getInvoiceTotalPreTaxAmountResponse"/>
+    </operation>
+    <operation name="getInvoiceTotalRecurringAmount">
+      <documentation>Retrieve the total Recurring amount of this invoice. This amount does not include taxes or one time charges.</documentation>
+      <input message="tns:getInvoiceTotalRecurringAmount"/>
+      <output message="tns:getInvoiceTotalRecurringAmountResponse"/>
+    </operation>
+    <operation name="getInvoiceTotalRecurringTaxAmount">
+      <documentation>Retrieve the total amount of the recurring taxes on this invoice.</documentation>
+      <input message="tns:getInvoiceTotalRecurringTaxAmount"/>
+      <output message="tns:getInvoiceTotalRecurringTaxAmountResponse"/>
+    </operation>
+    <operation name="getItems">
+      <documentation>Retrieve the items that belong to this invoice.</documentation>
+      <input message="tns:getItems"/>
+      <output message="tns:getItemsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Billing_Invoice object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Billing_Invoice service. You can only retrieve invoices that are assigned to your portal user's account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPayment">
+      <documentation>Retrieve this is the total payment made on this invoice.</documentation>
+      <input message="tns:getPayment"/>
+      <output message="tns:getPaymentResponse"/>
+    </operation>
+    <operation name="getPayments">
+      <documentation>Retrieve the payments for the invoice.</documentation>
+      <input message="tns:getPayments"/>
+      <output message="tns:getPaymentsResponse"/>
+    </operation>
+    <operation name="getPdf">
+      <documentation>Retrieve a PDF record of a SoftLayer invoice. SoftLayer keeps PDF records of all closed invoices for customer retrieval from the portal and API. You must have a PDF reader installed in order to view these invoice files. </documentation>
+      <input message="tns:getPdf"/>
+      <output message="tns:getPdfResponse"/>
+    </operation>
+    <operation name="getPdfDetailed">
+      <documentation>Retrieve a PDF record of a SoftLayer detailed invoice summary. SoftLayer keeps PDF records of all closed invoices for customer retrieval from the portal and API. You must have a PDF reader installed in order to view these files. </documentation>
+      <input message="tns:getPdfDetailed"/>
+      <output message="tns:getPdfDetailedResponse"/>
+    </operation>
+    <operation name="getPdfDetailedFilename">
+      <documentation></documentation>
+      <input message="tns:getPdfDetailedFilename"/>
+      <output message="tns:getPdfDetailedFilenameResponse"/>
+    </operation>
+    <operation name="getPdfFileSize">
+      <documentation>Retrieve the size of a PDF record of a SoftLayer invoice. SoftLayer keeps PDF records of all closed invoices for customer retrieval from the portal and API. </documentation>
+      <input message="tns:getPdfFileSize"/>
+      <output message="tns:getPdfFileSizeResponse"/>
+    </operation>
+    <operation name="getPdfFilename">
+      <documentation></documentation>
+      <input message="tns:getPdfFilename"/>
+      <output message="tns:getPdfFilenameResponse"/>
+    </operation>
+    <operation name="getPreliminaryExcel">
+      <documentation>Retrieve a Microsoft Excel record of a SoftLayer invoice. SoftLayer generates Microsoft Excel records of all closed invoices for customer retrieval from the portal and API. You must have a Microsoft Excel reader installed in order to view these invoice files. </documentation>
+      <input message="tns:getPreliminaryExcel"/>
+      <output message="tns:getPreliminaryExcelResponse"/>
+    </operation>
+    <operation name="getPreliminaryPdf">
+      <documentation>Retrieve a PDF record of a SoftLayer invoice. SoftLayer keeps PDF records of all closed invoices for customer retrieval from the portal and API. You must have a PDF reader installed in order to view these invoice files. </documentation>
+      <input message="tns:getPreliminaryPdf"/>
+      <output message="tns:getPreliminaryPdfResponse"/>
+    </operation>
+    <operation name="getPreliminaryPdfDetailed">
+      <documentation>Retrieve a PDF record of the detailed version of a SoftLayer invoice. SoftLayer keeps PDF records of all closed invoices for customer retrieval from the portal and API. </documentation>
+      <input message="tns:getPreliminaryPdfDetailed"/>
+      <output message="tns:getPreliminaryPdfDetailedResponse"/>
+    </operation>
+    <operation name="getSellerRegistration">
+      <documentation>Retrieve this is the seller's tax registration.</documentation>
+      <input message="tns:getSellerRegistration"/>
+      <output message="tns:getSellerRegistrationResponse"/>
+    </operation>
+    <operation name="getTaxInfo">
+      <documentation>Retrieve this is the tax information that applies to tax auditing. This is the official tax record for this invoice.</documentation>
+      <input message="tns:getTaxInfo"/>
+      <output message="tns:getTaxInfoResponse"/>
+    </operation>
+    <operation name="getTaxInfoHistory">
+      <documentation>Retrieve this is the set of tax information for any tax calculation for this invoice. Note that not all of these are necessarily official, so use the taxInfo key to get the final information.</documentation>
+      <input message="tns:getTaxInfoHistory"/>
+      <output message="tns:getTaxInfoHistoryResponse"/>
+    </operation>
+    <operation name="getTaxMessage">
+      <documentation>Retrieve this is a message explaining the tax treatment for this invoice.</documentation>
+      <input message="tns:getTaxMessage"/>
+      <output message="tns:getTaxMessageResponse"/>
+    </operation>
+    <operation name="getTaxType">
+      <documentation>Retrieve this is the strategy used to calculate tax on this invoice.</documentation>
+      <input message="tns:getTaxType"/>
+      <output message="tns:getTaxTypeResponse"/>
+    </operation>
+    <operation name="getXlsFilename">
+      <documentation></documentation>
+      <input message="tns:getXlsFilename"/>
+      <output message="tns:getXlsFilenameResponse"/>
+    </operation>
+    <operation name="getZeroFeeItemCounts">
+      <documentation></documentation>
+      <input message="tns:getZeroFeeItemCounts"/>
+      <output message="tns:getZeroFeeItemCountsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Billing_InvoiceBinding" type="tns:SoftLayer_Billing_InvoicePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="emailInvoices">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAmount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBrandAtInvoiceCreation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDetailedPdfGeneratedFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getExcel">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInvoiceTopLevelItems">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInvoiceTotalAmount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInvoiceTotalOneTimeAmount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInvoiceTotalOneTimeTaxAmount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInvoiceTotalPreTaxAmount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInvoiceTotalRecurringAmount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getInvoiceTotalRecurringTaxAmount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getItems">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPayment">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPayments">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPdf">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPdfDetailed">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPdfDetailedFilename">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPdfFileSize">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPdfFilename">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPreliminaryExcel">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPreliminaryPdf">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPreliminaryPdfDetailed">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSellerRegistration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTaxInfo">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTaxInfoHistory">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTaxMessage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTaxType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectMaskHeader" part="SoftLayer_Billing_InvoiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceObjectFilterHeader" part="SoftLayer_Billing_InvoiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getXlsFilename">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getZeroFeeItemCounts">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_InvoiceAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_InvoiceInitParametersHeader" part="SoftLayer_Billing_InvoiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Billing_InvoiceService">
+    <port name="SoftLayer_Billing_InvoicePort" binding="tns:SoftLayer_Billing_InvoiceBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Invoice"/>
+    </port>
+  </service>
+</definitions>

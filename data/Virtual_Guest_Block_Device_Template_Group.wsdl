@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_Group?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_Group"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader">
+    <part name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters"/>
+  </message>
+  <message name="addLocations">
+    <part name="locations" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="addLocationsResponse">
+    <part name="addLocationsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="copyToExternalSource">
+    <part name="configuration" type="tns:SoftLayer_Container_Virtual_Guest_Block_Device_Template_Configuration"/>
+  </message>
+  <message name="copyToExternalSourceResponse">
+    <part name="copyToExternalSourceReturn" type="xsd:boolean"/>
+  </message>
+  <message name="createFromExternalSource">
+    <part name="configuration" type="tns:SoftLayer_Container_Virtual_Guest_Block_Device_Template_Configuration"/>
+  </message>
+  <message name="createFromExternalSourceResponse">
+    <part name="createFromExternalSourceReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_Group"/>
+  </message>
+  <message name="createPublicArchiveTransaction">
+    <part name="groupName" type="xsd:string"/>
+    <part name="summary" type="xsd:string"/>
+    <part name="note" type="xsd:string"/>
+    <part name="locations" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="createPublicArchiveTransactionResponse">
+    <part name="createPublicArchiveTransactionReturn" type="xsd:int"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="tns:SoftLayer_Provisioning_Version1_Transaction"/>
+  </message>
+  <message name="denySharingAccess">
+    <part name="accountId" type="xsd:int"/>
+  </message>
+  <message name="denySharingAccessResponse">
+    <part name="denySharingAccessReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_Group"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAccountContacts"/>
+  <message name="getAccountContactsResponse">
+    <part name="getAccountContactsReturn" type="tns:SoftLayer_Account_ContactArray"/>
+  </message>
+  <message name="getAccountReferences"/>
+  <message name="getAccountReferencesResponse">
+    <part name="getAccountReferencesReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_Group_AccountsArray"/>
+  </message>
+  <message name="getBlockDevices"/>
+  <message name="getBlockDevicesResponse">
+    <part name="getBlockDevicesReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_TemplateArray"/>
+  </message>
+  <message name="getBlockDevicesDiskSpaceTotal"/>
+  <message name="getBlockDevicesDiskSpaceTotalResponse">
+    <part name="getBlockDevicesDiskSpaceTotalReturn" type="xsd:float"/>
+  </message>
+  <message name="getChildren"/>
+  <message name="getChildrenResponse">
+    <part name="getChildrenReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupArray"/>
+  </message>
+  <message name="getDatacenter"/>
+  <message name="getDatacenterResponse">
+    <part name="getDatacenterReturn" type="tns:SoftLayer_Location"/>
+  </message>
+  <message name="getDatacenters"/>
+  <message name="getDatacentersResponse">
+    <part name="getDatacentersReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="getFlexImageFlag"/>
+  <message name="getFlexImageFlagResponse">
+    <part name="getFlexImageFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getGlobalIdentifier"/>
+  <message name="getGlobalIdentifierResponse">
+    <part name="getGlobalIdentifierReturn" type="xsd:string"/>
+  </message>
+  <message name="getImageType"/>
+  <message name="getImageTypeResponse">
+    <part name="getImageTypeReturn" type="xsd:string"/>
+  </message>
+  <message name="getImageTypeKeyName"/>
+  <message name="getImageTypeKeyNameResponse">
+    <part name="getImageTypeKeyNameReturn" type="xsd:string"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_Group"/>
+  </message>
+  <message name="getParent"/>
+  <message name="getParentResponse">
+    <part name="getParentReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_Group"/>
+  </message>
+  <message name="getPublicCustomerOwnedImages"/>
+  <message name="getPublicCustomerOwnedImagesResponse">
+    <part name="getPublicCustomerOwnedImagesReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupArray"/>
+  </message>
+  <message name="getPublicImages"/>
+  <message name="getPublicImagesResponse">
+    <part name="getPublicImagesReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupArray"/>
+  </message>
+  <message name="getSshKeys"/>
+  <message name="getSshKeysResponse">
+    <part name="getSshKeysReturn" type="tns:SoftLayer_Security_Ssh_KeyArray"/>
+  </message>
+  <message name="getStatus"/>
+  <message name="getStatusResponse">
+    <part name="getStatusReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_Group_Status"/>
+  </message>
+  <message name="getStorageLocations"/>
+  <message name="getStorageLocationsResponse">
+    <part name="getStorageLocationsReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="getStorageRepository"/>
+  <message name="getStorageRepositoryResponse">
+    <part name="getStorageRepositoryReturn" type="tns:SoftLayer_Virtual_Storage_Repository"/>
+  </message>
+  <message name="getTagReferences"/>
+  <message name="getTagReferencesResponse">
+    <part name="getTagReferencesReturn" type="tns:SoftLayer_Tag_ReferenceArray"/>
+  </message>
+  <message name="getTransaction"/>
+  <message name="getTransactionResponse">
+    <part name="getTransactionReturn" type="tns:SoftLayer_Provisioning_Version1_Transaction"/>
+  </message>
+  <message name="getVhdImportSoftwareDescriptions"/>
+  <message name="getVhdImportSoftwareDescriptionsResponse">
+    <part name="getVhdImportSoftwareDescriptionsReturn" type="tns:SoftLayer_Software_DescriptionArray"/>
+  </message>
+  <message name="permitSharingAccess">
+    <part name="accountId" type="xsd:int"/>
+  </message>
+  <message name="permitSharingAccessResponse">
+    <part name="permitSharingAccessReturn" type="xsd:boolean"/>
+  </message>
+  <message name="removeLocations">
+    <part name="locations" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="removeLocationsResponse">
+    <part name="removeLocationsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="setAvailableLocations">
+    <part name="locations" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="setAvailableLocationsResponse">
+    <part name="setAvailableLocationsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="setTags">
+    <part name="tags" type="xsd:string"/>
+  </message>
+  <message name="setTagsResponse">
+    <part name="setTagsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader">
+    <part name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask"/>
+  </message>
+  <message name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader">
+    <part name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupPortType">
+    <documentation>The virtual guest block device template group service provides a common interface to an accounts archived image templates The interaction with various third party APIs is not needed when implementing this service to administer your guests. </documentation>
+    <operation name="addLocations">
+      <documentation>This method will create transaction(s) to add available locations to an archive image template.</documentation>
+      <input message="tns:addLocations"/>
+      <output message="tns:addLocationsResponse"/>
+    </operation>
+    <operation name="copyToExternalSource">
+      <documentation>Create a transaction to export/copy a template to an external source.</documentation>
+      <input message="tns:copyToExternalSource"/>
+      <output message="tns:copyToExternalSourceResponse"/>
+    </operation>
+    <operation name="createFromExternalSource">
+      <documentation>Create a transaction to import a disk image from an external source and create a standard image template.</documentation>
+      <input message="tns:createFromExternalSource"/>
+      <output message="tns:createFromExternalSourceResponse"/>
+    </operation>
+    <operation name="createPublicArchiveTransaction">
+      <documentation>Create a transaction to copy archived block devices into public repository</documentation>
+      <input message="tns:createPublicArchiveTransaction"/>
+      <output message="tns:createPublicArchiveTransactionResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Deleting a block device template group is different from the deletion of other objects.  A block device template group can contain several gigabytes of data in its disk images.  This may take some time to delete and requires a transaction to be created.  This method creates a transaction that will delete all resources associated with the block device template group. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="denySharingAccess">
+      <documentation>This method will deny another SoftLayer customer account's previously given access to provision CloudLayer Computing Instances from an image template group. Template access should only be removed from the parent template group object, not the child. </documentation>
+      <input message="tns:denySharingAccess"/>
+      <output message="tns:denySharingAccessResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Edit an image template group's associated name and note. All other properties in the SoftLayer_Virtual_Guest_Block_Device_Template_Group data type are read-only. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve a block device template group's [[SoftLayer_Account|account]].</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAccountContacts">
+      <documentation></documentation>
+      <input message="tns:getAccountContacts"/>
+      <output message="tns:getAccountContactsResponse"/>
+    </operation>
+    <operation name="getAccountReferences">
+      <documentation>Retrieve the accounts which may have read-only access to an image template group. Will only be populated for parent template group objects.</documentation>
+      <input message="tns:getAccountReferences"/>
+      <output message="tns:getAccountReferencesResponse"/>
+    </operation>
+    <operation name="getBlockDevices">
+      <documentation>Retrieve the block devices that are part of an image template group</documentation>
+      <input message="tns:getBlockDevices"/>
+      <output message="tns:getBlockDevicesResponse"/>
+    </operation>
+    <operation name="getBlockDevicesDiskSpaceTotal">
+      <documentation>Retrieve the total disk space of all images in a image template group.</documentation>
+      <input message="tns:getBlockDevicesDiskSpaceTotal"/>
+      <output message="tns:getBlockDevicesDiskSpaceTotalResponse"/>
+    </operation>
+    <operation name="getChildren">
+      <documentation>Retrieve the image template groups that are clones of an image template group.</documentation>
+      <input message="tns:getChildren"/>
+      <output message="tns:getChildrenResponse"/>
+    </operation>
+    <operation name="getDatacenter">
+      <documentation>Retrieve the location containing this image template group. Will only be populated for child template group objects.</documentation>
+      <input message="tns:getDatacenter"/>
+      <output message="tns:getDatacenterResponse"/>
+    </operation>
+    <operation name="getDatacenters">
+      <documentation>Retrieve a collection of locations containing a copy of this image template group. Will only be populated for parent template group objects.</documentation>
+      <input message="tns:getDatacenters"/>
+      <output message="tns:getDatacentersResponse"/>
+    </operation>
+    <operation name="getFlexImageFlag">
+      <documentation>Retrieve a flag indicating if this is a flex image.</documentation>
+      <input message="tns:getFlexImageFlag"/>
+      <output message="tns:getFlexImageFlagResponse"/>
+    </operation>
+    <operation name="getGlobalIdentifier">
+      <documentation>Retrieve an image template's universally unique identifier.</documentation>
+      <input message="tns:getGlobalIdentifier"/>
+      <output message="tns:getGlobalIdentifierResponse"/>
+    </operation>
+    <operation name="getImageType">
+      <documentation>Retrieve the virtual disk image type of this template. Value will be populated on parent and child, but only supports object filtering on the parent.</documentation>
+      <input message="tns:getImageType"/>
+      <output message="tns:getImageTypeResponse"/>
+    </operation>
+    <operation name="getImageTypeKeyName">
+      <documentation>Retrieve the virtual disk image type keyname (e.g. SYSTEM, DISK_CAPTURE, ISO, etc) of this template. Value will be populated on parent and child, but only supports object filtering on the parent.</documentation>
+      <input message="tns:getImageTypeKeyName"/>
+      <output message="tns:getImageTypeKeyNameResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getParent">
+      <documentation>Retrieve the image template group that another image template group was cloned from.</documentation>
+      <input message="tns:getParent"/>
+      <output message="tns:getParentResponse"/>
+    </operation>
+    <operation name="getPublicCustomerOwnedImages">
+      <documentation>This method gets all public customer owned image templates that the user is allowed to see. </documentation>
+      <input message="tns:getPublicCustomerOwnedImages"/>
+      <output message="tns:getPublicCustomerOwnedImagesResponse"/>
+    </operation>
+    <operation name="getPublicImages">
+      <documentation>This method gets all public image templates that the user is allowed to see. </documentation>
+      <input message="tns:getPublicImages"/>
+      <output message="tns:getPublicImagesResponse"/>
+    </operation>
+    <operation name="getSshKeys">
+      <documentation>Retrieve the ssh keys to be implemented on the server when provisioned or reloaded from an image template group.</documentation>
+      <input message="tns:getSshKeys"/>
+      <output message="tns:getSshKeysResponse"/>
+    </operation>
+    <operation name="getStatus">
+      <documentation>Retrieve a template group's status.</documentation>
+      <input message="tns:getStatus"/>
+      <output message="tns:getStatusResponse"/>
+    </operation>
+    <operation name="getStorageLocations">
+      <documentation>Returns the image storage locations. </documentation>
+      <input message="tns:getStorageLocations"/>
+      <output message="tns:getStorageLocationsResponse"/>
+    </operation>
+    <operation name="getStorageRepository">
+      <documentation>Retrieve the storage repository that an image template group resides on.</documentation>
+      <input message="tns:getStorageRepository"/>
+      <output message="tns:getStorageRepositoryResponse"/>
+    </operation>
+    <operation name="getTagReferences">
+      <documentation>Retrieve the tags associated with this image template group.</documentation>
+      <input message="tns:getTagReferences"/>
+      <output message="tns:getTagReferencesResponse"/>
+    </operation>
+    <operation name="getTransaction">
+      <documentation>Retrieve a transaction that is being performed on a image template group.</documentation>
+      <input message="tns:getTransaction"/>
+      <output message="tns:getTransactionResponse"/>
+    </operation>
+    <operation name="getVhdImportSoftwareDescriptions">
+      <documentation>Returns an array of SoftLayer_Software_Description that are supported for VHD imports. </documentation>
+      <input message="tns:getVhdImportSoftwareDescriptions"/>
+      <output message="tns:getVhdImportSoftwareDescriptionsResponse"/>
+    </operation>
+    <operation name="permitSharingAccess">
+      <documentation>This method will permit another SoftLayer customer account access to provision CloudLayer Computing Instances from an image template group. Template access should only be given to the parent template group object, not the child. </documentation>
+      <input message="tns:permitSharingAccess"/>
+      <output message="tns:permitSharingAccessResponse"/>
+    </operation>
+    <operation name="removeLocations">
+      <documentation>This method will create transaction(s) to remove available locations from an archive image template.</documentation>
+      <input message="tns:removeLocations"/>
+      <output message="tns:removeLocationsResponse"/>
+    </operation>
+    <operation name="setAvailableLocations">
+      <documentation>Create transaction(s) to set the archived block device available locations</documentation>
+      <input message="tns:setAvailableLocations"/>
+      <output message="tns:setAvailableLocationsResponse"/>
+    </operation>
+    <operation name="setTags">
+      <documentation>Set the tags for this template group.</documentation>
+      <input message="tns:setTags"/>
+      <output message="tns:setTagsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupBinding" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addLocations">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="copyToExternalSource">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createFromExternalSource">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createPublicArchiveTransaction">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="denySharingAccess">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccountContacts">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccountReferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBlockDevices">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBlockDevicesDiskSpaceTotal">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getChildren">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDatacenter">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDatacenters">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFlexImageFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGlobalIdentifier">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getImageType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getImageTypeKeyName">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getParent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPublicCustomerOwnedImages">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPublicImages">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSshKeys">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStorageLocations">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStorageRepository">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTagReferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTransaction">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilterHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVhdImportSoftwareDescriptions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMaskHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="permitSharingAccess">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeLocations">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="setAvailableLocations">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="setTags">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParametersHeader" part="SoftLayer_Virtual_Guest_Block_Device_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupService">
+    <port name="SoftLayer_Virtual_Guest_Block_Device_Template_GroupPort" binding="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Block_Device_Template_Group"/>
+    </port>
+  </service>
+</definitions>

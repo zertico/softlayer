@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Marketing_Event?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Auxiliary_Marketing_EventInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Auxiliary_Marketing_EventObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Auxiliary_Marketing_Event"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Auxiliary_Marketing_EventInitParametersHeader">
+    <part name="SoftLayer_Auxiliary_Marketing_EventInitParameters" type="tns:SoftLayer_Auxiliary_Marketing_EventInitParameters"/>
+  </message>
+  <message name="getMarketingEvents"/>
+  <message name="getMarketingEventsResponse">
+    <part name="getMarketingEventsReturn" type="tns:SoftLayer_Auxiliary_Marketing_EventArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Auxiliary_Marketing_Event"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Marketing_EventObjectMaskHeader">
+    <part name="SoftLayer_Auxiliary_Marketing_EventObjectMask" type="tns:SoftLayer_Auxiliary_Marketing_EventObjectMask"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Marketing_EventObjectFilterHeader">
+    <part name="SoftLayer_Auxiliary_Marketing_EventObjectFilter" type="tns:SoftLayer_Auxiliary_Marketing_EventObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Auxiliary_Marketing_EventPortType">
+    <documentation></documentation>
+    <operation name="getMarketingEvents">
+      <documentation>This method will return a collection of SoftLayer_Auxiliary_Marketing_Event objects ordered in ascending order by start date. </documentation>
+      <input message="tns:getMarketingEvents"/>
+      <output message="tns:getMarketingEventsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Auxiliary_Marketing_EventBinding" type="tns:SoftLayer_Auxiliary_Marketing_EventPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getMarketingEvents">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Marketing_EventAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Marketing_EventObjectMaskHeader" part="SoftLayer_Auxiliary_Marketing_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Marketing_EventAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Marketing_EventObjectMaskHeader" part="SoftLayer_Auxiliary_Marketing_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Marketing_EventObjectFilterHeader" part="SoftLayer_Auxiliary_Marketing_EventObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Marketing_EventInitParametersHeader" part="SoftLayer_Auxiliary_Marketing_EventInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Auxiliary_Marketing_EventService">
+    <port name="SoftLayer_Auxiliary_Marketing_EventPort" binding="tns:SoftLayer_Auxiliary_Marketing_EventBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Marketing_Event"/>
+    </port>
+  </service>
+</definitions>

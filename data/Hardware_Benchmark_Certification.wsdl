@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Hardware_Benchmark_Certification?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Hardware_Benchmark_CertificationInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Hardware_Benchmark_CertificationObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Hardware_Benchmark_Certification"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Hardware_Benchmark_CertificationInitParametersHeader">
+    <part name="SoftLayer_Hardware_Benchmark_CertificationInitParameters" type="tns:SoftLayer_Hardware_Benchmark_CertificationInitParameters"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getHardware"/>
+  <message name="getHardwareResponse">
+    <part name="getHardwareReturn" type="tns:SoftLayer_Hardware"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Hardware_Benchmark_Certification"/>
+  </message>
+  <message name="getResultFile"/>
+  <message name="getResultFileResponse">
+    <part name="getResultFileReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Hardware_Benchmark_CertificationObjectMaskHeader">
+    <part name="SoftLayer_Hardware_Benchmark_CertificationObjectMask" type="tns:SoftLayer_Hardware_Benchmark_CertificationObjectMask"/>
+  </message>
+  <message name="SoftLayer_Hardware_Benchmark_CertificationObjectFilterHeader">
+    <part name="SoftLayer_Hardware_Benchmark_CertificationObjectFilter" type="tns:SoftLayer_Hardware_Benchmark_CertificationObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Hardware_Benchmark_CertificationPortType">
+    <documentation>This certification is used to indicate the date, time and validity of the benchmark certification process. The certification process includes running a battery of tests on all major sub-systems of a server in order to verify that all components of the server are functioning up to specification. Only after a server has passed each and every hardware and configuration test will it be provisioned for a customer. The &amp;quot;SoftLayer_Hardware_Benchmark_Certification&amp;quot; class is used to indicate the date, time and validity of the benchmark certification process. This process includes running a battery of tests on all major sub-systems of a server to verify that all components of the server are functioning according to their specifications. Once each server has passed all hardware and configurations tests, it is provisioned to a SoftLayer customer. </documentation>
+    <operation name="getAccount">
+      <documentation>Retrieve information regarding a benchmark certification result's associated SoftLayer customer account.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getHardware">
+      <documentation>Retrieve information regarding the piece of hardware on which a benchmark certification test was performed.</documentation>
+      <input message="tns:getHardware"/>
+      <output message="tns:getHardwareResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Hardware_Benchmark_Certification object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Hardware_Benchmark_Certification service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getResultFile">
+      <documentation>Attempt to retrieve the file associated with a benchmark certification result, if such a file exists.  If there is no file for this benchmark certification result, calling this method throws an exception. The &amp;quot;getResultFile&amp;quot; method attempts to retrieve the file associated with a benchmark certification result, if such a file exists. If no file exists for the benchmark certification, an exception is thrown. </documentation>
+      <input message="tns:getResultFile"/>
+      <output message="tns:getResultFileResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Hardware_Benchmark_CertificationBinding" type="tns:SoftLayer_Hardware_Benchmark_CertificationPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Benchmark_CertificationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationObjectMaskHeader" part="SoftLayer_Hardware_Benchmark_CertificationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationObjectFilterHeader" part="SoftLayer_Hardware_Benchmark_CertificationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationInitParametersHeader" part="SoftLayer_Hardware_Benchmark_CertificationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Benchmark_CertificationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationObjectMaskHeader" part="SoftLayer_Hardware_Benchmark_CertificationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationObjectFilterHeader" part="SoftLayer_Hardware_Benchmark_CertificationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationInitParametersHeader" part="SoftLayer_Hardware_Benchmark_CertificationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Benchmark_CertificationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationObjectMaskHeader" part="SoftLayer_Hardware_Benchmark_CertificationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationObjectFilterHeader" part="SoftLayer_Hardware_Benchmark_CertificationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationInitParametersHeader" part="SoftLayer_Hardware_Benchmark_CertificationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getResultFile">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Benchmark_CertificationAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Benchmark_CertificationInitParametersHeader" part="SoftLayer_Hardware_Benchmark_CertificationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Hardware_Benchmark_CertificationService">
+    <port name="SoftLayer_Hardware_Benchmark_CertificationPort" binding="tns:SoftLayer_Hardware_Benchmark_CertificationBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Hardware_Benchmark_Certification"/>
+    </port>
+  </service>
+</definitions>

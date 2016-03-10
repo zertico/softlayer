@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Order_Cart?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Billing_Order_CartInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Billing_Order_CartObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Billing_Order_Cart"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Billing_Order_CartInitParametersHeader">
+    <part name="SoftLayer_Billing_Order_CartInitParameters" type="tns:SoftLayer_Billing_Order_CartInitParameters"/>
+  </message>
+  <message name="claim">
+    <part name="quoteKey" type="xsd:string"/>
+    <part name="quoteId" type="xsd:int"/>
+  </message>
+  <message name="claimResponse">
+    <part name="claimReturn" type="tns:SoftLayer_Billing_Order_Cart"/>
+  </message>
+  <message name="createCart">
+    <part name="orderData" type="tns:SoftLayer_Container_Product_Order"/>
+  </message>
+  <message name="createCartResponse">
+    <part name="createCartReturn" type="xsd:int"/>
+  </message>
+  <message name="deleteCart"/>
+  <message name="deleteCartResponse">
+    <part name="deleteCartReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteQuote"/>
+  <message name="deleteQuoteResponse">
+    <part name="deleteQuoteReturn" type="tns:SoftLayer_Billing_Order_Cart"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getCartByCartKey">
+    <part name="cartKey" type="xsd:string"/>
+  </message>
+  <message name="getCartByCartKeyResponse">
+    <part name="getCartByCartKeyReturn" type="tns:SoftLayer_Billing_Order_Cart"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Billing_Order_Cart"/>
+  </message>
+  <message name="getOrder"/>
+  <message name="getOrderResponse">
+    <part name="getOrderReturn" type="tns:SoftLayer_Billing_Order"/>
+  </message>
+  <message name="getOrdersFromQuote"/>
+  <message name="getOrdersFromQuoteResponse">
+    <part name="getOrdersFromQuoteReturn" type="tns:SoftLayer_Billing_OrderArray"/>
+  </message>
+  <message name="getPdf"/>
+  <message name="getPdfResponse">
+    <part name="getPdfReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getQuoteByQuoteKey">
+    <part name="quoteKey" type="xsd:string"/>
+  </message>
+  <message name="getQuoteByQuoteKeyResponse">
+    <part name="getQuoteByQuoteKeyReturn" type="tns:SoftLayer_Billing_Order_Cart"/>
+  </message>
+  <message name="getRecalculatedOrderContainer">
+    <part name="orderData" type="tns:SoftLayer_Container_Product_Order"/>
+    <part name="orderBeingPlacedFlag" type="xsd:boolean"/>
+  </message>
+  <message name="getRecalculatedOrderContainerResponse">
+    <part name="getRecalculatedOrderContainerReturn" type="tns:SoftLayer_Container_Product_Order"/>
+  </message>
+  <message name="placeOrder">
+    <part name="orderData" type="tns:SoftLayer_Container_Product_Order"/>
+  </message>
+  <message name="placeOrderResponse">
+    <part name="placeOrderReturn" type="tns:SoftLayer_Container_Product_Order_Receipt"/>
+  </message>
+  <message name="placeQuote">
+    <part name="orderData" type="tns:SoftLayer_Container_Product_Order"/>
+  </message>
+  <message name="placeQuoteResponse">
+    <part name="placeQuoteReturn" type="tns:SoftLayer_Container_Product_Order"/>
+  </message>
+  <message name="saveQuote"/>
+  <message name="saveQuoteResponse">
+    <part name="saveQuoteReturn" type="tns:SoftLayer_Billing_Order_Cart"/>
+  </message>
+  <message name="updateCart">
+    <part name="orderData" type="tns:SoftLayer_Container_Product_Order"/>
+  </message>
+  <message name="updateCartResponse">
+    <part name="updateCartReturn" type="xsd:int"/>
+  </message>
+  <message name="verifyOrder">
+    <part name="orderData" type="tns:SoftLayer_Container_Product_Order"/>
+  </message>
+  <message name="verifyOrderResponse">
+    <part name="verifyOrderReturn" type="tns:SoftLayer_Container_Product_Order"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Billing_Order_CartObjectMaskHeader">
+    <part name="SoftLayer_Billing_Order_CartObjectMask" type="tns:SoftLayer_Billing_Order_CartObjectMask"/>
+  </message>
+  <message name="SoftLayer_Billing_Order_CartObjectFilterHeader">
+    <part name="SoftLayer_Billing_Order_CartObjectFilter" type="tns:SoftLayer_Billing_Order_CartObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Billing_Order_CartPortType">
+    <documentation>The [[SoftLayer_Billing_Order_Cart]] service allows customers to save their order in a state that can be continually modified. The difference between a cart and a quote is that a quote has locked-in prices while a cart does not. This allows customers to save their order configuration for up to 30 days. After 30 days, the cart is deleted and cannot be retrieved again. </documentation>
+    <operation name="claim">
+      <documentation>This method is used to transfer an anonymous quote to the active user and associated account. An anonymous quote is one that was created by a user without being authenticated. If a quote was created anonymously and then the customer attempts to access that anonymous quote via the API (which requires authentication), the customer will be unable to retrieve the quote due to the security restrictions in place. By providing the ability for a customer to claim a quote, s/he will be able to pull the anonymous quote onto his/her account and successfully view the quote. 
+
+To claim a quote, both the quote id and the quote key (the 32-character random string) must be provided. </documentation>
+      <input message="tns:claim"/>
+      <output message="tns:claimResponse"/>
+    </operation>
+    <operation name="createCart">
+      <documentation>When creating a new cart, the order data is sent through SoftLayer_Product_Order::verifyOrder to make sure that the cart contains valid data. If an issue is found with the order, an exception will be thrown and you will receive the same response as if SoftLayer_Product_Order::verifyOrder were called directly. Once the order verification is complete, the cart will be created. 
+
+The response is the new cart id. </documentation>
+      <input message="tns:createCart"/>
+      <output message="tns:createCartResponse"/>
+    </operation>
+    <operation name="deleteCart">
+      <documentation>If a cart is no longer needed, it can be deleted using this service. Once a cart has been deleted, it cannot be retrieved again. </documentation>
+      <input message="tns:deleteCart"/>
+      <output message="tns:deleteCartResponse"/>
+    </operation>
+    <operation name="deleteQuote">
+      <documentation>Account master users and sub-users in the SoftLayer customer portal can delete the quote of an order. </documentation>
+      <input message="tns:deleteQuote"/>
+      <output message="tns:deleteQuoteResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve a quote's corresponding account.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getCartByCartKey">
+      <documentation>Retrieve a valid cart record of a SoftLayer order. </documentation>
+      <input message="tns:getCartByCartKey"/>
+      <output message="tns:getCartByCartKeyResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getOrder">
+      <documentation>Retrieve a quote's corresponding order.</documentation>
+      <input message="tns:getOrder"/>
+      <output message="tns:getOrderResponse"/>
+    </operation>
+    <operation name="getOrdersFromQuote">
+      <documentation>Retrieve a quote's corresponding order.</documentation>
+      <input message="tns:getOrdersFromQuote"/>
+      <output message="tns:getOrdersFromQuoteResponse"/>
+    </operation>
+    <operation name="getPdf">
+      <documentation>Retrieve a PDF copy of the cart. </documentation>
+      <input message="tns:getPdf"/>
+      <output message="tns:getPdfResponse"/>
+    </operation>
+    <operation name="getQuoteByQuoteKey">
+      <documentation>Retrieve a valid quote record of a SoftLayer order. Quote whose promotion code expired or one of the items is no longer available will not be retrieved. </documentation>
+      <input message="tns:getQuoteByQuoteKey"/>
+      <output message="tns:getQuoteByQuoteKeyResponse"/>
+    </operation>
+    <operation name="getRecalculatedOrderContainer">
+      <documentation>This method allows the customer to retrieve a saved cart and put it in a format that's suitable to be sent to SoftLayer_Billing_Order_Cart::createCart to create a new cart or to SoftLayer_Billing_Order_Cart::updateCart to update an existing cart. </documentation>
+      <input message="tns:getRecalculatedOrderContainer"/>
+      <output message="tns:getRecalculatedOrderContainerResponse"/>
+    </operation>
+    <operation name="placeOrder">
+      <documentation>Use this method for placing server orders and additional services orders. The same applies for this as with verifyOrder. Send in the SoftLayer_Container_Product_Order_Hardware_Server for server orders. In addition to verifying the order, placeOrder() also makes an initial authorization on the SoftLayer_Account tied to this order, if a credit card is on file. If the account tied to this order is a paypal customer, an URL will also be returned to the customer. After placing the order, you must go to this URL to finish the authorization process. This tells paypal that you indeed want to place the order. After going to this URL, it will direct you back to a SoftLayer webpage that tells us you have finished the process. After this, it will go to sales for final approval. </documentation>
+      <input message="tns:placeOrder"/>
+      <output message="tns:placeOrderResponse"/>
+    </operation>
+    <operation name="placeQuote">
+      <documentation>Use this method for placing server quotes and additional services quotes. The same applies for this as with verifyOrder. Send in the SoftLayer_Container_Product_Order_Hardware_Server for server quotes. In addition to verifying the quote, placeQuote() also makes an initial authorization on the SoftLayer_Account tied to this order, if a credit card is on file. If the account tied to this order is a paypal customer, an URL will also be returned to the customer. After placing the order, you must go to this URL to finish the authorization process. This tells paypal that you indeed want to place the order. After going to this URL, it will direct you back to a SoftLayer webpage that tells us you have finished the process. </documentation>
+      <input message="tns:placeQuote"/>
+      <output message="tns:placeQuoteResponse"/>
+    </operation>
+    <operation name="saveQuote">
+      <documentation>Account master users and sub-users in the SoftLayer customer portal can save the quote of an order to avoid its deletion after 5 days or its expiration after 2 days. </documentation>
+      <input message="tns:saveQuote"/>
+      <output message="tns:saveQuoteResponse"/>
+    </operation>
+    <operation name="updateCart">
+      <documentation>Like SoftLayer_Billing_Order_Cart::createCart, the order data will be sent through SoftLayer_Product_Order::verifyOrder to make sure that the updated cart information is valid. Once it has been verified, the new order data will be saved. 
+
+This will return the cart id. </documentation>
+      <input message="tns:updateCart"/>
+      <output message="tns:updateCartResponse"/>
+    </operation>
+    <operation name="verifyOrder">
+      <documentation>Use this method for placing server orders and additional services orders. The same applies for this as with verifyOrder. Send in the SoftLayer_Container_Product_Order_Hardware_Server for server orders. In addition to verifying the order, placeOrder() also makes an initial authorization on the SoftLayer_Account tied to this order, if a credit card is on file. If the account tied to this order is a paypal customer, an URL will also be returned to the customer. After placing the order, you must go to this URL to finish the authorization process. This tells paypal that you indeed want to place the order. After going to this URL, it will direct you back to a SoftLayer webpage that tells us you have finished the process. After this, it will go to sales for final approval. </documentation>
+      <input message="tns:verifyOrder"/>
+      <output message="tns:verifyOrderResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Billing_Order_CartBinding" type="tns:SoftLayer_Billing_Order_CartPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="claim">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectMaskHeader" part="SoftLayer_Billing_Order_CartObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createCart">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteCart">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteQuote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectMaskHeader" part="SoftLayer_Billing_Order_CartObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectMaskHeader" part="SoftLayer_Billing_Order_CartObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectFilterHeader" part="SoftLayer_Billing_Order_CartObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCartByCartKey">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectMaskHeader" part="SoftLayer_Billing_Order_CartObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectMaskHeader" part="SoftLayer_Billing_Order_CartObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectFilterHeader" part="SoftLayer_Billing_Order_CartObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOrder">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectMaskHeader" part="SoftLayer_Billing_Order_CartObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectFilterHeader" part="SoftLayer_Billing_Order_CartObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getOrdersFromQuote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectMaskHeader" part="SoftLayer_Billing_Order_CartObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectFilterHeader" part="SoftLayer_Billing_Order_CartObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPdf">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getQuoteByQuoteKey">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectMaskHeader" part="SoftLayer_Billing_Order_CartObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRecalculatedOrderContainer">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="placeOrder">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="placeQuote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="saveQuote">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartObjectMaskHeader" part="SoftLayer_Billing_Order_CartObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateCart">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="verifyOrder">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Order_CartAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Order_CartInitParametersHeader" part="SoftLayer_Billing_Order_CartInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Billing_Order_CartService">
+    <port name="SoftLayer_Billing_Order_CartPort" binding="tns:SoftLayer_Billing_Order_CartBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Order_Cart"/>
+    </port>
+  </service>
+</definitions>

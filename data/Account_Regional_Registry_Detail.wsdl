@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_Detail?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Account_Regional_Registry_DetailInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Account_Regional_Registry_DetailObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Account_Regional_Registry_Detail"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Account_Regional_Registry_DetailInitParametersHeader">
+    <part name="SoftLayer_Account_Regional_Registry_DetailInitParameters" type="tns:SoftLayer_Account_Regional_Registry_DetailInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Account_Regional_Registry_Detail"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Account_Regional_Registry_Detail"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Account_Regional_Registry_Detail"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getDetailType"/>
+  <message name="getDetailTypeResponse">
+    <part name="getDetailTypeReturn" type="tns:SoftLayer_Account_Regional_Registry_Detail_Type"/>
+  </message>
+  <message name="getDetails"/>
+  <message name="getDetailsResponse">
+    <part name="getDetailsReturn" type="tns:SoftLayer_Network_Subnet_Registration_DetailsArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Account_Regional_Registry_Detail"/>
+  </message>
+  <message name="getProperties"/>
+  <message name="getPropertiesResponse">
+    <part name="getPropertiesReturn" type="tns:SoftLayer_Account_Regional_Registry_Detail_PropertyArray"/>
+  </message>
+  <message name="getRegionalInternetRegistryHandle"/>
+  <message name="getRegionalInternetRegistryHandleResponse">
+    <part name="getRegionalInternetRegistryHandleReturn" type="tns:SoftLayer_Account_Rwhois_Handle"/>
+  </message>
+  <message name="updateReferencedRegistrations"/>
+  <message name="updateReferencedRegistrationsResponse">
+    <part name="updateReferencedRegistrationsReturn" type="tns:SoftLayer_Container_Network_Subnet_Registration_TransactionDetails"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Account_Regional_Registry_DetailObjectMaskHeader">
+    <part name="SoftLayer_Account_Regional_Registry_DetailObjectMask" type="tns:SoftLayer_Account_Regional_Registry_DetailObjectMask"/>
+  </message>
+  <message name="SoftLayer_Account_Regional_Registry_DetailObjectFilterHeader">
+    <part name="SoftLayer_Account_Regional_Registry_DetailObjectFilter" type="tns:SoftLayer_Account_Regional_Registry_DetailObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Account_Regional_Registry_DetailPortType">
+    <documentation>Regional Registry Detail objects are used to specify the information you wish to use when registering subnets with the appropriate Regional Internet Registries. </documentation>
+    <operation name="createObject">
+      <documentation>&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;.create_object &amp;gt; li &amp;gt; div { padding-top: .5em; padding-bottom: .5em}&amp;lt;/style&amp;gt; This method will create a new SoftLayer_Account_Regional_Registry_Detail object. 
+
+&amp;lt;b&amp;gt;Input&amp;lt;/b&amp;gt; - [[SoftLayer_Account_Regional_Registry_Detail (type)|SoftLayer_Account_Regional_Registry_Detail]] &amp;lt;ul class=&amp;quot;create_object&amp;quot;&amp;gt; &amp;lt;li&amp;gt;&amp;lt;code&amp;gt;detailTypeId&amp;lt;/code&amp;gt; &amp;lt;div&amp;gt;The [[SoftLayer_Account_Regional_Registry_Detail_Type|type id]] of this detail object&amp;lt;/div&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;b&amp;gt;Required&amp;lt;/b&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;b&amp;gt;Type&amp;lt;/b&amp;gt; - integer&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;code&amp;gt;regionalInternetRegistryHandleId&amp;lt;/code&amp;gt; &amp;lt;div&amp;gt; The id of the [[SoftLayer_Account_Rwhois_Handle|RWhois handle]] object. This is only to be used for detailed registrations, where a subnet is registered to an organization. The associated handle will be required to be a valid organization object id at the relevant registry. In this case, the detail object will only be valid for the registry the organization belongs to. &amp;lt;/div&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;b&amp;gt;Optional&amp;lt;/b&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;b&amp;gt;Type&amp;lt;/b&amp;gt; - integer&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>This method will delete an existing SoftLayer_Account_Regional_Registry_Detail object. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>This method will edit an existing SoftLayer_Account_Regional_Registry_Detail object. For more detail, see [[SoftLayer_Account_Regional_Registry_Detail::createObject|createObject]]. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation>Retrieve the account that this detail object belongs to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getDetailType">
+      <documentation>Retrieve the associated type of this detail object.</documentation>
+      <input message="tns:getDetailType"/>
+      <output message="tns:getDetailTypeResponse"/>
+    </operation>
+    <operation name="getDetails">
+      <documentation>Retrieve references to the [[SoftLayer_Network_Subnet_Registration|registration objects]] that consume this detail object.</documentation>
+      <input message="tns:getDetails"/>
+      <output message="tns:getDetailsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getProperties">
+      <documentation>Retrieve the individual properties that define this detail object's values.</documentation>
+      <input message="tns:getProperties"/>
+      <output message="tns:getPropertiesResponse"/>
+    </operation>
+    <operation name="getRegionalInternetRegistryHandle">
+      <documentation>Retrieve the associated RWhois handle of this detail object. Used only when detailed reassignments are necessary.</documentation>
+      <input message="tns:getRegionalInternetRegistryHandle"/>
+      <output message="tns:getRegionalInternetRegistryHandleResponse"/>
+    </operation>
+    <operation name="updateReferencedRegistrations">
+      <documentation>This method will create a bulk transaction to update any registrations that reference this detail object. It should only be called from a child class such as [[SoftLayer_Account_Regional_Registry_Detail_Person]] or [[SoftLayer_Account_Regional_Registry_Detail_Network]]. The registrations should be in the Open or Registration_Complete status. </documentation>
+      <input message="tns:updateReferencedRegistrations"/>
+      <output message="tns:updateReferencedRegistrationsResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Account_Regional_Registry_DetailBinding" type="tns:SoftLayer_Account_Regional_Registry_DetailPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectMaskHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailInitParametersHeader" part="SoftLayer_Account_Regional_Registry_DetailInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailInitParametersHeader" part="SoftLayer_Account_Regional_Registry_DetailInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectMaskHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectFilterHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailInitParametersHeader" part="SoftLayer_Account_Regional_Registry_DetailInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDetailType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectMaskHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectFilterHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailInitParametersHeader" part="SoftLayer_Account_Regional_Registry_DetailInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDetails">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectMaskHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectFilterHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailInitParametersHeader" part="SoftLayer_Account_Regional_Registry_DetailInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectMaskHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectFilterHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailInitParametersHeader" part="SoftLayer_Account_Regional_Registry_DetailInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProperties">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectMaskHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectFilterHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailInitParametersHeader" part="SoftLayer_Account_Regional_Registry_DetailInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRegionalInternetRegistryHandle">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectMaskHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailObjectFilterHeader" part="SoftLayer_Account_Regional_Registry_DetailObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailInitParametersHeader" part="SoftLayer_Account_Regional_Registry_DetailInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateReferencedRegistrations">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_DetailAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Regional_Registry_DetailInitParametersHeader" part="SoftLayer_Account_Regional_Registry_DetailInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Account_Regional_Registry_DetailService">
+    <port name="SoftLayer_Account_Regional_Registry_DetailPort" binding="tns:SoftLayer_Account_Regional_Registry_DetailBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Account_Regional_Registry_Detail"/>
+    </port>
+  </service>
+</definitions>

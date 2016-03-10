@@ -1,0 +1,11 @@
+---
+Softlayer::Container::Virtual::Guest::Configuration:
+  configuration1:
+    attributes:
+      memory: 4
+    relationships:
+      block_devices:
+        <% 70.times do |n| %>
+        - type: Softlayer::Container::Virtual::Guest::Configuration::Option
+          id: <%= "config_option#{n}" %>
+        <% end %>

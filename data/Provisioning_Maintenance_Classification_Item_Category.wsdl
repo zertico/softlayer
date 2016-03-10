@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_Classification_Item_Category?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_Category"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryInitParametersHeader">
+    <part name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryInitParameters" type="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryInitParameters"/>
+  </message>
+  <message name="getMaintenanceClassification"/>
+  <message name="getMaintenanceClassificationResponse">
+    <part name="getMaintenanceClassificationReturn" type="tns:SoftLayer_Provisioning_Maintenance_Classification"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_Category"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectMaskHeader">
+    <part name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectMask" type="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectMask"/>
+  </message>
+  <message name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectFilterHeader">
+    <part name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectFilter" type="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryPortType">
+    <documentation></documentation>
+    <operation name="getMaintenanceClassification">
+      <documentation></documentation>
+      <input message="tns:getMaintenanceClassification"/>
+      <output message="tns:getMaintenanceClassificationResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryBinding" type="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getMaintenanceClassification">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectFilterHeader" part="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryInitParametersHeader" part="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectFilterHeader" part="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryInitParametersHeader" part="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryService">
+    <port name="SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryPort" binding="tns:SoftLayer_Provisioning_Maintenance_Classification_Item_CategoryBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_Classification_Item_Category"/>
+    </port>
+  </service>
+</definitions>

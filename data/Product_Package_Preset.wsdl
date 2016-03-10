@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Product_Package_Preset?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Product_Package_PresetInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Product_Package_PresetObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Product_Package_Preset"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Product_Package_PresetInitParametersHeader">
+    <part name="SoftLayer_Product_Package_PresetInitParameters" type="tns:SoftLayer_Product_Package_PresetInitParameters"/>
+  </message>
+  <message name="getAvailableStorageUnits"/>
+  <message name="getAvailableStorageUnitsResponse">
+    <part name="getAvailableStorageUnitsReturn" type="xsd:unsignedInt"/>
+  </message>
+  <message name="getCategories"/>
+  <message name="getCategoriesResponse">
+    <part name="getCategoriesReturn" type="tns:SoftLayer_Product_Item_CategoryArray"/>
+  </message>
+  <message name="getConfiguration"/>
+  <message name="getConfigurationResponse">
+    <part name="getConfigurationReturn" type="tns:SoftLayer_Product_Package_Preset_ConfigurationArray"/>
+  </message>
+  <message name="getFixedConfigurationFlag"/>
+  <message name="getFixedConfigurationFlagResponse">
+    <part name="getFixedConfigurationFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getLowestPresetServerPrice"/>
+  <message name="getLowestPresetServerPriceResponse">
+    <part name="getLowestPresetServerPriceReturn" type="tns:SoftLayer_Product_Item_Price"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Product_Package_Preset"/>
+  </message>
+  <message name="getPackage"/>
+  <message name="getPackageResponse">
+    <part name="getPackageReturn" type="tns:SoftLayer_Product_Package"/>
+  </message>
+  <message name="getPackageConfiguration"/>
+  <message name="getPackageConfigurationResponse">
+    <part name="getPackageConfigurationReturn" type="tns:SoftLayer_Product_Package_Order_ConfigurationArray"/>
+  </message>
+  <message name="getPrices"/>
+  <message name="getPricesResponse">
+    <part name="getPricesReturn" type="tns:SoftLayer_Product_Item_PriceArray"/>
+  </message>
+  <message name="getStorageGroupTemplateArrays"/>
+  <message name="getStorageGroupTemplateArraysResponse">
+    <part name="getStorageGroupTemplateArraysReturn" type="tns:SoftLayer_Configuration_Storage_Group_Template_GroupArray"/>
+  </message>
+  <message name="getTotalMinimumHourlyFee"/>
+  <message name="getTotalMinimumHourlyFeeResponse">
+    <part name="getTotalMinimumHourlyFeeReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getTotalMinimumRecurringFee"/>
+  <message name="getTotalMinimumRecurringFeeResponse">
+    <part name="getTotalMinimumRecurringFeeReturn" type="xsd:decimal"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Product_Package_PresetObjectMaskHeader">
+    <part name="SoftLayer_Product_Package_PresetObjectMask" type="tns:SoftLayer_Product_Package_PresetObjectMask"/>
+  </message>
+  <message name="SoftLayer_Product_Package_PresetObjectFilterHeader">
+    <part name="SoftLayer_Product_Package_PresetObjectFilter" type="tns:SoftLayer_Product_Package_PresetObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Product_Package_PresetPortType">
+    <documentation></documentation>
+    <operation name="getAvailableStorageUnits">
+      <documentation></documentation>
+      <input message="tns:getAvailableStorageUnits"/>
+      <output message="tns:getAvailableStorageUnitsResponse"/>
+    </operation>
+    <operation name="getCategories">
+      <documentation>Retrieve the item categories that are included in this package preset configuration.</documentation>
+      <input message="tns:getCategories"/>
+      <output message="tns:getCategoriesResponse"/>
+    </operation>
+    <operation name="getConfiguration">
+      <documentation>Retrieve the preset configuration (category and price).</documentation>
+      <input message="tns:getConfiguration"/>
+      <output message="tns:getConfigurationResponse"/>
+    </operation>
+    <operation name="getFixedConfigurationFlag">
+      <documentation>Retrieve a package preset with this flag set will not allow the price's defined in the preset configuration to be overriden during order placement.</documentation>
+      <input message="tns:getFixedConfigurationFlag"/>
+      <output message="tns:getFixedConfigurationFlagResponse"/>
+    </operation>
+    <operation name="getLowestPresetServerPrice">
+      <documentation>Retrieve the lowest server prices related to this package preset.</documentation>
+      <input message="tns:getLowestPresetServerPrice"/>
+      <output message="tns:getLowestPresetServerPriceResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPackage">
+      <documentation>Retrieve the package this preset belongs to.</documentation>
+      <input message="tns:getPackage"/>
+      <output message="tns:getPackageResponse"/>
+    </operation>
+    <operation name="getPackageConfiguration">
+      <documentation>Retrieve the item categories associated with a package preset, including information detailing which item categories are required as part of a SoftLayer product order.</documentation>
+      <input message="tns:getPackageConfiguration"/>
+      <output message="tns:getPackageConfigurationResponse"/>
+    </operation>
+    <operation name="getPrices">
+      <documentation>Retrieve the item prices that are included in this package preset configuration.</documentation>
+      <input message="tns:getPrices"/>
+      <output message="tns:getPricesResponse"/>
+    </operation>
+    <operation name="getStorageGroupTemplateArrays">
+      <documentation>Retrieve describes how all disks in this preset will be configured.</documentation>
+      <input message="tns:getStorageGroupTemplateArrays"/>
+      <output message="tns:getStorageGroupTemplateArraysResponse"/>
+    </operation>
+    <operation name="getTotalMinimumHourlyFee">
+      <documentation>Retrieve the starting hourly price for this configuration. Additional options not defined in the preset may increase the cost.</documentation>
+      <input message="tns:getTotalMinimumHourlyFee"/>
+      <output message="tns:getTotalMinimumHourlyFeeResponse"/>
+    </operation>
+    <operation name="getTotalMinimumRecurringFee">
+      <documentation>Retrieve the starting monthly price for this configuration. Additional options not defined in the preset may increase the cost.</documentation>
+      <input message="tns:getTotalMinimumRecurringFee"/>
+      <output message="tns:getTotalMinimumRecurringFeeResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Product_Package_PresetBinding" type="tns:SoftLayer_Product_Package_PresetPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAvailableStorageUnits">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCategories">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getConfiguration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFixedConfigurationFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLowestPresetServerPrice">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPackage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPackageConfiguration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrices">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStorageGroupTemplateArrays">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTotalMinimumHourlyFee">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTotalMinimumRecurringFee">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Package_PresetAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectMaskHeader" part="SoftLayer_Product_Package_PresetObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetObjectFilterHeader" part="SoftLayer_Product_Package_PresetObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Product_Package_PresetInitParametersHeader" part="SoftLayer_Product_Package_PresetInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Product_Package_PresetService">
+    <port name="SoftLayer_Product_Package_PresetPort" binding="tns:SoftLayer_Product_Package_PresetBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Product_Package_Preset"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_Component?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Virtual_Guest_Network_ComponentInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Virtual_Guest_Network_ComponentObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Virtual_Guest_Network_Component"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader">
+    <part name="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" type="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParameters"/>
+  </message>
+  <message name="disable"/>
+  <message name="disableResponse">
+    <part name="disableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="enable"/>
+  <message name="enableResponse">
+    <part name="enableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getGuest"/>
+  <message name="getGuestResponse">
+    <part name="getGuestReturn" type="tns:SoftLayer_Virtual_Guest"/>
+  </message>
+  <message name="getHighAvailabilityFirewallFlag"/>
+  <message name="getHighAvailabilityFirewallFlagResponse">
+    <part name="getHighAvailabilityFirewallFlagReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getIpAddressBindings"/>
+  <message name="getIpAddressBindingsResponse">
+    <part name="getIpAddressBindingsReturn" type="tns:SoftLayer_Virtual_Guest_Network_Component_IpAddressArray"/>
+  </message>
+  <message name="getNetworkComponentFirewall"/>
+  <message name="getNetworkComponentFirewallResponse">
+    <part name="getNetworkComponentFirewallReturn" type="tns:SoftLayer_Network_Component_Firewall"/>
+  </message>
+  <message name="getNetworkVlan"/>
+  <message name="getNetworkVlanResponse">
+    <part name="getNetworkVlanReturn" type="tns:SoftLayer_Network_Vlan"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Virtual_Guest_Network_Component"/>
+  </message>
+  <message name="getPrimaryIpAddress"/>
+  <message name="getPrimaryIpAddressResponse">
+    <part name="getPrimaryIpAddressReturn" type="xsd:string"/>
+  </message>
+  <message name="getPrimaryIpAddressRecord"/>
+  <message name="getPrimaryIpAddressRecordResponse">
+    <part name="getPrimaryIpAddressRecordReturn" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+  </message>
+  <message name="getPrimarySubnet"/>
+  <message name="getPrimarySubnetResponse">
+    <part name="getPrimarySubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="getPrimaryVersion6IpAddressRecord"/>
+  <message name="getPrimaryVersion6IpAddressRecordResponse">
+    <part name="getPrimaryVersion6IpAddressRecordReturn" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+  </message>
+  <message name="getRouter"/>
+  <message name="getRouterResponse">
+    <part name="getRouterReturn" type="tns:SoftLayer_Hardware_Router"/>
+  </message>
+  <message name="getSubnets"/>
+  <message name="getSubnetsResponse">
+    <part name="getSubnetsReturn" type="tns:SoftLayer_Network_SubnetArray"/>
+  </message>
+  <message name="isPingable"/>
+  <message name="isPingableResponse">
+    <part name="isPingableReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader">
+    <part name="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" type="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMask"/>
+  </message>
+  <message name="SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader">
+    <part name="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" type="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Virtual_Guest_Network_ComponentPortType">
+    <documentation>The virtual guest network component service provides a common interface to a [[SoftLayer_Virtual_Guest|computing instance's]] network component. Interaction with various third party APIs is not needed when implementing this service to administer your computing instances. </documentation>
+    <operation name="disable">
+      <documentation>Completely restrict all incoming and outgoing bandwidth traffic to a network component </documentation>
+      <input message="tns:disable"/>
+      <output message="tns:disableResponse"/>
+    </operation>
+    <operation name="enable">
+      <documentation>Allow incoming and outgoing bandwidth traffic to a network component </documentation>
+      <input message="tns:enable"/>
+      <output message="tns:enableResponse"/>
+    </operation>
+    <operation name="getGuest">
+      <documentation>Retrieve the computing instance that this network component exists on.</documentation>
+      <input message="tns:getGuest"/>
+      <output message="tns:getGuestResponse"/>
+    </operation>
+    <operation name="getHighAvailabilityFirewallFlag">
+      <documentation></documentation>
+      <input message="tns:getHighAvailabilityFirewallFlag"/>
+      <output message="tns:getHighAvailabilityFirewallFlagResponse"/>
+    </operation>
+    <operation name="getIpAddressBindings">
+      <documentation>Retrieve the records of all IP addresses bound to a computing instance's network component.</documentation>
+      <input message="tns:getIpAddressBindings"/>
+      <output message="tns:getIpAddressBindingsResponse"/>
+    </operation>
+    <operation name="getNetworkComponentFirewall">
+      <documentation>Retrieve the upstream network component firewall.</documentation>
+      <input message="tns:getNetworkComponentFirewall"/>
+      <output message="tns:getNetworkComponentFirewallResponse"/>
+    </operation>
+    <operation name="getNetworkVlan">
+      <documentation>Retrieve the VLAN that a computing instance network component's subnet is associated with.</documentation>
+      <input message="tns:getNetworkVlan"/>
+      <output message="tns:getNetworkVlanResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPrimaryIpAddress">
+      <documentation>Retrieve a computing instance network component's primary IP address.</documentation>
+      <input message="tns:getPrimaryIpAddress"/>
+      <output message="tns:getPrimaryIpAddressResponse"/>
+    </operation>
+    <operation name="getPrimaryIpAddressRecord">
+      <documentation></documentation>
+      <input message="tns:getPrimaryIpAddressRecord"/>
+      <output message="tns:getPrimaryIpAddressRecordResponse"/>
+    </operation>
+    <operation name="getPrimarySubnet">
+      <documentation>Retrieve a network component's subnet for its primary IP address</documentation>
+      <input message="tns:getPrimarySubnet"/>
+      <output message="tns:getPrimarySubnetResponse"/>
+    </operation>
+    <operation name="getPrimaryVersion6IpAddressRecord">
+      <documentation>Retrieve a network component's primary IPv6 IP address record.</documentation>
+      <input message="tns:getPrimaryVersion6IpAddressRecord"/>
+      <output message="tns:getPrimaryVersion6IpAddressRecordResponse"/>
+    </operation>
+    <operation name="getRouter">
+      <documentation>Retrieve a network component's routers.</documentation>
+      <input message="tns:getRouter"/>
+      <output message="tns:getRouterResponse"/>
+    </operation>
+    <operation name="getSubnets">
+      <documentation>Retrieve a network component's subnets. A subnet is a group of IP addresses</documentation>
+      <input message="tns:getSubnets"/>
+      <output message="tns:getSubnetsResponse"/>
+    </operation>
+    <operation name="isPingable">
+      <documentation>Issues a ping command and returns the success (true) or failure (false) of the ping command. </documentation>
+      <input message="tns:isPingable"/>
+      <output message="tns:isPingableResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Virtual_Guest_Network_ComponentBinding" type="tns:SoftLayer_Virtual_Guest_Network_ComponentPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="disable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="enable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHighAvailabilityFirewallFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getIpAddressBindings">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkComponentFirewall">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkVlan">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimaryIpAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimaryIpAddressRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimarySubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrimaryVersion6IpAddressRecord">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRouter">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectMaskHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilterHeader" part="SoftLayer_Virtual_Guest_Network_ComponentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="isPingable">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_ComponentAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Guest_Network_ComponentInitParametersHeader" part="SoftLayer_Virtual_Guest_Network_ComponentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Virtual_Guest_Network_ComponentService">
+    <port name="SoftLayer_Virtual_Guest_Network_ComponentPort" binding="tns:SoftLayer_Virtual_Guest_Network_ComponentBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Guest_Network_Component"/>
+    </port>
+  </service>
+</definitions>

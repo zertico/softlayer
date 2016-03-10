@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_Address?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_ContentDelivery_Authentication_AddressInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_ContentDelivery_Authentication_AddressObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_ContentDelivery_Authentication_Address"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_ContentDelivery_Authentication_AddressInitParametersHeader">
+    <part name="SoftLayer_Network_ContentDelivery_Authentication_AddressInitParameters" type="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_ContentDelivery_Authentication_Address"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Network_ContentDelivery_Authentication_Address"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_ContentDelivery_Authentication_Address"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_ContentDelivery_Authentication_Address"/>
+  </message>
+  <message name="rearrangeAuthenticationIp">
+    <part name="cdnAccountId" type="xsd:int"/>
+    <part name="templateObjects" type="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressArray"/>
+  </message>
+  <message name="rearrangeAuthenticationIpResponse">
+    <part name="rearrangeAuthenticationIpReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_ContentDelivery_Authentication_AddressObjectMaskHeader">
+    <part name="SoftLayer_Network_ContentDelivery_Authentication_AddressObjectMask" type="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_ContentDelivery_Authentication_AddressObjectFilterHeader">
+    <part name="SoftLayer_Network_ContentDelivery_Authentication_AddressObjectFilter" type="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_ContentDelivery_Authentication_AddressPortType">
+    <documentation>For more details on CDN's content authentication service, see [[SoftLayer_Network_ContentDelivery_Authentication_Token|Authentication Token]]. 
+
+You can restrict or grant access to your content by configuring an authentication IP address or an IP block. . This configuration will affect the entire secure content of your CDN account. Configuring an authentication IP Address does not mean all of your content will be secured. You must place your content in the right directories (/media/securehttp, /media/secureflash, /media/securewm) and you have to use an authentication token. Authentication IP address validation occurs before a token is validated. Consider authentication IP as an additional way to secure your content. You can have up to 20 IP address records. If you want to block access from IP 211.37.0.0/16, you can enter &amp;quot;211.37.&amp;quot; instead. IP blocks can be specified in the manner of &amp;quot;8bit times n&amp;quot;. 
+
+{| cellspacing=&amp;quot;5&amp;quot; style=&amp;quot;width: 40%; border: 0px; margin-left: auto; margin-right: auto; padding: 10px;&amp;quot; 
+|-
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''IP range'''
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''value you will pass to API'''
+|-
+|style=&amp;quot;background: #e7e7e7&amp;quot;|123.0.0.0/8
+|style=&amp;quot;background: #e7e7e7&amp;quot;|123.
+|-
+|style=&amp;quot;background: #f5f5f5&amp;quot;|123.123.0.0/16
+|style=&amp;quot;background: #f5f5f5&amp;quot;|123.123.
+|-
+|style=&amp;quot;background: #e7e7e7&amp;quot;|123.123.123.0/24
+|style=&amp;quot;background: #e7e7e7&amp;quot;|123.123.123.
+|-
+|style=&amp;quot;background: #e7e7e7&amp;quot;|123.123.123.123
+|style=&amp;quot;background: #e7e7e7&amp;quot;|123.123.123.123 (Allow or Deny a single IP)
+|-
+|}
+
+
+
+
+IP match starts from higher priority IP to lower and if there is a match, it will stop the process. 
+
+You can also set an authentication IP with an * (asterisk). This can be helpful if you want to deny all IP addresses. The example below shows that requests from 199.7.0.0/16 are allowed and requests from any other IP ranges are blocked. 
+
+{| cellspacing=&amp;quot;5&amp;quot; style=&amp;quot;width: 60%; border: 0px; margin-left: auto; margin-right: auto; padding: 10px;&amp;quot; 
+|-
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''Name'''
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''IP Address'''
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''Access Type'''
+|style=&amp;quot;background: #d2d2d2; padding: 10px; text-align: center;&amp;quot;|'''Priority'''
+|-
+|style=&amp;quot;background: #e7e7e7&amp;quot;|Allow from Netherlands
+|style=&amp;quot;background: #e7e7e7&amp;quot;|199.7.
+|style=&amp;quot;background: #e7e7e7&amp;quot;|ALLOW
+|style=&amp;quot;background: #e7e7e7&amp;quot;|10
+|-
+|style=&amp;quot;background: #e7e7e7&amp;quot;|Deny all
+|style=&amp;quot;background: #e7e7e7&amp;quot;|*
+|style=&amp;quot;background: #e7e7e7&amp;quot;|DENY
+|style=&amp;quot;background: #e7e7e7&amp;quot;|20
+|-
+|}</documentation>
+    <operation name="createObject">
+      <documentation>This method creates an authentication IP record.  Required parameters are 
+
+
+* cdnAccountId - A CDN account id that belongs to your SoftLayer Account
+* ipAddress - An IP address or a IP range
+* accessType- It can be &amp;quot;ALLOW&amp;quot; or &amp;quot;DENY&amp;quot;</documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>This method deletes an authentication IP address. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>This method let you edit an authentication IP object by passing a modified object. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Network_ContentDelivery_Authentication_Address object whose ID number corresponds to the ID number of the initial parameter passed to the SoftLayer_Network_ContentDelivery_Authentication_Address service. You can only retrieve authentication IP addresses assigned to one of your CDN account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="rearrangeAuthenticationIp">
+      <documentation>The authentication IP address match occurs from the higher priority IP to the lower. This method will be helpful if you want to modify the order (priority) of the authentication IP addresses. You can use this method instead of editing individual authentication IP addresses. 
+
+You can retrieve authentication IP address using [[SoftLayer_Network_ContentDelivery_Account::getAuthenticationIpAddresses|getAuthenticationIpAddresses]] method. Then, rearrange the authentication IP addresses and pass them to this method. When creating template objects as parameter, make sure to include the id of each authentication IP addresses. You must provide every authentication IP address.  New priorities will be assigned to each authentication IP addresses in the order of they are passed. </documentation>
+      <input message="tns:rearrangeAuthenticationIp"/>
+      <output message="tns:rearrangeAuthenticationIpResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_ContentDelivery_Authentication_AddressBinding" type="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_AddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressObjectMaskHeader" part="SoftLayer_Network_ContentDelivery_Authentication_AddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_AddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressInitParametersHeader" part="SoftLayer_Network_ContentDelivery_Authentication_AddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_AddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressInitParametersHeader" part="SoftLayer_Network_ContentDelivery_Authentication_AddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_AddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressObjectMaskHeader" part="SoftLayer_Network_ContentDelivery_Authentication_AddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressObjectFilterHeader" part="SoftLayer_Network_ContentDelivery_Authentication_AddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressInitParametersHeader" part="SoftLayer_Network_ContentDelivery_Authentication_AddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="rearrangeAuthenticationIp">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_AddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_ContentDelivery_Authentication_AddressService">
+    <port name="SoftLayer_Network_ContentDelivery_Authentication_AddressPort" binding="tns:SoftLayer_Network_ContentDelivery_Authentication_AddressBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_ContentDelivery_Authentication_Address"/>
+    </port>
+  </service>
+</definitions>

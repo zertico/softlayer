@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Currency_ExchangeRate?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Billing_Currency_ExchangeRateInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Billing_Currency_ExchangeRateObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Billing_Currency_ExchangeRate"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Billing_Currency_ExchangeRateInitParametersHeader">
+    <part name="SoftLayer_Billing_Currency_ExchangeRateInitParameters" type="tns:SoftLayer_Billing_Currency_ExchangeRateInitParameters"/>
+  </message>
+  <message name="getAllCurrencyExchangeRates">
+    <part name="stringDate" type="xsd:string"/>
+  </message>
+  <message name="getAllCurrencyExchangeRatesResponse">
+    <part name="getAllCurrencyExchangeRatesReturn" type="tns:SoftLayer_Billing_Currency_ExchangeRateArray"/>
+  </message>
+  <message name="getCurrencies"/>
+  <message name="getCurrenciesResponse">
+    <part name="getCurrenciesReturn" type="tns:SoftLayer_Billing_CurrencyArray"/>
+  </message>
+  <message name="getExchangeRate">
+    <part name="to" type="xsd:string"/>
+    <part name="from" type="xsd:string"/>
+    <part name="effectiveDate" type="xsd:dateTime"/>
+  </message>
+  <message name="getExchangeRateResponse">
+    <part name="getExchangeRateReturn" type="tns:SoftLayer_Billing_Currency_ExchangeRate"/>
+  </message>
+  <message name="getFundingCurrency"/>
+  <message name="getFundingCurrencyResponse">
+    <part name="getFundingCurrencyReturn" type="tns:SoftLayer_Billing_Currency"/>
+  </message>
+  <message name="getLocalCurrency"/>
+  <message name="getLocalCurrencyResponse">
+    <part name="getLocalCurrencyReturn" type="tns:SoftLayer_Billing_Currency"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Billing_Currency_ExchangeRate"/>
+  </message>
+  <message name="getPrice">
+    <part name="price" type="xsd:float"/>
+    <part name="formatOptions" type="tns:SoftLayer_Container_Billing_Currency_Format"/>
+  </message>
+  <message name="getPriceResponse">
+    <part name="getPriceReturn" type="xsd:string"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Billing_Currency_ExchangeRateObjectMaskHeader">
+    <part name="SoftLayer_Billing_Currency_ExchangeRateObjectMask" type="tns:SoftLayer_Billing_Currency_ExchangeRateObjectMask"/>
+  </message>
+  <message name="SoftLayer_Billing_Currency_ExchangeRateObjectFilterHeader">
+    <part name="SoftLayer_Billing_Currency_ExchangeRateObjectFilter" type="tns:SoftLayer_Billing_Currency_ExchangeRateObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Billing_Currency_ExchangeRatePortType">
+    <documentation></documentation>
+    <operation name="getAllCurrencyExchangeRates">
+      <documentation></documentation>
+      <input message="tns:getAllCurrencyExchangeRates"/>
+      <output message="tns:getAllCurrencyExchangeRatesResponse"/>
+    </operation>
+    <operation name="getCurrencies">
+      <documentation></documentation>
+      <input message="tns:getCurrencies"/>
+      <output message="tns:getCurrenciesResponse"/>
+    </operation>
+    <operation name="getExchangeRate">
+      <documentation></documentation>
+      <input message="tns:getExchangeRate"/>
+      <output message="tns:getExchangeRateResponse"/>
+    </operation>
+    <operation name="getFundingCurrency">
+      <documentation></documentation>
+      <input message="tns:getFundingCurrency"/>
+      <output message="tns:getFundingCurrencyResponse"/>
+    </operation>
+    <operation name="getLocalCurrency">
+      <documentation></documentation>
+      <input message="tns:getLocalCurrency"/>
+      <output message="tns:getLocalCurrencyResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPrice">
+      <documentation></documentation>
+      <input message="tns:getPrice"/>
+      <output message="tns:getPriceResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Billing_Currency_ExchangeRateBinding" type="tns:SoftLayer_Billing_Currency_ExchangeRatePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllCurrencyExchangeRates">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Currency_ExchangeRateAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateInitParametersHeader" part="SoftLayer_Billing_Currency_ExchangeRateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateObjectMaskHeader" part="SoftLayer_Billing_Currency_ExchangeRateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCurrencies">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Currency_ExchangeRateAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateObjectMaskHeader" part="SoftLayer_Billing_Currency_ExchangeRateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getExchangeRate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Currency_ExchangeRateAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateObjectMaskHeader" part="SoftLayer_Billing_Currency_ExchangeRateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFundingCurrency">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Currency_ExchangeRateAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateObjectMaskHeader" part="SoftLayer_Billing_Currency_ExchangeRateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateObjectFilterHeader" part="SoftLayer_Billing_Currency_ExchangeRateObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateInitParametersHeader" part="SoftLayer_Billing_Currency_ExchangeRateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLocalCurrency">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Currency_ExchangeRateAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateObjectMaskHeader" part="SoftLayer_Billing_Currency_ExchangeRateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateObjectFilterHeader" part="SoftLayer_Billing_Currency_ExchangeRateObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateInitParametersHeader" part="SoftLayer_Billing_Currency_ExchangeRateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Currency_ExchangeRateAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateObjectMaskHeader" part="SoftLayer_Billing_Currency_ExchangeRateObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateObjectFilterHeader" part="SoftLayer_Billing_Currency_ExchangeRateObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateInitParametersHeader" part="SoftLayer_Billing_Currency_ExchangeRateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrice">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Currency_ExchangeRateAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Currency_ExchangeRateInitParametersHeader" part="SoftLayer_Billing_Currency_ExchangeRateInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Billing_Currency_ExchangeRateService">
+    <port name="SoftLayer_Billing_Currency_ExchangeRatePort" binding="tns:SoftLayer_Billing_Currency_ExchangeRateBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Currency_ExchangeRate"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_Object?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Metric_Tracking_ObjectInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Metric_Tracking_ObjectObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Metric_Tracking_Object"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Metric_Tracking_ObjectInitParametersHeader">
+    <part name="SoftLayer_Metric_Tracking_ObjectInitParameters" type="tns:SoftLayer_Metric_Tracking_ObjectInitParameters"/>
+  </message>
+  <message name="getBackboneBandwidthGraph">
+    <part name="graphTitle" type="xsd:string"/>
+  </message>
+  <message name="getBackboneBandwidthGraphResponse">
+    <part name="getBackboneBandwidthGraphReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>
+  </message>
+  <message name="getBandwidthData">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+    <part name="type" type="xsd:string"/>
+    <part name="rollupSeconds" type="xsd:int"/>
+  </message>
+  <message name="getBandwidthDataResponse">
+    <part name="getBandwidthDataReturn" type="tns:SoftLayer_Metric_Tracking_Object_DataArray"/>
+  </message>
+  <message name="getBandwidthGraph">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+    <part name="graphType" type="xsd:string"/>
+    <part name="fontSize" type="xsd:int"/>
+    <part name="graphWidth" type="xsd:int"/>
+    <part name="graphHeight" type="xsd:int"/>
+    <part name="doNotShowTimeZone" type="xsd:boolean"/>
+  </message>
+  <message name="getBandwidthGraphResponse">
+    <part name="getBandwidthGraphReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>
+  </message>
+  <message name="getBandwidthTotal">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+    <part name="direction" type="xsd:string"/>
+    <part name="type" type="xsd:string"/>
+  </message>
+  <message name="getBandwidthTotalResponse">
+    <part name="getBandwidthTotalReturn" type="xsd:unsignedLong"/>
+  </message>
+  <message name="getCustomGraphData">
+    <part name="graphContainer" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getCustomGraphDataResponse">
+    <part name="getCustomGraphDataReturn" type="tns:SoftLayer_Container_Graph"/>
+  </message>
+  <message name="getDetailsForDateRange">
+    <part name="startDate" type="xsd:dateTime"/>
+    <part name="endDate" type="xsd:dateTime"/>
+    <part name="graphType" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getDetailsForDateRangeResponse">
+    <part name="getDetailsForDateRangeReturn" type="tns:SoftLayer_Container_Metric_Tracking_Object_DetailsArray"/>
+  </message>
+  <message name="getGraph">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+    <part name="graphType" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="getGraphResponse">
+    <part name="getGraphReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>
+  </message>
+  <message name="getMetricDataTypes"/>
+  <message name="getMetricDataTypesResponse">
+    <part name="getMetricDataTypesReturn" type="tns:SoftLayer_Container_Metric_Data_TypeArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Metric_Tracking_Object"/>
+  </message>
+  <message name="getSummary">
+    <part name="graphType" type="xsd:string"/>
+  </message>
+  <message name="getSummaryResponse">
+    <part name="getSummaryReturn" type="tns:SoftLayer_Container_Metric_Tracking_Object_Summary"/>
+  </message>
+  <message name="getSummaryData">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+    <part name="validTypes" type="tns:SoftLayer_Container_Metric_Data_TypeArray"/>
+    <part name="summaryPeriod" type="xsd:int"/>
+  </message>
+  <message name="getSummaryDataResponse">
+    <part name="getSummaryDataReturn" type="tns:SoftLayer_Metric_Tracking_Object_DataArray"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_Metric_Tracking_Object_Type"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Metric_Tracking_ObjectObjectMaskHeader">
+    <part name="SoftLayer_Metric_Tracking_ObjectObjectMask" type="tns:SoftLayer_Metric_Tracking_ObjectObjectMask"/>
+  </message>
+  <message name="SoftLayer_Metric_Tracking_ObjectObjectFilterHeader">
+    <part name="SoftLayer_Metric_Tracking_ObjectObjectFilter" type="tns:SoftLayer_Metric_Tracking_ObjectObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Metric_Tracking_ObjectPortType">
+    <documentation>Metric tracking objects provides a common interface to all metrics provided by SoftLayer. These metrics range from network component traffic for a server to aggregated Bandwidth Pooling traffic and more. Every object within SoftLayer's range of objects that has data that can be tracked over time has an associated tracking object. 
+
+The SoftLayer_Metric_Tracking_Object service contains methods that allow users to retrieve data from these tracking objects in raw and graph form. </documentation>
+    <operation name="getBackboneBandwidthGraph">
+      <documentation>Retrieve a PNG image of the last 24 hours of bandwidth usage of one of SoftLayer's network backbones. </documentation>
+      <input message="tns:getBackboneBandwidthGraph"/>
+      <output message="tns:getBackboneBandwidthGraphResponse"/>
+    </operation>
+    <operation name="getBandwidthData">
+      <documentation>Retrieve a collection of raw bandwidth data from an individual public or private network tracking object. Raw data is ideal if you with to employ your own traffic storage and graphing systems. </documentation>
+      <input message="tns:getBandwidthData"/>
+      <output message="tns:getBandwidthDataResponse"/>
+    </operation>
+    <operation name="getBandwidthGraph">
+      <documentation>Retrieve a PNG image of a bandwidth graph representing the bandwidth usage over time recorded by SofTLayer's bandwidth pollers. </documentation>
+      <input message="tns:getBandwidthGraph"/>
+      <output message="tns:getBandwidthGraphResponse"/>
+    </operation>
+    <operation name="getBandwidthTotal">
+      <documentation>Retrieve the total amount of bandwidth recorded by a tracking object within the given date range. This method will only work on SoftLayer_Metric_Tracking_Object for SoftLayer_Hardware objects, and SoftLayer_Virtual_Guest objects. </documentation>
+      <input message="tns:getBandwidthTotal"/>
+      <output message="tns:getBandwidthTotalResponse"/>
+    </operation>
+    <operation name="getCustomGraphData">
+      <documentation>Returns a graph container instance that is populated with metric data for the tracking object. </documentation>
+      <input message="tns:getCustomGraphData"/>
+      <output message="tns:getCustomGraphDataResponse"/>
+    </operation>
+    <operation name="getDetailsForDateRange">
+      <documentation>Retrieve a collection of detailed metric data over a date range. Ideal if you want to employ your own graphing systems.  Note not all metrics support this method.  Those that do not return null. </documentation>
+      <input message="tns:getDetailsForDateRange"/>
+      <output message="tns:getDetailsForDateRangeResponse"/>
+    </operation>
+    <operation name="getGraph">
+      <documentation>Retrieve a PNG image of a metric in graph form. </documentation>
+      <input message="tns:getGraph"/>
+      <output message="tns:getGraphResponse"/>
+    </operation>
+    <operation name="getMetricDataTypes">
+      <documentation>Returns a collection of metric data types that can be retrieved for a metric tracking object. </documentation>
+      <input message="tns:getMetricDataTypes"/>
+      <output message="tns:getMetricDataTypesResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>&amp;lt;&amp;lt;&amp;lt;EOT</documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getSummary">
+      <documentation>Retrieve a metric summary. Ideal if you want to employ your own graphing systems.  Note not all metric types contain a summary.  These return null. </documentation>
+      <input message="tns:getSummary"/>
+      <output message="tns:getSummaryResponse"/>
+    </operation>
+    <operation name="getSummaryData">
+      <documentation>Returns summarized metric data for the date range, metric type and summary period provided. </documentation>
+      <input message="tns:getSummaryData"/>
+      <output message="tns:getSummaryDataResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve the type of data that a tracking object polls.</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Metric_Tracking_ObjectBinding" type="tns:SoftLayer_Metric_Tracking_ObjectPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getBackboneBandwidthGraph">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBandwidthData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBandwidthGraph">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBandwidthTotal">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCustomGraphData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDetailsForDateRange">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGraph">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMetricDataTypes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectObjectMaskHeader" part="SoftLayer_Metric_Tracking_ObjectObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectObjectFilterHeader" part="SoftLayer_Metric_Tracking_ObjectObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSummary">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSummaryData">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_ObjectAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectObjectMaskHeader" part="SoftLayer_Metric_Tracking_ObjectObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectObjectFilterHeader" part="SoftLayer_Metric_Tracking_ObjectObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Metric_Tracking_ObjectInitParametersHeader" part="SoftLayer_Metric_Tracking_ObjectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Metric_Tracking_ObjectService">
+    <port name="SoftLayer_Metric_Tracking_ObjectPort" binding="tns:SoftLayer_Metric_Tracking_ObjectBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Metric_Tracking_Object"/>
+    </port>
+  </service>
+</definitions>

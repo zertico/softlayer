@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Update_Request_Rule?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Firewall_Update_Request_RuleInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Firewall_Update_Request_RuleObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Firewall_Update_Request_Rule"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Firewall_Update_Request_RuleInitParametersHeader">
+    <part name="SoftLayer_Network_Firewall_Update_Request_RuleInitParameters" type="tns:SoftLayer_Network_Firewall_Update_Request_RuleInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Firewall_Update_Request_Rule"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Network_Firewall_Update_Request_Rule"/>
+  </message>
+  <message name="getFirewallUpdateRequest"/>
+  <message name="getFirewallUpdateRequestResponse">
+    <part name="getFirewallUpdateRequestReturn" type="tns:SoftLayer_Network_Firewall_Update_Request"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Firewall_Update_Request_Rule"/>
+  </message>
+  <message name="validateRule">
+    <part name="rule" type="tns:SoftLayer_Network_Firewall_Update_Request_Rule"/>
+    <part name="applyToComponentId" type="xsd:int"/>
+    <part name="applyToAclId" type="xsd:int"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Firewall_Update_Request_RuleObjectMaskHeader">
+    <part name="SoftLayer_Network_Firewall_Update_Request_RuleObjectMask" type="tns:SoftLayer_Network_Firewall_Update_Request_RuleObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Firewall_Update_Request_RuleObjectFilterHeader">
+    <part name="SoftLayer_Network_Firewall_Update_Request_RuleObjectFilter" type="tns:SoftLayer_Network_Firewall_Update_Request_RuleObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Firewall_Update_Request_RulePortType">
+    <documentation>The SoftLayer_Network_Firewall_Update_Request_Rule service accesses information relating to a SoftLayer network firewall update request rule. This rule is a member of a [[SoftLayer Network Firewall Update Request]]. Use the [[SoftLayer Network Component Firewall]] service to view current rules. Use the [[SoftLayer Network Firewall Template]] service to pull SoftLayer recommended rule set templates. </documentation>
+    <operation name="createObject">
+      <documentation>Create a new firewall update request. The SoftLayer_Network_Firewall_Update_Request object passed to this function must have at least one rule. 
+
+''createObject'' returns a Boolean ''true'' on successful object creation or ''false'' if your firewall update request was unable to be created.. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="getFirewallUpdateRequest">
+      <documentation>Retrieve the update request that this rule belongs to.</documentation>
+      <input message="tns:getFirewallUpdateRequest"/>
+      <output message="tns:getFirewallUpdateRequestResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject returns a SoftLayer_Network_Firewall_Update_Request_Rule object. You can only get historical objects for servers attached to your account that have a network firewall enabled. createObject inserts a new SoftLayer_Network_Firewall_Update_Request_Rule object. Use the SoftLayer_Network_Firewall_Update_Request to create groups of rules for an update request. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="validateRule">
+      <documentation>Validate the supplied firewall request rule against the object it will apply to. For IPv4 rules, pass in an instance of SoftLayer_Network_Firewall_Update_Request_Rule. for IPv6 rules, pass in an instance of SoftLayer_Network_Firewall_Update_Request_Rule_Version6. The ID of the applied to object can either be applyToComponentId (an ID of a SoftLayer_Network_Component_Firewall) or applyToAclId (an ID of a SoftLayer_Network_Firewall_Module_Context_Interface_AccessControlList). One, and only one, of applyToComponentId and applyToAclId can be specified. 
+
+If validation is successful, nothing is returned. If validation is unsuccessful, an exception is thrown explaining the nature of the validation error. </documentation>
+      <input message="tns:validateRule"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Firewall_Update_Request_RuleBinding" type="tns:SoftLayer_Network_Firewall_Update_Request_RulePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Update_Request_RuleAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Update_Request_RuleObjectMaskHeader" part="SoftLayer_Network_Firewall_Update_Request_RuleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFirewallUpdateRequest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Update_Request_RuleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Update_Request_RuleObjectMaskHeader" part="SoftLayer_Network_Firewall_Update_Request_RuleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Update_Request_RuleObjectFilterHeader" part="SoftLayer_Network_Firewall_Update_Request_RuleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Update_Request_RuleInitParametersHeader" part="SoftLayer_Network_Firewall_Update_Request_RuleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Update_Request_RuleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Update_Request_RuleObjectMaskHeader" part="SoftLayer_Network_Firewall_Update_Request_RuleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Update_Request_RuleObjectFilterHeader" part="SoftLayer_Network_Firewall_Update_Request_RuleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Firewall_Update_Request_RuleInitParametersHeader" part="SoftLayer_Network_Firewall_Update_Request_RuleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="validateRule">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Update_Request_RuleAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Firewall_Update_Request_RuleService">
+    <port name="SoftLayer_Network_Firewall_Update_Request_RulePort" binding="tns:SoftLayer_Network_Firewall_Update_Request_RuleBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Firewall_Update_Request_Rule"/>
+    </port>
+  </service>
+</definitions>

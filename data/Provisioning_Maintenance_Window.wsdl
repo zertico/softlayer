@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_Window?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Provisioning_Maintenance_WindowObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Provisioning_Maintenance_Window"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Provisioning_Maintenance_WindowInitParametersHeader">
+    <part name="SoftLayer_Provisioning_Maintenance_WindowInitParameters" type="tns:SoftLayer_Provisioning_Maintenance_WindowInitParameters"/>
+  </message>
+  <message name="addCustomerUpgradeWindow">
+    <part name="customerUpgradeWindow" type="tns:SoftLayer_Container_Provisioning_Maintenance_Window"/>
+  </message>
+  <message name="addCustomerUpgradeWindowResponse">
+    <part name="addCustomerUpgradeWindowReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getMaintenanceClassifications"/>
+  <message name="getMaintenanceClassificationsResponse">
+    <part name="getMaintenanceClassificationsReturn" type="tns:SoftLayer_Provisioning_Maintenance_ClassificationArray"/>
+  </message>
+  <message name="getMaintenanceStartEndTime">
+    <part name="ticketId" type="xsd:int"/>
+  </message>
+  <message name="getMaintenanceStartEndTimeResponse">
+    <part name="getMaintenanceStartEndTimeReturn" type="tns:SoftLayer_Provisioning_Maintenance_Window"/>
+  </message>
+  <message name="getMaintenanceWindowForTicket">
+    <part name="maintenanceWindowId" type="xsd:int"/>
+  </message>
+  <message name="getMaintenanceWindowForTicketResponse">
+    <part name="getMaintenanceWindowForTicketReturn" type="tns:SoftLayer_Provisioning_Maintenance_WindowArray"/>
+  </message>
+  <message name="getMaintenanceWindowTicketsByTicketId">
+    <part name="ticketId" type="xsd:int"/>
+  </message>
+  <message name="getMaintenanceWindowTicketsByTicketIdResponse">
+    <part name="getMaintenanceWindowTicketsByTicketIdReturn" type="tns:SoftLayer_Provisioning_Maintenance_TicketArray"/>
+  </message>
+  <message name="getMaintenanceWindows">
+    <part name="beginDate" type="xsd:dateTime"/>
+    <part name="endDate" type="xsd:dateTime"/>
+    <part name="locationId" type="xsd:int"/>
+    <part name="slotsNeeded" type="xsd:int"/>
+  </message>
+  <message name="getMaintenanceWindowsResponse">
+    <part name="getMaintenanceWindowsReturn" type="tns:SoftLayer_Provisioning_Maintenance_WindowArray"/>
+  </message>
+  <message name="getMaintenceWindows">
+    <part name="beginDate" type="xsd:dateTime"/>
+    <part name="endDate" type="xsd:dateTime"/>
+    <part name="locationId" type="xsd:int"/>
+    <part name="slotsNeeded" type="xsd:int"/>
+  </message>
+  <message name="getMaintenceWindowsResponse">
+    <part name="getMaintenceWindowsReturn" type="tns:SoftLayer_Provisioning_Maintenance_WindowArray"/>
+  </message>
+  <message name="updateCustomerUpgradeWindow">
+    <part name="maintenanceStartTime" type="xsd:dateTime"/>
+    <part name="newMaintenanceWindowId" type="xsd:int"/>
+    <part name="ticketId" type="xsd:int"/>
+  </message>
+  <message name="updateCustomerUpgradeWindowResponse">
+    <part name="updateCustomerUpgradeWindowReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Provisioning_Maintenance_WindowObjectMaskHeader">
+    <part name="SoftLayer_Provisioning_Maintenance_WindowObjectMask" type="tns:SoftLayer_Provisioning_Maintenance_WindowObjectMask"/>
+  </message>
+  <message name="SoftLayer_Provisioning_Maintenance_WindowObjectFilterHeader">
+    <part name="SoftLayer_Provisioning_Maintenance_WindowObjectFilter" type="tns:SoftLayer_Provisioning_Maintenance_WindowObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Provisioning_Maintenance_WindowPortType">
+    <documentation>The SoftLayer_Provisioning_Maintenance_Window service returns available maintenance windows at SoftLayer data centers. </documentation>
+    <operation name="addCustomerUpgradeWindow">
+      <documentation>getMaintenceWindowForTicket() returns a boolean </documentation>
+      <input message="tns:addCustomerUpgradeWindow"/>
+      <output message="tns:addCustomerUpgradeWindowResponse"/>
+    </operation>
+    <operation name="getMaintenanceClassifications">
+      <documentation>getMaintenanceClassifications() returns an object of maintenance classifications </documentation>
+      <input message="tns:getMaintenanceClassifications"/>
+      <output message="tns:getMaintenanceClassificationsResponse"/>
+    </operation>
+    <operation name="getMaintenanceStartEndTime">
+      <documentation>getMaintenanceStartEndTime() returns a specific maintenance window </documentation>
+      <input message="tns:getMaintenanceStartEndTime"/>
+      <output message="tns:getMaintenanceStartEndTimeResponse"/>
+    </operation>
+    <operation name="getMaintenanceWindowForTicket">
+      <documentation>getMaintenceWindowForTicket() returns a specific maintenance window </documentation>
+      <input message="tns:getMaintenanceWindowForTicket"/>
+      <output message="tns:getMaintenanceWindowForTicketResponse"/>
+    </operation>
+    <operation name="getMaintenanceWindowTicketsByTicketId">
+      <documentation>getMaintenanceWindowTicketsByTicketId() returns a list maintenance window ticket records by ticket id </documentation>
+      <input message="tns:getMaintenanceWindowTicketsByTicketId"/>
+      <output message="tns:getMaintenanceWindowTicketsByTicketIdResponse"/>
+    </operation>
+    <operation name="getMaintenanceWindows">
+      <documentation>This method returns a list of available maintenance windows </documentation>
+      <input message="tns:getMaintenanceWindows"/>
+      <output message="tns:getMaintenanceWindowsResponse"/>
+    </operation>
+    <operation name="getMaintenceWindows">
+      <documentation>(DEPRECATED) Use [[SoftLayer_Provisioning_Maintenance_Window::getMaintenanceWindows|getMaintenanceWindows]] method. </documentation>
+      <input message="tns:getMaintenceWindows"/>
+      <output message="tns:getMaintenceWindowsResponse"/>
+    </operation>
+    <operation name="updateCustomerUpgradeWindow">
+      <documentation>getMaintenceWindowForTicket() returns a boolean </documentation>
+      <input message="tns:updateCustomerUpgradeWindow"/>
+      <output message="tns:updateCustomerUpgradeWindowResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Provisioning_Maintenance_WindowBinding" type="tns:SoftLayer_Provisioning_Maintenance_WindowPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addCustomerUpgradeWindow">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_WindowAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMaintenanceClassifications">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_WindowAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_WindowObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_WindowObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMaintenanceStartEndTime">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_WindowAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_WindowObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_WindowObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMaintenanceWindowForTicket">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_WindowAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_WindowObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_WindowObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMaintenanceWindowTicketsByTicketId">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_WindowAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_WindowObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_WindowObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMaintenanceWindows">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_WindowAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_WindowObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_WindowObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMaintenceWindows">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_WindowAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Provisioning_Maintenance_WindowObjectMaskHeader" part="SoftLayer_Provisioning_Maintenance_WindowObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateCustomerUpgradeWindow">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_WindowAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Provisioning_Maintenance_WindowService">
+    <port name="SoftLayer_Provisioning_Maintenance_WindowPort" binding="tns:SoftLayer_Provisioning_Maintenance_WindowBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Provisioning_Maintenance_Window"/>
+    </port>
+  </service>
+</definitions>

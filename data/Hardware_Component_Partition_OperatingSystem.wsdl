@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_OperatingSystem?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Hardware_Component_Partition_OperatingSystemInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Hardware_Component_Partition_OperatingSystem"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Hardware_Component_Partition_OperatingSystemInitParametersHeader">
+    <part name="SoftLayer_Hardware_Component_Partition_OperatingSystemInitParameters" type="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemInitParameters"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemArray"/>
+  </message>
+  <message name="getByDescription">
+    <part name="description" type="xsd:string"/>
+  </message>
+  <message name="getByDescriptionResponse">
+    <part name="getByDescriptionReturn" type="tns:SoftLayer_Hardware_Component_Partition_OperatingSystem"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Hardware_Component_Partition_OperatingSystem"/>
+  </message>
+  <message name="getPartitionTemplates"/>
+  <message name="getPartitionTemplatesResponse">
+    <part name="getPartitionTemplatesReturn" type="tns:SoftLayer_Hardware_Component_Partition_TemplateArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMaskHeader">
+    <part name="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMask" type="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMask"/>
+  </message>
+  <message name="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectFilterHeader">
+    <part name="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectFilter" type="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Hardware_Component_Partition_OperatingSystemPortType">
+    <documentation>Every SoftLayer Operating System Partition Template is defined in the '''SoftLayer_Hardware_Component_Partition_OperatingSystem''' service. SoftLayer Operating System Partition Templates indicate which operating system a partition template may be used with to configure a hard drive. </documentation>
+    <operation name="getAllObjects">
+      <documentation></documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getByDescription">
+      <documentation>The '''getByDescription''' method retrieves all possible partition templates based on the description (required parameter) entered when calling the method. The description is typically the operating system's name. Current recognized values include 'linux', 'windows', 'freebsd', and 'Debian'. </documentation>
+      <input message="tns:getByDescription"/>
+      <output message="tns:getByDescriptionResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Hardware_Component_Partition_OperatingSystem object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Hardware_Component_Partition_OperatingSystem service.s </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPartitionTemplates">
+      <documentation>Retrieve information regarding an operating system's [[SoftLayer_Hardware_Component_Partition_Template|Partition Templates]].</documentation>
+      <input message="tns:getPartitionTemplates"/>
+      <output message="tns:getPartitionTemplatesResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Hardware_Component_Partition_OperatingSystemBinding" type="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_OperatingSystemAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getByDescription">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_OperatingSystemAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_OperatingSystemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemObjectFilterHeader" part="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemInitParametersHeader" part="SoftLayer_Hardware_Component_Partition_OperatingSystemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPartitionTemplates">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_OperatingSystemAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMaskHeader" part="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemObjectFilterHeader" part="SoftLayer_Hardware_Component_Partition_OperatingSystemObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemInitParametersHeader" part="SoftLayer_Hardware_Component_Partition_OperatingSystemInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Hardware_Component_Partition_OperatingSystemService">
+    <port name="SoftLayer_Hardware_Component_Partition_OperatingSystemPort" binding="tns:SoftLayer_Hardware_Component_Partition_OperatingSystemBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Hardware_Component_Partition_OperatingSystem"/>
+    </port>
+  </service>
+</definitions>

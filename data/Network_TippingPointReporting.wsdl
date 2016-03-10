@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_TippingPointReporting?xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="drillDownAttack">
+    <part name="signatureId" type="xsd:string"/>
+    <part name="IpAddress" type="xsd:string"/>
+    <part name="subnetMask" type="xsd:int"/>
+    <part name="timeFrame" type="xsd:int"/>
+    <part name="direction" type="xsd:string"/>
+  </message>
+  <message name="drillDownAttackResponse">
+    <part name="drillDownAttackReturn" type="tns:SoftLayer_Container_Network_IntrusionProtection_SubnetReport"/>
+  </message>
+  <message name="getMainStatistics">
+    <part name="numberOfAttacks" type="xsd:int"/>
+  </message>
+  <message name="getMainStatisticsResponse">
+    <part name="getMainStatisticsReturn" type="tns:SoftLayer_Container_Network_IntrusionProtection_StatisticsArray"/>
+  </message>
+  <message name="getReportForIpAddressOrSubnet">
+    <part name="IpAddress" type="xsd:string"/>
+    <part name="subnetMask" type="xsd:int"/>
+    <part name="timeFrame" type="xsd:int"/>
+    <part name="orderBy" type="xsd:string"/>
+    <part name="orderDirection" type="xsd:string"/>
+  </message>
+  <message name="getReportForIpAddressOrSubnetResponse">
+    <part name="getReportForIpAddressOrSubnetReturn" type="tns:SoftLayer_Container_Network_IntrusionProtection_SubnetReportArray"/>
+  </message>
+  <message name="getSubnetReportForEntireAccount">
+    <part name="timeFrame" type="xsd:int"/>
+    <part name="orderBy" type="xsd:string"/>
+    <part name="orderDirection" type="xsd:string"/>
+    <part name="returnSubnetGroups" type="xsd:boolean"/>
+  </message>
+  <message name="getSubnetReportForEntireAccountResponse">
+    <part name="getSubnetReportForEntireAccountReturn" type="tns:SoftLayer_Container_Network_IntrusionProtection_SubnetReportArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_TippingPointReportingPortType">
+    <documentation>This general purpose class is used to retrieve intrusion protection statistics from the tipping point hardware located on the softlayer network. 
+
+Every customer has access to the global intrusion protection statistics, as well as the detailed statistics for that user's account. 
+
+No actions can be taken using this system, it is for statistical reporting purposes only. If an attacking IP is identified using this system, please use the firewall system to take any actions that are appropriate. 
+
+This system reports attacks on all SoftLayer data centers. </documentation>
+    <operation name="drillDownAttack">
+      <documentation>This method, when given an attack signature ID (available in the return values of getReportForIpAddressOrSubnet and  getSubnetReportForEntireAccount) and an IP Address and subnet mask, returns all attacks for that subnet in the specified time frame and direction.  Once the results have been filtered, additional data is available, including starting and ending times for the attack, originating IP address and port, and destination IP address and port. 
+
+CVE and Bugtraq information is not available at this level. </documentation>
+      <input message="tns:drillDownAttack"/>
+      <output message="tns:drillDownAttackResponse"/>
+    </operation>
+    <operation name="getMainStatistics">
+      <documentation>This method returns the attack statistics for the current user's account and for the entire SoftLayer network.  These attacks are recorded and monitored at the entry point to the network, and represent attacks in both directions. 
+
+The data returned is: 
+* Top attacks (by attack name) on datacenter Dal01 in the last hour (and last 24 hours)
+* Top attacks (by attack name) on IPs you own in the last hour (and last 24 hours)
+* Top IPs attacking IPs you own in the last hour (and last 24 hours)
+Each one of these lists can contain any number of items, the default is 5.  The usable limit is less than 10, but setting the limit to an abnormally high value will effectively return all records. 
+
+The data is returned as a collection of SoftLayer_Container_Network_IntrusionProtection_Statistics objects. </documentation>
+      <input message="tns:getMainStatistics"/>
+      <output message="tns:getMainStatisticsResponse"/>
+    </operation>
+    <operation name="getReportForIpAddressOrSubnet">
+      <documentation>This method expands on the getSubnetReportForEntireAccount method by offering the ability to filter by subnet or IP address. This method is identical to getSubnetReportForEntireAccount, but allows filtering by subnet.  Like in the getSubnetReportForEntireAccount method, CVE and BugTraq IDs are provided, if available. 
+
+This method should be called once an attack has been identified using getSubnetReportForEntireAccount (in which case &amp;quot;All Subnets&amp;quot; is the subnet) or getReportForIpAddressOrSubnet. </documentation>
+      <input message="tns:getReportForIpAddressOrSubnet"/>
+      <output message="tns:getReportForIpAddressOrSubnetResponse"/>
+    </operation>
+    <operation name="getSubnetReportForEntireAccount">
+      <documentation>This method returns specific attacks by name for all subnets on the current user's account. 
+
+The data returned is stored in SoftLayer_Container_Network_IntrusionProtection_SubnetReport objects, with the &amp;quot;subnet&amp;quot; value set to &amp;quot;All Subnets&amp;quot; 
+
+The data is separated into &amp;quot;Inbound&amp;quot; and &amp;quot;Outbound&amp;quot; traffic.  A significant amount of outbound attack traffic could indicate that your servers have been compromised. 
+
+The data returned includes Attack Count, attack name, extended attack description, and IDs that correspond with the BugTraq or CVE databases. BugTraq can be accessed at [http://www.securityfocus.com/vulnerabilities] The CVE database is located at [http://cve.mitre.org/find/index.html] 
+
+For more detailed information, use the getReportForIpAddressOrSubnet method </documentation>
+      <input message="tns:getSubnetReportForEntireAccount"/>
+      <output message="tns:getSubnetReportForEntireAccountResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_TippingPointReportingBinding" type="tns:SoftLayer_Network_TippingPointReportingPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="drillDownAttack">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_TippingPointReportingAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMainStatistics">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_TippingPointReportingAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getReportForIpAddressOrSubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_TippingPointReportingAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnetReportForEntireAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_TippingPointReportingAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_TippingPointReportingService">
+    <port name="SoftLayer_Network_TippingPointReportingPort" binding="tns:SoftLayer_Network_TippingPointReportingBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_TippingPointReporting"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,12 @@
+---
+Softlayer::Container::Virtual::Guest::Configuration::Option:
+  <% 70.times do |n| %>
+  <%= "config_option#{n}" %>:
+    relationships:
+      item_price:
+        type: Softlayer::Product::Item::Price
+        id: itemprice1
+      template:
+        type: Softlayer::Virtual::Guest
+        id: guest1
+  <% end %>

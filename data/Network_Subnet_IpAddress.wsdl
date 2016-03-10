@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddress?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Network_Subnet_IpAddressInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Network_Subnet_IpAddressObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Network_Subnet_IpAddressInitParametersHeader">
+    <part name="SoftLayer_Network_Subnet_IpAddressInitParameters" type="tns:SoftLayer_Network_Subnet_IpAddressInitParameters"/>
+  </message>
+  <message name="allowAccessToNetworkStorage">
+    <part name="networkStorageTemplateObject" type="tns:SoftLayer_Network_Storage"/>
+  </message>
+  <message name="allowAccessToNetworkStorageResponse">
+    <part name="allowAccessToNetworkStorageReturn" type="xsd:boolean"/>
+  </message>
+  <message name="allowAccessToNetworkStorageList">
+    <part name="networkStorageTemplateObjects" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="allowAccessToNetworkStorageListResponse">
+    <part name="allowAccessToNetworkStorageListReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Network_Subnet_IpAddressArray"/>
+  </message>
+  <message name="editObjectsResponse">
+    <part name="editObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="findByIpv4Address">
+    <part name="ipAddress" type="xsd:string"/>
+  </message>
+  <message name="findByIpv4AddressResponse">
+    <part name="findByIpv4AddressReturn" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+  </message>
+  <message name="getAllowedHost"/>
+  <message name="getAllowedHostResponse">
+    <part name="getAllowedHostReturn" type="tns:SoftLayer_Network_Storage_Allowed_Host"/>
+  </message>
+  <message name="getAllowedNetworkStorage"/>
+  <message name="getAllowedNetworkStorageResponse">
+    <part name="getAllowedNetworkStorageReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="getAllowedNetworkStorageReplicas"/>
+  <message name="getAllowedNetworkStorageReplicasResponse">
+    <part name="getAllowedNetworkStorageReplicasReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="getAttachedNetworkStorages">
+    <part name="nasType" type="xsd:string"/>
+  </message>
+  <message name="getAttachedNetworkStoragesResponse">
+    <part name="getAttachedNetworkStoragesReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="getAvailableNetworkStorages">
+    <part name="nasType" type="xsd:string"/>
+  </message>
+  <message name="getAvailableNetworkStoragesResponse">
+    <part name="getAvailableNetworkStoragesReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="getByIpAddress">
+    <part name="ipAddress" type="xsd:string"/>
+  </message>
+  <message name="getByIpAddressResponse">
+    <part name="getByIpAddressReturn" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+  </message>
+  <message name="getContextTunnelTranslations"/>
+  <message name="getContextTunnelTranslationsResponse">
+    <part name="getContextTunnelTranslationsReturn" type="tns:SoftLayer_Network_Tunnel_Module_Context_Address_TranslationArray"/>
+  </message>
+  <message name="getEndpointSubnets"/>
+  <message name="getEndpointSubnetsResponse">
+    <part name="getEndpointSubnetsReturn" type="tns:SoftLayer_Network_SubnetArray"/>
+  </message>
+  <message name="getGuestNetworkComponent"/>
+  <message name="getGuestNetworkComponentResponse">
+    <part name="getGuestNetworkComponentReturn" type="tns:SoftLayer_Virtual_Guest_Network_Component"/>
+  </message>
+  <message name="getGuestNetworkComponentBinding"/>
+  <message name="getGuestNetworkComponentBindingResponse">
+    <part name="getGuestNetworkComponentBindingReturn" type="tns:SoftLayer_Virtual_Guest_Network_Component_IpAddress"/>
+  </message>
+  <message name="getHardware"/>
+  <message name="getHardwareResponse">
+    <part name="getHardwareReturn" type="tns:SoftLayer_Hardware"/>
+  </message>
+  <message name="getNetworkComponent"/>
+  <message name="getNetworkComponentResponse">
+    <part name="getNetworkComponentReturn" type="tns:SoftLayer_Network_Component"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+  </message>
+  <message name="getPrivateNetworkGateway"/>
+  <message name="getPrivateNetworkGatewayResponse">
+    <part name="getPrivateNetworkGatewayReturn" type="tns:SoftLayer_Network_Gateway"/>
+  </message>
+  <message name="getProtectionAddress"/>
+  <message name="getProtectionAddressResponse">
+    <part name="getProtectionAddressReturn" type="tns:SoftLayer_Network_Protection_AddressArray"/>
+  </message>
+  <message name="getPublicNetworkGateway"/>
+  <message name="getPublicNetworkGatewayResponse">
+    <part name="getPublicNetworkGatewayReturn" type="tns:SoftLayer_Network_Gateway"/>
+  </message>
+  <message name="getRemoteManagementNetworkComponent"/>
+  <message name="getRemoteManagementNetworkComponentResponse">
+    <part name="getRemoteManagementNetworkComponentReturn" type="tns:SoftLayer_Network_Component"/>
+  </message>
+  <message name="getSubnet"/>
+  <message name="getSubnetResponse">
+    <part name="getSubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
+  </message>
+  <message name="getSyslogEventsOneDay"/>
+  <message name="getSyslogEventsOneDayResponse">
+    <part name="getSyslogEventsOneDayReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getSyslogEventsSevenDays"/>
+  <message name="getSyslogEventsSevenDaysResponse">
+    <part name="getSyslogEventsSevenDaysReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getTopTenSyslogEventsByDestinationPortOneDay"/>
+  <message name="getTopTenSyslogEventsByDestinationPortOneDayResponse">
+    <part name="getTopTenSyslogEventsByDestinationPortOneDayReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getTopTenSyslogEventsByDestinationPortSevenDays"/>
+  <message name="getTopTenSyslogEventsByDestinationPortSevenDaysResponse">
+    <part name="getTopTenSyslogEventsByDestinationPortSevenDaysReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getTopTenSyslogEventsByProtocolsOneDay"/>
+  <message name="getTopTenSyslogEventsByProtocolsOneDayResponse">
+    <part name="getTopTenSyslogEventsByProtocolsOneDayReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getTopTenSyslogEventsByProtocolsSevenDays"/>
+  <message name="getTopTenSyslogEventsByProtocolsSevenDaysResponse">
+    <part name="getTopTenSyslogEventsByProtocolsSevenDaysReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getTopTenSyslogEventsBySourceIpOneDay"/>
+  <message name="getTopTenSyslogEventsBySourceIpOneDayResponse">
+    <part name="getTopTenSyslogEventsBySourceIpOneDayReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getTopTenSyslogEventsBySourceIpSevenDays"/>
+  <message name="getTopTenSyslogEventsBySourceIpSevenDaysResponse">
+    <part name="getTopTenSyslogEventsBySourceIpSevenDaysReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getTopTenSyslogEventsBySourcePortOneDay"/>
+  <message name="getTopTenSyslogEventsBySourcePortOneDayResponse">
+    <part name="getTopTenSyslogEventsBySourcePortOneDayReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getTopTenSyslogEventsBySourcePortSevenDays"/>
+  <message name="getTopTenSyslogEventsBySourcePortSevenDaysResponse">
+    <part name="getTopTenSyslogEventsBySourcePortSevenDaysReturn" type="tns:SoftLayer_Network_Logging_SyslogArray"/>
+  </message>
+  <message name="getVirtualGuest"/>
+  <message name="getVirtualGuestResponse">
+    <part name="getVirtualGuestReturn" type="tns:SoftLayer_Virtual_Guest"/>
+  </message>
+  <message name="getVirtualLicenses"/>
+  <message name="getVirtualLicensesResponse">
+    <part name="getVirtualLicensesReturn" type="tns:SoftLayer_Software_VirtualLicenseArray"/>
+  </message>
+  <message name="removeAccessToNetworkStorageList">
+    <part name="networkStorageTemplateObjects" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
+  <message name="removeAccessToNetworkStorageListResponse">
+    <part name="removeAccessToNetworkStorageListReturn" type="xsd:boolean"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Network_Subnet_IpAddressObjectMaskHeader">
+    <part name="SoftLayer_Network_Subnet_IpAddressObjectMask" type="tns:SoftLayer_Network_Subnet_IpAddressObjectMask"/>
+  </message>
+  <message name="SoftLayer_Network_Subnet_IpAddressObjectFilterHeader">
+    <part name="SoftLayer_Network_Subnet_IpAddressObjectFilter" type="tns:SoftLayer_Network_Subnet_IpAddressObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Network_Subnet_IpAddressPortType">
+    <documentation>Every SoftLayer IP address is defined in the SoftLayer_Network_Subnet_IpAddress service. SoftLayer IP addresses are assigned to a SoftLayer_Network_Subnet.  The SoftLayer_Network_Subnet_IpAddress service gives you information about an IP address such if it is reserved, a network address, or a gateway.  Use the data returned by these methods with other API services to get more detailed information about your services. 
+
+SoftLayer customers can order and manage IP addresses through the customer portal. If you need to cancel a subnet please open a sales ticket in our customer portal and our account management staff will assist you. </documentation>
+    <operation name="allowAccessToNetworkStorage">
+      <documentation>This method is used to allow access to a SoftLayer_Network_Storage volume that supports host- or network-level access control. </documentation>
+      <input message="tns:allowAccessToNetworkStorage"/>
+      <output message="tns:allowAccessToNetworkStorageResponse"/>
+    </operation>
+    <operation name="allowAccessToNetworkStorageList">
+      <documentation>This method is used to allow access to multiple SoftLayer_Network_Storage volumes that support host- or network-level access control. </documentation>
+      <input message="tns:allowAccessToNetworkStorageList"/>
+      <output message="tns:allowAccessToNetworkStorageListResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>Edit a subnet IP address. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="editObjects">
+      <documentation>This function is used to edit multiple objects at the same time. </documentation>
+      <input message="tns:editObjects"/>
+      <output message="tns:editObjectsResponse"/>
+    </operation>
+    <operation name="findByIpv4Address">
+      <documentation>Search for an IP address record by IPv4 address.</documentation>
+      <input message="tns:findByIpv4Address"/>
+      <output message="tns:findByIpv4AddressResponse"/>
+    </operation>
+    <operation name="getAllowedHost">
+      <documentation>Retrieve the SoftLayer_Network_Storage_Allowed_Host information to connect this IP Address to Network Storage supporting access control lists.</documentation>
+      <input message="tns:getAllowedHost"/>
+      <output message="tns:getAllowedHostResponse"/>
+    </operation>
+    <operation name="getAllowedNetworkStorage">
+      <documentation>Retrieve the SoftLayer_Network_Storage objects that this SoftLayer_Hardware has access to.</documentation>
+      <input message="tns:getAllowedNetworkStorage"/>
+      <output message="tns:getAllowedNetworkStorageResponse"/>
+    </operation>
+    <operation name="getAllowedNetworkStorageReplicas">
+      <documentation>Retrieve the SoftLayer_Network_Storage objects whose Replica that this SoftLayer_Hardware has access to.</documentation>
+      <input message="tns:getAllowedNetworkStorageReplicas"/>
+      <output message="tns:getAllowedNetworkStorageReplicasResponse"/>
+    </operation>
+    <operation name="getAttachedNetworkStorages">
+      <documentation>This method is retrieve a list of SoftLayer_Network_Storage volumes that are authorized access to this SoftLayer_Network_Subnet_IpAddress. </documentation>
+      <input message="tns:getAttachedNetworkStorages"/>
+      <output message="tns:getAttachedNetworkStoragesResponse"/>
+    </operation>
+    <operation name="getAvailableNetworkStorages">
+      <documentation>This method retrieves a list of SoftLayer_Network_Storage volumes that can be authorized to this SoftLayer_Network_Subnet_IpAddress. </documentation>
+      <input message="tns:getAvailableNetworkStorages"/>
+      <output message="tns:getAvailableNetworkStoragesResponse"/>
+    </operation>
+    <operation name="getByIpAddress">
+      <documentation>Search for an IP address record by IP address.</documentation>
+      <input message="tns:getByIpAddress"/>
+      <output message="tns:getByIpAddressResponse"/>
+    </operation>
+    <operation name="getContextTunnelTranslations">
+      <documentation>Retrieve an IPSec network tunnel's address translations. These translations use a SoftLayer ip address from an assigned static NAT subnet to deliver the packets to the remote (customer) destination.</documentation>
+      <input message="tns:getContextTunnelTranslations"/>
+      <output message="tns:getContextTunnelTranslationsResponse"/>
+    </operation>
+    <operation name="getEndpointSubnets">
+      <documentation>Retrieve all the subnets routed to an IP address.</documentation>
+      <input message="tns:getEndpointSubnets"/>
+      <output message="tns:getEndpointSubnetsResponse"/>
+    </operation>
+    <operation name="getGuestNetworkComponent">
+      <documentation>Retrieve a network component that is statically routed to an IP address.</documentation>
+      <input message="tns:getGuestNetworkComponent"/>
+      <output message="tns:getGuestNetworkComponentResponse"/>
+    </operation>
+    <operation name="getGuestNetworkComponentBinding">
+      <documentation>Retrieve a network component that is statically routed to an IP address.</documentation>
+      <input message="tns:getGuestNetworkComponentBinding"/>
+      <output message="tns:getGuestNetworkComponentBindingResponse"/>
+    </operation>
+    <operation name="getHardware">
+      <documentation>Retrieve a server that this IP address is routed to.</documentation>
+      <input message="tns:getHardware"/>
+      <output message="tns:getHardwareResponse"/>
+    </operation>
+    <operation name="getNetworkComponent">
+      <documentation>Retrieve a network component that is statically routed to an IP address.</documentation>
+      <input message="tns:getNetworkComponent"/>
+      <output message="tns:getNetworkComponentResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Network_Subnet_IpAddress object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Network_Subnet_IpAddress service. You can only retrieve the IP address whose subnet is associated with a VLAN that is associated with the account that your portal user is assigned to. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPrivateNetworkGateway">
+      <documentation>Retrieve the network gateway appliance using this address as the private IP address.</documentation>
+      <input message="tns:getPrivateNetworkGateway"/>
+      <output message="tns:getPrivateNetworkGatewayResponse"/>
+    </operation>
+    <operation name="getProtectionAddress">
+      <documentation></documentation>
+      <input message="tns:getProtectionAddress"/>
+      <output message="tns:getProtectionAddressResponse"/>
+    </operation>
+    <operation name="getPublicNetworkGateway">
+      <documentation>Retrieve the network gateway appliance using this address as the public IP address.</documentation>
+      <input message="tns:getPublicNetworkGateway"/>
+      <output message="tns:getPublicNetworkGatewayResponse"/>
+    </operation>
+    <operation name="getRemoteManagementNetworkComponent">
+      <documentation>Retrieve an IPMI-based management network component of the IP address.</documentation>
+      <input message="tns:getRemoteManagementNetworkComponent"/>
+      <output message="tns:getRemoteManagementNetworkComponentResponse"/>
+    </operation>
+    <operation name="getSubnet">
+      <documentation>Retrieve an IP address' associated subnet.</documentation>
+      <input message="tns:getSubnet"/>
+      <output message="tns:getSubnetResponse"/>
+    </operation>
+    <operation name="getSyslogEventsOneDay">
+      <documentation>Retrieve all events for this IP address stored in the datacenter syslogs from the last 24 hours</documentation>
+      <input message="tns:getSyslogEventsOneDay"/>
+      <output message="tns:getSyslogEventsOneDayResponse"/>
+    </operation>
+    <operation name="getSyslogEventsSevenDays">
+      <documentation>Retrieve all events for this IP address stored in the datacenter syslogs from the last 7 days</documentation>
+      <input message="tns:getSyslogEventsSevenDays"/>
+      <output message="tns:getSyslogEventsSevenDaysResponse"/>
+    </operation>
+    <operation name="getTopTenSyslogEventsByDestinationPortOneDay">
+      <documentation>Retrieve top Ten network datacenter syslog events, grouped by destination port, for the last 24 hours</documentation>
+      <input message="tns:getTopTenSyslogEventsByDestinationPortOneDay"/>
+      <output message="tns:getTopTenSyslogEventsByDestinationPortOneDayResponse"/>
+    </operation>
+    <operation name="getTopTenSyslogEventsByDestinationPortSevenDays">
+      <documentation>Retrieve top Ten network datacenter syslog events, grouped by destination port, for the last 7 days</documentation>
+      <input message="tns:getTopTenSyslogEventsByDestinationPortSevenDays"/>
+      <output message="tns:getTopTenSyslogEventsByDestinationPortSevenDaysResponse"/>
+    </operation>
+    <operation name="getTopTenSyslogEventsByProtocolsOneDay">
+      <documentation>Retrieve top Ten network datacenter syslog events, grouped by source port, for the last 24 hours</documentation>
+      <input message="tns:getTopTenSyslogEventsByProtocolsOneDay"/>
+      <output message="tns:getTopTenSyslogEventsByProtocolsOneDayResponse"/>
+    </operation>
+    <operation name="getTopTenSyslogEventsByProtocolsSevenDays">
+      <documentation>Retrieve top Ten network datacenter syslog events, grouped by source port, for the last 7 days</documentation>
+      <input message="tns:getTopTenSyslogEventsByProtocolsSevenDays"/>
+      <output message="tns:getTopTenSyslogEventsByProtocolsSevenDaysResponse"/>
+    </operation>
+    <operation name="getTopTenSyslogEventsBySourceIpOneDay">
+      <documentation>Retrieve top Ten network datacenter syslog events, grouped by source ip address, for the last 24 hours</documentation>
+      <input message="tns:getTopTenSyslogEventsBySourceIpOneDay"/>
+      <output message="tns:getTopTenSyslogEventsBySourceIpOneDayResponse"/>
+    </operation>
+    <operation name="getTopTenSyslogEventsBySourceIpSevenDays">
+      <documentation>Retrieve top Ten network datacenter syslog events, grouped by source ip address, for the last 7 days</documentation>
+      <input message="tns:getTopTenSyslogEventsBySourceIpSevenDays"/>
+      <output message="tns:getTopTenSyslogEventsBySourceIpSevenDaysResponse"/>
+    </operation>
+    <operation name="getTopTenSyslogEventsBySourcePortOneDay">
+      <documentation>Retrieve top Ten network datacenter syslog events, grouped by source port, for the last 24 hours</documentation>
+      <input message="tns:getTopTenSyslogEventsBySourcePortOneDay"/>
+      <output message="tns:getTopTenSyslogEventsBySourcePortOneDayResponse"/>
+    </operation>
+    <operation name="getTopTenSyslogEventsBySourcePortSevenDays">
+      <documentation>Retrieve top Ten network datacenter syslog events, grouped by source port, for the last 7 days</documentation>
+      <input message="tns:getTopTenSyslogEventsBySourcePortSevenDays"/>
+      <output message="tns:getTopTenSyslogEventsBySourcePortSevenDaysResponse"/>
+    </operation>
+    <operation name="getVirtualGuest">
+      <documentation>Retrieve a virtual guest that this IP address is routed to.</documentation>
+      <input message="tns:getVirtualGuest"/>
+      <output message="tns:getVirtualGuestResponse"/>
+    </operation>
+    <operation name="getVirtualLicenses">
+      <documentation>Retrieve virtual licenses allocated for an IP Address.</documentation>
+      <input message="tns:getVirtualLicenses"/>
+      <output message="tns:getVirtualLicensesResponse"/>
+    </operation>
+    <operation name="removeAccessToNetworkStorageList">
+      <documentation>This method is used to remove access to multiple SoftLayer_Network_Storage volumes </documentation>
+      <input message="tns:removeAccessToNetworkStorageList"/>
+      <output message="tns:removeAccessToNetworkStorageListResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Network_Subnet_IpAddressBinding" type="tns:SoftLayer_Network_Subnet_IpAddressPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="allowAccessToNetworkStorage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="allowAccessToNetworkStorageList">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="findByIpv4Address">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllowedHost">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllowedNetworkStorage">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllowedNetworkStorageReplicas">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAttachedNetworkStorages">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAvailableNetworkStorages">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getByIpAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getContextTunnelTranslations">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getEndpointSubnets">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGuestNetworkComponent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGuestNetworkComponentBinding">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getHardware">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getNetworkComponent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPrivateNetworkGateway">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProtectionAddress">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPublicNetworkGateway">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRemoteManagementNetworkComponent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSubnet">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSyslogEventsOneDay">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSyslogEventsSevenDays">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopTenSyslogEventsByDestinationPortOneDay">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopTenSyslogEventsByDestinationPortSevenDays">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopTenSyslogEventsByProtocolsOneDay">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopTenSyslogEventsByProtocolsSevenDays">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopTenSyslogEventsBySourceIpOneDay">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopTenSyslogEventsBySourceIpSevenDays">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopTenSyslogEventsBySourcePortOneDay">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getTopTenSyslogEventsBySourcePortSevenDays">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVirtualGuest">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVirtualLicenses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectMaskHeader" part="SoftLayer_Network_Subnet_IpAddressObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressObjectFilterHeader" part="SoftLayer_Network_Subnet_IpAddressObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeAccessToNetworkStorageList">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddressAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Subnet_IpAddressInitParametersHeader" part="SoftLayer_Network_Subnet_IpAddressInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Network_Subnet_IpAddressService">
+    <port name="SoftLayer_Network_Subnet_IpAddressPort" binding="tns:SoftLayer_Network_Subnet_IpAddressBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Network_Subnet_IpAddress"/>
+    </port>
+  </service>
+</definitions>

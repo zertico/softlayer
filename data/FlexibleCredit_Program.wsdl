@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_FlexibleCredit_Program?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_FlexibleCredit_ProgramInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:string"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_FlexibleCredit_ProgramObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_FlexibleCredit_Program"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_FlexibleCredit_ProgramInitParametersHeader">
+    <part name="SoftLayer_FlexibleCredit_ProgramInitParameters" type="tns:SoftLayer_FlexibleCredit_ProgramInitParameters"/>
+  </message>
+  <message name="getAffiliatesAvailableForSelfEnrollmentByVerificationType">
+    <part name="verificationTypeKeyName" type="xsd:string"/>
+  </message>
+  <message name="getAffiliatesAvailableForSelfEnrollmentByVerificationTypeResponse">
+    <part name="getAffiliatesAvailableForSelfEnrollmentByVerificationTypeReturn" type="tns:SoftLayer_FlexibleCredit_AffiliateArray"/>
+  </message>
+  <message name="getCompanyTypes"/>
+  <message name="getCompanyTypesResponse">
+    <part name="getCompanyTypesReturn" type="tns:SoftLayer_FlexibleCredit_Company_TypeArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_FlexibleCredit_Program"/>
+  </message>
+  <message name="selfEnrollNewAccount">
+    <part name="accountTemplate" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="selfEnrollNewAccountResponse">
+    <part name="selfEnrollNewAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_FlexibleCredit_ProgramObjectMaskHeader">
+    <part name="SoftLayer_FlexibleCredit_ProgramObjectMask" type="tns:SoftLayer_FlexibleCredit_ProgramObjectMask"/>
+  </message>
+  <message name="SoftLayer_FlexibleCredit_ProgramObjectFilterHeader">
+    <part name="SoftLayer_FlexibleCredit_ProgramObjectFilter" type="tns:SoftLayer_FlexibleCredit_ProgramObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_FlexibleCredit_ProgramPortType">
+    <documentation></documentation>
+    <operation name="getAffiliatesAvailableForSelfEnrollmentByVerificationType">
+      <documentation></documentation>
+      <input message="tns:getAffiliatesAvailableForSelfEnrollmentByVerificationType"/>
+      <output message="tns:getAffiliatesAvailableForSelfEnrollmentByVerificationTypeResponse"/>
+    </operation>
+    <operation name="getCompanyTypes">
+      <documentation></documentation>
+      <input message="tns:getCompanyTypes"/>
+      <output message="tns:getCompanyTypesResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="selfEnrollNewAccount">
+      <documentation></documentation>
+      <input message="tns:selfEnrollNewAccount"/>
+      <output message="tns:selfEnrollNewAccountResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_FlexibleCredit_ProgramBinding" type="tns:SoftLayer_FlexibleCredit_ProgramPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAffiliatesAvailableForSelfEnrollmentByVerificationType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_FlexibleCredit_ProgramAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_FlexibleCredit_ProgramInitParametersHeader" part="SoftLayer_FlexibleCredit_ProgramInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_FlexibleCredit_ProgramObjectMaskHeader" part="SoftLayer_FlexibleCredit_ProgramObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCompanyTypes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_FlexibleCredit_ProgramAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_FlexibleCredit_ProgramObjectMaskHeader" part="SoftLayer_FlexibleCredit_ProgramObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_FlexibleCredit_ProgramAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_FlexibleCredit_ProgramObjectMaskHeader" part="SoftLayer_FlexibleCredit_ProgramObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_FlexibleCredit_ProgramObjectFilterHeader" part="SoftLayer_FlexibleCredit_ProgramObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_FlexibleCredit_ProgramInitParametersHeader" part="SoftLayer_FlexibleCredit_ProgramInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="selfEnrollNewAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_FlexibleCredit_ProgramAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_FlexibleCredit_ProgramInitParametersHeader" part="SoftLayer_FlexibleCredit_ProgramInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_FlexibleCredit_ProgramObjectMaskHeader" part="SoftLayer_FlexibleCredit_ProgramObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_FlexibleCredit_ProgramService">
+    <port name="SoftLayer_FlexibleCredit_ProgramPort" binding="tns:SoftLayer_FlexibleCredit_ProgramBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_FlexibleCredit_Program"/>
+    </port>
+  </service>
+</definitions>

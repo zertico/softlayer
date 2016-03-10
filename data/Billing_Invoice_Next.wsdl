@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Invoice_Next?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Billing_Invoice_NextInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="accountId" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Billing_Invoice_NextObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Billing_Invoice_Next"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Billing_Invoice_NextInitParametersHeader">
+    <part name="SoftLayer_Billing_Invoice_NextInitParameters" type="tns:SoftLayer_Billing_Invoice_NextInitParameters"/>
+  </message>
+  <message name="getExcel">
+    <part name="documentCreateDate" type="xsd:dateTime"/>
+  </message>
+  <message name="getExcelResponse">
+    <part name="getExcelReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getPdf">
+    <part name="documentCreateDate" type="xsd:dateTime"/>
+  </message>
+  <message name="getPdfResponse">
+    <part name="getPdfReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="getPdfDetailed">
+    <part name="documentCreateDate" type="xsd:dateTime"/>
+  </message>
+  <message name="getPdfDetailedResponse">
+    <part name="getPdfDetailedReturn" type="xsd:base64Binary"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Billing_Invoice_NextObjectMaskHeader">
+    <part name="SoftLayer_Billing_Invoice_NextObjectMask" type="tns:SoftLayer_Billing_Invoice_NextObjectMask"/>
+  </message>
+  <message name="SoftLayer_Billing_Invoice_NextObjectFilterHeader">
+    <part name="SoftLayer_Billing_Invoice_NextObjectFilter" type="tns:SoftLayer_Billing_Invoice_NextObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Billing_Invoice_NextPortType">
+    <documentation>Service for an account's next invoice. The &amp;quot;next invoice&amp;quot; is what a customer will be billed on their next invoice, assuming no changes are made. Currently this does not include Bandwidth Pooling charges. Note, this should be considered preliminary as you may add, remove, or change billing items on your account. </documentation>
+    <operation name="getExcel">
+      <documentation>Return an account's next invoice in a Microsoft excel format.</documentation>
+      <input message="tns:getExcel"/>
+      <output message="tns:getExcelResponse"/>
+    </operation>
+    <operation name="getPdf">
+      <documentation>Return an account's next invoice in PDF format.</documentation>
+      <input message="tns:getPdf"/>
+      <output message="tns:getPdfResponse"/>
+    </operation>
+    <operation name="getPdfDetailed">
+      <documentation>Return an account's next invoice detailed portion in PDF format.</documentation>
+      <input message="tns:getPdfDetailed"/>
+      <output message="tns:getPdfDetailedResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Billing_Invoice_NextBinding" type="tns:SoftLayer_Billing_Invoice_NextPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getExcel">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Invoice_NextAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Invoice_NextInitParametersHeader" part="SoftLayer_Billing_Invoice_NextInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPdf">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Invoice_NextAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Invoice_NextInitParametersHeader" part="SoftLayer_Billing_Invoice_NextInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPdfDetailed">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Billing_Invoice_NextAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Billing_Invoice_NextInitParametersHeader" part="SoftLayer_Billing_Invoice_NextInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Billing_Invoice_NextService">
+    <port name="SoftLayer_Billing_Invoice_NextPort" binding="tns:SoftLayer_Billing_Invoice_NextBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Billing_Invoice_Next"/>
+    </port>
+  </service>
+</definitions>

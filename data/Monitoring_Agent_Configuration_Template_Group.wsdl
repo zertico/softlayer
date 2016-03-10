@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_Group?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_Group"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParametersHeader">
+    <part name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_Group"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_Group"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_Group"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupArray"/>
+  </message>
+  <message name="getConfigurationGroups">
+    <part name="packageId" type="xsd:int"/>
+  </message>
+  <message name="getConfigurationGroupsResponse">
+    <part name="getConfigurationGroupsReturn" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupArray"/>
+  </message>
+  <message name="getConfigurationTemplateReferences"/>
+  <message name="getConfigurationTemplateReferencesResponse">
+    <part name="getConfigurationTemplateReferencesReturn" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_Group_ReferenceArray"/>
+  </message>
+  <message name="getConfigurationTemplates"/>
+  <message name="getConfigurationTemplatesResponse">
+    <part name="getConfigurationTemplatesReturn" type="tns:SoftLayer_Configuration_TemplateArray"/>
+  </message>
+  <message name="getItem"/>
+  <message name="getItemResponse">
+    <part name="getItemReturn" type="tns:SoftLayer_Product_Item"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_Group"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMaskHeader">
+    <part name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask"/>
+  </message>
+  <message name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilterHeader">
+    <part name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilter" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupPortType">
+    <documentation>SoftLayer offers several monitoring packages, each containing multiple monitoring agents. Monitoring packages can have a configuration template group, which consists of configuration templates for all agents in a package. The configuration template group is required when you install a SoftLayer monitoring system on your system for the first time. You will be able to configure per agent basis once your monitoring system is active. Once your monitoring system is active, please refer to [[SoftLayer_Configuration_Template|Configuration Template]]. </documentation>
+    <operation name="createObject">
+      <documentation>This method creates a SoftLayer_Monitoring_Agent_Configuration_Template_Group using the values provided in the template object. The template objects accountId will be overridden to use the active user's accountId as it shows on their associated SoftLayer_User_Customer object. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Deletes a customer configuration template group. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>This method edits an existing SoftLayer_Monitoring_Agent_Configuration_Template_Group using the values passed in the $object parameter. The $object parameter should use the same structure as a SoftLayer_Monitoring_Agent_Configuration_Template_Group object. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="getAccount">
+      <documentation></documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getAllObjects">
+      <documentation></documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getConfigurationGroups">
+      <documentation>This method retrieves an array of SoftLayer_Monitoring_Agent_Configuration_Template_Group objects that are available to the active user's account. The packageId parameter is not currently used. </documentation>
+      <input message="tns:getConfigurationGroups"/>
+      <output message="tns:getConfigurationGroupsResponse"/>
+    </operation>
+    <operation name="getConfigurationTemplateReferences">
+      <documentation></documentation>
+      <input message="tns:getConfigurationTemplateReferences"/>
+      <output message="tns:getConfigurationTemplateReferencesResponse"/>
+    </operation>
+    <operation name="getConfigurationTemplates">
+      <documentation></documentation>
+      <input message="tns:getConfigurationTemplates"/>
+      <output message="tns:getConfigurationTemplatesResponse"/>
+    </operation>
+    <operation name="getItem">
+      <documentation></documentation>
+      <input message="tns:getItem"/>
+      <output message="tns:getItemResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>This method retrieves a monitoring agent configuration template group whose identifier corresponds to the value provided in the initialization parameter passed to the SoftLayer_Monitoring_Agent_Configuration_Template_Group service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupBinding" type="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMaskHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParametersHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParametersHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMaskHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilterHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParametersHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMaskHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilterHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getConfigurationGroups">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMaskHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getConfigurationTemplateReferences">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMaskHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilterHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParametersHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getConfigurationTemplates">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMaskHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilterHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParametersHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMaskHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilterHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParametersHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMaskHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilterHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParametersHeader" part="SoftLayer_Monitoring_Agent_Configuration_Template_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupService">
+    <port name="SoftLayer_Monitoring_Agent_Configuration_Template_GroupPort" binding="tns:SoftLayer_Monitoring_Agent_Configuration_Template_GroupBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Monitoring_Agent_Configuration_Template_Group"/>
+    </port>
+  </service>
+</definitions>

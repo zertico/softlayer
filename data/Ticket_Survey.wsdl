@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Ticket_Survey?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Ticket_SurveyInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="ticket" type="xsd:SoftLayer_Ticket"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Ticket_SurveyObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Ticket_Survey"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Ticket_SurveyInitParametersHeader">
+    <part name="SoftLayer_Ticket_SurveyInitParameters" type="tns:SoftLayer_Ticket_SurveyInitParameters"/>
+  </message>
+  <message name="getPreference"/>
+  <message name="getPreferenceResponse">
+    <part name="getPreferenceReturn" type="tns:SoftLayer_Container_Ticket_Survey_Preference"/>
+  </message>
+  <message name="optIn"/>
+  <message name="optInResponse">
+    <part name="optInReturn" type="tns:SoftLayer_Container_Ticket_Survey_Preference"/>
+  </message>
+  <message name="optOut"/>
+  <message name="optOutResponse">
+    <part name="optOutReturn" type="tns:SoftLayer_Container_Ticket_Survey_Preference"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Ticket_SurveyObjectMaskHeader">
+    <part name="SoftLayer_Ticket_SurveyObjectMask" type="tns:SoftLayer_Ticket_SurveyObjectMask"/>
+  </message>
+  <message name="SoftLayer_Ticket_SurveyObjectFilterHeader">
+    <part name="SoftLayer_Ticket_SurveyObjectFilter" type="tns:SoftLayer_Ticket_SurveyObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Ticket_SurveyPortType">
+    <documentation></documentation>
+    <operation name="getPreference">
+      <documentation>Use this method to retrieve the ticket survey preferences. It will return your [[SoftLayer_Container_Ticket_Survey_Preference|survey preference]] which indicates if your account is applicable to receive a survey and if you're opted in. You can control the survey opt via the [[SoftLayer_Ticket_Survey::optIn|opt-in]] or [[SoftLayer_Ticket_Survey::optOut|opt-out]] method. </documentation>
+      <input message="tns:getPreference"/>
+      <output message="tns:getPreferenceResponse"/>
+    </operation>
+    <operation name="optIn">
+      <documentation>You will not receive a ticket survey if you are opted out. Use this method to opt back in if you wish to provide feedback to our support team. You may use the [[SoftLayer_Ticket_Survey::getPreference|getPreference]] method to check your current opt status. </documentation>
+      <input message="tns:optIn"/>
+      <output message="tns:optInResponse"/>
+    </operation>
+    <operation name="optOut">
+      <documentation>By default, customers will occasionally receive a ticket survey upon closing of a ticket. Use this method to opt out of it for the next 90 days. Ticket surveys may not be applicable for some customers. Use the [[SoftLayer_Ticket_Survey::getPreference|getPreference]] method to retrieve your survey preference. The &amp;quot;applicable&amp;quot; property of the [[SoftLayer_Container_Ticket_Survey_Preference|survey preference]] indicates if the survey is relevant to your account or not. </documentation>
+      <input message="tns:optOut"/>
+      <output message="tns:optOutResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Ticket_SurveyBinding" type="tns:SoftLayer_Ticket_SurveyPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getPreference">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_SurveyAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="optIn">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_SurveyAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="optOut">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Ticket_SurveyAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Ticket_SurveyService">
+    <port name="SoftLayer_Ticket_SurveyPort" binding="tns:SoftLayer_Ticket_SurveyBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Ticket_Survey"/>
+    </port>
+  </service>
+</definitions>

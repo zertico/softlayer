@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Software_Description?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Software_DescriptionInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Software_DescriptionObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Software_Description"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Software_DescriptionInitParametersHeader">
+    <part name="SoftLayer_Software_DescriptionInitParameters" type="tns:SoftLayer_Software_DescriptionInitParameters"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Software_DescriptionArray"/>
+  </message>
+  <message name="getAttributes"/>
+  <message name="getAttributesResponse">
+    <part name="getAttributesReturn" type="tns:SoftLayer_Software_Description_AttributeArray"/>
+  </message>
+  <message name="getAverageInstallationDuration"/>
+  <message name="getAverageInstallationDurationResponse">
+    <part name="getAverageInstallationDurationReturn" type="xsd:int"/>
+  </message>
+  <message name="getCompatibleSoftwareDescriptions"/>
+  <message name="getCompatibleSoftwareDescriptionsResponse">
+    <part name="getCompatibleSoftwareDescriptionsReturn" type="tns:SoftLayer_Software_DescriptionArray"/>
+  </message>
+  <message name="getFeatures"/>
+  <message name="getFeaturesResponse">
+    <part name="getFeaturesReturn" type="tns:SoftLayer_Software_Description_FeatureArray"/>
+  </message>
+  <message name="getLatestVersion"/>
+  <message name="getLatestVersionResponse">
+    <part name="getLatestVersionReturn" type="tns:SoftLayer_Software_DescriptionArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Software_Description"/>
+  </message>
+  <message name="getProductItems"/>
+  <message name="getProductItemsResponse">
+    <part name="getProductItemsReturn" type="tns:SoftLayer_Product_ItemArray"/>
+  </message>
+  <message name="getProvisionTransactionGroup"/>
+  <message name="getProvisionTransactionGroupResponse">
+    <part name="getProvisionTransactionGroupReturn" type="tns:SoftLayer_Provisioning_Version1_Transaction_Group"/>
+  </message>
+  <message name="getReloadTransactionGroup"/>
+  <message name="getReloadTransactionGroupResponse">
+    <part name="getReloadTransactionGroupReturn" type="tns:SoftLayer_Provisioning_Version1_Transaction_Group"/>
+  </message>
+  <message name="getRequiredUser"/>
+  <message name="getRequiredUserResponse">
+    <part name="getRequiredUserReturn" type="xsd:string"/>
+  </message>
+  <message name="getSoftwareLicenses"/>
+  <message name="getSoftwareLicensesResponse">
+    <part name="getSoftwareLicensesReturn" type="tns:SoftLayer_Software_LicenseArray"/>
+  </message>
+  <message name="getUpgradeSoftwareDescription"/>
+  <message name="getUpgradeSoftwareDescriptionResponse">
+    <part name="getUpgradeSoftwareDescriptionReturn" type="tns:SoftLayer_Software_Description"/>
+  </message>
+  <message name="getUpgradeSwDesc"/>
+  <message name="getUpgradeSwDescResponse">
+    <part name="getUpgradeSwDescReturn" type="tns:SoftLayer_Software_Description"/>
+  </message>
+  <message name="getValidFilesystemTypes"/>
+  <message name="getValidFilesystemTypesResponse">
+    <part name="getValidFilesystemTypesReturn" type="tns:SoftLayer_Configuration_Storage_Filesystem_TypeArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Software_DescriptionObjectMaskHeader">
+    <part name="SoftLayer_Software_DescriptionObjectMask" type="tns:SoftLayer_Software_DescriptionObjectMask"/>
+  </message>
+  <message name="SoftLayer_Software_DescriptionObjectFilterHeader">
+    <part name="SoftLayer_Software_DescriptionObjectFilter" type="tns:SoftLayer_Software_DescriptionObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Software_DescriptionPortType">
+    <documentation></documentation>
+    <operation name="getAllObjects">
+      <documentation></documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getAttributes">
+      <documentation></documentation>
+      <input message="tns:getAttributes"/>
+      <output message="tns:getAttributesResponse"/>
+    </operation>
+    <operation name="getAverageInstallationDuration">
+      <documentation>Retrieve the average amount of time that a software description takes to install.</documentation>
+      <input message="tns:getAverageInstallationDuration"/>
+      <output message="tns:getAverageInstallationDurationResponse"/>
+    </operation>
+    <operation name="getCompatibleSoftwareDescriptions">
+      <documentation>Retrieve a list of the software descriptions that are compatible with this software description.</documentation>
+      <input message="tns:getCompatibleSoftwareDescriptions"/>
+      <output message="tns:getCompatibleSoftwareDescriptionsResponse"/>
+    </operation>
+    <operation name="getFeatures">
+      <documentation>Retrieve the feature attributes of a software description.</documentation>
+      <input message="tns:getFeatures"/>
+      <output message="tns:getFeaturesResponse"/>
+    </operation>
+    <operation name="getLatestVersion">
+      <documentation>Retrieve the latest version of a software description.</documentation>
+      <input message="tns:getLatestVersion"/>
+      <output message="tns:getLatestVersionResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getProductItems">
+      <documentation>Retrieve the various product items to which this software description is linked.</documentation>
+      <input message="tns:getProductItems"/>
+      <output message="tns:getProductItemsResponse"/>
+    </operation>
+    <operation name="getProvisionTransactionGroup">
+      <documentation>Retrieve this details the provisioning transaction group for this software. This is only valid for Operating System software.</documentation>
+      <input message="tns:getProvisionTransactionGroup"/>
+      <output message="tns:getProvisionTransactionGroupResponse"/>
+    </operation>
+    <operation name="getReloadTransactionGroup">
+      <documentation>Retrieve the transaction group that a software description belongs to. A transaction group is a sequence of transactions that must be performed in a specific order for the installation of software.</documentation>
+      <input message="tns:getReloadTransactionGroup"/>
+      <output message="tns:getReloadTransactionGroupResponse"/>
+    </operation>
+    <operation name="getRequiredUser">
+      <documentation>Retrieve the default user created for a given a software description.</documentation>
+      <input message="tns:getRequiredUser"/>
+      <output message="tns:getRequiredUserResponse"/>
+    </operation>
+    <operation name="getSoftwareLicenses">
+      <documentation>Retrieve software Licenses that govern this Software Description.</documentation>
+      <input message="tns:getSoftwareLicenses"/>
+      <output message="tns:getSoftwareLicensesResponse"/>
+    </operation>
+    <operation name="getUpgradeSoftwareDescription">
+      <documentation>Retrieve a suggestion for an upgrade path from this Software Description</documentation>
+      <input message="tns:getUpgradeSoftwareDescription"/>
+      <output message="tns:getUpgradeSoftwareDescriptionResponse"/>
+    </operation>
+    <operation name="getUpgradeSwDesc">
+      <documentation>Retrieve a suggestion for an upgrade path from this Software Description (Deprecated - Use upgradeSoftwareDescription)</documentation>
+      <input message="tns:getUpgradeSwDesc"/>
+      <output message="tns:getUpgradeSwDescResponse"/>
+    </operation>
+    <operation name="getValidFilesystemTypes">
+      <documentation></documentation>
+      <input message="tns:getValidFilesystemTypes"/>
+      <output message="tns:getValidFilesystemTypesResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Software_DescriptionBinding" type="tns:SoftLayer_Software_DescriptionPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAttributes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAverageInstallationDuration">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCompatibleSoftwareDescriptions">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getFeatures">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getLatestVersion">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProductItems">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getProvisionTransactionGroup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getReloadTransactionGroup">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRequiredUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSoftwareLicenses">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUpgradeSoftwareDescription">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUpgradeSwDesc">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getValidFilesystemTypes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Software_DescriptionAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectMaskHeader" part="SoftLayer_Software_DescriptionObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionObjectFilterHeader" part="SoftLayer_Software_DescriptionObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_DescriptionInitParametersHeader" part="SoftLayer_Software_DescriptionInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Software_DescriptionService">
+    <port name="SoftLayer_Software_DescriptionPort" binding="tns:SoftLayer_Software_DescriptionBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Software_Description"/>
+    </port>
+  </service>
+</definitions>

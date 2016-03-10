@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_Release_Media_Partner?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Auxiliary_Press_Release_Media_PartnerInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Auxiliary_Press_Release_Media_Partner"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Auxiliary_Press_Release_Media_PartnerInitParametersHeader">
+    <part name="SoftLayer_Auxiliary_Press_Release_Media_PartnerInitParameters" type="tns:SoftLayer_Auxiliary_Press_Release_Media_PartnerInitParameters"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Auxiliary_Press_Release_Media_Partner"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectMaskHeader">
+    <part name="SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectMask" type="tns:SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectMask"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectFilterHeader">
+    <part name="SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectFilter" type="tns:SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Auxiliary_Press_Release_Media_PartnerPortType">
+    <documentation>The SoftLayer_Auxiliary_Press_Release_Media_Partner service provides all media partners associated to a press release. </documentation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Auxiliary_Press_Release_Contact object whose contact id number corresponds to the ID number of the init parameter passed to the SoftLayer_Auxiliary_Press_Release service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Auxiliary_Press_Release_Media_PartnerBinding" type="tns:SoftLayer_Auxiliary_Press_Release_Media_PartnerPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_Release_Media_PartnerAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectMaskHeader" part="SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectFilterHeader" part="SoftLayer_Auxiliary_Press_Release_Media_PartnerObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_Release_Media_PartnerInitParametersHeader" part="SoftLayer_Auxiliary_Press_Release_Media_PartnerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Auxiliary_Press_Release_Media_PartnerService">
+    <port name="SoftLayer_Auxiliary_Press_Release_Media_PartnerPort" binding="tns:SoftLayer_Auxiliary_Press_Release_Media_PartnerBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_Release_Media_Partner"/>
+    </port>
+  </service>
+</definitions>

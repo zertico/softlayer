@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_Repository?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Virtual_Storage_RepositoryInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Virtual_Storage_RepositoryObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Virtual_Storage_Repository"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Virtual_Storage_RepositoryInitParametersHeader">
+    <part name="SoftLayer_Virtual_Storage_RepositoryInitParameters" type="tns:SoftLayer_Virtual_Storage_RepositoryInitParameters"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getArchiveDiskUsageRatePerGb"/>
+  <message name="getArchiveDiskUsageRatePerGbResponse">
+    <part name="getArchiveDiskUsageRatePerGbReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getAverageUsageMetricDataByDate">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+  </message>
+  <message name="getAverageUsageMetricDataByDateResponse">
+    <part name="getAverageUsageMetricDataByDateReturn" type="xsd:float"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getDatacenter"/>
+  <message name="getDatacenterResponse">
+    <part name="getDatacenterReturn" type="tns:SoftLayer_Location"/>
+  </message>
+  <message name="getDiskImages"/>
+  <message name="getDiskImagesResponse">
+    <part name="getDiskImagesReturn" type="tns:SoftLayer_Virtual_Disk_ImageArray"/>
+  </message>
+  <message name="getGuests"/>
+  <message name="getGuestsResponse">
+    <part name="getGuestsReturn" type="tns:SoftLayer_Virtual_GuestArray"/>
+  </message>
+  <message name="getMetricTrackingObject"/>
+  <message name="getMetricTrackingObjectResponse">
+    <part name="getMetricTrackingObjectReturn" type="tns:SoftLayer_Metric_Tracking_Object_Virtual_Storage_Repository"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Virtual_Storage_Repository"/>
+  </message>
+  <message name="getPublicImageBillingItem"/>
+  <message name="getPublicImageBillingItemResponse">
+    <part name="getPublicImageBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getPublicImageDiskUsageRatePerGb"/>
+  <message name="getPublicImageDiskUsageRatePerGbResponse">
+    <part name="getPublicImageDiskUsageRatePerGbReturn" type="xsd:decimal"/>
+  </message>
+  <message name="getStorageLocations"/>
+  <message name="getStorageLocationsResponse">
+    <part name="getStorageLocationsReturn" type="tns:SoftLayer_LocationArray"/>
+  </message>
+  <message name="getType"/>
+  <message name="getTypeResponse">
+    <part name="getTypeReturn" type="tns:SoftLayer_Virtual_Storage_Repository_Type"/>
+  </message>
+  <message name="getUsageMetricDataByDate">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+  </message>
+  <message name="getUsageMetricDataByDateResponse">
+    <part name="getUsageMetricDataByDateReturn" type="tns:SoftLayer_Metric_Tracking_Object_DataArray"/>
+  </message>
+  <message name="getUsageMetricImageByDate">
+    <part name="startDateTime" type="xsd:dateTime"/>
+    <part name="endDateTime" type="xsd:dateTime"/>
+  </message>
+  <message name="getUsageMetricImageByDateResponse">
+    <part name="getUsageMetricImageByDateReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader">
+    <part name="SoftLayer_Virtual_Storage_RepositoryObjectMask" type="tns:SoftLayer_Virtual_Storage_RepositoryObjectMask"/>
+  </message>
+  <message name="SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader">
+    <part name="SoftLayer_Virtual_Storage_RepositoryObjectFilter" type="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Virtual_Storage_RepositoryPortType">
+    <documentation>Storage Repositories are storage systems that are accessible through the internet and can be accessed through many types of devices, interfaces, and other resources such as NFS (Network File System).  They can contain 1 or more [[SoftLayer_Disk_Image|disk images]] and can be attached to more than one [[SoftLayer_Virtual_Host|host]]. </documentation>
+    <operation name="getAccount">
+      <documentation>Retrieve the [[SoftLayer_Account|account]] that a storage repository belongs to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getArchiveDiskUsageRatePerGb">
+      <documentation>Returns the archive storage disk usage fee rate per gigabyte. </documentation>
+      <input message="tns:getArchiveDiskUsageRatePerGb"/>
+      <output message="tns:getArchiveDiskUsageRatePerGbResponse"/>
+    </operation>
+    <operation name="getAverageUsageMetricDataByDate">
+      <documentation>Returns the average disk space usage for a storage repository. </documentation>
+      <input message="tns:getAverageUsageMetricDataByDate"/>
+      <output message="tns:getAverageUsageMetricDataByDateResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the current billing item for a storage repository.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getDatacenter">
+      <documentation>Retrieve the datacenter that a virtual storage repository resides in.</documentation>
+      <input message="tns:getDatacenter"/>
+      <output message="tns:getDatacenterResponse"/>
+    </operation>
+    <operation name="getDiskImages">
+      <documentation>Retrieve the [[SoftLayer_Virtual_Disk_Image|disk images]] that are in a storage repository. Disk images are the virtual hard drives for a virtual guest.</documentation>
+      <input message="tns:getDiskImages"/>
+      <output message="tns:getDiskImagesResponse"/>
+    </operation>
+    <operation name="getGuests">
+      <documentation>Retrieve the computing instances that have disk images in a storage repository.</documentation>
+      <input message="tns:getGuests"/>
+      <output message="tns:getGuestsResponse"/>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <documentation></documentation>
+      <input message="tns:getMetricTrackingObject"/>
+      <output message="tns:getMetricTrackingObjectResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPublicImageBillingItem">
+      <documentation>Retrieve the current billing item for a public storage repository.</documentation>
+      <input message="tns:getPublicImageBillingItem"/>
+      <output message="tns:getPublicImageBillingItemResponse"/>
+    </operation>
+    <operation name="getPublicImageDiskUsageRatePerGb">
+      <documentation>Returns the public image storage disk usage fee rate per gigabyte. </documentation>
+      <input message="tns:getPublicImageDiskUsageRatePerGb"/>
+      <output message="tns:getPublicImageDiskUsageRatePerGbResponse"/>
+    </operation>
+    <operation name="getStorageLocations">
+      <documentation>Returns the public image storage locations. </documentation>
+      <input message="tns:getStorageLocations"/>
+      <output message="tns:getStorageLocationsResponse"/>
+    </operation>
+    <operation name="getType">
+      <documentation>Retrieve a storage repository's [[SoftLayer_Virtual_Storage_Repository_Type|type]].</documentation>
+      <input message="tns:getType"/>
+      <output message="tns:getTypeResponse"/>
+    </operation>
+    <operation name="getUsageMetricDataByDate">
+      <documentation>Retrieve disk usage data on a [[SoftLayer_Virtual_Guest|Cloud Computing Instance]] image for the time range you provide.  Each data entry objects contain ''dateTime'' and ''counter'' properties. ''dateTime'' property indicates the time that the disk usage data was measured and ''counter'' property holds the disk usage in bytes. </documentation>
+      <input message="tns:getUsageMetricDataByDate"/>
+      <output message="tns:getUsageMetricDataByDateResponse"/>
+    </operation>
+    <operation name="getUsageMetricImageByDate">
+      <documentation>Returns a disk usage image based on disk usage specified by the input parameters. </documentation>
+      <input message="tns:getUsageMetricImageByDate"/>
+      <output message="tns:getUsageMetricImageByDateResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Virtual_Storage_RepositoryBinding" type="tns:SoftLayer_Virtual_Storage_RepositoryPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getArchiveDiskUsageRatePerGb">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAverageUsageMetricDataByDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDatacenter">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDiskImages">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getGuests">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMetricTrackingObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPublicImageBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPublicImageDiskUsageRatePerGb">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStorageLocations">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectMaskHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryObjectFilterHeader" part="SoftLayer_Virtual_Storage_RepositoryObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUsageMetricDataByDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUsageMetricImageByDate">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_RepositoryAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Storage_RepositoryInitParametersHeader" part="SoftLayer_Virtual_Storage_RepositoryInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Virtual_Storage_RepositoryService">
+    <port name="SoftLayer_Virtual_Storage_RepositoryPort" binding="tns:SoftLayer_Virtual_Storage_RepositoryBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Virtual_Storage_Repository"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Notification_Emergency?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Auxiliary_Notification_EmergencyInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Auxiliary_Notification_EmergencyObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Auxiliary_Notification_Emergency"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Auxiliary_Notification_EmergencyInitParametersHeader">
+    <part name="SoftLayer_Auxiliary_Notification_EmergencyInitParameters" type="tns:SoftLayer_Auxiliary_Notification_EmergencyInitParameters"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Auxiliary_Notification_EmergencyArray"/>
+  </message>
+  <message name="getCurrentNotifications"/>
+  <message name="getCurrentNotificationsResponse">
+    <part name="getCurrentNotificationsReturn" type="tns:SoftLayer_Auxiliary_Notification_EmergencyArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Auxiliary_Notification_Emergency"/>
+  </message>
+  <message name="getSignature"/>
+  <message name="getSignatureResponse">
+    <part name="getSignatureReturn" type="tns:SoftLayer_Auxiliary_Notification_Emergency_Signature"/>
+  </message>
+  <message name="getStatus"/>
+  <message name="getStatusResponse">
+    <part name="getStatusReturn" type="tns:SoftLayer_Auxiliary_Notification_Emergency_Status"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Notification_EmergencyObjectMaskHeader">
+    <part name="SoftLayer_Auxiliary_Notification_EmergencyObjectMask" type="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectMask"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Notification_EmergencyObjectFilterHeader">
+    <part name="SoftLayer_Auxiliary_Notification_EmergencyObjectFilter" type="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Auxiliary_Notification_EmergencyPortType">
+    <documentation>The SoftLayer_Auxiliary_Notification_Emergency service is associated with all actions pertaining to the notification system.  It can be used to check for current network or service interruptions that effect SoftLayer services. </documentation>
+    <operation name="getAllObjects">
+      <documentation>Retrieve an array of SoftLayer_Auxiliary_Notification_Emergency data types, which contain all notification events regardless of status. </documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getCurrentNotifications">
+      <documentation>Retrieve an array of SoftLayer_Auxiliary_Notification_Emergency data types, which contain all current notification events. </documentation>
+      <input message="tns:getCurrentNotifications"/>
+      <output message="tns:getCurrentNotificationsResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Auxiliary_Notification_Emergency object, it can be used to check for current notifications being broadcast by SoftLayer. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getSignature">
+      <documentation>Retrieve the signature of the SoftLayer employee department associated with this notification.</documentation>
+      <input message="tns:getSignature"/>
+      <output message="tns:getSignatureResponse"/>
+    </operation>
+    <operation name="getStatus">
+      <documentation>Retrieve the status of this notification.</documentation>
+      <input message="tns:getStatus"/>
+      <output message="tns:getStatusResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Auxiliary_Notification_EmergencyBinding" type="tns:SoftLayer_Auxiliary_Notification_EmergencyPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Notification_EmergencyAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectMaskHeader" part="SoftLayer_Auxiliary_Notification_EmergencyObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectFilterHeader" part="SoftLayer_Auxiliary_Notification_EmergencyObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCurrentNotifications">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Notification_EmergencyAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectMaskHeader" part="SoftLayer_Auxiliary_Notification_EmergencyObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Notification_EmergencyAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectMaskHeader" part="SoftLayer_Auxiliary_Notification_EmergencyObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectFilterHeader" part="SoftLayer_Auxiliary_Notification_EmergencyObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyInitParametersHeader" part="SoftLayer_Auxiliary_Notification_EmergencyInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSignature">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Notification_EmergencyAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectMaskHeader" part="SoftLayer_Auxiliary_Notification_EmergencyObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectFilterHeader" part="SoftLayer_Auxiliary_Notification_EmergencyObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyInitParametersHeader" part="SoftLayer_Auxiliary_Notification_EmergencyInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getStatus">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Notification_EmergencyAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectMaskHeader" part="SoftLayer_Auxiliary_Notification_EmergencyObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyObjectFilterHeader" part="SoftLayer_Auxiliary_Notification_EmergencyObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Notification_EmergencyInitParametersHeader" part="SoftLayer_Auxiliary_Notification_EmergencyInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Auxiliary_Notification_EmergencyService">
+    <port name="SoftLayer_Auxiliary_Notification_EmergencyPort" binding="tns:SoftLayer_Auxiliary_Notification_EmergencyBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Notification_Emergency"/>
+    </port>
+  </service>
+</definitions>

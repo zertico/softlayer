@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_Release?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Auxiliary_Press_ReleaseInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Auxiliary_Press_ReleaseObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Auxiliary_Press_Release"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Auxiliary_Press_ReleaseInitParametersHeader">
+    <part name="SoftLayer_Auxiliary_Press_ReleaseInitParameters" type="tns:SoftLayer_Auxiliary_Press_ReleaseInitParameters"/>
+  </message>
+  <message name="getAbout"/>
+  <message name="getAboutResponse">
+    <part name="getAboutReturn" type="tns:SoftLayer_Auxiliary_Press_Release_About_Press_ReleaseArray"/>
+  </message>
+  <message name="getAllObjects"/>
+  <message name="getAllObjectsResponse">
+    <part name="getAllObjectsReturn" type="tns:SoftLayer_Auxiliary_Press_ReleaseArray"/>
+  </message>
+  <message name="getContacts"/>
+  <message name="getContactsResponse">
+    <part name="getContactsReturn" type="tns:SoftLayer_Auxiliary_Press_Release_Contact_Press_ReleaseArray"/>
+  </message>
+  <message name="getMediaPartners"/>
+  <message name="getMediaPartnersResponse">
+    <part name="getMediaPartnersReturn" type="tns:SoftLayer_Auxiliary_Press_Release_Media_Partner_Press_ReleaseArray"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Auxiliary_Press_Release"/>
+  </message>
+  <message name="getPressReleaseContent"/>
+  <message name="getPressReleaseContentResponse">
+    <part name="getPressReleaseContentReturn" type="tns:SoftLayer_Auxiliary_Press_Release_Content"/>
+  </message>
+  <message name="getRenderedPressRelease"/>
+  <message name="getRenderedPressReleaseResponse">
+    <part name="getRenderedPressReleaseReturn" type="tns:SoftLayer_Auxiliary_Press_ReleaseArray"/>
+  </message>
+  <message name="getRenderedPressReleases">
+    <part name="resultLimit" type="xsd:string"/>
+    <part name="year" type="xsd:string"/>
+  </message>
+  <message name="getRenderedPressReleasesResponse">
+    <part name="getRenderedPressReleasesReturn" type="tns:SoftLayer_Auxiliary_Press_ReleaseArray"/>
+  </message>
+  <message name="getWebsiteHighlightPressReleases"/>
+  <message name="getWebsiteHighlightPressReleasesResponse">
+    <part name="getWebsiteHighlightPressReleasesReturn" type="tns:SoftLayer_Auxiliary_Press_ReleaseArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader">
+    <part name="SoftLayer_Auxiliary_Press_ReleaseObjectMask" type="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMask"/>
+  </message>
+  <message name="SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader">
+    <part name="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" type="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Auxiliary_Press_ReleasePortType">
+    <documentation>The SoftLayer_Auxiliary_Press_Release service is associated with all actions pertaining to the press release management tool.  It can be used to obtain a single press release, all press releases, press releases for a given year and highlighted press releases. </documentation>
+    <operation name="getAbout">
+      <documentation></documentation>
+      <input message="tns:getAbout"/>
+      <output message="tns:getAboutResponse"/>
+    </operation>
+    <operation name="getAllObjects">
+      <documentation>Retrieve an array of SoftLayer_Auxiliary_Press_Release data types, which contain all press releases. </documentation>
+      <input message="tns:getAllObjects"/>
+      <output message="tns:getAllObjectsResponse"/>
+    </operation>
+    <operation name="getContacts">
+      <documentation></documentation>
+      <input message="tns:getContacts"/>
+      <output message="tns:getContactsResponse"/>
+    </operation>
+    <operation name="getMediaPartners">
+      <documentation></documentation>
+      <input message="tns:getMediaPartners"/>
+      <output message="tns:getMediaPartnersResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Auxiliary_Press_Release object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Auxiliary_Press_Release service. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getPressReleaseContent">
+      <documentation></documentation>
+      <input message="tns:getPressReleaseContent"/>
+      <output message="tns:getPressReleaseContentResponse"/>
+    </operation>
+    <operation name="getRenderedPressRelease">
+      <documentation>Retrieve an array of SoftLayer_Auxiliary_Press_Release data types, which contain all press releases. </documentation>
+      <input message="tns:getRenderedPressRelease"/>
+      <output message="tns:getRenderedPressReleaseResponse"/>
+    </operation>
+    <operation name="getRenderedPressReleases">
+      <documentation>Retrieve an array of SoftLayer_Auxiliary_Press_Release data types, which contain all press releases for a given year and or result limit. </documentation>
+      <input message="tns:getRenderedPressReleases"/>
+      <output message="tns:getRenderedPressReleasesResponse"/>
+    </operation>
+    <operation name="getWebsiteHighlightPressReleases">
+      <documentation>Retrieve an array of SoftLayer_Auxiliary_Press_Release data types, which have the website highlight flag set. </documentation>
+      <input message="tns:getWebsiteHighlightPressReleases"/>
+      <output message="tns:getWebsiteHighlightPressReleasesResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Auxiliary_Press_ReleaseBinding" type="tns:SoftLayer_Auxiliary_Press_ReleasePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAbout">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_ReleaseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseInitParametersHeader" part="SoftLayer_Auxiliary_Press_ReleaseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_ReleaseAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getContacts">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_ReleaseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseInitParametersHeader" part="SoftLayer_Auxiliary_Press_ReleaseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMediaPartners">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_ReleaseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseInitParametersHeader" part="SoftLayer_Auxiliary_Press_ReleaseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_ReleaseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseInitParametersHeader" part="SoftLayer_Auxiliary_Press_ReleaseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getPressReleaseContent">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_ReleaseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseInitParametersHeader" part="SoftLayer_Auxiliary_Press_ReleaseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRenderedPressRelease">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_ReleaseAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseInitParametersHeader" part="SoftLayer_Auxiliary_Press_ReleaseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getRenderedPressReleases">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_ReleaseAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getWebsiteHighlightPressReleases">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_ReleaseAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectMaskHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Auxiliary_Press_ReleaseObjectFilterHeader" part="SoftLayer_Auxiliary_Press_ReleaseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Auxiliary_Press_ReleaseService">
+    <port name="SoftLayer_Auxiliary_Press_ReleasePort" binding="tns:SoftLayer_Auxiliary_Press_ReleaseBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Auxiliary_Press_Release"/>
+    </port>
+  </service>
+</definitions>

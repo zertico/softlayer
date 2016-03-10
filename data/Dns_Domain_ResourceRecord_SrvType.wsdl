@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvType?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+      <xsd:complexType name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParametersHeader">
+    <part name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParameters" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParameters"/>
+  </message>
+  <message name="createObject">
+    <part name="templateObject" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvType"/>
+  </message>
+  <message name="createObjectResponse">
+    <part name="createObjectReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvType"/>
+  </message>
+  <message name="createObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Dns_Domain_ResourceRecordArray"/>
+  </message>
+  <message name="createObjectsResponse">
+    <part name="createObjectsReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecordArray"/>
+  </message>
+  <message name="deleteObject"/>
+  <message name="deleteObjectResponse">
+    <part name="deleteObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="deleteObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeArray"/>
+  </message>
+  <message name="deleteObjectsResponse">
+    <part name="deleteObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObject">
+    <part name="templateObject" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvType"/>
+  </message>
+  <message name="editObjectResponse">
+    <part name="editObjectReturn" type="xsd:boolean"/>
+  </message>
+  <message name="editObjects">
+    <part name="templateObjects" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeArray"/>
+  </message>
+  <message name="editObjectsResponse">
+    <part name="editObjectsReturn" type="xsd:boolean"/>
+  </message>
+  <message name="getDomain"/>
+  <message name="getDomainResponse">
+    <part name="getDomainReturn" type="tns:SoftLayer_Dns_Domain"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvType"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMaskHeader">
+    <part name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMask" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMask"/>
+  </message>
+  <message name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectFilterHeader">
+    <part name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectFilter" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypePortType">
+    <documentation>The SoftLayer_Dns_Domain_ResourceRecord_SrvType service controls the creation, modification, and deletion of SRV records within a domain hosted on SoftLayer's DNS servers. It exists separately from the SoftLayer_Dns_Domain_ResourceRecord to provide control for SRV priority, port, protocol, service, and weight in addition to host, data, and time-to-live. </documentation>
+    <operation name="createObject">
+      <documentation>createObject creates a new SRV record. The ''host'' property of the templateObject parameter is scrubbed to remove all non-alpha numeric characters except for &amp;quot;@&amp;quot;, &amp;quot;_&amp;quot;, &amp;quot;.&amp;quot;, &amp;quot;*&amp;quot;, and &amp;quot;-&amp;quot;. The ''data'' property of the templateObject parameter is scrubbed to remove all non-alphanumeric characters for &amp;quot;.&amp;quot; and &amp;quot;-&amp;quot;. Creating an SRV record updates the serial number of the domain the resource record is associated with. </documentation>
+      <input message="tns:createObject"/>
+      <output message="tns:createObjectResponse"/>
+    </operation>
+    <operation name="createObjects">
+      <documentation>Create multiple SRV records on a domain. This follows the same logic as ''createObject'. The serial number of the domain associated with this SRV record is updated upon creation. 
+
+''createObjects'' returns Boolean ''true'' on successful creation or ''false'' if it was unable to create a resource record. </documentation>
+      <input message="tns:createObjects"/>
+      <output message="tns:createObjectsResponse"/>
+    </operation>
+    <operation name="deleteObject">
+      <documentation>Delete a domain's SRV record. '''This cannot be undone.''' Be wary of running this method. If you remove a resource record in error you will need to re-create it by creating a new SoftLayer_Dns_Domain_ResourceRecord_SrvType object. The serial number of the domain associated with this SRV record is updated upon deletion. 
+
+''deleteObject'' returns Boolean ''true'' on successful deletion or ''false'' if it was unable to remove a resource record. </documentation>
+      <input message="tns:deleteObject"/>
+      <output message="tns:deleteObjectResponse"/>
+    </operation>
+    <operation name="deleteObjects">
+      <documentation>Remove multiple SRV records from a domain. This follows the same logic as ''deleteObject'' and '''cannot be undone'''. The serial number of the domain associated with this SRV record is updated upon deletion. 
+
+''deleteObjects'' returns Boolean ''true'' on successful deletion or ''false'' if it was unable to remove a resource record. </documentation>
+      <input message="tns:deleteObjects"/>
+      <output message="tns:deleteObjectsResponse"/>
+    </operation>
+    <operation name="editObject">
+      <documentation>editObject edits an existing SRV resource record. The ''host'' property of the templateObject parameter is scrubbed to remove all non-alpha numeric characters except for &amp;quot;@&amp;quot;, &amp;quot;_&amp;quot;, &amp;quot;.&amp;quot;, &amp;quot;*&amp;quot;, and &amp;quot;-&amp;quot;. The ''data'' property of the templateObject parameter is scrubbed to remove all non-alphanumeric characters for &amp;quot;.&amp;quot; and &amp;quot;-&amp;quot;. Editing an SRV record updates the serial number of the domain the record is associated with. 
+
+''editObject'' returns Boolean ''true'' on a successful edit or ''false'' if it was unable to edit the resource record. </documentation>
+      <input message="tns:editObject"/>
+      <output message="tns:editObjectResponse"/>
+    </operation>
+    <operation name="editObjects">
+      <documentation>Edit multiple SRV records on a domain. This follows the same logic as ''createObject'. The serial number of the domain associated with this SRV record is updated upon creation. 
+
+''createObjects'' returns Boolean ''true'' on successful creation or ''false'' if it was unable to create a resource record. </documentation>
+      <input message="tns:editObjects"/>
+      <output message="tns:editObjectsResponse"/>
+    </operation>
+    <operation name="getDomain">
+      <documentation>Retrieve the domain that a resource record belongs to.</documentation>
+      <input message="tns:getDomain"/>
+      <output message="tns:getDomainResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation>getObject retrieves the SoftLayer_Dns_Domain_ResourceRecord_SrvType object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Dns_Domain_ResourceRecord_SrvType service. You can only retrieve resource records belonging to domains that are assigned to your SoftLayer account. </documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeBinding" type="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvTypeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMaskHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="createObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvTypeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMaskHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvTypeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParametersHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="deleteObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvTypeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvTypeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParametersHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="editObjects">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvTypeAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDomain">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvTypeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMaskHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectFilterHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParametersHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvTypeAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMaskHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectFilterHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParametersHeader" part="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypeService">
+    <port name="SoftLayer_Dns_Domain_ResourceRecord_SrvTypePort" binding="tns:SoftLayer_Dns_Domain_ResourceRecord_SrvTypeBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Dns_Domain_ResourceRecord_SrvType"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,36 @@
+---
+Softlayer::Dns::Domain:
+  zertico:
+    attributes:
+      id: 12345678
+      name: zertico.com
+      serial: 2000102701
+      update_date: <%= Date.parse('2000-10-27 08:53:40.000000000 -05:00') %>
+    relationships:
+      account:
+        type: Softlayer::Account
+        id: SL000000
+      resource_records:
+        - type: Softlayer::Dns::Domain::ResourceRecord::SoaType
+          id: zertico
+        - type: Softlayer::Dns::Domain::ResourceRecord::SoaType
+          id: ns1
+        - type: Softlayer::Dns::Domain::ResourceRecord::SoaType
+          id: ns2
+  horus:
+    attributes:
+      id: 12345679
+      name: horus.com
+      serial: 2000102703
+      update_date: <%= Date.parse('2000-10-27 08:53:40.000000000 -05:00') %>
+    relationships:
+      account:
+        type: Softlayer::Account
+        id: SL000000
+      resource_records:
+        - type: Softlayer::Dns::Domain::ResourceRecord::SoaType
+          id: zertico
+        - type: Softlayer::Dns::Domain::ResourceRecord::SoaType
+          id: ns1
+        - type: Softlayer::Dns::Domain::ResourceRecord::SoaType
+          id: ns2
