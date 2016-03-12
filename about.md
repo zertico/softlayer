@@ -2,8 +2,7 @@
 layout: page
 permalink: /about/index.html
 title: SoftLayer API Dev
-tags: [Hossain, Mohd, Faysal, hmfaysal]
-imagefeature: fourseasons.jpg
+tags: [softlayer, api, news, virtual guest, cloud server, client]
 chart: true
 ---
 
