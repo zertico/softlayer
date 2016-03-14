@@ -448,6 +448,10 @@
   <message name="getObjectResponse">
     <part name="getObjectReturn" type="tns:SoftLayer_Network_Storage"/>
   </message>
+  <message name="getObjectStorageConnectionInformation"/>
+  <message name="getObjectStorageConnectionInformationResponse">
+    <part name="getObjectStorageConnectionInformationReturn" type="tns:SoftLayer_Container_Network_Service_Resource_ObjectStorage_ConnectionInformationArray"/>
+  </message>
   <message name="getObjectsByCredential">
     <part name="credentialObject" type="tns:SoftLayer_Network_Storage_Credential"/>
   </message>
@@ -1221,6 +1225,11 @@ getGraph() retrieves a Storage account's usage and returns a PNG graph image, ti
 Please use the associated methods in the [[SoftLayer_Network_Storage]] service to retrieve a Storage account's id. </documentation>
       <input message="tns:getObject"/>
       <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getObjectStorageConnectionInformation">
+      <documentation></documentation>
+      <input message="tns:getObjectStorageConnectionInformation"/>
+      <output message="tns:getObjectStorageConnectionInformationResponse"/>
     </operation>
     <operation name="getObjectsByCredential">
       <documentation>Retrieve network storage accounts by SoftLayer_Network_Storage_Credential object. Use this method if you wish to retrieve a storage record by a credential rather than by id. </documentation>
@@ -2597,6 +2606,16 @@ The following properties are required in the ''file'' parameter.
         <soap:header message="tns:SoftLayer_Network_StorageObjectFilterHeader" part="SoftLayer_Network_StorageObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Network_StorageInitParametersHeader" part="SoftLayer_Network_StorageInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObjectStorageConnectionInformation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_StorageAction"/>
+      <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>

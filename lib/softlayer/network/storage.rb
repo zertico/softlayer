@@ -489,6 +489,10 @@ module Softlayer
         request(:get_object, Softlayer::Network::Storage)
       end
 
+      def self.get_object_storage_connection_information
+        request(:get_object_storage_connection_information, Array[Softlayer::Container::Network::Service::Resource::ObjectStorage::ConnectionInformation])
+      end
+
       def self.get_objects_by_credential(credential_object = nil)
         message = {credential_object: credential_object}
         request(:get_objects_by_credential, Array[Softlayer::Network::Storage], message)

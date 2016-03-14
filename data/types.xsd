@@ -10089,6 +10089,33 @@
       </restriction>
     </complexContent>
   </complexType>
+  <complexType name="SoftLayer_Container_Network_Service_Resource_ObjectStorage_ConnectionInformation">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="datacenter" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="datacenterShortName" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="privateEndpoint" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="publicEndpoint" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="SoftLayer_Container_Network_Service_Resource_ObjectStorage_ConnectionInformationObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Utility_ObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="datacenter" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="datacenterShortName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="privateEndpoint" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="publicEndpoint" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Network_Service_Resource_ObjectStorage_ConnectionInformationArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Container_Network_Service_Resource_ObjectStorage_ConnectionInformation[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
   <complexType name="SoftLayer_Container_Network_Storage_Backup_Evault_WebCc_Authentication_Details">
     <sequence>
       <element minOccurs="0" maxOccurs="1" name="eventValidation" type="string"/>

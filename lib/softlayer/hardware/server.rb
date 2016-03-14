@@ -112,6 +112,11 @@ module Softlayer
         request(:edit_software_component_passwords, Boolean, message)
       end
 
+      def execute_remote_script(uri = nil)
+        message = {uri: uri}
+        request(:execute_remote_script, nil, message)
+      end
+
       def self.find_by_ip_address(ip_address = nil)
         message = {ip_address: ip_address}
         request(:find_by_ip_address, Softlayer::Hardware::Server, message)

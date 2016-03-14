@@ -467,6 +467,10 @@
   <message name="getObjectResponse">
     <part name="getObjectReturn" type="tns:SoftLayer_Network_Storage_Backup_Evault"/>
   </message>
+  <message name="getObjectStorageConnectionInformation"/>
+  <message name="getObjectStorageConnectionInformationResponse">
+    <part name="getObjectStorageConnectionInformationReturn" type="tns:SoftLayer_Container_Network_Service_Resource_ObjectStorage_ConnectionInformationArray"/>
+  </message>
   <message name="getObjectsByCredential">
     <part name="credentialObject" type="tns:SoftLayer_Network_Storage_Credential"/>
   </message>
@@ -1281,6 +1285,11 @@ This method drives the backup page of the SoftLayer customer portal. It serves a
       <documentation>getObject retrieves the SoftLayer_Network_Storage_Backup_Evault object whose ID corresponds to the ID number of the init parameter passed to the SoftLayer_Network_Storage_Backup_Evault service. </documentation>
       <input message="tns:getObject"/>
       <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getObjectStorageConnectionInformation">
+      <documentation></documentation>
+      <input message="tns:getObjectStorageConnectionInformation"/>
+      <output message="tns:getObjectStorageConnectionInformationResponse"/>
     </operation>
     <operation name="getObjectsByCredential">
       <documentation>Retrieve network storage accounts by SoftLayer_Network_Storage_Credential object. Use this method if you wish to retrieve a storage record by a credential rather than by id. </documentation>
@@ -2716,6 +2725,16 @@ The following properties are required in the ''file'' parameter.
         <soap:header message="tns:SoftLayer_Network_Storage_Backup_EvaultObjectFilterHeader" part="SoftLayer_Network_Storage_Backup_EvaultObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Network_Storage_Backup_EvaultInitParametersHeader" part="SoftLayer_Network_Storage_Backup_EvaultInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObjectStorageConnectionInformation">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Network_Storage_Backup_EvaultAction"/>
+      <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>

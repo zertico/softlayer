@@ -161,6 +161,9 @@
   <message name="editSoftwareComponentPasswordsResponse">
     <part name="editSoftwareComponentPasswordsReturn" type="xsd:boolean"/>
   </message>
+  <message name="executeRemoteScript">
+    <part name="uri" type="xsd:string"/>
+  </message>
   <message name="findByIpAddress">
     <part name="ipAddress" type="xsd:string"/>
   </message>
@@ -1608,6 +1611,10 @@ This method will cancel a server effective immediately. For servers billed hourl
       <input message="tns:editSoftwareComponentPasswords"/>
       <output message="tns:editSoftwareComponentPasswordsResponse"/>
     </operation>
+    <operation name="executeRemoteScript">
+      <documentation>Download and run remote script from uri on the hardware.</documentation>
+      <input message="tns:executeRemoteScript"/>
+    </operation>
     <operation name="findByIpAddress">
       <documentation>The '''findByIpAddress''' method finds hardware using its primary public or private IP address. IP addresses that have a secondary subnet tied to the hardware will not return the hardware - alternate means of locating the hardware must be used (see '''Associated Methods'''). If no hardware is found, no errors are generated and no data is returned. </documentation>
       <input message="tns:findByIpAddress"/>
@@ -3033,6 +3040,14 @@ It will take less than a minute to update the switch port speed. The server upli
       <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
+    </operation>
+    <operation name="executeRemoteScript">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_ServerAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Hardware_ServerInitParametersHeader" part="SoftLayer_Hardware_ServerInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
     </operation>
     <operation name="findByIpAddress">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Hardware_ServerAction"/>
