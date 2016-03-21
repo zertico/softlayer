@@ -4,6 +4,7 @@ module Softlayer
       module Domain
         module Registration
           autoload :Contact, 'softlayer/container/dns/domain/registration/contact'
+          autoload :ExtendedAttribute, 'softlayer/container/dns/domain/registration/extended_attribute'
           autoload :Information, 'softlayer/container/dns/domain/registration/information'
           autoload :List, 'softlayer/container/dns/domain/registration/list'
           autoload :Lookup, 'softlayer/container/dns/domain/registration/lookup'

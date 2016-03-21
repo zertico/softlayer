@@ -6,6 +6,7 @@ module Softlayer
           class List < Softlayer::Model
             attr_accessor :domain_name
             attr_accessor :encoding_type
+            attr_accessor :extended_attribute_configuration
             attr_accessor :registration_period
 
             class Representer < Representable::Decorator

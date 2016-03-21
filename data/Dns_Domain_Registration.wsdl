@@ -53,6 +53,12 @@
   <message name="getDomainRegistrationStatusResponse">
     <part name="getDomainRegistrationStatusReturn" type="tns:SoftLayer_Dns_Domain_Registration_Status"/>
   </message>
+  <message name="getExtendedAttributes">
+    <part name="domainName" type="xsd:string"/>
+  </message>
+  <message name="getExtendedAttributesResponse">
+    <part name="getExtendedAttributesReturn" type="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttributeArray"/>
+  </message>
   <message name="getObject"/>
   <message name="getObjectResponse">
     <part name="getObjectReturn" type="tns:SoftLayer_Dns_Domain_Registration"/>
@@ -192,6 +198,11 @@
       <documentation>Retrieve the domain registration status.</documentation>
       <input message="tns:getDomainRegistrationStatus"/>
       <output message="tns:getDomainRegistrationStatusResponse"/>
+    </operation>
+    <operation name="getExtendedAttributes">
+      <documentation>The getExtendedAttributes method determines if a country code top level domain requires extended attributes. </documentation>
+      <input message="tns:getExtendedAttributes"/>
+      <output message="tns:getExtendedAttributesResponse"/>
     </operation>
     <operation name="getObject">
       <documentation>getObject retrieves the SoftLayer_Dns_Domain_Registration object whose ID number corresponds to the ID number of the init parameter passed to the SoftLayer_Dns_Domain_Registration service. </documentation>
@@ -359,6 +370,16 @@
         <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationObjectFilterHeader" part="SoftLayer_Dns_Domain_RegistrationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Dns_Domain_RegistrationInitParametersHeader" part="SoftLayer_Dns_Domain_RegistrationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getExtendedAttributes">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Dns_Domain_RegistrationAction"/>
+      <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>

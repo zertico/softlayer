@@ -20,11 +20,6 @@ module Softlayer
         request(:get_object, Softlayer::Account::MasterServiceAgreement)
       end
 
-      def self.get_pdf(account_id = nil, guid = nil)
-        message = {account_id: account_id, guid: guid}
-        request(:get_pdf, Softlayer::Base64Binary, message)
-      end
-
       class Representer < Representable::Decorator
         include Representable::Hash
         include Representable::Coercion

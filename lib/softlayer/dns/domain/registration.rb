@@ -49,6 +49,11 @@ module Softlayer
           request(:get_domain_registration_status, Softlayer::Dns::Domain::Registration::Status)
         end
 
+        def self.get_extended_attributes(domain_name = nil)
+          message = {domain_name: domain_name}
+          request(:get_extended_attributes, Array[Softlayer::Container::Dns::Domain::Registration::ExtendedAttribute], message)
+        end
+
         def get_object
           request(:get_object, Softlayer::Dns::Domain::Registration)
         end

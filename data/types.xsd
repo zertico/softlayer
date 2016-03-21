@@ -8286,6 +8286,108 @@
       </restriction>
     </complexContent>
   </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="childFlag" type="boolean"/>
+      <element minOccurs="0" maxOccurs="1" name="description" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="name" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="options" type="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_OptionArray"/>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="requiredFlag" type="int"/>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="userDefinedFlag" type="boolean"/>
+    </sequence>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttributeObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Utility_ObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="childFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="description" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="name" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="options" type="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_OptionObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="requiredFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="userDefinedFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttributeArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Configuration">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="name" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="value" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_ConfigurationObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Utility_ObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="name" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="value" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_ConfigurationArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Configuration[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Option">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="description" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="requireExtendedAttributes" type="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Option_RequireArray"/>
+      <element minOccurs="0" maxOccurs="1" name="title" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="value" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_OptionObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Utility_ObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="description" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="requireExtendedAttributes" type="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Option_RequireObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="title" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="value" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_OptionArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Option[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Option_Require">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="name" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Option_RequireObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Utility_ObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="name" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Option_RequireArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_Option_Require[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
   <complexType name="SoftLayer_Container_Dns_Domain_Registration_Information">
     <sequence>
       <element minOccurs="0" maxOccurs="1" name="contacts" type="tns:SoftLayer_Container_Dns_Domain_Registration_ContactArray"/>
@@ -8321,6 +8423,7 @@
     <sequence>
       <element minOccurs="0" maxOccurs="1" name="domainName" type="string"/>
       <element minOccurs="0" maxOccurs="1" name="encodingType" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="extendedAttributeConfiguration" type="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_ConfigurationArray"/>
       <element minOccurs="0" maxOccurs="1" nillable="true" name="registrationPeriod" type="int"/>
     </sequence>
   </complexType>
@@ -8330,6 +8433,7 @@
         <sequence>
           <element minOccurs="0" maxOccurs="1" name="domainName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="encodingType" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="extendedAttributeConfiguration" type="tns:SoftLayer_Container_Dns_Domain_Registration_ExtendedAttribute_ConfigurationObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="registrationPeriod" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
         </sequence>
       </extension>
@@ -16241,6 +16345,7 @@
   </complexType>
   <complexType name="SoftLayer_Locale_Country">
     <sequence>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="isEuropeanUnionFlag" type="int"/>
       <element minOccurs="0" maxOccurs="1" name="longName" type="string"/>
       <element minOccurs="0" maxOccurs="1" name="shortName" type="string"/>
       <element minOccurs="0" maxOccurs="1" name="stateCount" type="unsignedLong"/>
@@ -16251,6 +16356,7 @@
     <complexContent>
       <extension base="tns:SoftLayer_Utility_ObjectFilter">
         <sequence>
+          <element minOccurs="0" maxOccurs="1" name="isEuropeanUnionFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="longName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="shortName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="states" type="tns:SoftLayer_Locale_StateProvinceObjectFilter"/>
@@ -31243,6 +31349,91 @@
     <complexContent>
       <restriction base="soapenc:Array">
         <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_User_Customer_Prospect[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequest">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="accountId" type="int"/>
+      <element minOccurs="0" maxOccurs="1" name="address1" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="address2" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="cardAccountNumber" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="cardExpirationMonth" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="cardExpirationYear" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="cardType" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="cardVerificationNumber" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="city" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="companyName" type="string"/>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="companyTypeId" type="int"/>
+      <element minOccurs="0" maxOccurs="1" name="companyUrl" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="contactEmail" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="contactFirstName" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="contactLastName" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="contactPhone" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="country" type="string"/>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="customerProspectId" type="int"/>
+      <element minOccurs="0" maxOccurs="1" name="deviceFingerprintId" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="email" type="string"/>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="existingCustomerFlag" type="boolean"/>
+      <element minOccurs="0" maxOccurs="1" name="firstName" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="ibmPartnerWorldId" type="string"/>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="ibmPartnerWorldMemberFlag" type="boolean"/>
+      <element minOccurs="0" maxOccurs="1" name="lastName" type="string"/>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="masterAgreementCompleteFlag" type="boolean"/>
+      <element minOccurs="0" maxOccurs="1" name="officePhone" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="postalCode" type="string"/>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="serviceProviderAddendumFlag" type="boolean"/>
+      <element minOccurs="0" maxOccurs="1" name="state" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="surveyResponses" type="tns:SoftLayer_Survey_ResponseArray"/>
+      <element minOccurs="0" maxOccurs="1" name="vatId" type="string"/>
+      <element minOccurs="0" maxOccurs="1" name="companyType" type="tns:SoftLayer_Catalyst_Company_Type"/>
+    </sequence>
+  </complexType>
+  <complexType name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Utility_ObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="accountId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="address1" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="address2" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="cardAccountNumber" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="cardExpirationMonth" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="cardExpirationYear" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="cardType" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="cardVerificationNumber" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="city" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="companyName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="companyTypeId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="companyUrl" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="contactEmail" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="contactFirstName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="contactLastName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="contactPhone" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="country" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="customerProspectId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="deviceFingerprintId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="email" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="existingCustomerFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="firstName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="ibmPartnerWorldId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="ibmPartnerWorldMemberFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="lastName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="masterAgreementCompleteFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="officePhone" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="postalCode" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="serviceProviderAddendumFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="state" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="surveyResponses" type="tns:SoftLayer_Survey_ResponseObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="vatId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="companyType" type="tns:SoftLayer_Catalyst_Company_TypeObjectFilter"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequest[]"/>
       </restriction>
     </complexContent>
   </complexType>

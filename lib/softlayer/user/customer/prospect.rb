@@ -3,6 +3,7 @@ module Softlayer
     class Customer
       class Prospect < Softlayer::Model
         autoload :Type, 'softlayer/user/customer/prospect/type'
+        autoload :ServiceProvider, 'softlayer/user/customer/prospect/service_provider'
         attr_accessor :assigned_employee_count
         attr_accessor :quote_count
         attr_accessor :account
