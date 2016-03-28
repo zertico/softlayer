@@ -6026,6 +6026,7 @@
       <element minOccurs="0" maxOccurs="1" name="notes" type="string"/>
       <element minOccurs="0" maxOccurs="1" nillable="true" name="paymentRoleId" type="int"/>
       <element minOccurs="0" maxOccurs="1" name="paymentType" type="string"/>
+      <element minOccurs="0" maxOccurs="1" nillable="true" name="ticketId" type="int"/>
       <element minOccurs="0" maxOccurs="1" name="ticketAttachmentReferenceCount" type="unsignedLong"/>
       <element minOccurs="0" maxOccurs="1" name="account" type="tns:SoftLayer_Account"/>
       <element minOccurs="0" maxOccurs="1" name="authorizedCreditCardTransaction" type="tns:SoftLayer_Billing_Payment_Card_Transaction"/>
@@ -6064,6 +6065,7 @@
           <element minOccurs="0" maxOccurs="1" name="notes" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="paymentRoleId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="paymentType" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="ticketId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="account" type="tns:SoftLayer_AccountObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="authorizedCreditCardTransaction" type="tns:SoftLayer_Billing_Payment_Card_TransactionObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="captureCreditCardTransaction" type="tns:SoftLayer_Billing_Payment_Card_TransactionObjectFilter"/>
@@ -11107,12 +11109,9 @@
       <element minOccurs="0" maxOccurs="1" nillable="true" name="billingOrderItemId" type="int"/>
       <element minOccurs="0" maxOccurs="1" nillable="true" name="clusterResourceId" type="int"/>
       <element minOccurs="0" maxOccurs="1" name="configurationUrl" type="string"/>
-      <element minOccurs="0" maxOccurs="1" name="datacenterCountryIneligibility" type="string"/>
-      <element minOccurs="0" maxOccurs="1" name="datacenterDescription" type="string"/>
       <element minOccurs="0" maxOccurs="1" name="hash" type="string"/>
       <element minOccurs="0" maxOccurs="1" nillable="true" name="hourlyPricesFlag" type="boolean"/>
       <element minOccurs="0" maxOccurs="1" nillable="true" name="imageTemplateId" type="int"/>
-      <element minOccurs="0" maxOccurs="1" name="ineligibleAccountCountries" type="string"/>
       <element minOccurs="0" maxOccurs="1" name="iscsiOsFormatTypeKeyName" type="string"/>
       <element minOccurs="0" maxOccurs="1" name="location" type="string"/>
       <element minOccurs="0" maxOccurs="1" name="name" type="string"/>
@@ -11141,12 +11140,9 @@
           <element minOccurs="0" maxOccurs="1" name="billingOrderItemId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="clusterResourceId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="configurationUrl" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
-          <element minOccurs="0" maxOccurs="1" name="datacenterCountryIneligibility" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
-          <element minOccurs="0" maxOccurs="1" name="datacenterDescription" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="hash" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="hourlyPricesFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="imageTemplateId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
-          <element minOccurs="0" maxOccurs="1" name="ineligibleAccountCountries" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="iscsiOsFormatTypeKeyName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="location" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="name" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
@@ -22629,6 +22625,7 @@
       <element minOccurs="0" maxOccurs="1" name="allowedHost" type="tns:SoftLayer_Network_Storage_Allowed_Host"/>
       <element minOccurs="0" maxOccurs="1" name="allowedNetworkStorage" type="tns:SoftLayer_Network_StorageArray"/>
       <element minOccurs="0" maxOccurs="1" name="allowedNetworkStorageReplicas" type="tns:SoftLayer_Network_StorageArray"/>
+      <element minOccurs="0" maxOccurs="1" name="applicationDeliveryController" type="tns:SoftLayer_Network_Application_Delivery_Controller"/>
       <element minOccurs="0" maxOccurs="1" name="contextTunnelTranslations" type="tns:SoftLayer_Network_Tunnel_Module_Context_Address_TranslationArray"/>
       <element minOccurs="0" maxOccurs="1" name="endpointSubnets" type="tns:SoftLayer_Network_SubnetArray"/>
       <element minOccurs="0" maxOccurs="1" name="guestNetworkComponent" type="tns:SoftLayer_Virtual_Guest_Network_Component"/>
@@ -22670,6 +22667,7 @@
           <element minOccurs="0" maxOccurs="1" name="allowedHost" type="tns:SoftLayer_Network_Storage_Allowed_HostObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="allowedNetworkStorage" type="tns:SoftLayer_Network_StorageObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="allowedNetworkStorageReplicas" type="tns:SoftLayer_Network_StorageObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="applicationDeliveryController" type="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="contextTunnelTranslations" type="tns:SoftLayer_Network_Tunnel_Module_Context_Address_TranslationObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="endpointSubnets" type="tns:SoftLayer_Network_SubnetObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="guestNetworkComponent" type="tns:SoftLayer_Virtual_Guest_Network_ComponentObjectFilter"/>
@@ -25250,7 +25248,6 @@
       <element minOccurs="0" maxOccurs="1" name="activeUsagePriceCount" type="unsignedLong"/>
       <element minOccurs="0" maxOccurs="1" name="attributeCount" type="unsignedLong"/>
       <element minOccurs="0" maxOccurs="1" name="availableLocationCount" type="unsignedLong"/>
-      <element minOccurs="0" maxOccurs="1" name="categoryCount" type="unsignedLong"/>
       <element minOccurs="0" maxOccurs="1" name="configurationCount" type="unsignedLong"/>
       <element minOccurs="0" maxOccurs="1" name="defaultRamItemCount" type="unsignedLong"/>
       <element minOccurs="0" maxOccurs="1" name="deploymentCount" type="unsignedLong"/>
