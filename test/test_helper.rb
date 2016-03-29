@@ -33,11 +33,6 @@ VCR.configure do |c|
       /<clientLegacySession><userId>[A-Z0-9]+<\/userId><authToken>[a-f0-9]+<\/authToken><\/clientLegacySession>/
     )
   end
-
-  # do not save wsdl on vcr cassete
-  # c.ignore_request do |request|
-  #   request.uri.match /https:\/\/api.softlayer.com\/soap\/v3.1\/[^\?]+\?wsdl/
-  # end
 end
 
 MinitestVcr::Spec.configure!

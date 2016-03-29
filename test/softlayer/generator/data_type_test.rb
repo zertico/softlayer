@@ -3,7 +3,7 @@ require 'test_helper'
 describe Softlayer::Generator::DataType do
   it "has data types" do
     subject.send('set_types', @data_types)
-    subject.types.size.must_equal 1003
+    subject.types.size.must_equal 1008
   end
 
   it "return direct descendants for class" do
@@ -50,7 +50,7 @@ describe Softlayer::Generator::DataType do
   context ".all_elements" do
     it "include modules" do
       all_elements = subject.all_elements
-      all_elements.size.must_equal 1442
+      all_elements.size.must_equal 1448
       all_elements.include?('SoftLayer_Account_Regional').must_equal true
       all_elements.include?('SoftLayer_Account_Regional_Registry').must_equal true
       all_elements.include?('SoftLayer_Account_Regional_Registry_Detail').must_equal true

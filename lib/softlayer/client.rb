@@ -1,15 +1,6 @@
 module Softlayer
   class Client < Savon::Client
-    class << self
-      def call(method, message = {})
-        safe do
-          resp = super method, message: message
-          resp.to_hash["#{method}_response".to_sym]["#{method}_return".to_sym]
-        end
-      end
-    end
 
-    # Create a new client.
     def initialize(service)
       @service = service
       super client_params
@@ -48,7 +39,9 @@ module Softlayer
     end
 
     def client_params
-      { wsdl: "https://api.softlayer.com/soap/v3.1/#{@service}?wsdl" }.tap do |params|
+      # Use the already downloaded wsdl files, this speeds up A LOT!
+      wsdl_file = File.join(File.dirname(Softlayer.root), 'data', @service.sub('SoftLayer_', '') + '.wsdl')
+      { wsdl: wsdl_file }.tap do |params|
         params[:open_timeout] = Softlayer.configuration.open_timeout if Softlayer.configuration.open_timeout
         params[:read_timeout] = Softlayer.configuration.read_timeout if Softlayer.configuration.read_timeout
         params[:soap_header] = auth_params

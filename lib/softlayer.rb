@@ -72,6 +72,10 @@ module Softlayer
     # Softlayer gem configuration.
     attr_accessor :configuration
 
+    def root
+      File.dirname(__FILE__)
+    end
+
     # Returns true if the gem has been configured.
     def configured?
       configuration.present?

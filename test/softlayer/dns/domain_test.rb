@@ -21,7 +21,7 @@ describe Softlayer::Dns::Domain, :vcr do
 
   describe "#createARecord" do
     it "create A Record" do
-      @domain = Softlayer::Dns::Domain.find(1908681)
+      @domain = Softlayer::Dns::Domain.find(1911885)
       @a_record = @domain.create_a_record('subdomain', '127.0.0.1', 7200)
       @a_record.host.must_equal 'subdomain'
       @a_record.must_be_kind_of Softlayer::Dns::Domain::ResourceRecord::AType

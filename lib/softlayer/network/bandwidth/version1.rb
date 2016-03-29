@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Bandwidth
       module Version1
         autoload :Allocation, 'softlayer/network/bandwidth/version1/allocation'

@@ -2,7 +2,14 @@ require 'softlayer/generator/converter'
 
 module Softlayer #:nodoc:
   class Model
-    autoload :Response,'softlayer/model/response'
+    autoload :Filter, 'softlayer/model/filter'
+    autoload :Limit, 'softlayer/model/limit'
+    autoload :Mask, 'softlayer/model/mask'
+    autoload :Operations, 'softlayer/model/operations'
+    autoload :Response, 'softlayer/model/response'
+
+    include Operations
+    extend Operations
 
     class << self
       # user friendly methods
@@ -10,6 +17,7 @@ module Softlayer #:nodoc:
         object = self.new.tap do |obj|
           obj.id = id.to_s
         end
+        object.headers = request_headers
         object.get_object
       end
 
@@ -20,18 +28,25 @@ module Softlayer #:nodoc:
       def all
         request = all_request_for(self)
         return nil if request.nil?
+        Softlayer::Account.headers = request_headers
         Softlayer::Account.send(request)
       end
 
-      def request(method, return_object, message = {})
-        service_name = Generator::Converter.to_softlayer_name(self.to_s)
-        service_name = self.class::SERVICE if defined?(self.class::SERVICE)
-        return Softlayer::Mock.request(service_name, method, return_object, message) if Softlayer.mock?
-        parse(Softlayer::Client.new(service_name).call(method, message), return_object, method)
+      def request(method, return_object, message = {}, headers = {})
+        headers.merge! request_headers
+
+        return Softlayer::Mock.request(service_name, method, return_object, message, headers) if Softlayer.mock?
+        parse(Softlayer::Client.new(service_name).call(method, message, headers), return_object, method)
       end
 
       def parse(hash, return_object, method)
         Response.new(hash).process(return_object)
+      end
+
+      def service_name
+        name = Generator::Converter.to_softlayer_name(self.to_s)
+        name = self::SERVICE if defined?(self::SERVICE)
+        name
       end
 
       def all_request_for(klass)
@@ -105,19 +120,22 @@ module Softlayer #:nodoc:
     end
 
     def request(method, return_object, message = {})
-      service_name = Generator::Converter.to_softlayer_name(self.class.to_s)
-      service_name = self.class::SERVICE if defined?(self.class::SERVICE)
-      init_headers = {
-        "#{service_name}InitParameters" => {
-          "id" => self.id.to_i
-        }
-      }
-      return Softlayer::Mock.request(service_name, method, return_object, message, init_headers) if Softlayer.mock?
-      self.class.parse(Softlayer::Client.new(service_name).call(method, message, init_headers), return_object, method)
+      headers = request_headers.merge(init_headers)
+
+      self.class.request(method, return_object, message, headers)
     end
 
     def to_hash
       (self.class.to_s+"::Representer").constantize.new(self).to_hash
+    end
+
+    def init_headers
+      raise Exception.new('You need to set the ID on object') if id.nil?
+      {
+        "#{self.class.service_name}InitParameters" => {
+          "id" => self.id.to_i
+        }
+      }
     end
   end
 end
