@@ -41,11 +41,11 @@ Softlayer::Account.get_virtual_guests
 
 ## README Driven Development
 
-* Add support for Object Masks
-* Add support for Object Filters
+* Improve support for masks and filters (parse a better format instead of using ruby hash)
 
 ## Known Issues
 
+* Mask and Filter not working correctly with `SoftLayer_Account` calls
 * Using Savon master until a version is released containing the commit to support rpc/encoded XML
 * Actually arrays are being wrongly mapped, so when we pass an argument containing **one** array, we need to pass inside another array, like this:
 
