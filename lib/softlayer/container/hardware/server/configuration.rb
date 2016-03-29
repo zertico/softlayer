@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Hardware
       module Server
-        class Configuration < Softlayer::Model
+        class Configuration < Softlayer::Entity
           attr_accessor :add_to_spare_pool_after_os_reload
           attr_accessor :custom_provision_script_uri
           attr_accessor :drive_retention_flag
@@ -15,7 +15,7 @@ module Softlayer
           attr_accessor :upgrade_bios
           attr_accessor :upgrade_hard_drive_firmware
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :add_to_spare_pool_after_os_reload, type: Integer

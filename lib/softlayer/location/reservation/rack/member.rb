@@ -2,7 +2,7 @@ module Softlayer
   class Location
     class Reservation
       class Rack
-        class Member < Softlayer::Model
+        class Member < Softlayer::Entity
           SERVICE = 'SoftLayer_Location_Reservation_Rack_Member'
           attr_accessor :id
           attr_accessor :location_id
@@ -21,7 +21,7 @@ module Softlayer
             request(:get_object, Softlayer::Location::Reservation::Rack::Member)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

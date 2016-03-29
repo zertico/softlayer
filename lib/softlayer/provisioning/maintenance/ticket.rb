@@ -1,7 +1,7 @@
 module Softlayer
   module Provisioning
     module Maintenance
-      class Ticket < Softlayer::Model
+      class Ticket < Softlayer::Entity
         SERVICE = 'SoftLayer_Provisioning_Maintenance_Ticket'
         attr_accessor :maint_class_id
         attr_accessor :maint_window_id
@@ -27,7 +27,7 @@ module Softlayer
           request(:get_ticket, Softlayer::Ticket)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :maint_class_id, type: Integer

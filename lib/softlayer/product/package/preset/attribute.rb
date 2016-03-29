@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Package
       class Preset
-        class Attribute < Softlayer::Model
+        class Attribute < Softlayer::Entity
           autoload :Type, 'softlayer/product/package/preset/attribute/type'
           attr_accessor :attribute_type_id
           attr_accessor :id
@@ -11,7 +11,7 @@ module Softlayer
           attr_accessor :attribute_type
           attr_accessor :preset
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :attribute_type_id, type: Integer

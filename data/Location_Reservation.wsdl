@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3.1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
   <types>
-    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
-      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Location_Reservation?xsd"/>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3.1/" schemaLocation="https://api.softlayer.com/soap/v3.1/SoftLayer_Location_Reservation?xsd"/>
     </xsd:schema>
-    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
       <xsd:complexType name="SoftLayer_Location_ReservationInitParameters">
         <xsd:sequence>
           <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
@@ -108,105 +108,105 @@
   <binding name="SoftLayer_Location_ReservationBinding" type="tns:SoftLayer_Location_ReservationPortType">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getAccount">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_ReservationAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Location_ReservationAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectMaskHeader" part="SoftLayer_Location_ReservationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectFilterHeader" part="SoftLayer_Location_ReservationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationInitParametersHeader" part="SoftLayer_Location_ReservationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getAccountReservations">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_ReservationAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Location_ReservationAction"/>
       <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectMaskHeader" part="SoftLayer_Location_ReservationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getAllotment">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_ReservationAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Location_ReservationAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectMaskHeader" part="SoftLayer_Location_ReservationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectFilterHeader" part="SoftLayer_Location_ReservationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationInitParametersHeader" part="SoftLayer_Location_ReservationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getBillingItem">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_ReservationAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Location_ReservationAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectMaskHeader" part="SoftLayer_Location_ReservationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectFilterHeader" part="SoftLayer_Location_ReservationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationInitParametersHeader" part="SoftLayer_Location_ReservationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getLocation">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_ReservationAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Location_ReservationAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectMaskHeader" part="SoftLayer_Location_ReservationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectFilterHeader" part="SoftLayer_Location_ReservationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationInitParametersHeader" part="SoftLayer_Location_ReservationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getLocationReservationRack">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_ReservationAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Location_ReservationAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectMaskHeader" part="SoftLayer_Location_ReservationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectFilterHeader" part="SoftLayer_Location_ReservationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationInitParametersHeader" part="SoftLayer_Location_ReservationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getObject">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Location_ReservationAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Location_ReservationAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectMaskHeader" part="SoftLayer_Location_ReservationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationObjectFilterHeader" part="SoftLayer_Location_ReservationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Location_ReservationInitParametersHeader" part="SoftLayer_Location_ReservationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
   </binding>
   <service name="SoftLayer_Location_ReservationService">
     <port name="SoftLayer_Location_ReservationPort" binding="tns:SoftLayer_Location_ReservationBinding">
-      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Location_Reservation"/>
+      <soap:address location="https://api.softlayer.com/soap/v3.1/SoftLayer_Location_Reservation"/>
     </port>
   </service>
 </definitions>

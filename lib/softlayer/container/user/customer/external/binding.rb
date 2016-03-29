@@ -3,7 +3,7 @@ module Softlayer
     module User
       module Customer
         module External
-          class Binding < Softlayer::Model
+          class Binding < Softlayer::Entity
             autoload :Phone, 'softlayer/container/user/customer/external/binding/phone'
             autoload :Totp, 'softlayer/container/user/customer/external/binding/totp'
             autoload :Vendor, 'softlayer/container/user/customer/external/binding/vendor'
@@ -15,7 +15,7 @@ module Softlayer
             attr_accessor :username
             attr_accessor :vendor
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :authentication_token, type: String

@@ -1,6 +1,6 @@
 module Softlayer
   module Scale
-    class Policy < Softlayer::Model
+    class Policy < Softlayer::Entity
       SERVICE = 'SoftLayer_Scale_Policy'
       autoload :Action, 'softlayer/scale/policy/action'
       autoload :Trigger, 'softlayer/scale/policy/trigger'
@@ -75,7 +75,7 @@ module Softlayer
         request(:trigger, Array[Softlayer::Scale::Member])
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :cooldown, type: Integer

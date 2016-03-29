@@ -2,14 +2,14 @@ module Softlayer
   module Product
     class Item
       module Tax
-        class Category < Softlayer::Model
+        class Category < Softlayer::Entity
           attr_accessor :id
           attr_accessor :name
           attr_accessor :status_flag
           attr_accessor :item_count
           attr_accessor :items
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

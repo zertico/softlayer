@@ -1,7 +1,7 @@
 module Softlayer
   class Account
     module Reports
-      class Request < Softlayer::Model
+      class Request < Softlayer::Entity
         SERVICE = 'SoftLayer_Account_Reports_Request'
         attr_accessor :account_contact_id
         attr_accessor :account_id
@@ -71,7 +71,7 @@ module Softlayer
           request(:update_ticket_on_decline, Boolean, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_contact_id, type: Integer

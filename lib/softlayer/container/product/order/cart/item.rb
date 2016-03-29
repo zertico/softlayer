@@ -3,16 +3,13 @@ module Softlayer
     module Product
       class Order
         class Cart
-          class Item < Softlayer::Model
+          class Item < Softlayer::Entity
             attr_accessor :billing_order_item_id
             attr_accessor :cluster_resource_id
             attr_accessor :configuration_url
-            attr_accessor :datacenter_country_ineligibility
-            attr_accessor :datacenter_description
             attr_accessor :hash
             attr_accessor :hourly_prices_flag
             attr_accessor :image_template_id
-            attr_accessor :ineligible_account_countries
             attr_accessor :iscsi_os_format_type_key_name
             attr_accessor :location
             attr_accessor :name
@@ -33,18 +30,15 @@ module Softlayer
             attr_accessor :tax_cache_hash
             attr_accessor :verified_config
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :billing_order_item_id, type: Integer
               property :cluster_resource_id, type: Integer
               property :configuration_url, type: String
-              property :datacenter_country_ineligibility, type: String
-              property :datacenter_description, type: String
               property :hash, type: String
               property :hourly_prices_flag, type: Boolean
               property :image_template_id, type: Integer
-              property :ineligible_account_countries, type: String
               property :iscsi_os_format_type_key_name, type: String
               property :location, type: String
               property :name, type: String

@@ -1,6 +1,6 @@
 module Softlayer
   module Layout
-    class Container < Softlayer::Model
+    class Container < Softlayer::Entity
       SERVICE = 'SoftLayer_Layout_Container'
       autoload :Type, 'softlayer/layout/container/type'
       attr_accessor :id
@@ -27,7 +27,7 @@ module Softlayer
         request(:get_object, Softlayer::Layout::Container)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :id, type: Integer

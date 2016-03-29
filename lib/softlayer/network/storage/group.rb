@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Storage
-      class Group < Softlayer::Model
+      class Group < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Storage_Group'
         autoload :Iscsi, 'softlayer/network/storage/group/iscsi'
         autoload :Nfs, 'softlayer/network/storage/group/nfs'
@@ -93,7 +93,7 @@ module Softlayer
           request(:remove_from_volume, Boolean, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

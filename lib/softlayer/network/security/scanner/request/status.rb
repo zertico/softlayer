@@ -3,11 +3,11 @@ module Softlayer
     module Security
       module Scanner
         class Request
-          class Status < Softlayer::Model
+          class Status < Softlayer::Entity
             attr_accessor :id
             attr_accessor :name
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :id, type: Integer

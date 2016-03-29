@@ -1,14 +1,14 @@
 module Softlayer
   class Notification
     module Delivery
-      class Method < Softlayer::Model
+      class Method < Softlayer::Entity
         attr_accessor :active
         attr_accessor :description
         attr_accessor :id
         attr_accessor :key_name
         attr_accessor :name
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :active, type: Integer

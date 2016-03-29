@@ -2,7 +2,7 @@ module Softlayer
   module Scale
     class Policy
       class Action
-        class Type < Softlayer::Model
+        class Type < Softlayer::Entity
           SERVICE = 'SoftLayer_Scale_Policy_Action_Type'
           attr_accessor :id
           attr_accessor :key_name
@@ -16,7 +16,7 @@ module Softlayer
             request(:get_object, Softlayer::Scale::Policy::Action::Type)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

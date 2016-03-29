@@ -2,7 +2,7 @@ module Softlayer
   class Network
     class Backbone
       module Location
-        class Dependent < Softlayer::Model
+        class Dependent < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Backbone_Location_Dependent'
           attr_accessor :dependent_location_id
           attr_accessor :id
@@ -31,7 +31,7 @@ module Softlayer
             request(:get_source_location, Softlayer::Location)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :dependent_location_id, type: Integer

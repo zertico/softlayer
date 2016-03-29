@@ -1,10 +1,10 @@
 module Softlayer
   module Container
-    class Message < Softlayer::Model
+    class Message < Softlayer::Entity
       attr_accessor :message
       attr_accessor :type
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :message, type: String

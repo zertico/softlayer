@@ -3,11 +3,11 @@ module Softlayer
     module Network
       module Subnet
         module Registration
-          class TransactionDetails < Softlayer::Model
+          class TransactionDetails < Softlayer::Entity
             attr_accessor :subnet_references
             attr_accessor :transaction_id
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :transaction_id, type: Integer

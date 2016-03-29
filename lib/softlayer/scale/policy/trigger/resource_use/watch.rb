@@ -3,7 +3,7 @@ module Softlayer
     class Policy
       class Trigger
         class ResourceUse
-          class Watch < Softlayer::Model
+          class Watch < Softlayer::Entity
             SERVICE = 'SoftLayer_Scale_Policy_Trigger_ResourceUse_Watch'
             attr_accessor :algorithm
             attr_accessor :create_date
@@ -51,7 +51,7 @@ module Softlayer
               request(:get_scale_policy_trigger, Softlayer::Scale::Policy::Trigger::ResourceUse)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :algorithm, type: String

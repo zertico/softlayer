@@ -1,6 +1,6 @@
 module Softlayer
   module Resource
-    class Group < Softlayer::Model
+    class Group < Softlayer::Entity
       SERVICE = 'SoftLayer_Resource_Group'
       autoload :Attribute, 'softlayer/resource/group/attribute'
       autoload :Member, 'softlayer/resource/group/member'
@@ -70,7 +70,7 @@ module Softlayer
         request(:get_vlan_members, Array[Softlayer::Resource::Group::Member])
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :create_date, type: DateTime

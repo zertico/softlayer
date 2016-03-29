@@ -1,7 +1,7 @@
 module Softlayer
   module Virtual
     module Disk
-      class Image < Softlayer::Model
+      class Image < Softlayer::Entity
         SERVICE = 'SoftLayer_Virtual_Disk_Image'
         autoload :Software, 'softlayer/virtual/disk/image/software'
         autoload :Type, 'softlayer/virtual/disk/image/type'
@@ -94,7 +94,7 @@ module Softlayer
           request(:get_type, Softlayer::Virtual::Disk::Image::Type)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :capacity, type: Integer

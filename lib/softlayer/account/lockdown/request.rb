@@ -1,7 +1,7 @@
 module Softlayer
   class Account
     module Lockdown
-      class Request < Softlayer::Model
+      class Request < Softlayer::Entity
         SERVICE = 'SoftLayer_Account_Lockdown_Request'
         attr_accessor :account_id
         attr_accessor :action
@@ -38,7 +38,7 @@ module Softlayer
           request(:reconnect_compute, Integer, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

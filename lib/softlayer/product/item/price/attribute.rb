@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Item
       class Price
-        class Attribute < Softlayer::Model
+        class Attribute < Softlayer::Entity
           autoload :Type, 'softlayer/product/item/price/attribute/type'
           attr_accessor :id
           attr_accessor :item_price_attribute_type_id
@@ -11,7 +11,7 @@ module Softlayer
           attr_accessor :item_price
           attr_accessor :item_price_attribute_type
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Customer
       class Subnet
-        class IpAddress < Softlayer::Model
+        class IpAddress < Softlayer::Entity
           attr_accessor :id
           attr_accessor :ip_address
           attr_accessor :notes
@@ -11,7 +11,7 @@ module Softlayer
           attr_accessor :subnet
           attr_accessor :translations
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

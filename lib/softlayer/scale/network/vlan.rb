@@ -1,7 +1,7 @@
 module Softlayer
   module Scale
     module Network
-      class Vlan < Softlayer::Model
+      class Vlan < Softlayer::Entity
         SERVICE = 'SoftLayer_Scale_Network_Vlan'
         attr_accessor :create_date
         attr_accessor :delete_flag
@@ -32,7 +32,7 @@ module Softlayer
           request(:get_scale_group, Softlayer::Scale::Group)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

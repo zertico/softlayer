@@ -2,7 +2,7 @@ module Softlayer
   module Billing
     class Item
       module Cancellation
-        class Reason < Softlayer::Model
+        class Reason < Softlayer::Entity
           SERVICE = 'SoftLayer_Billing_Item_Cancellation_Reason'
           autoload :Category, 'softlayer/billing/item/cancellation/reason/category'
           attr_accessor :billing_cancel_reason_category_id
@@ -34,7 +34,7 @@ module Softlayer
             request(:get_translated_reason, String)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :billing_cancel_reason_category_id, type: Integer

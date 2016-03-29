@@ -4,7 +4,7 @@ module Softlayer
       module Delivery
         class Controller
           module Configuration
-            class History < Softlayer::Model
+            class History < Softlayer::Entity
               SERVICE = 'SoftLayer_Network_Application_Delivery_Controller_Configuration_History'
               attr_accessor :create_date
               attr_accessor :id
@@ -23,7 +23,7 @@ module Softlayer
                 request(:get_object, Softlayer::Network::Application::Delivery::Controller::Configuration::History)
               end
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :create_date, type: DateTime

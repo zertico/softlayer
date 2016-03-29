@@ -2,7 +2,7 @@ module Softlayer
   class Network
     class Subnet
       module Swip
-        class Transaction < Softlayer::Model
+        class Transaction < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Subnet_Swip_Transaction'
           attr_accessor :id
           attr_accessor :status_name
@@ -46,7 +46,7 @@ module Softlayer
             request(:update_all_subnet_swips, Integer)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

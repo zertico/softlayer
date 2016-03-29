@@ -2,7 +2,7 @@ module Softlayer
   class Notification
     class Subscriber
       module Delivery
-        class Method < Softlayer::Model
+        class Method < Softlayer::Entity
           attr_accessor :active
           attr_accessor :create_date
           attr_accessor :modify_date
@@ -11,7 +11,7 @@ module Softlayer
           attr_accessor :notification_delivery_method
           attr_accessor :notification_subscriber
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :active, type: Integer

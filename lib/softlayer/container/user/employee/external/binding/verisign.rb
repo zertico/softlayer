@@ -4,9 +4,9 @@ module Softlayer
       module Employee
         module External
           module Binding
-            class Verisign < Softlayer::Model
+            class Verisign < Softlayer::Entity
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
               end

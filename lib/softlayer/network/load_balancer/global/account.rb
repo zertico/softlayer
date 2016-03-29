@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module LoadBalancer
       module Global
-        class Account < Softlayer::Model
+        class Account < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_LoadBalancer_Global_Account'
           attr_accessor :allowed_number_of_hosts
           attr_accessor :average_connections_per_second
@@ -56,7 +56,7 @@ module Softlayer
             request(:remove_ns_record, Boolean)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :allowed_number_of_hosts, type: Integer

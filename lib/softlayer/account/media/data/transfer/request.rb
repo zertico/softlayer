@@ -3,7 +3,7 @@ module Softlayer
     class Media
       module Data
         module Transfer
-          class Request < Softlayer::Model
+          class Request < Softlayer::Entity
             SERVICE = 'SoftLayer_Account_Media_Data_Transfer_Request'
             autoload :Status, 'softlayer/account/media/data/transfer/request/status'
             attr_accessor :account_id
@@ -80,7 +80,7 @@ module Softlayer
               request(:get_tickets, Array[Softlayer::Ticket])
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :account_id, type: Integer

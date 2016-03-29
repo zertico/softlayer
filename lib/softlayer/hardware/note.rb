@@ -1,6 +1,6 @@
 module Softlayer
   class Hardware
-    class Note < Softlayer::Model
+    class Note < Softlayer::Entity
       autoload :Type, 'softlayer/hardware/note/type'
       attr_accessor :create_date
       attr_accessor :hardware_id
@@ -14,7 +14,7 @@ module Softlayer
       attr_accessor :type
       attr_accessor :user
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :create_date, type: DateTime

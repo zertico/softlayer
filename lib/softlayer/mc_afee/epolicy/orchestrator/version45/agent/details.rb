@@ -4,11 +4,11 @@ module Softlayer
       module Orchestrator
         module Version45
           module Agent
-            module Details < Softlayer::Model
+            module Details < Softlayer::Entity
               attr_accessor :agent_version
               attr_accessor :last_update
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :agent_version, type: String

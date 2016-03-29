@@ -1,5 +1,5 @@
 module Softlayer
-  class Locale < Softlayer::Model
+  class Locale < Softlayer::Entity
     autoload :Country, 'softlayer/locale/country'
     autoload :StateProvince, 'softlayer/locale/state_province'
     autoload :Timezone, 'softlayer/locale/timezone'
@@ -8,7 +8,7 @@ module Softlayer
     attr_accessor :language_tag
     attr_accessor :name
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :friendly_name, type: String

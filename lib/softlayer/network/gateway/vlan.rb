@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Gateway
-      class Vlan < Softlayer::Model
+      class Vlan < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Gateway_Vlan'
         attr_accessor :bypass_flag
         attr_accessor :id
@@ -49,7 +49,7 @@ module Softlayer
           request(:unbypass, nil)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :bypass_flag, type: Boolean

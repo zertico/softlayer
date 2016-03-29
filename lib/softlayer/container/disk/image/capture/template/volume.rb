@@ -4,12 +4,12 @@ module Softlayer
       module Image
         module Capture
           class Template
-            class Volume < Softlayer::Model
+            class Volume < Softlayer::Entity
               autoload :Partition, 'softlayer/container/disk/image/capture/template/volume/partition'
               attr_accessor :name
               attr_accessor :partitions
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :name, type: String

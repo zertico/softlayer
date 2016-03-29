@@ -1,10 +1,10 @@
 module Softlayer
   module Container
-    class Exception < Softlayer::Model
+    class Exception < Softlayer::Entity
       attr_accessor :exception_class
       attr_accessor :exception_message
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :exception_class, type: String

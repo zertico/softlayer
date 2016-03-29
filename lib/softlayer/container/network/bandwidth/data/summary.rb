@@ -3,13 +3,13 @@ module Softlayer
     module Network
       module Bandwidth
         module Data
-          class Summary < Softlayer::Model
+          class Summary < Softlayer::Entity
             attr_accessor :allowed_usage
             attr_accessor :estimated_usage
             attr_accessor :projected_usage
             attr_accessor :usage_units
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :allowed_usage, type: Float

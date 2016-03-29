@@ -5,13 +5,13 @@ module Softlayer
         module Block
           module Device
             module Template
-              class Configuration < Softlayer::Model
+              class Configuration < Softlayer::Entity
                 attr_accessor :name
                 attr_accessor :note
                 attr_accessor :operating_system_reference_code
                 attr_accessor :uri
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :name, type: String

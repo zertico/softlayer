@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3.1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
   <types>
-    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
-      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Product_Item_Policy_Assignment?xsd"/>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3.1/" schemaLocation="https://api.softlayer.com/soap/v3.1/SoftLayer_Product_Item_Policy_Assignment?xsd"/>
     </xsd:schema>
-    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
       <xsd:complexType name="SoftLayer_Product_Item_Policy_AssignmentInitParameters">
         <xsd:sequence>
           <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
@@ -92,73 +92,73 @@
   <binding name="SoftLayer_Product_Item_Policy_AssignmentBinding" type="tns:SoftLayer_Product_Item_Policy_AssignmentPortType">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="acceptFromTicket">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_Policy_AssignmentAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Product_Item_Policy_AssignmentAction"/>
       <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentInitParametersHeader" part="SoftLayer_Product_Item_Policy_AssignmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getObject">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_Policy_AssignmentAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Product_Item_Policy_AssignmentAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentObjectMaskHeader" part="SoftLayer_Product_Item_Policy_AssignmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentObjectFilterHeader" part="SoftLayer_Product_Item_Policy_AssignmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentInitParametersHeader" part="SoftLayer_Product_Item_Policy_AssignmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getPolicyDocumentContents">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_Policy_AssignmentAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Product_Item_Policy_AssignmentAction"/>
       <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentInitParametersHeader" part="SoftLayer_Product_Item_Policy_AssignmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getPolicyName">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_Policy_AssignmentAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Product_Item_Policy_AssignmentAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentObjectMaskHeader" part="SoftLayer_Product_Item_Policy_AssignmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentObjectFilterHeader" part="SoftLayer_Product_Item_Policy_AssignmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentInitParametersHeader" part="SoftLayer_Product_Item_Policy_AssignmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getProduct">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Product_Item_Policy_AssignmentAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Product_Item_Policy_AssignmentAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentObjectMaskHeader" part="SoftLayer_Product_Item_Policy_AssignmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentObjectFilterHeader" part="SoftLayer_Product_Item_Policy_AssignmentObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Product_Item_Policy_AssignmentInitParametersHeader" part="SoftLayer_Product_Item_Policy_AssignmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
   </binding>
   <service name="SoftLayer_Product_Item_Policy_AssignmentService">
     <port name="SoftLayer_Product_Item_Policy_AssignmentPort" binding="tns:SoftLayer_Product_Item_Policy_AssignmentBinding">
-      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Product_Item_Policy_Assignment"/>
+      <soap:address location="https://api.softlayer.com/soap/v3.1/SoftLayer_Product_Item_Policy_Assignment"/>
     </port>
   </service>
 </definitions>

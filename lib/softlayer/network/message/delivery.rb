@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module Message
-      class Delivery < Softlayer::Model
+      class Delivery < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Message_Delivery'
         autoload :Attribute, 'softlayer/network/message/delivery/attribute'
         autoload :Type, 'softlayer/network/message/delivery/type'
@@ -45,7 +45,7 @@ module Softlayer
           request(:get_vendor, Softlayer::Network::Message::Delivery::Vendor)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

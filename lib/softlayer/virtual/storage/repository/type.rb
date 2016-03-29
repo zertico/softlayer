@@ -2,13 +2,13 @@ module Softlayer
   module Virtual
     module Storage
       class Repository
-        class Type < Softlayer::Model
+        class Type < Softlayer::Entity
           attr_accessor :description
           attr_accessor :name
           attr_accessor :storage_repository_count
           attr_accessor :storage_repositories
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :description, type: String

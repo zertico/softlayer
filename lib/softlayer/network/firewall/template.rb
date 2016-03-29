@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module Firewall
-      class Template < Softlayer::Model
+      class Template < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Firewall_Template'
         autoload :Rule, 'softlayer/network/firewall/template/rule'
         attr_accessor :id
@@ -21,7 +21,7 @@ module Softlayer
           request(:get_rules, Array[Softlayer::Network::Firewall::Template::Rule])
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

@@ -4,7 +4,7 @@ module Softlayer
       module Version1
         module Query
           class Host
-            class Stratum < Softlayer::Model
+            class Stratum < Softlayer::Entity
               SERVICE = 'SoftLayer_Network_Monitor_Version1_Query_Host_Stratum'
               attr_accessor :monitor_level
               attr_accessor :response_level
@@ -26,7 +26,7 @@ module Softlayer
                 request(:get_object, Softlayer::Network::Monitor::Version1::Query::Host::Stratum)
               end
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :monitor_level, type: Integer

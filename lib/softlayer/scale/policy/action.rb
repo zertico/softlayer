@@ -1,7 +1,7 @@
 module Softlayer
   module Scale
     class Policy
-      class Action < Softlayer::Model
+      class Action < Softlayer::Entity
         SERVICE = 'SoftLayer_Scale_Policy_Action'
         autoload :Scale, 'softlayer/scale/policy/action/scale'
         autoload :Type, 'softlayer/scale/policy/action/type'
@@ -35,7 +35,7 @@ module Softlayer
           request(:get_type, Softlayer::Scale::Policy::Action::Type)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

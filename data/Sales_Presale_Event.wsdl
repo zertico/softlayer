@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3/">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3.1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
   <types>
-    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
-      <xsd:include namespace="http://api.service.softlayer.com/soap/v3/" schemaLocation="https://api.softlayer.com/soap/v3/SoftLayer_Sales_Presale_Event?xsd"/>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3.1/" schemaLocation="https://api.softlayer.com/soap/v3.1/SoftLayer_Sales_Presale_Event?xsd"/>
     </xsd:schema>
-    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3/">
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
       <xsd:complexType name="SoftLayer_Sales_Presale_EventInitParameters">
         <xsd:sequence>
           <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
@@ -110,92 +110,92 @@ This server allows customer to view the currently-active presale events and thei
   <binding name="SoftLayer_Sales_Presale_EventBinding" type="tns:SoftLayer_Sales_Presale_EventPortType">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getActiveFlag">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Sales_Presale_EventAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Sales_Presale_EventAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectMaskHeader" part="SoftLayer_Sales_Presale_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectFilterHeader" part="SoftLayer_Sales_Presale_EventObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventInitParametersHeader" part="SoftLayer_Sales_Presale_EventInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getAllObjects">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Sales_Presale_EventAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Sales_Presale_EventAction"/>
       <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectMaskHeader" part="SoftLayer_Sales_Presale_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectFilterHeader" part="SoftLayer_Sales_Presale_EventObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getExpiredFlag">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Sales_Presale_EventAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Sales_Presale_EventAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectMaskHeader" part="SoftLayer_Sales_Presale_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectFilterHeader" part="SoftLayer_Sales_Presale_EventObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventInitParametersHeader" part="SoftLayer_Sales_Presale_EventInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getItem">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Sales_Presale_EventAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Sales_Presale_EventAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectMaskHeader" part="SoftLayer_Sales_Presale_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectFilterHeader" part="SoftLayer_Sales_Presale_EventObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventInitParametersHeader" part="SoftLayer_Sales_Presale_EventInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getLocation">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Sales_Presale_EventAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Sales_Presale_EventAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectMaskHeader" part="SoftLayer_Sales_Presale_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectFilterHeader" part="SoftLayer_Sales_Presale_EventObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventInitParametersHeader" part="SoftLayer_Sales_Presale_EventInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getObject">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Sales_Presale_EventAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Sales_Presale_EventAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectMaskHeader" part="SoftLayer_Sales_Presale_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectFilterHeader" part="SoftLayer_Sales_Presale_EventObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventInitParametersHeader" part="SoftLayer_Sales_Presale_EventInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
     <operation name="getOrders">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3/SoftLayer_Sales_Presale_EventAction"/>
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Sales_Presale_EventAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectMaskHeader" part="SoftLayer_Sales_Presale_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventObjectFilterHeader" part="SoftLayer_Sales_Presale_EventObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -203,17 +203,17 @@ This server allows customer to view the currently-active presale events and thei
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Sales_Presale_EventInitParametersHeader" part="SoftLayer_Sales_Presale_EventInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
   </binding>
   <service name="SoftLayer_Sales_Presale_EventService">
     <port name="SoftLayer_Sales_Presale_EventPort" binding="tns:SoftLayer_Sales_Presale_EventBinding">
-      <soap:address location="https://api.softlayer.com/soap/v3/SoftLayer_Sales_Presale_Event"/>
+      <soap:address location="https://api.softlayer.com/soap/v3.1/SoftLayer_Sales_Presale_Event"/>
     </port>
   </service>
 </definitions>

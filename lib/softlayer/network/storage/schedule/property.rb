@@ -2,7 +2,7 @@ module Softlayer
   class Network
     class Storage
       class Schedule
-        class Property < Softlayer::Model
+        class Property < Softlayer::Entity
           autoload :Type, 'softlayer/network/storage/schedule/property/type'
           attr_accessor :create_date
           attr_accessor :id
@@ -12,7 +12,7 @@ module Softlayer
           attr_accessor :schedule
           attr_accessor :type
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :create_date, type: DateTime

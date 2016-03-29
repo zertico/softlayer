@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Billing
       module Currency
-        class Format < Softlayer::Model
+        class Format < Softlayer::Entity
           attr_accessor :currency
           attr_accessor :display
           attr_accessor :format
@@ -16,7 +16,7 @@ module Softlayer
           attr_accessor :tag
           attr_accessor :value
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :currency, type: String

@@ -6,10 +6,10 @@ module Softlayer
           module Hips
             module Version7
               module Event
-                module Signature < Softlayer::Model
+                module Signature < Softlayer::Entity
                   attr_accessor :signature_name
 
-                  class Representer < Representable::Decorator
+                  class Representer < Softlayer::Entity::Representer
                     include Representable::Hash
                     include Representable::Coercion
                     property :signature_name, type: String

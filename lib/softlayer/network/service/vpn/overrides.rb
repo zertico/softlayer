@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Service
       module Vpn
-        class Overrides < Softlayer::Model
+        class Overrides < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Service_Vpn_Overrides'
           attr_accessor :id
           attr_accessor :subnet_id
@@ -36,7 +36,7 @@ module Softlayer
             request(:get_user, Softlayer::User::Customer)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

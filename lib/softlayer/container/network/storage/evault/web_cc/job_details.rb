@@ -4,7 +4,7 @@ module Softlayer
       module Storage
         module Evault
           module WebCc
-            class JobDetails < Softlayer::Model
+            class JobDetails < Softlayer::Entity
               attr_accessor :bytes_used
               attr_accessor :description
               attr_accessor :hardware_id
@@ -15,7 +15,7 @@ module Softlayer
               attr_accessor :result
               attr_accessor :virtual_guest_id
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :bytes_used, type: BigDecimal

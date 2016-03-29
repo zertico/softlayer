@@ -3,7 +3,7 @@ module Softlayer
     class Component
       class RemoteManagement
         class Command
-          class Request < Softlayer::Model
+          class Request < Softlayer::Entity
             attr_accessor :create_date
             attr_accessor :hardware_id
             attr_accessor :modify_date
@@ -13,7 +13,7 @@ module Softlayer
             attr_accessor :remote_management_command
             attr_accessor :user
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :create_date, type: DateTime

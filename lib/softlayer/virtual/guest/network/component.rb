@@ -2,7 +2,7 @@ module Softlayer
   module Virtual
     class Guest
       module Network
-        class Component < Softlayer::Model
+        class Component < Softlayer::Entity
           SERVICE = 'SoftLayer_Virtual_Guest_Network_Component'
           autoload :IpAddress, 'softlayer/virtual/guest/network/component/ip_address'
           attr_accessor :create_date
@@ -91,7 +91,7 @@ module Softlayer
             request(:is_pingable, Boolean)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :create_date, type: DateTime

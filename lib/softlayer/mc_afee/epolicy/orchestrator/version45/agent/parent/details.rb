@@ -5,13 +5,13 @@ module Softlayer
         module Version45
           module Agent
             module Parent
-              module Details < Softlayer::Model
+              module Details < Softlayer::Entity
                 attr_accessor :name
                 attr_accessor :policy_count
                 attr_accessor :agent_details
                 attr_accessor :policies
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :name, type: String

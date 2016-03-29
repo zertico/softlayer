@@ -3,7 +3,7 @@ module Softlayer
     module Product
       class Order
         module Billing
-          class Information < Softlayer::Model
+          class Information < Softlayer::Entity
             attr_accessor :billing_address_line1
             attr_accessor :billing_address_line2
             attr_accessor :billing_city
@@ -23,7 +23,7 @@ module Softlayer
             attr_accessor :tax_exempt
             attr_accessor :vat_id
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :billing_address_line1, type: String

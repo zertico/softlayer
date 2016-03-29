@@ -1,7 +1,7 @@
 module Softlayer
   module Product
     class Package
-      class Locations < Softlayer::Model
+      class Locations < Softlayer::Entity
         attr_accessor :delivery_time_information
         attr_accessor :is_available
         attr_accessor :location_id
@@ -9,7 +9,7 @@ module Softlayer
         attr_accessor :location
         attr_accessor :package
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :delivery_time_information, type: String

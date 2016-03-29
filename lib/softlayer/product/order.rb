@@ -1,6 +1,6 @@
 module Softlayer
   module Product
-    class Order < Softlayer::Model
+    class Order < Softlayer::Entity
       SERVICE = 'SoftLayer_Product_Order'
 
       def self.check_item_availability(item_prices = nil, account_id = nil, availability_type_key_names = nil)
@@ -68,7 +68,7 @@ module Softlayer
         request(:verify_order, Softlayer::Container::Product::Order, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
       end

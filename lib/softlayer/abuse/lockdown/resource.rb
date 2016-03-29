@@ -1,11 +1,11 @@
 module Softlayer
   module Abuse
     module Lockdown
-      class Resource < Softlayer::Model
+      class Resource < Softlayer::Entity
         attr_accessor :account
         attr_accessor :invoice_item
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
         end

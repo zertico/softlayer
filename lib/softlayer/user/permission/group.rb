@@ -1,7 +1,7 @@
 module Softlayer
   module User
     module Permission
-      class Group < Softlayer::Model
+      class Group < Softlayer::Entity
         SERVICE = 'SoftLayer_User_Permission_Group'
         autoload :Type, 'softlayer/user/permission/group/type'
         attr_accessor :account_id
@@ -103,7 +103,7 @@ module Softlayer
           request(:unlink_role, nil, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

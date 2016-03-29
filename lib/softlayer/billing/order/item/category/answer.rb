@@ -3,14 +3,14 @@ module Softlayer
     class Order
       class Item
         module Category
-          class Answer < Softlayer::Model
+          class Answer < Softlayer::Entity
             attr_accessor :answer
             attr_accessor :create_date
             attr_accessor :question_id
             attr_accessor :order_item
             attr_accessor :question
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :answer, type: String

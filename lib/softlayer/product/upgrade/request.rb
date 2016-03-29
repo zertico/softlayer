@@ -1,7 +1,7 @@
 module Softlayer
   module Product
     module Upgrade
-      class Request < Softlayer::Model
+      class Request < Softlayer::Entity
         SERVICE = 'SoftLayer_Product_Upgrade_Request'
         autoload :Status, 'softlayer/product/upgrade/request/status'
         attr_accessor :account_id
@@ -77,7 +77,7 @@ module Softlayer
           request(:update_maintenance_window, Boolean, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

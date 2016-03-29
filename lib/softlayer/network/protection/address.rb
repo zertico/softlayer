@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module Protection
-      class Address < Softlayer::Model
+      class Address < Softlayer::Entity
         attr_accessor :department_id
         attr_accessor :ip_address
         attr_accessor :management_method_type
@@ -19,7 +19,7 @@ module Softlayer
         attr_accessor :user_department
         attr_accessor :user_record
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :department_id, type: Integer

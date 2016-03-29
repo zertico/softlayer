@@ -1,7 +1,7 @@
 module Softlayer
   module Auxiliary
     module Marketing
-      class Event < Softlayer::Model
+      class Event < Softlayer::Entity
         SERVICE = 'SoftLayer_Auxiliary_Marketing_Event'
         attr_accessor :create_date
         attr_accessor :enabled_flag
@@ -20,7 +20,7 @@ module Softlayer
           request(:get_object, Softlayer::Auxiliary::Marketing::Event)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

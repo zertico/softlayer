@@ -1,7 +1,7 @@
 module Softlayer
   class Ticket
     class Attachment
-      class File < Softlayer::Model
+      class File < Softlayer::Entity
         attr_accessor :create_date
         attr_accessor :file_name
         attr_accessor :file_size
@@ -14,7 +14,7 @@ module Softlayer
         attr_accessor :ticket
         attr_accessor :update
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

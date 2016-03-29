@@ -3,7 +3,7 @@ module Softlayer
     class Storage
       class Hub
         class Swift
-          class Share < Softlayer::Model
+          class Share < Softlayer::Entity
             SERVICE = 'SoftLayer_Network_Storage_Hub_Swift_Share'
 
             def self.get_container_list
@@ -20,7 +20,7 @@ module Softlayer
               request(:get_file_list, Array[Softlayer::Container::Utility::File::Entity], message)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
             end

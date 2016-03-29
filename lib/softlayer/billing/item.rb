@@ -1,6 +1,6 @@
 module Softlayer
   module Billing
-    class Item < Softlayer::Model
+    class Item < Softlayer::Entity
       SERVICE = 'SoftLayer_Billing_Item'
       autoload :Hardware, 'softlayer/billing/item/hardware'
       autoload :Support, 'softlayer/billing/item/support'
@@ -353,7 +353,7 @@ module Softlayer
         request(:void_cancel_service, Boolean)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :allow_cancellation_flag, type: Integer

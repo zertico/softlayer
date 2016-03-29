@@ -1,14 +1,14 @@
 module Softlayer
   module Container
     module Utility
-      class Message < Softlayer::Model
+      class Message < Softlayer::Entity
         attr_accessor :create_date
         attr_accessor :id
         attr_accessor :message
         attr_accessor :modify_date
         attr_accessor :summary
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

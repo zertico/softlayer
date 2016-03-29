@@ -2,7 +2,7 @@ module Softlayer
   module Auxiliary
     module Press
       class Release
-        class About < Softlayer::Model
+        class About < Softlayer::Entity
           SERVICE = 'SoftLayer_Auxiliary_Press_Release_About'
           autoload :Press, 'softlayer/auxiliary/press/release/about/press'
           attr_accessor :content
@@ -13,7 +13,7 @@ module Softlayer
             request(:get_object, Softlayer::Auxiliary::Press::Release::About)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :content, type: String

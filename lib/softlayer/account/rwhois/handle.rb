@@ -1,7 +1,7 @@
 module Softlayer
   class Account
     module Rwhois
-      class Handle < Softlayer::Model
+      class Handle < Softlayer::Entity
         attr_accessor :account_id
         attr_accessor :create_date
         attr_accessor :handle
@@ -9,7 +9,7 @@ module Softlayer
         attr_accessor :modify_date
         attr_accessor :account
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

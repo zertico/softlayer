@@ -1,7 +1,7 @@
 module Softlayer
   module Provisioning
     module Maintenance
-      class Classification < Softlayer::Model
+      class Classification < Softlayer::Entity
         SERVICE = 'SoftLayer_Provisioning_Maintenance_Classification'
         autoload :Item, 'softlayer/provisioning/maintenance/classification/item'
         attr_accessor :id
@@ -27,7 +27,7 @@ module Softlayer
           request(:get_object, Softlayer::Provisioning::Maintenance::Classification)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

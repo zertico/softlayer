@@ -1,7 +1,7 @@
 module Softlayer
   module Scale
     module Termination
-      class Policy < Softlayer::Model
+      class Policy < Softlayer::Entity
         SERVICE = 'SoftLayer_Scale_Termination_Policy'
         attr_accessor :id
         attr_accessor :key_name
@@ -15,7 +15,7 @@ module Softlayer
           request(:get_object, Softlayer::Scale::Termination::Policy)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

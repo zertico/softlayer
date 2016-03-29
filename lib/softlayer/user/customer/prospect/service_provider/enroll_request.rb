@@ -3,7 +3,7 @@ module Softlayer
     class Customer
       class Prospect
         module ServiceProvider
-          class EnrollRequest < Softlayer::Model
+          class EnrollRequest < Softlayer::Entity
             attr_accessor :account_id
             attr_accessor :address1
             attr_accessor :address2
@@ -38,7 +38,7 @@ module Softlayer
             attr_accessor :vat_id
             attr_accessor :company_type
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :account_id, type: Integer

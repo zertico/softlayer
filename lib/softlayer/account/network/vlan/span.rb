@@ -2,7 +2,7 @@ module Softlayer
   class Account
     module Network
       module Vlan
-        class Span < Softlayer::Model
+        class Span < Softlayer::Entity
           attr_accessor :enabled_flag
           attr_accessor :id
           attr_accessor :last_applied_date
@@ -10,7 +10,7 @@ module Softlayer
           attr_accessor :modify_date
           attr_accessor :account
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :enabled_flag, type: Boolean

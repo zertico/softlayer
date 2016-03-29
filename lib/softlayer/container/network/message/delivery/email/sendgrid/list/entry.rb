@@ -6,13 +6,13 @@ module Softlayer
           class Email
             module Sendgrid
               module List
-                class Entry < Softlayer::Model
+                class Entry < Softlayer::Entity
                   attr_accessor :created
                   attr_accessor :email
                   attr_accessor :reason
                   attr_accessor :status
 
-                  class Representer < Representable::Decorator
+                  class Representer < Softlayer::Entity::Representer
                     include Representable::Hash
                     include Representable::Coercion
                     property :created, type: String

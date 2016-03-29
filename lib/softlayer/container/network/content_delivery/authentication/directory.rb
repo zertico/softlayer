@@ -3,12 +3,12 @@ module Softlayer
     module Network
       module ContentDelivery
         module Authentication
-          class Directory < Softlayer::Model
+          class Directory < Softlayer::Entity
             attr_accessor :create_date
             attr_accessor :name
             attr_accessor :type
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :create_date, type: DateTime

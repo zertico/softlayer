@@ -1,6 +1,6 @@
 module Softlayer
   class Network
-    class Backbone < Softlayer::Model
+    class Backbone < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_Backbone'
       autoload :Location, 'softlayer/network/backbone/location'
       attr_accessor :capacity
@@ -42,7 +42,7 @@ module Softlayer
         request(:get_object, Softlayer::Network::Backbone)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :capacity, type: Integer

@@ -3,11 +3,11 @@ module Softlayer
     module Application
       module Delivery
         class Controller
-          class Type < Softlayer::Model
+          class Type < Softlayer::Entity
             attr_accessor :key_name
             attr_accessor :name
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :key_name, type: String

@@ -2,7 +2,7 @@ module Softlayer
   class Network
     class Component
       class Firewall
-        class Rule < Softlayer::Model
+        class Rule < Softlayer::Entity
           attr_accessor :action
           attr_accessor :destination_ip_address
           attr_accessor :destination_ip_cidr
@@ -20,7 +20,7 @@ module Softlayer
           attr_accessor :version
           attr_accessor :network_component_firewall
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :action, type: String

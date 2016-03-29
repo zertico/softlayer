@@ -3,7 +3,7 @@ module Softlayer
     class Monitor
       module Version1
         module Query
-          class Host < Softlayer::Model
+          class Host < Softlayer::Entity
             SERVICE = 'SoftLayer_Network_Monitor_Version1_Query_Host'
             autoload :Stratum, 'softlayer/network/monitor/version1/query/host/stratum'
             attr_accessor :arg1_value
@@ -80,7 +80,7 @@ module Softlayer
               request(:get_subnet, Softlayer::Network::Subnet)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :arg1_value, type: String

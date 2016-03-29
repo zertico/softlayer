@@ -1,7 +1,7 @@
 module Softlayer
   class Account
     class Shipment
-      class Item < Softlayer::Model
+      class Item < Softlayer::Entity
         SERVICE = 'SoftLayer_Account_Shipment_Item'
         autoload :Type, 'softlayer/account/shipment/item/type'
         attr_accessor :create_date
@@ -31,7 +31,7 @@ module Softlayer
           request(:get_shipment_item_type, Softlayer::Account::Shipment::Item::Type)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

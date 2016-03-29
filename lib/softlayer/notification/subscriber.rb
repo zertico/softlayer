@@ -1,6 +1,6 @@
 module Softlayer
   class Notification
-    class Subscriber < Softlayer::Model
+    class Subscriber < Softlayer::Entity
       autoload :Customer, 'softlayer/notification/subscriber/customer'
       autoload :Delivery, 'softlayer/notification/subscriber/delivery'
       attr_accessor :active
@@ -14,7 +14,7 @@ module Softlayer
       attr_accessor :delivery_methods
       attr_accessor :notification
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :active, type: Integer

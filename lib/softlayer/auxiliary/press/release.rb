@@ -1,7 +1,7 @@
 module Softlayer
   module Auxiliary
     module Press
-      class Release < Softlayer::Model
+      class Release < Softlayer::Entity
         SERVICE = 'SoftLayer_Auxiliary_Press_Release'
         autoload :About, 'softlayer/auxiliary/press/release/about'
         autoload :Contact, 'softlayer/auxiliary/press/release/contact'
@@ -58,7 +58,7 @@ module Softlayer
           request(:get_website_highlight_press_releases, Array[Softlayer::Auxiliary::Press::Release])
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

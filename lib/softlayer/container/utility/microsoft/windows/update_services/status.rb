@@ -4,7 +4,7 @@ module Softlayer
       module Microsoft
         module Windows
           module UpdateServices
-            class Status < Softlayer::Model
+            class Status < Softlayer::Entity
               attr_accessor :last_reboot_date
               attr_accessor :last_status_date
               attr_accessor :last_sync_date
@@ -12,7 +12,7 @@ module Softlayer
               attr_accessor :sync_status
               attr_accessor :update_status
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :last_reboot_date, type: DateTime

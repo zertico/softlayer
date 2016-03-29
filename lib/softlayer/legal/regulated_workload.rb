@@ -1,6 +1,6 @@
 module Softlayer
   module Legal
-    class RegulatedWorkload < Softlayer::Model
+    class RegulatedWorkload < Softlayer::Entity
       autoload :Type, 'softlayer/legal/regulated_workload/type'
       attr_accessor :account_id
       attr_accessor :enabled_flag
@@ -9,7 +9,7 @@ module Softlayer
       attr_accessor :account
       attr_accessor :type
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

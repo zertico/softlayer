@@ -1,14 +1,14 @@
 module Softlayer
   module Resource
     class Group
-      class Role < Softlayer::Model
+      class Role < Softlayer::Entity
         attr_accessor :description
         attr_accessor :id
         attr_accessor :key_name
         attr_accessor :member_link_count
         attr_accessor :member_links
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :description, type: String

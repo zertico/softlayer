@@ -2,11 +2,11 @@ module Softlayer
   module Container
     module Network
       module LoadBalancer
-        class StatusEntry < Softlayer::Model
+        class StatusEntry < Softlayer::Entity
           attr_accessor :content
           attr_accessor :label
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :content, type: String

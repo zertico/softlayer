@@ -1,7 +1,7 @@
 module Softlayer
   module Catalyst
     class Enrollment
-      class Request < Softlayer::Model
+      class Request < Softlayer::Entity
         autoload :Container, 'softlayer/catalyst/enrollment/request/container'
         attr_accessor :address1
         attr_accessor :address2
@@ -39,7 +39,7 @@ module Softlayer
         attr_accessor :affiliate
         attr_accessor :company_type
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :address1, type: String

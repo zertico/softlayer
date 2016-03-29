@@ -1,6 +1,6 @@
 module Softlayer
   module Software
-    class VirtualLicense < Softlayer::Model
+    class VirtualLicense < Softlayer::Entity
       SERVICE = 'SoftLayer_Software_VirtualLicense'
       attr_accessor :account_id
       attr_accessor :host_hardware_id
@@ -49,7 +49,7 @@ module Softlayer
         request(:get_subnet, Softlayer::Network::Subnet)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

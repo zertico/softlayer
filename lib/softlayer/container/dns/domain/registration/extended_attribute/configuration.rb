@@ -4,11 +4,11 @@ module Softlayer
       module Domain
         module Registration
           class ExtendedAttribute
-            class Configuration < Softlayer::Model
+            class Configuration < Softlayer::Entity
               attr_accessor :name
               attr_accessor :value
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :name, type: String

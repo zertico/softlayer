@@ -4,7 +4,7 @@ module Softlayer
       module Media
         module Transcode
           class Preset
-            class Element < Softlayer::Model
+            class Element < Softlayer::Entity
               autoload :Option, 'softlayer/container/network/media/transcode/preset/element/option'
               attr_accessor :additional_elements
               attr_accessor :default_value
@@ -18,7 +18,7 @@ module Softlayer
               attr_accessor :parent_name
               attr_accessor :type
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :default_value, type: String

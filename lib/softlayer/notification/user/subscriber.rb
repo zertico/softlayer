@@ -1,7 +1,7 @@
 module Softlayer
   class Notification
     module User
-      class Subscriber < Softlayer::Model
+      class Subscriber < Softlayer::Entity
         SERVICE = 'SoftLayer_Notification_User_Subscriber'
         autoload :Billing, 'softlayer/notification/user/subscriber/billing'
         autoload :Mobile, 'softlayer/notification/user/subscriber/mobile'
@@ -60,7 +60,7 @@ module Softlayer
           request(:get_user_record, Softlayer::User::Customer)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :active, type: Integer

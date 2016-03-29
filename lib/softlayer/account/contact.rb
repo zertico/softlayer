@@ -1,6 +1,6 @@
 module Softlayer
   class Account
-    class Contact < Softlayer::Model
+    class Contact < Softlayer::Entity
       SERVICE = 'SoftLayer_Account_Contact'
       autoload :Type, 'softlayer/account/contact/type'
       attr_accessor :account_id
@@ -57,7 +57,7 @@ module Softlayer
         request(:get_type, Softlayer::Account::Contact::Type)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

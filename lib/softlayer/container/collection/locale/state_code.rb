@@ -2,11 +2,11 @@ module Softlayer
   module Container
     module Collection
       module Locale
-        class StateCode < Softlayer::Model
+        class StateCode < Softlayer::Entity
           attr_accessor :long_name
           attr_accessor :short_name
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :long_name, type: String

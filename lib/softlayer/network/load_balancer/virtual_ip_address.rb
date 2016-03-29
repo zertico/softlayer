@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module LoadBalancer
-      class VirtualIpAddress < Softlayer::Model
+      class VirtualIpAddress < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_LoadBalancer_VirtualIpAddress'
         attr_accessor :connection_limit
         attr_accessor :id
@@ -66,7 +66,7 @@ module Softlayer
           request(:upgrade_connection_limit, Boolean)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :connection_limit, type: Integer

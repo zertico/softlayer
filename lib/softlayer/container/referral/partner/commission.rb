@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Referral
       module Partner
-        class Commission < Softlayer::Model
+        class Commission < Softlayer::Entity
           attr_accessor :commission_amount
           attr_accessor :commission_rate
           attr_accessor :create_date
@@ -11,7 +11,7 @@ module Softlayer
           attr_accessor :referral_partner_account_id
           attr_accessor :referral_revenue
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :commission_amount, type: Float

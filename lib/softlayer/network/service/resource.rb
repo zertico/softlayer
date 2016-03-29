@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module Service
-      class Resource < Softlayer::Model
+      class Resource < Softlayer::Entity
         autoload :Attribute, 'softlayer/network/service/resource/attribute'
         autoload :Hub, 'softlayer/network/service/resource/hub'
         autoload :MonitoringHub, 'softlayer/network/service/resource/monitoring_hub'
@@ -25,7 +25,7 @@ module Softlayer
         attr_accessor :ssh_username
         attr_accessor :type
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :backend_ip_address, type: String

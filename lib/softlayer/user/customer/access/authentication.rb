@@ -2,7 +2,7 @@ module Softlayer
   module User
     class Customer
       module Access
-        class Authentication < Softlayer::Model
+        class Authentication < Softlayer::Entity
           attr_accessor :create_date
           attr_accessor :ip_address
           attr_accessor :success_flag
@@ -10,7 +10,7 @@ module Softlayer
           attr_accessor :username
           attr_accessor :user
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :create_date, type: DateTime

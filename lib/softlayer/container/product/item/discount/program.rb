@@ -3,7 +3,7 @@ module Softlayer
     module Product
       module Item
         module Discount
-          class Program < Softlayer::Model
+          class Program < Softlayer::Entity
             attr_accessor :applicable_quantity
             attr_accessor :item
             attr_accessor :one_time_amount
@@ -16,7 +16,7 @@ module Softlayer
             attr_accessor :recurring_amount
             attr_accessor :recurring_tax
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :applicable_quantity, type: Integer

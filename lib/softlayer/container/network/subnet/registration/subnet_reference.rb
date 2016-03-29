@@ -3,11 +3,11 @@ module Softlayer
     module Network
       module Subnet
         module Registration
-          class SubnetReference < Softlayer::Model
+          class SubnetReference < Softlayer::Entity
             attr_accessor :registration_id
             attr_accessor :subnet_cidr
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :registration_id, type: Integer

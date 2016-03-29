@@ -1,7 +1,7 @@
 module Softlayer
   module Layout
     class Profile
-      class Preference < Softlayer::Model
+      class Preference < Softlayer::Entity
         SERVICE = 'SoftLayer_Layout_Profile_Preference'
         attr_accessor :create_date
         attr_accessor :default_value_flag
@@ -36,7 +36,7 @@ module Softlayer
           request(:get_object, Softlayer::Layout::Profile::Preference)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

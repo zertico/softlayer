@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module Firewall
-      class AccessControlList < Softlayer::Model
+      class AccessControlList < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Firewall_AccessControlList'
         attr_accessor :direction
         attr_accessor :firewall_context_interface_id
@@ -28,7 +28,7 @@ module Softlayer
           request(:get_rules, Array[Softlayer::Network::Vlan::Firewall::Rule])
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :direction, type: String

@@ -6,11 +6,11 @@ module Softlayer
           module Evault
             module WebCc
               module Authentication
-                class Details < Softlayer::Model
+                class Details < Softlayer::Entity
                   attr_accessor :event_validation
                   attr_accessor :view_state
 
-                  class Representer < Representable::Decorator
+                  class Representer < Softlayer::Entity::Representer
                     include Representable::Hash
                     include Representable::Coercion
                     property :event_validation, type: String

@@ -3,7 +3,7 @@ module Softlayer
     module Bandwidth
       module Version1
         class Allotment
-          class Detail < Softlayer::Model
+          class Detail < Softlayer::Entity
             attr_accessor :allocation_id
             attr_accessor :bandwidth_allotment_id
             attr_accessor :effective_date
@@ -15,7 +15,7 @@ module Softlayer
             attr_accessor :bandwidth_allotment
             attr_accessor :bandwidth_usage
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :allocation_id, type: Integer

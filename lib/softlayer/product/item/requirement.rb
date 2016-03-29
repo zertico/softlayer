@@ -1,7 +1,7 @@
 module Softlayer
   module Product
     class Item
-      class Requirement < Softlayer::Model
+      class Requirement < Softlayer::Entity
         attr_accessor :id
         attr_accessor :item_id
         attr_accessor :message
@@ -9,7 +9,7 @@ module Softlayer
         attr_accessor :item
         attr_accessor :product
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

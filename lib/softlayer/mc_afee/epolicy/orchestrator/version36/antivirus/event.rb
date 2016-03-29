@@ -4,7 +4,7 @@ module Softlayer
       module Orchestrator
         module Version36
           module Antivirus
-            module Event < Softlayer::Model
+            module Event < Softlayer::Entity
               autoload :AccessProtection, 'softlayer/mc_afee/epolicy/orchestrator/version36/antivirus/event/access_protection'
               autoload :Filter, 'softlayer/mc_afee/epolicy/orchestrator/version36/antivirus/event/filter'
               attr_accessor :event_local_date_time
@@ -13,7 +13,7 @@ module Softlayer
               attr_accessor :virus_type
               attr_accessor :virus_action_taken
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :event_local_date_time, type: DateTime

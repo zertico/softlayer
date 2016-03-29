@@ -1,6 +1,6 @@
 module Softlayer
   class Network
-    class TippingPointReporting < Softlayer::Model
+    class TippingPointReporting < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_TippingPointReporting'
 
       def self.drill_down_attack(signature_id = nil, ip_address = nil, subnet_mask = nil, time_frame = nil, direction = nil)
@@ -23,7 +23,7 @@ module Softlayer
         request(:get_subnet_report_for_entire_account, Array[Softlayer::Container::Network::IntrusionProtection::SubnetReport], message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
       end

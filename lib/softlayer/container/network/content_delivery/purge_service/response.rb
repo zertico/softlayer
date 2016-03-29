@@ -3,11 +3,11 @@ module Softlayer
     module Network
       module ContentDelivery
         module PurgeService
-          class Response < Softlayer::Model
+          class Response < Softlayer::Entity
             attr_accessor :status_code
             attr_accessor :url
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :status_code, type: String

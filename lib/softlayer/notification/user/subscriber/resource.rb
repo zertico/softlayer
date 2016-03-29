@@ -2,12 +2,12 @@ module Softlayer
   class Notification
     module User
       class Subscriber
-        class Resource < Softlayer::Model
+        class Resource < Softlayer::Entity
           attr_accessor :notification_user_subscriber_id
           attr_accessor :resource_table_id
           attr_accessor :notification_user_subscriber
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :notification_user_subscriber_id, type: Integer

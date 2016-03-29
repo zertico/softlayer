@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Account
       module Graph
-        class Outputs < Softlayer::Model
+        class Outputs < Softlayer::Entity
           attr_accessor :closed_tickets
           attr_accessor :completed_backup_count
           attr_accessor :conflict_backup_count
@@ -19,7 +19,7 @@ module Softlayer
           attr_accessor :url_uptime
           attr_accessor :waiting_employee_response_ticket_count
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :closed_tickets, type: String

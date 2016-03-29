@@ -1,5 +1,5 @@
 module Softlayer
-  class Brand < Softlayer::Model
+  class Brand < Softlayer::Entity
     SERVICE = 'SoftLayer_Brand'
     autoload :Attribute, 'softlayer/brand/attribute'
     autoload :Contact, 'softlayer/brand/contact'
@@ -138,7 +138,7 @@ module Softlayer
       request(:get_virtual_guests, Array[Softlayer::Virtual::Guest])
     end
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :catalog_id, type: Integer

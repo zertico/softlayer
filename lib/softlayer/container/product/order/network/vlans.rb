@@ -3,11 +3,11 @@ module Softlayer
     module Product
       class Order
         class Network
-          class Vlans < Softlayer::Model
+          class Vlans < Softlayer::Entity
             attr_accessor :private_vlans
             attr_accessor :public_vlans
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
             end

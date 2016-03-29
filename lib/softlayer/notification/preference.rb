@@ -1,6 +1,6 @@
 module Softlayer
   class Notification
-    class Preference < Softlayer::Model
+    class Preference < Softlayer::Entity
       attr_accessor :description
       attr_accessor :id
       attr_accessor :key_name
@@ -10,7 +10,7 @@ module Softlayer
       attr_accessor :units
       attr_accessor :value
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :description, type: String

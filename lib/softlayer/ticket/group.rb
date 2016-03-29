@@ -1,6 +1,6 @@
 module Softlayer
   class Ticket
-    class Group < Softlayer::Model
+    class Group < Softlayer::Entity
       autoload :Category, 'softlayer/ticket/group/category'
       attr_accessor :id
       attr_accessor :name
@@ -9,7 +9,7 @@ module Softlayer
       attr_accessor :assigned_brands
       attr_accessor :category
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :id, type: Integer

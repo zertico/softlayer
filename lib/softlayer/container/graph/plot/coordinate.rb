@@ -2,12 +2,12 @@ module Softlayer
   module Container
     class Graph
       class Plot
-        class Coordinate < Softlayer::Model
+        class Coordinate < Softlayer::Entity
           attr_accessor :x_value
           attr_accessor :y_value
           attr_accessor :z_value
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :x_value, type: Float

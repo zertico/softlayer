@@ -3,7 +3,7 @@ module Softlayer
     module Account
       module Payment
         module Method
-          class CreditCard < Softlayer::Model
+          class CreditCard < Softlayer::Entity
             attr_accessor :address1
             attr_accessor :address2
             attr_accessor :city
@@ -22,7 +22,7 @@ module Softlayer
             attr_accessor :postal_code
             attr_accessor :state
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :address1, type: String

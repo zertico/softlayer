@@ -4,10 +4,10 @@ module Softlayer
       module Version1
         class Usage
           class Detail
-            class Type < Softlayer::Model
+            class Type < Softlayer::Entity
               attr_accessor :alias
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :alias, type: String

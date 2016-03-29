@@ -1,7 +1,7 @@
 module Softlayer
   module Resource
     class Group
-      class Member < Softlayer::Model
+      class Member < Softlayer::Entity
         autoload :Attribute, 'softlayer/resource/group/member/attribute'
         autoload :Hardware, 'softlayer/resource/group/member/hardware'
         autoload :Type, 'softlayer/resource/group/member/type'
@@ -23,7 +23,7 @@ module Softlayer
         attr_accessor :roles
         attr_accessor :type
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

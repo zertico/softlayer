@@ -3,7 +3,7 @@ module Softlayer
     module Product
       class Order
         module Attribute
-          class Address < Softlayer::Model
+          class Address < Softlayer::Entity
             attr_accessor :address_line1
             attr_accessor :address_line2
             attr_accessor :city
@@ -12,7 +12,7 @@ module Softlayer
             attr_accessor :postal_code
             attr_accessor :state
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :address_line1, type: String

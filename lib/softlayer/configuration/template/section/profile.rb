@@ -2,7 +2,7 @@ module Softlayer
   module Configuration
     class Template
       class Section
-        class Profile < Softlayer::Model
+        class Profile < Softlayer::Entity
           SERVICE = 'SoftLayer_Configuration_Template_Section_Profile'
           attr_accessor :agent_id
           attr_accessor :create_date
@@ -24,7 +24,7 @@ module Softlayer
             request(:get_object, Softlayer::Configuration::Template::Section::Profile)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :agent_id, type: Integer

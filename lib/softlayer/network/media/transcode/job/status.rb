@@ -3,7 +3,7 @@ module Softlayer
     module Media
       module Transcode
         class Job
-          class Status < Softlayer::Model
+          class Status < Softlayer::Entity
             SERVICE = 'SoftLayer_Network_Media_Transcode_Job_Status'
             attr_accessor :description
             attr_accessor :id
@@ -17,7 +17,7 @@ module Softlayer
               request(:get_object, Softlayer::Network::Media::Transcode::Job::Status)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :description, type: String

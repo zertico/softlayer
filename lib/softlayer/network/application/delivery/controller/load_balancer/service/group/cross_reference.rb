@@ -6,14 +6,14 @@ module Softlayer
           module LoadBalancer
             class Service
               class Group
-                class CrossReference < Softlayer::Model
+                class CrossReference < Softlayer::Entity
                   attr_accessor :service_group_id
                   attr_accessor :service_id
                   attr_accessor :weight
                   attr_accessor :service
                   attr_accessor :service_group
 
-                  class Representer < Representable::Decorator
+                  class Representer < Softlayer::Entity::Representer
                     include Representable::Hash
                     include Representable::Coercion
                     property :service_group_id, type: Integer

@@ -1,7 +1,7 @@
 module Softlayer
   module Layout
     class Profile
-      class Containers < Softlayer::Model
+      class Containers < Softlayer::Entity
         SERVICE = 'SoftLayer_Layout_Profile_Containers'
         attr_accessor :create_date
         attr_accessor :id
@@ -33,7 +33,7 @@ module Softlayer
           request(:get_object, Softlayer::Layout::Profile::Containers)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

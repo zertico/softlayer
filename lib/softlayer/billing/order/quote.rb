@@ -1,7 +1,7 @@
 module Softlayer
   module Billing
     class Order
-      class Quote < Softlayer::Model
+      class Quote < Softlayer::Entity
         SERVICE = 'SoftLayer_Billing_Order_Quote'
         attr_accessor :account_id
         attr_accessor :completed_purchase_data_id
@@ -76,7 +76,7 @@ module Softlayer
           request(:verify_order, Softlayer::Container::Product::Order, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

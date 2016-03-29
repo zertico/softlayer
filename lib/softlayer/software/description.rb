@@ -1,6 +1,6 @@
 module Softlayer
   module Software
-    class Description < Softlayer::Model
+    class Description < Softlayer::Entity
       SERVICE = 'SoftLayer_Software_Description'
       autoload :Attribute, 'softlayer/software/description/attribute'
       autoload :Feature, 'softlayer/software/description/feature'
@@ -100,7 +100,7 @@ module Softlayer
         request(:get_valid_filesystem_types, Array[Softlayer::Configuration::Storage::Filesystem::Type])
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :control_panel, type: Integer

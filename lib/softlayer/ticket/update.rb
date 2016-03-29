@@ -1,6 +1,6 @@
 module Softlayer
   class Ticket
-    class Update < Softlayer::Model
+    class Update < Softlayer::Entity
       autoload :Agent, 'softlayer/ticket/update/agent'
       autoload :Chat, 'softlayer/ticket/update/chat'
       autoload :Customer, 'softlayer/ticket/update/customer'
@@ -19,7 +19,7 @@ module Softlayer
       attr_accessor :ticket
       attr_accessor :type
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :create_date, type: DateTime

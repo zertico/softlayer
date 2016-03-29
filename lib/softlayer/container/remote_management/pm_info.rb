@@ -1,11 +1,11 @@
 module Softlayer
   module Container
     module RemoteManagement
-      class PmInfo < Softlayer::Model
+      class PmInfo < Softlayer::Entity
         attr_accessor :pm_info_id
         attr_accessor :pm_info_reading
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :pm_info_id, type: String

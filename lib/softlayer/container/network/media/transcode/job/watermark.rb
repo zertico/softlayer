@@ -4,7 +4,7 @@ module Softlayer
       module Media
         module Transcode
           module Job
-            class Watermark < Softlayer::Model
+            class Watermark < Softlayer::Entity
               autoload :Position, 'softlayer/container/network/media/transcode/job/watermark/position'
               attr_accessor :end_time
               attr_accessor :file_name
@@ -13,7 +13,7 @@ module Softlayer
               attr_accessor :text
               attr_accessor :transparency_percentage
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :end_time, type: Integer

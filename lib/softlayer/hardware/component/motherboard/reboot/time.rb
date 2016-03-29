@@ -3,12 +3,12 @@ module Softlayer
     class Component
       class Motherboard
         module Reboot
-          class Time < Softlayer::Model
+          class Time < Softlayer::Entity
             attr_accessor :with_raid
             attr_accessor :without_raid
             attr_accessor :hardware_component_model
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :with_raid, type: Integer

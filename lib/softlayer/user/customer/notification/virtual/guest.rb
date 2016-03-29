@@ -3,7 +3,7 @@ module Softlayer
     class Customer
       module Notification
         module Virtual
-          class Guest < Softlayer::Model
+          class Guest < Softlayer::Entity
             SERVICE = 'SoftLayer_User_Customer_Notification_Virtual_Guest'
             attr_accessor :guest_id
             attr_accessor :id
@@ -43,7 +43,7 @@ module Softlayer
               request(:get_user, Softlayer::User::Customer)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :guest_id, type: Integer

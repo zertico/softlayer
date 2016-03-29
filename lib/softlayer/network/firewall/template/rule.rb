@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Firewall
       class Template
-        class Rule < Softlayer::Model
+        class Rule < Softlayer::Entity
           attr_accessor :action
           attr_accessor :destination_ip_address
           attr_accessor :destination_ip_subnet_mask
@@ -17,7 +17,7 @@ module Softlayer
           attr_accessor :source_ip_subnet_mask
           attr_accessor :firewall_template
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :action, type: String

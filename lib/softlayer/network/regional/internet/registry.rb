@@ -2,12 +2,12 @@ module Softlayer
   class Network
     module Regional
       module Internet
-        class Registry < Softlayer::Model
+        class Registry < Softlayer::Entity
           attr_accessor :id
           attr_accessor :key_name
           attr_accessor :name
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

@@ -3,9 +3,9 @@ module Softlayer
     module Notification
       module Mass
         module Filter
-          class TemplateKey < Softlayer::Model
+          class TemplateKey < Softlayer::Entity
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
             end

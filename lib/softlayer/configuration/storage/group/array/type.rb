@@ -3,7 +3,7 @@ module Softlayer
     module Storage
       module Group
         module Array
-          class Type < Softlayer::Model
+          class Type < Softlayer::Entity
             SERVICE = 'SoftLayer_Configuration_Storage_Group_Array_Type'
             attr_accessor :description
             attr_accessor :drive_multiplier
@@ -28,7 +28,7 @@ module Softlayer
               request(:get_object, Softlayer::Configuration::Storage::Group::Array::Type)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :description, type: String

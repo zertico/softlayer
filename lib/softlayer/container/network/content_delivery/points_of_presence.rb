@@ -2,11 +2,11 @@ module Softlayer
   module Container
     module Network
       module ContentDelivery
-        class PointsOfPresence < Softlayer::Model
+        class PointsOfPresence < Softlayer::Entity
           attr_accessor :id
           attr_accessor :name
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

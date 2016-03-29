@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Network
       module Media
-        class Information < Softlayer::Model
+        class Information < Softlayer::Entity
           attr_accessor :audio_bit_rate
           attr_accessor :audio_channel_mode
           attr_accessor :audio_channels
@@ -21,7 +21,7 @@ module Softlayer
           attr_accessor :video_aspect_y
           attr_accessor :video_codec
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :audio_bit_rate, type: Integer

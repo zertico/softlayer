@@ -1,7 +1,7 @@
 module Softlayer
   module User
     class Customer
-      class Link < Softlayer::Model
+      class Link < Softlayer::Entity
         autoload :ThePlanet, 'softlayer/user/customer/link/the_planet'
         attr_accessor :create_date
         attr_accessor :destination_user_alphanumeric_id
@@ -12,7 +12,7 @@ module Softlayer
         attr_accessor :service_provider
         attr_accessor :user
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

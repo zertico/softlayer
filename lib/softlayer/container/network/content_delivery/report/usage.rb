@@ -3,7 +3,7 @@ module Softlayer
     module Network
       module ContentDelivery
         module Report
-          class Usage < Softlayer::Model
+          class Usage < Softlayer::Entity
             attr_accessor :application_delivery_network
             attr_accessor :application_delivery_network_ssl
             attr_accessor :disk_space
@@ -19,7 +19,7 @@ module Softlayer
             attr_accessor :start_date
             attr_accessor :windows_media
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :application_delivery_network, type: Float

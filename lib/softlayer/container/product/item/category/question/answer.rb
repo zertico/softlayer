@@ -4,13 +4,13 @@ module Softlayer
       module Item
         class Category
           module Question
-            class Answer < Softlayer::Model
+            class Answer < Softlayer::Entity
               attr_accessor :answer
               attr_accessor :category_code
               attr_accessor :category_id
               attr_accessor :question_id
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :answer, type: String

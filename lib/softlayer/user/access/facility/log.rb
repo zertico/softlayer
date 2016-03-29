@@ -2,7 +2,7 @@ module Softlayer
   module User
     module Access
       module Facility
-        class Log < Softlayer::Model
+        class Log < Softlayer::Entity
           autoload :Type, 'softlayer/user/access/facility/log/type'
           attr_accessor :account_id
           attr_accessor :description
@@ -17,7 +17,7 @@ module Softlayer
           attr_accessor :log_type
           attr_accessor :visitor
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

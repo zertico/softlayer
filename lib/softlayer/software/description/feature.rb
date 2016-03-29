@@ -1,13 +1,13 @@
 module Softlayer
   module Software
     class Description
-      class Feature < Softlayer::Model
+      class Feature < Softlayer::Entity
         attr_accessor :id
         attr_accessor :key_name
         attr_accessor :name
         attr_accessor :vendor
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

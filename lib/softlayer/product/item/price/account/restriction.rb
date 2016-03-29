@@ -3,14 +3,14 @@ module Softlayer
     class Item
       class Price
         module Account
-          class Restriction < Softlayer::Model
+          class Restriction < Softlayer::Entity
             attr_accessor :account_id
             attr_accessor :id
             attr_accessor :item_price_id
             attr_accessor :account
             attr_accessor :item_price
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :account_id, type: Integer

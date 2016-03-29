@@ -3,13 +3,13 @@ module Softlayer
     module Dns
       module Domain
         module Registration
-          class List < Softlayer::Model
+          class List < Softlayer::Entity
             attr_accessor :domain_name
             attr_accessor :encoding_type
             attr_accessor :extended_attribute_configuration
             attr_accessor :registration_period
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :domain_name, type: String

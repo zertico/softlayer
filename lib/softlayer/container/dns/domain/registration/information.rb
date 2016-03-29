@@ -3,7 +3,7 @@ module Softlayer
     module Dns
       module Domain
         module Registration
-          class Information < Softlayer::Model
+          class Information < Softlayer::Entity
             attr_accessor :contacts
             attr_accessor :expire_date
             attr_accessor :nameservers
@@ -11,7 +11,7 @@ module Softlayer
             attr_accessor :registry_expire_date
             attr_accessor :registry_update_date
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :expire_date, type: DateTime

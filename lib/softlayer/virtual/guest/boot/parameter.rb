@@ -2,7 +2,7 @@ module Softlayer
   module Virtual
     class Guest
       module Boot
-        class Parameter < Softlayer::Model
+        class Parameter < Softlayer::Entity
           SERVICE = 'SoftLayer_Virtual_Guest_Boot_Parameter'
           autoload :Type, 'softlayer/virtual/guest/boot/parameter/type'
           attr_accessor :create_date
@@ -39,7 +39,7 @@ module Softlayer
             request(:get_object, Softlayer::Virtual::Guest::Boot::Parameter)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :create_date, type: DateTime

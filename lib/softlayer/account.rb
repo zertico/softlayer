@@ -1,5 +1,5 @@
 module Softlayer
-  class Account < Softlayer::Model
+  class Account < Softlayer::Entity
     SERVICE = 'SoftLayer_Account'
     autoload :AbuseEmail, 'softlayer/account/abuse_email'
     autoload :Address, 'softlayer/account/address'
@@ -50,7 +50,9 @@ module Softlayer
     attr_accessor :status_date
     attr_accessor :abuse_email_count
     attr_accessor :account_contact_count
+    attr_accessor :account_license_count
     attr_accessor :account_link_count
+    attr_accessor :active_account_license_count
     attr_accessor :active_address_count
     attr_accessor :active_billing_agreement_count
     attr_accessor :active_colocation_container_count
@@ -227,9 +229,11 @@ module Softlayer
     attr_accessor :abuse_email
     attr_accessor :abuse_emails
     attr_accessor :account_contacts
+    attr_accessor :account_licenses
     attr_accessor :account_links
     attr_accessor :account_status
     attr_accessor :active_account_discount_billing_item
+    attr_accessor :active_account_licenses
     attr_accessor :active_addresses
     attr_accessor :active_billing_agreements
     attr_accessor :active_catalyst_enrollment
@@ -502,6 +506,10 @@ module Softlayer
       request(:get_account_contacts, Array[Softlayer::Account::Contact])
     end
 
+    def self.get_account_licenses
+      request(:get_account_licenses, Array[Softlayer::Software::AccountLicense])
+    end
+
     def self.get_account_links
       request(:get_account_links, Array[Softlayer::Account::Link])
     end
@@ -517,6 +525,10 @@ module Softlayer
 
     def self.get_active_account_discount_billing_item
       request(:get_active_account_discount_billing_item, Softlayer::Billing::Item)
+    end
+
+    def self.get_active_account_licenses
+      request(:get_active_account_licenses, Array[Softlayer::Software::AccountLicense])
     end
 
     def self.get_active_addresses
@@ -1637,7 +1649,7 @@ module Softlayer
       request(:validate_manual_payment_amount, Boolean, message)
     end
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :account_managed_resources_flag, type: Boolean
@@ -1667,7 +1679,9 @@ module Softlayer
       property :status_date, type: DateTime
       property :abuse_email_count, type: BigDecimal
       property :account_contact_count, type: BigDecimal
+      property :account_license_count, type: BigDecimal
       property :account_link_count, type: BigDecimal
+      property :active_account_license_count, type: BigDecimal
       property :active_address_count, type: BigDecimal
       property :active_billing_agreement_count, type: BigDecimal
       property :active_colocation_container_count, type: BigDecimal

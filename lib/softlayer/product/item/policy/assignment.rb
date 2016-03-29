@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Item
       module Policy
-        class Assignment < Softlayer::Model
+        class Assignment < Softlayer::Entity
           SERVICE = 'SoftLayer_Product_Item_Policy_Assignment'
           attr_accessor :id
           attr_accessor :product_id
@@ -30,7 +30,7 @@ module Softlayer
             request(:get_product, Softlayer::Product::Item)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

@@ -4,10 +4,10 @@ module Softlayer
       module Service
         module Host
           module Xref
-            class Hardware < Softlayer::Model
+            class Hardware < Softlayer::Entity
               attr_accessor :host
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
               end

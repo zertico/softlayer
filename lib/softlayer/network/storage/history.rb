@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Storage
-      class History < Softlayer::Model
+      class History < Softlayer::Entity
         attr_accessor :create_date
         attr_accessor :notes
         attr_accessor :password
@@ -9,7 +9,7 @@ module Softlayer
         attr_accessor :account
         attr_accessor :nas_volume
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

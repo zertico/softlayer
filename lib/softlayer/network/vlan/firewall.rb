@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Vlan
-      class Firewall < Softlayer::Model
+      class Firewall < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Vlan_Firewall'
         autoload :Rule, 'softlayer/network/vlan/firewall/rule'
         attr_accessor :administrative_bypass_flag
@@ -81,7 +81,7 @@ module Softlayer
           request(:update_route_bypass, Softlayer::Provisioning::Version1::Transaction, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :administrative_bypass_flag, type: String

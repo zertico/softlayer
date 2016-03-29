@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Product
       class Order
-        class Network < Softlayer::Model
+        class Network < Softlayer::Entity
           autoload :LoadBalancer, 'softlayer/container/product/order/network/load_balancer'
           autoload :PerformanceStorage, 'softlayer/container/product/order/network/performance_storage'
           autoload :Subnet, 'softlayer/container/product/order/network/subnet'
@@ -18,7 +18,7 @@ module Softlayer
           attr_accessor :public_vlans
           attr_accessor :subnets
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
           end

@@ -1,7 +1,7 @@
 module Softlayer
   module Billing
     module Payment
-      class Processor < Softlayer::Model
+      class Processor < Softlayer::Entity
         autoload :Method, 'softlayer/billing/payment/processor/method'
         autoload :Type, 'softlayer/billing/payment/processor/type'
         attr_accessor :description
@@ -13,7 +13,7 @@ module Softlayer
         attr_accessor :payment_methods
         attr_accessor :type
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :description, type: String

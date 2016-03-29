@@ -2,7 +2,7 @@ module Softlayer
   module Billing
     class Invoice
       module Tax
-        class Status < Softlayer::Model
+        class Status < Softlayer::Entity
           SERVICE = 'SoftLayer_Billing_Invoice_Tax_Status'
           attr_accessor :create_date
           attr_accessor :id
@@ -18,7 +18,7 @@ module Softlayer
             request(:get_object, Softlayer::Billing::Invoice::Tax::Status)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :create_date, type: DateTime

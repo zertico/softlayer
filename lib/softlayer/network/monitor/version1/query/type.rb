@@ -3,14 +3,14 @@ module Softlayer
     class Monitor
       module Version1
         module Query
-          class Type < Softlayer::Model
+          class Type < Softlayer::Entity
             attr_accessor :argument_description
             attr_accessor :description
             attr_accessor :id
             attr_accessor :monitor_level
             attr_accessor :name
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :argument_description, type: String

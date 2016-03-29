@@ -1,7 +1,7 @@
 module Softlayer
   class Account
     class Contact
-      class Type < Softlayer::Model
+      class Type < Softlayer::Entity
         attr_accessor :create_date
         attr_accessor :description
         attr_accessor :id
@@ -9,7 +9,7 @@ module Softlayer
         attr_accessor :modify_date
         attr_accessor :name
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

@@ -1,11 +1,11 @@
 module Softlayer
   class Hardware
-    class Function < Softlayer::Model
+    class Function < Softlayer::Entity
       attr_accessor :code
       attr_accessor :description
       attr_accessor :id
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :code, type: String

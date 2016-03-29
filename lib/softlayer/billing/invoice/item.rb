@@ -1,7 +1,7 @@
 module Softlayer
   module Billing
     class Invoice
-      class Item < Softlayer::Model
+      class Item < Softlayer::Entity
         SERVICE = 'SoftLayer_Billing_Invoice_Item'
         autoload :Hardware, 'softlayer/billing/invoice/item/hardware'
         autoload :Tax, 'softlayer/billing/invoice/item/tax'
@@ -119,7 +119,7 @@ module Softlayer
           request(:get_total_recurring_tax_amount, Float)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :associated_invoice_item_id, type: Integer

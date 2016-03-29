@@ -1,6 +1,6 @@
 module Softlayer
   module Billing
-    class Currency < Softlayer::Model
+    class Currency < Softlayer::Entity
       SERVICE = 'SoftLayer_Billing_Currency'
       autoload :ExchangeRate, 'softlayer/billing/currency/exchange_rate'
       attr_accessor :id
@@ -20,7 +20,7 @@ module Softlayer
         request(:get_price, String, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :id, type: Integer

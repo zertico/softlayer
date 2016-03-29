@@ -2,7 +2,7 @@ module Softlayer
   module Auxiliary
     module Shipping
       class Courier
-        class Type < Softlayer::Model
+        class Type < Softlayer::Entity
           SERVICE = 'SoftLayer_Auxiliary_Shipping_Courier_Type'
           attr_accessor :description
           attr_accessor :id
@@ -24,7 +24,7 @@ module Softlayer
             request(:get_type_by_key_name, Softlayer::Auxiliary::Shipping::Courier::Type, message)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :description, type: String

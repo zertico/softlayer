@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Monitoring
       module Alarm
-        class History < Softlayer::Model
+        class History < Softlayer::Entity
           attr_accessor :account_id
           attr_accessor :agent_id
           attr_accessor :alarm_id
@@ -12,7 +12,7 @@ module Softlayer
           attr_accessor :robot_id
           attr_accessor :severity
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

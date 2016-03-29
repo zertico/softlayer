@@ -2,7 +2,7 @@ module Softlayer
   class Account
     module Regional
       module Registry
-        class Detail < Softlayer::Model
+        class Detail < Softlayer::Entity
           SERVICE = 'SoftLayer_Account_Regional_Registry_Detail'
           autoload :Property, 'softlayer/account/regional/registry/detail/property'
           autoload :Type, 'softlayer/account/regional/registry/detail/type'
@@ -63,7 +63,7 @@ module Softlayer
             request(:update_referenced_registrations, Softlayer::Container::Network::Subnet::Registration::TransactionDetails)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

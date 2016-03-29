@@ -4,12 +4,12 @@ module Softlayer
       module Storage
         module Hub
           module ObjectStorage
-            class ContentDeliveryUrl < Softlayer::Model
+            class ContentDeliveryUrl < Softlayer::Entity
               attr_accessor :datacenter
               attr_accessor :flash_url
               attr_accessor :http_url
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :datacenter, type: String

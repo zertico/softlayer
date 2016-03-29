@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module ContentDelivery
-      class Account < Softlayer::Model
+      class Account < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_ContentDelivery_Account'
         autoload :Status, 'softlayer/network/content_delivery/account/status'
         attr_accessor :account_id
@@ -256,7 +256,7 @@ module Softlayer
           request(:upload_stream, Boolean, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

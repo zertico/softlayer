@@ -1,7 +1,7 @@
 module Softlayer
   module Auxiliary
     module Notification
-      class Emergency < Softlayer::Model
+      class Emergency < Softlayer::Entity
         SERVICE = 'SoftLayer_Auxiliary_Notification_Emergency'
         autoload :Signature, 'softlayer/auxiliary/notification/emergency/signature'
         autoload :Status, 'softlayer/auxiliary/notification/emergency/status'
@@ -38,7 +38,7 @@ module Softlayer
           request(:get_status, Softlayer::Auxiliary::Notification::Emergency::Status)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

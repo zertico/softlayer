@@ -2,12 +2,12 @@ module Softlayer
   module Container
     module Search
       class ObjectType
-        class Property < Softlayer::Model
+        class Property < Softlayer::Entity
           attr_accessor :name
           attr_accessor :sortable_flag
           attr_accessor :type
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :name, type: String

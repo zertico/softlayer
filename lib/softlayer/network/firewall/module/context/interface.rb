@@ -3,7 +3,7 @@ module Softlayer
     module Firewall
       module Module
         module Context
-          class Interface < Softlayer::Model
+          class Interface < Softlayer::Entity
             SERVICE = 'SoftLayer_Network_Firewall_Module_Context_Interface'
             attr_accessor :id
             attr_accessor :name
@@ -23,7 +23,7 @@ module Softlayer
               request(:get_object, Softlayer::Network::Firewall::Module::Context::Interface)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :id, type: Integer

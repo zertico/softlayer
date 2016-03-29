@@ -2,12 +2,12 @@ module Softlayer
   module Container
     module Hardware
       module Server
-        class Details < Softlayer::Model
+        class Details < Softlayer::Entity
           attr_accessor :components
           attr_accessor :network_components
           attr_accessor :software
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
           end

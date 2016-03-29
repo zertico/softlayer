@@ -2,7 +2,7 @@ module Softlayer
   module Monitoring
     class Agent
       module Configuration
-        class Value < Softlayer::Model
+        class Value < Softlayer::Entity
           SERVICE = 'SoftLayer_Monitoring_Agent_Configuration_Value'
           attr_accessor :agent_id
           attr_accessor :configuration_definition_id
@@ -35,7 +35,7 @@ module Softlayer
             request(:get_profile, Softlayer::Configuration::Template::Section::Profile)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :agent_id, type: Integer

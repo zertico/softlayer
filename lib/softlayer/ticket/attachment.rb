@@ -1,6 +1,6 @@
 module Softlayer
   class Ticket
-    class Attachment < Softlayer::Model
+    class Attachment < Softlayer::Entity
       autoload :CardChangeRequest, 'softlayer/ticket/attachment/card_change_request'
       autoload :File, 'softlayer/ticket/attachment/file'
       autoload :Hardware, 'softlayer/ticket/attachment/hardware'
@@ -16,7 +16,7 @@ module Softlayer
       attr_accessor :scheduled_action
       attr_accessor :ticket
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :attachment_id, type: Integer

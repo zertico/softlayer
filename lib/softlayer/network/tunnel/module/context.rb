@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Tunnel
       module Module
-        class Context < Softlayer::Model
+        class Context < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Tunnel_Module_Context'
           autoload :Address, 'softlayer/network/tunnel/module/context/address'
           attr_accessor :account_id
@@ -207,7 +207,7 @@ module Softlayer
             request(:remove_service_subnet_from_network_tunnel, Boolean, message)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

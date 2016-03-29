@@ -1,6 +1,6 @@
 module Softlayer
   module Virtual
-    class Guest < Softlayer::Model
+    class Guest < Softlayer::Entity
       SERVICE = 'SoftLayer_Virtual_Guest'
       autoload :Attribute, 'softlayer/virtual/guest/attribute'
       autoload :Status, 'softlayer/virtual/guest/status'
@@ -951,7 +951,7 @@ module Softlayer
         request(:verify_reload_operating_system, Boolean, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

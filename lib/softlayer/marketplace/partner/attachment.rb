@@ -1,7 +1,7 @@
 module Softlayer
   module Marketplace
     class Partner
-      class Attachment < Softlayer::Model
+      class Attachment < Softlayer::Entity
         autoload :Type, 'softlayer/marketplace/partner/attachment/type'
         attr_accessor :attachment_type_id
         attr_accessor :base_name
@@ -12,7 +12,7 @@ module Softlayer
         attr_accessor :save_as_name
         attr_accessor :attachment_type
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :attachment_type_id, type: Integer

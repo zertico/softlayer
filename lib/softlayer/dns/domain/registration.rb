@@ -1,7 +1,7 @@
 module Softlayer
   module Dns
     class Domain
-      class Registration < Softlayer::Model
+      class Registration < Softlayer::Entity
         SERVICE = 'SoftLayer_Dns_Domain_Registration'
         autoload :Status, 'softlayer/dns/domain/registration/status'
         autoload :Registrant, 'softlayer/dns/domain/registration/registrant'
@@ -129,7 +129,7 @@ module Softlayer
           request(:unlock_domain, Boolean)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

@@ -1,7 +1,7 @@
 module Softlayer
   module Product
     class Package
-      class Inventory < Softlayer::Model
+      class Inventory < Softlayer::Entity
         attr_accessor :available_inventory_count
         attr_accessor :item_id
         attr_accessor :location_id
@@ -12,7 +12,7 @@ module Softlayer
         attr_accessor :location
         attr_accessor :package
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :available_inventory_count, type: Integer

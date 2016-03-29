@@ -1,6 +1,6 @@
 module Softlayer
   module Scale
-    class Asset < Softlayer::Model
+    class Asset < Softlayer::Entity
       SERVICE = 'SoftLayer_Scale_Asset'
       autoload :Hardware, 'softlayer/scale/asset/hardware'
       autoload :Virtual, 'softlayer/scale/asset/virtual'
@@ -22,7 +22,7 @@ module Softlayer
         request(:get_scale_group, Softlayer::Scale::Group)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :create_date, type: DateTime

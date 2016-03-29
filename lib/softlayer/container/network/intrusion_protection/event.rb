@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Network
       module IntrusionProtection
-        class Event < Softlayer::Model
+        class Event < Softlayer::Entity
           attr_accessor :cve_id
           attr_accessor :action_taken
           attr_accessor :attack_count
@@ -21,7 +21,7 @@ module Softlayer
           attr_accessor :source_ip_address
           attr_accessor :source_port
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :cve_id, type: String

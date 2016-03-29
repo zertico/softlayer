@@ -2,7 +2,7 @@ module Softlayer
   class Location
     class Group
       module Location
-        class CrossReference < Softlayer::Model
+        class CrossReference < Softlayer::Entity
           SERVICE = 'SoftLayer_Location_Group_Location_CrossReference'
           attr_accessor :location_group_id
           attr_accessor :location_id
@@ -10,7 +10,7 @@ module Softlayer
           attr_accessor :location
           attr_accessor :location_group
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :location_group_id, type: Integer

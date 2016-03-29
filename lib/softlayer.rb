@@ -12,6 +12,7 @@ ActiveSupport::TestCase.test_order = :random
 
 # Library
 require 'softlayer/model'
+require 'softlayer/entity'
 require 'softlayer/boolean'
 
 require 'softlayer/abuse'

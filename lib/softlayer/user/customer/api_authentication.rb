@@ -1,7 +1,7 @@
 module Softlayer
   module User
     class Customer
-      class ApiAuthentication < Softlayer::Model
+      class ApiAuthentication < Softlayer::Entity
         SERVICE = 'SoftLayer_User_Customer_ApiAuthentication'
         attr_accessor :authentication_key
         attr_accessor :id
@@ -23,7 +23,7 @@ module Softlayer
           request(:get_user, Softlayer::User::Customer)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :authentication_key, type: String

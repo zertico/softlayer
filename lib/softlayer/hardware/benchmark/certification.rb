@@ -1,7 +1,7 @@
 module Softlayer
   class Hardware
     module Benchmark
-      class Certification < Softlayer::Model
+      class Certification < Softlayer::Entity
         SERVICE = 'SoftLayer_Hardware_Benchmark_Certification'
         attr_accessor :account_id
         attr_accessor :create_date
@@ -25,7 +25,7 @@ module Softlayer
           request(:get_result_file, Softlayer::Base64Binary)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

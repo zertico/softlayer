@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Subnet
-      class IpAddress < Softlayer::Model
+      class IpAddress < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Subnet_IpAddress'
         autoload :Global, 'softlayer/network/subnet/ip_address/global'
         autoload :Version6, 'softlayer/network/subnet/ip_address/version6'
@@ -32,6 +32,7 @@ module Softlayer
         attr_accessor :allowed_host
         attr_accessor :allowed_network_storage
         attr_accessor :allowed_network_storage_replicas
+        attr_accessor :application_delivery_controller
         attr_accessor :context_tunnel_translations
         attr_accessor :endpoint_subnets
         attr_accessor :guest_network_component
@@ -91,6 +92,10 @@ module Softlayer
 
         def get_allowed_network_storage_replicas
           request(:get_allowed_network_storage_replicas, Array[Softlayer::Network::Storage])
+        end
+
+        def get_application_delivery_controller
+          request(:get_application_delivery_controller, Softlayer::Network::Application::Delivery::Controller)
         end
 
         def get_attached_network_storages(nas_type = nil)
@@ -209,7 +214,7 @@ module Softlayer
           request(:remove_access_to_network_storage_list, Boolean, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

@@ -2,11 +2,11 @@ module Softlayer
   class Account
     class Link
       class OpenStack
-        class ProjectDetails < Softlayer::Model
+        class ProjectDetails < Softlayer::Entity
           attr_accessor :project_id
           attr_accessor :project_name
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :project_id, type: String

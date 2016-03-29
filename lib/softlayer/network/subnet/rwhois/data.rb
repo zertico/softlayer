@@ -2,7 +2,7 @@ module Softlayer
   class Network
     class Subnet
       module Rwhois
-        class Data < Softlayer::Model
+        class Data < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Subnet_Rwhois_Data'
           attr_accessor :abuse_email
           attr_accessor :account_id
@@ -34,7 +34,7 @@ module Softlayer
             request(:get_object, Softlayer::Network::Subnet::Rwhois::Data)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :abuse_email, type: String

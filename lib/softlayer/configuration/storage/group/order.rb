@@ -2,7 +2,7 @@ module Softlayer
   module Configuration
     module Storage
       module Group
-        class Order < Softlayer::Model
+        class Order < Softlayer::Entity
           attr_accessor :array_number
           attr_accessor :array_size
           attr_accessor :array_type_id
@@ -13,7 +13,7 @@ module Softlayer
           attr_accessor :array_type
           attr_accessor :billing_order_item
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :array_number, type: Integer

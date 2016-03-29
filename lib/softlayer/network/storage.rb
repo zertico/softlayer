@@ -1,6 +1,6 @@
 module Softlayer
   class Network
-    class Storage < Softlayer::Model
+    class Storage < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_Storage'
       autoload :Backup, 'softlayer/network/storage/backup'
       autoload :Credential, 'softlayer/network/storage/credential'
@@ -784,7 +784,7 @@ module Softlayer
         request(:upload_file, Softlayer::Container::Utility::File::Entity, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

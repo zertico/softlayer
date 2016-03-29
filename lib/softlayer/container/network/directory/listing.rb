@@ -2,12 +2,12 @@ module Softlayer
   module Container
     module Network
       module Directory
-        class Listing < Softlayer::Model
+        class Listing < Softlayer::Entity
           attr_accessor :file_count
           attr_accessor :name
           attr_accessor :type
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :file_count, type: Integer

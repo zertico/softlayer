@@ -5,7 +5,7 @@ module Softlayer
         module Delivery
           class Email
             module Sendgrid
-              class Statistics < Softlayer::Model
+              class Statistics < Softlayer::Entity
                 autoload :Graph, 'softlayer/container/network/message/delivery/email/sendgrid/statistics/graph'
                 autoload :Options, 'softlayer/container/network/message/delivery/email/sendgrid/statistics/options'
                 attr_accessor :blocks
@@ -24,7 +24,7 @@ module Softlayer
                 attr_accessor :unique_opens
                 attr_accessor :unsubscribes
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :blocks, type: Integer

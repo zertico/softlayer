@@ -1,6 +1,6 @@
 module Softlayer
   module Billing
-    class Info < Softlayer::Model
+    class Info < Softlayer::Entity
       SERVICE = 'SoftLayer_Billing_Info'
       autoload :Ach, 'softlayer/billing/info/ach'
       autoload :Cycle, 'softlayer/billing/info/cycle'
@@ -58,7 +58,7 @@ module Softlayer
         request(:get_object, Softlayer::Billing::Info)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

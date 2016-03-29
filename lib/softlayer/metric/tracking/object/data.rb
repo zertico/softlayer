@@ -2,13 +2,13 @@ module Softlayer
   module Metric
     module Tracking
       class Object
-        class Data < Softlayer::Model
+        class Data < Softlayer::Entity
           autoload :Network, 'softlayer/metric/tracking/object/data/network'
           attr_accessor :counter
           attr_accessor :date_time
           attr_accessor :type
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :counter, type: Float

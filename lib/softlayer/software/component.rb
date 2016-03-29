@@ -1,6 +1,6 @@
 module Softlayer
   module Software
-    class Component < Softlayer::Model
+    class Component < Softlayer::Entity
       SERVICE = 'SoftLayer_Software_Component'
       autoload :Analytics, 'softlayer/software/component/analytics'
       autoload :AntivirusSpyware, 'softlayer/software/component/antivirus_spyware'
@@ -68,7 +68,7 @@ module Softlayer
         request(:get_virtual_guest, Softlayer::Virtual::Guest)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :hardware_id, type: Integer

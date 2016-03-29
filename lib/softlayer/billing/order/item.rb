@@ -1,7 +1,7 @@
 module Softlayer
   module Billing
     class Order
-      class Item < Softlayer::Model
+      class Item < Softlayer::Entity
         SERVICE = 'SoftLayer_Billing_Order_Item'
         autoload :Category, 'softlayer/billing/order/item/category'
         attr_accessor :category_code
@@ -146,7 +146,7 @@ module Softlayer
           request(:get_upgrade_item, Softlayer::Product::Item)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :category_code, type: String

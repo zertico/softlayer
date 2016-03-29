@@ -1,6 +1,6 @@
 module Softlayer
   module Product
-    class Package < Softlayer::Model
+    class Package < Softlayer::Entity
       SERVICE = 'SoftLayer_Product_Package'
       autoload :Attribute, 'softlayer/product/package/attribute'
       autoload :Inventory, 'softlayer/product/package/inventory'
@@ -26,7 +26,6 @@ module Softlayer
       attr_accessor :active_usage_price_count
       attr_accessor :attribute_count
       attr_accessor :available_location_count
-      attr_accessor :category_count
       attr_accessor :configuration_count
       attr_accessor :default_ram_item_count
       attr_accessor :deployment_count
@@ -341,7 +340,7 @@ module Softlayer
         request(:get_type, Softlayer::Product::Package::Type)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :description, type: String
@@ -359,7 +358,6 @@ module Softlayer
         property :active_usage_price_count, type: BigDecimal
         property :attribute_count, type: BigDecimal
         property :available_location_count, type: BigDecimal
-        property :category_count, type: BigDecimal
         property :configuration_count, type: BigDecimal
         property :default_ram_item_count, type: BigDecimal
         property :deployment_count, type: BigDecimal

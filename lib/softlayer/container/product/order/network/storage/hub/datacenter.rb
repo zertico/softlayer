@@ -5,11 +5,11 @@ module Softlayer
         class Network
           module Storage
             class Hub
-              class Datacenter < Softlayer::Model
+              class Datacenter < Softlayer::Entity
                 attr_accessor :location
                 attr_accessor :usage_rate_prices
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                 end

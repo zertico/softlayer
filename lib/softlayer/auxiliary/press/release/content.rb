@@ -2,7 +2,7 @@ module Softlayer
   module Auxiliary
     module Press
       class Release
-        class Content < Softlayer::Model
+        class Content < Softlayer::Entity
           SERVICE = 'SoftLayer_Auxiliary_Press_Release_Content'
           attr_accessor :id
           attr_accessor :press_release_id
@@ -12,7 +12,7 @@ module Softlayer
             request(:get_object, Softlayer::Auxiliary::Press::Release::Content)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

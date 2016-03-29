@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Storage
-      class Schedule < Softlayer::Model
+      class Schedule < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Storage_Schedule'
         autoload :Property, 'softlayer/network/storage/schedule/property'
         autoload :Type, 'softlayer/network/storage/schedule/type'
@@ -95,7 +95,7 @@ module Softlayer
           request(:get_volume, Softlayer::Network::Storage)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :active, type: Integer

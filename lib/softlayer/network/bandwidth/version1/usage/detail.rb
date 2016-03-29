@@ -3,7 +3,7 @@ module Softlayer
     module Bandwidth
       module Version1
         class Usage
-          class Detail < Softlayer::Model
+          class Detail < Softlayer::Entity
             autoload :Total, 'softlayer/network/bandwidth/version1/usage/detail/total'
             autoload :Type, 'softlayer/network/bandwidth/version1/usage/detail/type'
             attr_accessor :amount_in
@@ -12,7 +12,7 @@ module Softlayer
             attr_accessor :bandwidth_usage
             attr_accessor :bandwidth_usage_detail_type
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :amount_in, type: Float

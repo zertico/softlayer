@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Item
       module Resource
-        class Conflict < Softlayer::Model
+        class Conflict < Softlayer::Entity
           autoload :Item, 'softlayer/product/item/resource/conflict/item'
           autoload :Location, 'softlayer/product/item/resource/conflict/location'
           attr_accessor :item_id
@@ -12,7 +12,7 @@ module Softlayer
           attr_accessor :item
           attr_accessor :package
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :item_id, type: Integer

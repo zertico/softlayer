@@ -3,7 +3,7 @@ module Softlayer
     module Regional
       module Registry
         class Detail
-          class Property < Softlayer::Model
+          class Property < Softlayer::Entity
             SERVICE = 'SoftLayer_Account_Regional_Registry_Detail_Property'
             autoload :Type, 'softlayer/account/regional/registry/detail/property/type'
             attr_accessor :create_date
@@ -52,7 +52,7 @@ module Softlayer
               request(:get_property_type, Softlayer::Account::Regional::Registry::Detail::Property::Type)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :create_date, type: DateTime

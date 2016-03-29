@@ -2,7 +2,7 @@ module Softlayer
   module Billing
     class Item
       module Cancellation
-        class Request < Softlayer::Model
+        class Request < Softlayer::Entity
           SERVICE = 'SoftLayer_Billing_Item_Cancellation_Request'
           autoload :Item, 'softlayer/billing/item/cancellation/request/item'
           autoload :Status, 'softlayer/billing/item/cancellation/request/status'
@@ -74,7 +74,7 @@ module Softlayer
             request(:void, Boolean, message)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

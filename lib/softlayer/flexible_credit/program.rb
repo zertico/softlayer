@@ -1,6 +1,6 @@
 module Softlayer
   module FlexibleCredit
-    class Program < Softlayer::Model
+    class Program < Softlayer::Entity
       SERVICE = 'SoftLayer_FlexibleCredit_Program'
       attr_accessor :id
       attr_accessor :key_name
@@ -24,7 +24,7 @@ module Softlayer
         request(:self_enroll_new_account, Softlayer::Account, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :id, type: Integer

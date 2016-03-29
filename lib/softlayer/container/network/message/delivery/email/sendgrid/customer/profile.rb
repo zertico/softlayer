@@ -6,7 +6,7 @@ module Softlayer
           class Email
             module Sendgrid
               module Customer
-                class Profile < Softlayer::Model
+                class Profile < Softlayer::Entity
                   attr_accessor :address
                   attr_accessor :city
                   attr_accessor :country
@@ -18,7 +18,7 @@ module Softlayer
                   attr_accessor :website
                   attr_accessor :zip
 
-                  class Representer < Representable::Decorator
+                  class Representer < Softlayer::Entity::Representer
                     include Representable::Hash
                     include Representable::Coercion
                     property :address, type: String

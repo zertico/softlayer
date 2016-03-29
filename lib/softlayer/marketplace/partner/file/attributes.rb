@@ -2,7 +2,7 @@ module Softlayer
   module Marketplace
     class Partner
       class File
-        class Attributes < Softlayer::Model
+        class Attributes < Softlayer::Entity
           attr_accessor :bits
           attr_accessor :channels
           attr_accessor :height
@@ -12,7 +12,7 @@ module Softlayer
           attr_accessor :mime_type
           attr_accessor :width
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :bits, type: Integer

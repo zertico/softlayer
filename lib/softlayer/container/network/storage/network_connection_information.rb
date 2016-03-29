@@ -2,12 +2,12 @@ module Softlayer
   module Container
     module Network
       module Storage
-        class NetworkConnectionInformation < Softlayer::Model
+        class NetworkConnectionInformation < Softlayer::Entity
           attr_accessor :id
           attr_accessor :ip_address
           attr_accessor :storage_type
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: String

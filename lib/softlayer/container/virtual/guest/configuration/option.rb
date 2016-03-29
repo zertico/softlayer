@@ -3,11 +3,11 @@ module Softlayer
     module Virtual
       module Guest
         class Configuration
-          class Option < Softlayer::Model
+          class Option < Softlayer::Entity
             attr_accessor :item_price
             attr_accessor :template
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
             end

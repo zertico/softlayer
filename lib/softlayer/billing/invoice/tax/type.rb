@@ -2,7 +2,7 @@ module Softlayer
   module Billing
     class Invoice
       module Tax
-        class Type < Softlayer::Model
+        class Type < Softlayer::Entity
           SERVICE = 'SoftLayer_Billing_Invoice_Tax_Type'
           attr_accessor :id
           attr_accessor :key_name
@@ -16,7 +16,7 @@ module Softlayer
             request(:get_object, Softlayer::Billing::Invoice::Tax::Type)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

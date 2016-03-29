@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Billing
       module Info
-        class Ach < Softlayer::Model
+        class Ach < Softlayer::Entity
           attr_accessor :account_number
           attr_accessor :account_type
           attr_accessor :bank_transit_number
@@ -17,7 +17,7 @@ module Softlayer
           attr_accessor :street1
           attr_accessor :street2
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_number, type: String

@@ -1,7 +1,7 @@
 module Softlayer
   class Account
     class Note
-      class History < Softlayer::Model
+      class History < Softlayer::Entity
         attr_accessor :account_note_id
         attr_accessor :create_date
         attr_accessor :id
@@ -11,7 +11,7 @@ module Softlayer
         attr_accessor :account_note
         attr_accessor :customer
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_note_id, type: Integer

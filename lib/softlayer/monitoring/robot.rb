@@ -1,6 +1,6 @@
 module Softlayer
   module Monitoring
-    class Robot < Softlayer::Model
+    class Robot < Softlayer::Entity
       SERVICE = 'SoftLayer_Monitoring_Robot'
       autoload :Status, 'softlayer/monitoring/robot/status'
       attr_accessor :account_id
@@ -50,7 +50,7 @@ module Softlayer
         request(:reset_status, Boolean)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

@@ -5,11 +5,11 @@ module Softlayer
         module Transcode
           module Job
             class Watermark
-              class Position < Softlayer::Model
+              class Position < Softlayer::Entity
                 attr_accessor :x
                 attr_accessor :y
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :x, type: Integer

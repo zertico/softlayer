@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Media
       module Transcode
-        class Job < Softlayer::Model
+        class Job < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Media_Transcode_Job'
           autoload :History, 'softlayer/network/media/transcode/job/history'
           autoload :Status, 'softlayer/network/media/transcode/job/status'
@@ -57,7 +57,7 @@ module Softlayer
             request(:get_user, Softlayer::User::Customer)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :auto_delete_duration, type: Integer

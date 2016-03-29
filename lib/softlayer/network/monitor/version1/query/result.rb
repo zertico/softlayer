@@ -3,13 +3,13 @@ module Softlayer
     class Monitor
       module Version1
         module Query
-          class Result < Softlayer::Model
+          class Result < Softlayer::Entity
             attr_accessor :finish_time
             attr_accessor :response_status
             attr_accessor :response_time
             attr_accessor :query_host
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :finish_time, type: DateTime

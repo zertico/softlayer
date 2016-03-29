@@ -1,6 +1,6 @@
 module Softlayer
   class Account
-    class Affiliation < Softlayer::Model
+    class Affiliation < Softlayer::Entity
       SERVICE = 'SoftLayer_Account_Affiliation'
       attr_accessor :account_id
       attr_accessor :affiliate_id
@@ -36,7 +36,7 @@ module Softlayer
         request(:get_object, Softlayer::Account::Affiliation)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

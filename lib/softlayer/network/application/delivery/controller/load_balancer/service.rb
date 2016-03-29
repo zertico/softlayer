@@ -4,7 +4,7 @@ module Softlayer
       module Delivery
         class Controller
           module LoadBalancer
-            class Service < Softlayer::Model
+            class Service < Softlayer::Entity
               SERVICE = 'SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service'
               autoload :Group, 'softlayer/network/application/delivery/controller/load_balancer/service/group'
               attr_accessor :enabled
@@ -55,7 +55,7 @@ module Softlayer
                 request(:toggle_status, Boolean)
               end
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :enabled, type: Integer

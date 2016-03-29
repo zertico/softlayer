@@ -1,6 +1,6 @@
 module Softlayer
   module Billing
-    class Invoice < Softlayer::Model
+    class Invoice < Softlayer::Entity
       SERVICE = 'SoftLayer_Billing_Invoice'
       autoload :Item, 'softlayer/billing/invoice/item'
       autoload :Next, 'softlayer/billing/invoice/next'
@@ -185,7 +185,7 @@ module Softlayer
         request(:get_zero_fee_item_counts, Array[Softlayer::Container::Product::Item::Category::ZeroFee::Count])
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

@@ -1,9 +1,9 @@
 module Softlayer
   class Brand
-    class Attribute < Softlayer::Model
+    class Attribute < Softlayer::Entity
       attr_accessor :brand
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
       end

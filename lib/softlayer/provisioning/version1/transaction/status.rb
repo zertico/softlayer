@@ -2,14 +2,14 @@ module Softlayer
   module Provisioning
     module Version1
       class Transaction
-        class Status < Softlayer::Model
+        class Status < Softlayer::Entity
           attr_accessor :average_duration
           attr_accessor :friendly_name
           attr_accessor :name
           attr_accessor :non_completed_transaction_count
           attr_accessor :non_completed_transactions
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :average_duration, type: Float

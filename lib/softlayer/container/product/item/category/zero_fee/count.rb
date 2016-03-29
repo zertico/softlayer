@@ -4,13 +4,13 @@ module Softlayer
       module Item
         class Category
           module ZeroFee
-            class Count < Softlayer::Model
+            class Count < Softlayer::Entity
               attr_accessor :category_code
               attr_accessor :category_id
               attr_accessor :category_name
               attr_accessor :count
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :category_code, type: String

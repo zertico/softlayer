@@ -4,14 +4,14 @@ module Softlayer
       module Domain
         module Registration
           module Transfer
-            class Information < Softlayer::Model
+            class Information < Softlayer::Entity
               attr_accessor :reason
               attr_accessor :registrant_email
               attr_accessor :status
               attr_accessor :time_stamp
               attr_accessor :transferrable
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :reason, type: String

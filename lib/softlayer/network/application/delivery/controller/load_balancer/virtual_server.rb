@@ -4,7 +4,7 @@ module Softlayer
       module Delivery
         class Controller
           module LoadBalancer
-            class VirtualServer < Softlayer::Model
+            class VirtualServer < Softlayer::Entity
               SERVICE = 'SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualServer'
               attr_accessor :allocation
               attr_accessor :id
@@ -52,7 +52,7 @@ module Softlayer
                 request(:stop_ssl, Boolean)
               end
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :allocation, type: Integer

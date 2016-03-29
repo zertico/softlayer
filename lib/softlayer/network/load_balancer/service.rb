@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module LoadBalancer
-      class Service < Softlayer::Model
+      class Service < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_LoadBalancer_Service'
         attr_accessor :connection_limit
         attr_accessor :create_date
@@ -47,7 +47,7 @@ module Softlayer
           request(:reset_peak_connections, Boolean)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :connection_limit, type: Integer

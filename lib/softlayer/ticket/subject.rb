@@ -1,6 +1,6 @@
 module Softlayer
   class Ticket
-    class Subject < Softlayer::Model
+    class Subject < Softlayer::Entity
       SERVICE = 'SoftLayer_Ticket_Subject'
       attr_accessor :id
       attr_accessor :name
@@ -22,7 +22,7 @@ module Softlayer
         request(:get_top_five_knowledge_layer_questions, Array[Softlayer::Container::KnowledgeLayer::QuestionAnswer])
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :id, type: Integer

@@ -2,7 +2,7 @@ module Softlayer
   module Billing
     class Item
       module Association
-        class History < Softlayer::Model
+        class History < Softlayer::Entity
           attr_accessor :associated_billing_item_id
           attr_accessor :billing_item_id
           attr_accessor :create_date
@@ -10,7 +10,7 @@ module Softlayer
           attr_accessor :associated_billing_item
           attr_accessor :billing_item
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :associated_billing_item_id, type: Integer

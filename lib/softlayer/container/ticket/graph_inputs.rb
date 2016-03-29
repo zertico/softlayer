@@ -1,14 +1,14 @@
 module Softlayer
   module Container
     module Ticket
-      class GraphInputs < Softlayer::Model
+      class GraphInputs < Softlayer::Entity
         attr_accessor :end_date
         attr_accessor :network_interface_id
         attr_accessor :pod
         attr_accessor :server_name
         attr_accessor :start_date
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :end_date, type: DateTime

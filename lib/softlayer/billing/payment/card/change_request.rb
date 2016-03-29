@@ -2,7 +2,7 @@ module Softlayer
   module Billing
     module Payment
       module Card
-        class ChangeRequest < Softlayer::Model
+        class ChangeRequest < Softlayer::Entity
           attr_accessor :account_id
           attr_accessor :amount
           attr_accessor :billing_address_line1
@@ -30,13 +30,14 @@ module Softlayer
           attr_accessor :notes
           attr_accessor :payment_role_id
           attr_accessor :payment_type
+          attr_accessor :ticket_id
           attr_accessor :ticket_attachment_reference_count
           attr_accessor :account
           attr_accessor :authorized_credit_card_transaction
           attr_accessor :capture_credit_card_transaction
           attr_accessor :ticket_attachment_references
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer
@@ -66,6 +67,7 @@ module Softlayer
             property :notes, type: String
             property :payment_role_id, type: Integer
             property :payment_type, type: String
+            property :ticket_id, type: Integer
             property :ticket_attachment_reference_count, type: BigDecimal
           end
         end

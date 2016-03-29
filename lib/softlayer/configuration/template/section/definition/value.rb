@@ -3,7 +3,7 @@ module Softlayer
     class Template
       class Section
         class Definition
-          class Value < Softlayer::Model
+          class Value < Softlayer::Entity
             SERVICE = 'SoftLayer_Configuration_Template_Section_Definition_Value'
             attr_accessor :create_date
             attr_accessor :definition_id
@@ -25,7 +25,7 @@ module Softlayer
               request(:get_template, Softlayer::Configuration::Template)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :create_date, type: DateTime

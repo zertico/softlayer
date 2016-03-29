@@ -2,7 +2,7 @@ module Softlayer
   module Dns
     class Domain
       class Registration
-        class Status < Softlayer::Model
+        class Status < Softlayer::Entity
           SERVICE = 'SoftLayer_Dns_Domain_Registration_Status'
           attr_accessor :description
           attr_accessor :id
@@ -17,7 +17,7 @@ module Softlayer
             request(:get_object, Softlayer::Dns::Domain::Registration::Status)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :description, type: String

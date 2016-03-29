@@ -2,7 +2,7 @@ module Softlayer
   class Network
     class Subnet
       class IpAddress
-        class Global < Softlayer::Model
+        class Global < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Subnet_IpAddress_Global'
           attr_accessor :description
           attr_accessor :destination_ip_address_id
@@ -48,7 +48,7 @@ module Softlayer
             request(:unroute, Softlayer::Provisioning::Version1::Transaction)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :description, type: Integer

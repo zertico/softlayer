@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Item
       class Price
-        class Premium < Softlayer::Model
+        class Premium < Softlayer::Entity
           SERVICE = 'SoftLayer_Product_Item_Price_Premium'
           attr_accessor :hourly_modifier
           attr_accessor :item_price_id
@@ -29,7 +29,7 @@ module Softlayer
             request(:get_package, Softlayer::Product::Package)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :hourly_modifier, type: Float

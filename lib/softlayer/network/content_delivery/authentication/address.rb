@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module ContentDelivery
       module Authentication
-        class Address < Softlayer::Model
+        class Address < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_ContentDelivery_Authentication_Address'
           attr_accessor :access_type
           attr_accessor :cdn_account_id
@@ -37,7 +37,7 @@ module Softlayer
             request(:rearrange_authentication_ip, Boolean, message)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :access_type, type: String

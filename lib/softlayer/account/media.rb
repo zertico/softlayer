@@ -1,6 +1,6 @@
 module Softlayer
   class Account
-    class Media < Softlayer::Model
+    class Media < Softlayer::Entity
       SERVICE = 'SoftLayer_Account_Media'
       autoload :Type, 'softlayer/account/media/type'
       autoload :Data, 'softlayer/account/media/data'
@@ -68,7 +68,7 @@ module Softlayer
         request(:remove_media_from_list, Integer, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :description, type: String

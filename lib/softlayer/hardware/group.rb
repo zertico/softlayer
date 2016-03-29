@@ -1,6 +1,6 @@
 module Softlayer
   class Hardware
-    class Group < Softlayer::Model
+    class Group < Softlayer::Entity
       attr_accessor :domain
       attr_accessor :hostname
       attr_accessor :id
@@ -19,7 +19,7 @@ module Softlayer
       attr_accessor :network_monitor_attached_down_virtual_guests
       attr_accessor :network_status
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :domain, type: String

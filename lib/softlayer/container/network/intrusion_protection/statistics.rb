@@ -2,14 +2,14 @@ module Softlayer
   module Container
     module Network
       module IntrusionProtection
-        class Statistics < Softlayer::Model
+        class Statistics < Softlayer::Entity
           attr_accessor :target
           attr_accessor :target_type
           attr_accessor :time_frame
           attr_accessor :top_attacks
           attr_accessor :total_attacks
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :target, type: String

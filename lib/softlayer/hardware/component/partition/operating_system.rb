@@ -2,7 +2,7 @@ module Softlayer
   class Hardware
     class Component
       class Partition
-        class OperatingSystem < Softlayer::Model
+        class OperatingSystem < Softlayer::Entity
           SERVICE = 'SoftLayer_Hardware_Component_Partition_OperatingSystem'
           attr_accessor :description
           attr_accessor :id
@@ -27,7 +27,7 @@ module Softlayer
             request(:get_partition_templates, Array[Softlayer::Hardware::Component::Partition::Template])
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :description, type: String

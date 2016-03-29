@@ -1,6 +1,6 @@
 module Softlayer
   module Resource
-    class Metadata < Softlayer::Model
+    class Metadata < Softlayer::Entity
       SERVICE = 'SoftLayer_Resource_Metadata'
 
       def self.get_backend_mac_addresses
@@ -79,7 +79,7 @@ module Softlayer
         request(:get_vlans, Array[Integer], message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
       end

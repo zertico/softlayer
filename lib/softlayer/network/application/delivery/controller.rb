@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Application
       module Delivery
-        class Controller < Softlayer::Model
+        class Controller < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Application_Delivery_Controller'
           autoload :Type, 'softlayer/network/application/delivery/controller/type'
           autoload :Configuration, 'softlayer/network/application/delivery/controller/configuration'
@@ -188,7 +188,7 @@ module Softlayer
             request(:update_net_scaler_license, Softlayer::Provisioning::Version1::Transaction)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

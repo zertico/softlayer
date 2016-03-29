@@ -1,6 +1,6 @@
 module Softlayer
   module Product
-    class Catalog < Softlayer::Model
+    class Catalog < Softlayer::Entity
       autoload :Item, 'softlayer/product/catalog/item'
       attr_accessor :brand_count
       attr_accessor :package_count
@@ -11,7 +11,7 @@ module Softlayer
       attr_accessor :prices
       attr_accessor :products
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :brand_count, type: BigDecimal

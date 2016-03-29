@@ -6,7 +6,7 @@ module Softlayer
           class Email
             module Sendgrid
               module Account
-                class Overview < Softlayer::Model
+                class Overview < Softlayer::Entity
                   attr_accessor :credits_allowed
                   attr_accessor :credits_overage
                   attr_accessor :credits_remain
@@ -15,7 +15,7 @@ module Softlayer
                   attr_accessor :reputation
                   attr_accessor :requests
 
-                  class Representer < Representable::Decorator
+                  class Representer < Softlayer::Entity::Representer
                     include Representable::Hash
                     include Representable::Coercion
                     property :credits_allowed, type: Integer

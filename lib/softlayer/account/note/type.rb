@@ -1,7 +1,7 @@
 module Softlayer
   class Account
     class Note
-      class Type < Softlayer::Model
+      class Type < Softlayer::Entity
         SERVICE = 'SoftLayer_Account_Note_Type'
         attr_accessor :brand_id
         attr_accessor :create_date
@@ -34,7 +34,7 @@ module Softlayer
           request(:get_object, Softlayer::Account::Note::Type)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :brand_id, type: Integer

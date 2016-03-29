@@ -3,13 +3,13 @@ module Softlayer
     module Product
       class Order
         module Attribute
-          class Organization < Softlayer::Model
+          class Organization < Softlayer::Entity
             attr_accessor :address
             attr_accessor :fax_number
             attr_accessor :organization_name
             attr_accessor :phone_number
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :fax_number, type: String

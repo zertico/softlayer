@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Account
       module Discount
-        class Program < Softlayer::Model
+        class Program < Softlayer::Entity
           attr_accessor :applied_credit
           attr_accessor :is_participant
           attr_accessor :lifetime_applied_credit
@@ -16,7 +16,7 @@ module Softlayer
           attr_accessor :remaining_credit
           attr_accessor :remaining_credit_tax
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :applied_credit, type: Float

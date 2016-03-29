@@ -1,6 +1,6 @@
 module Softlayer
   module Container
-    class Graph < Softlayer::Model
+    class Graph < Softlayer::Entity
       autoload :Option, 'softlayer/container/graph/option'
       autoload :Plot, 'softlayer/container/graph/plot'
       attr_accessor :base_unit
@@ -18,7 +18,7 @@ module Softlayer
       attr_accessor :title
       attr_accessor :width
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :base_unit, type: String

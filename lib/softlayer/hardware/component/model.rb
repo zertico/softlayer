@@ -1,7 +1,7 @@
 module Softlayer
   class Hardware
     class Component
-      class Model < Softlayer::Model
+      class Model < Softlayer::Entity
         SERVICE = 'SoftLayer_Hardware_Component_Model'
         autoload :Attribute, 'softlayer/hardware/component/model/attribute'
         autoload :Generic, 'softlayer/hardware/component/model/generic'
@@ -85,7 +85,7 @@ module Softlayer
           request(:get_valid_attribute_types, Array[Softlayer::Hardware::Component::Model::Attribute::Type])
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :architecture_type_id, type: String

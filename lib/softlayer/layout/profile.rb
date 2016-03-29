@@ -1,6 +1,6 @@
 module Softlayer
   module Layout
-    class Profile < Softlayer::Model
+    class Profile < Softlayer::Entity
       SERVICE = 'SoftLayer_Layout_Profile'
       autoload :Containers, 'softlayer/layout/profile/containers'
       autoload :Customer, 'softlayer/layout/profile/customer'
@@ -52,7 +52,7 @@ module Softlayer
         request(:modify_preferences, Array[Softlayer::Layout::Profile::Preference], message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :active_flag, type: Integer

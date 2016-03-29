@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Virtual
       module Guest
-        class Configuration < Softlayer::Model
+        class Configuration < Softlayer::Entity
           autoload :Option, 'softlayer/container/virtual/guest/configuration/option'
           attr_accessor :block_devices
           attr_accessor :datacenters
@@ -11,7 +11,7 @@ module Softlayer
           attr_accessor :operating_systems
           attr_accessor :processors
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
           end

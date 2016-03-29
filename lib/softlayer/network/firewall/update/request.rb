@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Firewall
       module Update
-        class Request < Softlayer::Model
+        class Request < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Firewall_Update_Request'
           autoload :Customer, 'softlayer/network/firewall/update/request/customer'
           autoload :Employee, 'softlayer/network/firewall/update/request/employee'
@@ -61,7 +61,7 @@ module Softlayer
             request(:update_rule_note, Boolean, message)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :apply_date, type: DateTime

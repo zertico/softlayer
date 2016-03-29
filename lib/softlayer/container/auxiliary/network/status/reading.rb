@@ -3,7 +3,7 @@ module Softlayer
     module Auxiliary
       module Network
         module Status
-          class Reading < Softlayer::Model
+          class Reading < Softlayer::Entity
             attr_accessor :average_ping
             attr_accessor :fails
             attr_accessor :frequency
@@ -21,7 +21,7 @@ module Softlayer
             attr_accessor :target
             attr_accessor :target_type
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :average_ping, type: Float

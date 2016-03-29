@@ -1,6 +1,6 @@
 module Softlayer
   class Account
-    class Agreement < Softlayer::Model
+    class Agreement < Softlayer::Entity
       SERVICE = 'SoftLayer_Account_Agreement'
       autoload :Status, 'softlayer/account/agreement/status'
       autoload :Type, 'softlayer/account/agreement/type'
@@ -52,7 +52,7 @@ module Softlayer
         request(:get_top_level_billing_items, Array[Softlayer::Billing::Item])
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :agreement_type_id, type: Integer

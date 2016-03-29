@@ -1,7 +1,7 @@
 module Softlayer
   module Container
     module Bandwidth
-      class Projection < Softlayer::Model
+      class Projection < Softlayer::Entity
         attr_accessor :allowed_usage
         attr_accessor :estimated_usage
         attr_accessor :hardware_id
@@ -9,7 +9,7 @@ module Softlayer
         attr_accessor :server_name
         attr_accessor :start_date
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :allowed_usage, type: String

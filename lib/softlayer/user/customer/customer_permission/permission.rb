@@ -2,7 +2,7 @@ module Softlayer
   module User
     class Customer
       module CustomerPermission
-        class Permission < Softlayer::Model
+        class Permission < Softlayer::Entity
           SERVICE = 'SoftLayer_User_Customer_CustomerPermission_Permission'
           attr_accessor :key
           attr_accessor :key_name
@@ -16,7 +16,7 @@ module Softlayer
             request(:get_object, Softlayer::User::Customer::CustomerPermission::Permission)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :key, type: String

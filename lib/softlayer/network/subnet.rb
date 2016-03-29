@@ -1,6 +1,6 @@
 module Softlayer
   class Network
-    class Subnet < Softlayer::Model
+    class Subnet < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_Subnet'
       autoload :IpAddress, 'softlayer/network/subnet/ip_address'
       autoload :Registration, 'softlayer/network/subnet/registration'
@@ -293,7 +293,7 @@ module Softlayer
         request(:remove_access_to_network_storage_list, Boolean, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :broadcast_address, type: String

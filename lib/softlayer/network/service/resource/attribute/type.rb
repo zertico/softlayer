@@ -3,10 +3,10 @@ module Softlayer
     module Service
       class Resource
         class Attribute
-          class Type < Softlayer::Model
+          class Type < Softlayer::Entity
             attr_accessor :keyname
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :keyname, type: String

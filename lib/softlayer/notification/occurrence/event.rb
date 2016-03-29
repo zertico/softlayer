@@ -1,7 +1,7 @@
 module Softlayer
   class Notification
     module Occurrence
-      class Event < Softlayer::Model
+      class Event < Softlayer::Entity
         SERVICE = 'SoftLayer_Notification_Occurrence_Event'
         autoload :Attachment, 'softlayer/notification/occurrence/event/attachment'
         autoload :Type, 'softlayer/notification/occurrence/event/type'
@@ -94,7 +94,7 @@ module Softlayer
           request(:get_updates, Array[Softlayer::Notification::Occurrence::Update])
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :end_date, type: DateTime

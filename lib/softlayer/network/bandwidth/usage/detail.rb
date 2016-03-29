@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Bandwidth
       class Usage
-        class Detail < Softlayer::Model
+        class Detail < Softlayer::Entity
           attr_accessor :amount_in
           attr_accessor :amount_out
           attr_accessor :bandwidth_usage_detail_type_id
@@ -10,7 +10,7 @@ module Softlayer
           attr_accessor :tracking_object
           attr_accessor :type
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :amount_in, type: Float

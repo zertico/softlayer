@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Item
       class Category
-        class Question < Softlayer::Model
+        class Question < Softlayer::Entity
           autoload :Xref, 'softlayer/product/item/category/question/xref'
           autoload :Field, 'softlayer/product/item/category/question/field'
           attr_accessor :answer_value_expression
@@ -16,7 +16,7 @@ module Softlayer
           attr_accessor :field_type
           attr_accessor :item_category_references
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :answer_value_expression, type: String

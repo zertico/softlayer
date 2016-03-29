@@ -1,7 +1,7 @@
 module Softlayer
   module User
     module External
-      class Binding < Softlayer::Model
+      class Binding < Softlayer::Entity
         SERVICE = 'SoftLayer_User_External_Binding'
         autoload :Attribute, 'softlayer/user/external/binding/attribute'
         autoload :Type, 'softlayer/user/external/binding/type'
@@ -54,7 +54,7 @@ module Softlayer
           request(:update_note, Boolean, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :active, type: Boolean

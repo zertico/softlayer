@@ -1,6 +1,6 @@
 module Softlayer
   class Locale
-    class Country < Softlayer::Model
+    class Country < Softlayer::Entity
       SERVICE = 'SoftLayer_Locale_Country'
       attr_accessor :is_european_union_flag
       attr_accessor :long_name
@@ -24,7 +24,7 @@ module Softlayer
         request(:get_states, Array[Softlayer::Locale::StateProvince])
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :is_european_union_flag, type: Integer

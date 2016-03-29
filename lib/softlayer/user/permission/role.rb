@@ -1,7 +1,7 @@
 module Softlayer
   module User
     module Permission
-      class Role < Softlayer::Model
+      class Role < Softlayer::Entity
         SERVICE = 'SoftLayer_User_Permission_Role'
         attr_accessor :account_id
         attr_accessor :create_date
@@ -73,7 +73,7 @@ module Softlayer
           request(:unlink_group, nil, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

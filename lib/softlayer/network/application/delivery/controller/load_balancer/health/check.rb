@@ -5,7 +5,7 @@ module Softlayer
         class Controller
           module LoadBalancer
             module Health
-              class Check < Softlayer::Model
+              class Check < Softlayer::Entity
                 SERVICE = 'SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Check'
                 autoload :Type, 'softlayer/network/application/delivery/controller/load_balancer/health/check/type'
                 attr_accessor :health_check_type_id
@@ -40,7 +40,7 @@ module Softlayer
                   request(:get_type, Softlayer::Network::Application::Delivery::Controller::LoadBalancer::Health::Check::Type)
                 end
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :health_check_type_id, type: Integer

@@ -3,7 +3,7 @@ module Softlayer
     module Product
       class Order
         module Attribute
-          class Contact < Softlayer::Model
+          class Contact < Softlayer::Entity
             attr_accessor :address
             attr_accessor :email_address
             attr_accessor :fax_number
@@ -13,7 +13,7 @@ module Softlayer
             attr_accessor :phone_number
             attr_accessor :title
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :email_address, type: String

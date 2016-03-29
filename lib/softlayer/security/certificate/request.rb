@@ -1,7 +1,7 @@
 module Softlayer
   module Security
     class Certificate
-      class Request < Softlayer::Model
+      class Request < Softlayer::Entity
         SERVICE = 'SoftLayer_Security_Certificate_Request'
         autoload :ServerType, 'softlayer/security/certificate/request/server_type'
         autoload :Status, 'softlayer/security/certificate/request/status'
@@ -78,7 +78,7 @@ module Softlayer
           request(:validate_csr, Boolean, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

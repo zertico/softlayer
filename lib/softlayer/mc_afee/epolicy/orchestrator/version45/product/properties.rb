@@ -4,10 +4,10 @@ module Softlayer
       module Orchestrator
         module Version45
           module Product
-            module Properties < Softlayer::Model
+            module Properties < Softlayer::Entity
               attr_accessor :dat_version
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :dat_version, type: String

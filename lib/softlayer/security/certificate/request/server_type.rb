@@ -2,7 +2,7 @@ module Softlayer
   module Security
     class Certificate
       class Request
-        class ServerType < Softlayer::Model
+        class ServerType < Softlayer::Entity
           SERVICE = 'SoftLayer_Security_Certificate_Request_ServerType'
           attr_accessor :description
           attr_accessor :id
@@ -17,7 +17,7 @@ module Softlayer
             request(:get_object, Softlayer::Security::Certificate::Request::ServerType)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :description, type: String

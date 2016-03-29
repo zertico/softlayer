@@ -3,13 +3,13 @@ module Softlayer
     module Media
       module Transcode
         class Job
-          class History < Softlayer::Model
+          class History < Softlayer::Entity
             attr_accessor :create_date
             attr_accessor :public_notes
             attr_accessor :transcode_job_id
             attr_accessor :transcode_status_name
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :create_date, type: DateTime

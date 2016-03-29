@@ -3,11 +3,11 @@ module Softlayer
     module Software
       module Component
         module HostIps
-          class Policy < Softlayer::Model
+          class Policy < Softlayer::Entity
             attr_accessor :policy
             attr_accessor :policy_title
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :policy, type: String

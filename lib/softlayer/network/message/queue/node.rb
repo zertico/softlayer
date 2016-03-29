@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Message
       class Queue
-        class Node < Softlayer::Model
+        class Node < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Message_Queue_Node'
           attr_accessor :account_name
           attr_accessor :id
@@ -53,7 +53,7 @@ module Softlayer
             request(:get_usage_graph, Softlayer::Container::Graph, message)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_name, type: String

@@ -1,6 +1,6 @@
 module Softlayer
   module Dns
-    class Secondary < Softlayer::Model
+    class Secondary < Softlayer::Entity
       SERVICE = 'SoftLayer_Dns_Secondary'
       attr_accessor :create_date
       attr_accessor :id
@@ -68,7 +68,7 @@ module Softlayer
         request(:transfer_now, Boolean)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :create_date, type: DateTime

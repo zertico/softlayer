@@ -4,12 +4,12 @@ module Softlayer
       class Order
         module Storage
           class Group
-            class Partition < Softlayer::Model
+            class Partition < Softlayer::Entity
               attr_accessor :is_grow
               attr_accessor :name
               attr_accessor :size
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :is_grow, type: Boolean

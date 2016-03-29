@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module Customer
-      class Subnet < Softlayer::Model
+      class Subnet < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Customer_Subnet'
         autoload :IpAddress, 'softlayer/network/customer/subnet/ip_address'
         attr_accessor :account_id
@@ -26,7 +26,7 @@ module Softlayer
           request(:get_object, Softlayer::Network::Customer::Subnet)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

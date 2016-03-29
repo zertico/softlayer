@@ -1,14 +1,14 @@
 module Softlayer
   module Scale
     class Group
-      class Log < Softlayer::Model
+      class Log < Softlayer::Entity
         attr_accessor :create_date
         attr_accessor :description
         attr_accessor :id
         attr_accessor :scale_group_id
         attr_accessor :scale_group
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

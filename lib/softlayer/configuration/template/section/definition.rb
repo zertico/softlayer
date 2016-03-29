@@ -2,7 +2,7 @@ module Softlayer
   module Configuration
     class Template
       class Section
-        class Definition < Softlayer::Model
+        class Definition < Softlayer::Entity
           SERVICE = 'SoftLayer_Configuration_Template_Section_Definition'
           autoload :Attribute, 'softlayer/configuration/template/section/definition/attribute'
           autoload :Group, 'softlayer/configuration/template/section/definition/group'
@@ -59,7 +59,7 @@ module Softlayer
             request(:get_value_type, Softlayer::Configuration::Template::Section::Definition::Type)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :create_date, type: DateTime

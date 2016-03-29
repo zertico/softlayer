@@ -2,7 +2,7 @@ module Softlayer
   class Hardware
     class Component
       class Partition
-        class Template < Softlayer::Model
+        class Template < Softlayer::Entity
           SERVICE = 'SoftLayer_Hardware_Component_Partition_Template'
           autoload :Partition, 'softlayer/hardware/component/partition/template/partition'
           attr_accessor :account_id
@@ -43,7 +43,7 @@ module Softlayer
             request(:get_partition_template_partition, Array[Softlayer::Hardware::Component::Partition::Template::Partition])
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

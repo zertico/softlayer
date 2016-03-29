@@ -1,7 +1,7 @@
 module Softlayer
   class Notification
     module Occurrence
-      class Update < Softlayer::Model
+      class Update < Softlayer::Entity
         attr_accessor :contents
         attr_accessor :create_date
         attr_accessor :end_date
@@ -9,7 +9,7 @@ module Softlayer
         attr_accessor :employee
         attr_accessor :notification_occurrence_event
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :contents, type: String

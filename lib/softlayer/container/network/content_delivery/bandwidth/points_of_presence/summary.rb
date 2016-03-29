@@ -4,7 +4,7 @@ module Softlayer
       module ContentDelivery
         module Bandwidth
           module PointsOfPresence
-            class Summary < Softlayer::Model
+            class Summary < Softlayer::Entity
               attr_accessor :bandwidth
               attr_accessor :end_date_time
               attr_accessor :pop_name
@@ -12,7 +12,7 @@ module Softlayer
               attr_accessor :usage_units
               attr_accessor :view_count
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :bandwidth, type: BigDecimal

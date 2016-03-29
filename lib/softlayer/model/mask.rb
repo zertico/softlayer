@@ -8,7 +8,7 @@ module Softlayer
 
       def to_header
         {
-          "#{@service_name}ObjectMask" => {
+          "tns:SoftLayer_ObjectMask" => {
             'mask' => @mask
           }
         }

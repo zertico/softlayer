@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Vlan
-      class Type < Softlayer::Model
+      class Type < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Vlan_Type'
         attr_accessor :description
         attr_accessor :id
@@ -12,7 +12,7 @@ module Softlayer
           request(:get_object, Softlayer::Network::Vlan::Type)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :description, type: String

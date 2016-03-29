@@ -1,5 +1,5 @@
 module Softlayer
-  class Ticket < Softlayer::Model
+  class Ticket < Softlayer::Entity
     SERVICE = 'SoftLayer_Ticket'
     autoload :Activity, 'softlayer/ticket/activity'
     autoload :Attachment, 'softlayer/ticket/attachment'
@@ -349,7 +349,7 @@ module Softlayer
       request(:update_attached_additional_emails, Boolean, message)
     end
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :account_id, type: Integer

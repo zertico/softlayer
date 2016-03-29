@@ -4,13 +4,13 @@ module Softlayer
       module Service
         module Resource
           module ObjectStorage
-            class ConnectionInformation < Softlayer::Model
+            class ConnectionInformation < Softlayer::Entity
               attr_accessor :datacenter
               attr_accessor :datacenter_short_name
               attr_accessor :private_endpoint
               attr_accessor :public_endpoint
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :datacenter, type: String

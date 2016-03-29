@@ -3,12 +3,12 @@ module Softlayer
     class Component
       class Model
         class Generic
-          class MarketingFeature < Softlayer::Model
+          class MarketingFeature < Softlayer::Entity
             attr_accessor :features
             attr_accessor :price
             attr_accessor :hardware_generic_component_model
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :features, type: String

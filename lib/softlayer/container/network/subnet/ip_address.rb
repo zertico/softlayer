@@ -2,14 +2,14 @@ module Softlayer
   module Container
     module Network
       module Subnet
-        class IpAddress < Softlayer::Model
+        class IpAddress < Softlayer::Entity
           attr_accessor :hardware
           attr_accessor :ip_address
           attr_accessor :is_broadcast_address
           attr_accessor :is_gateway_address
           attr_accessor :is_network_address
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :ip_address, type: String

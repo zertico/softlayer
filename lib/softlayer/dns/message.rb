@@ -1,6 +1,6 @@
 module Softlayer
   module Dns
-    class Message < Softlayer::Model
+    class Message < Softlayer::Entity
       attr_accessor :create_date
       attr_accessor :id
       attr_accessor :message
@@ -9,7 +9,7 @@ module Softlayer
       attr_accessor :resource_record
       attr_accessor :secondary
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :create_date, type: DateTime

@@ -1,7 +1,7 @@
 module Softlayer
   module Dns
     class Domain
-      class ResourceRecord < Softlayer::Model
+      class ResourceRecord < Softlayer::Entity
         SERVICE = 'SoftLayer_Dns_Domain_ResourceRecord'
         autoload :AaaaType, 'softlayer/dns/domain/resource_record/aaaa_type'
         autoload :AType, 'softlayer/dns/domain/resource_record/a_type'
@@ -64,7 +64,7 @@ module Softlayer
           request(:get_object, Softlayer::Dns::Domain::ResourceRecord)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :data, type: String

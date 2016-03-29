@@ -2,7 +2,7 @@ module Softlayer
   module Billing
     class Invoice
       module Receivable
-        class Payment < Softlayer::Model
+        class Payment < Softlayer::Entity
           attr_accessor :amount
           attr_accessor :create_date
           attr_accessor :invoice_id
@@ -15,7 +15,7 @@ module Softlayer
           attr_accessor :invoice
           attr_accessor :paypal_transaction
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :amount, type: Float

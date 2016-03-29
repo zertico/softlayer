@@ -1,7 +1,7 @@
 module Softlayer
   module Auxiliary
     module Network
-      class Status < Softlayer::Model
+      class Status < Softlayer::Entity
         SERVICE = 'SoftLayer_Auxiliary_Network_Status'
 
         def self.get_network_status(target = nil)
@@ -9,7 +9,7 @@ module Softlayer
           request(:get_network_status, Array[Softlayer::Container::Auxiliary::Network::Status::Reading], message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
         end

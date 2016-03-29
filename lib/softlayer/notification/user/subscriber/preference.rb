@@ -2,7 +2,7 @@ module Softlayer
   class Notification
     module User
       class Subscriber
-        class Preference < Softlayer::Model
+        class Preference < Softlayer::Entity
           SERVICE = 'SoftLayer_Notification_User_Subscriber_Preference'
           attr_accessor :id
           attr_accessor :notification_preference_id
@@ -33,7 +33,7 @@ module Softlayer
             request(:get_object, Softlayer::Notification::User::Subscriber::Preference)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

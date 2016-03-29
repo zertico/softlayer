@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Bandwidth
       module Version1
-        class Allotment < Softlayer::Model
+        class Allotment < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Bandwidth_Version1_Allotment'
           autoload :Detail, 'softlayer/network/bandwidth/version1/allotment/detail'
           attr_accessor :account_id
@@ -252,7 +252,7 @@ module Softlayer
             request(:void_pending_vdr_cancellation, Boolean)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

@@ -4,7 +4,7 @@ module Softlayer
       module Configuration
         module Template
           class Group
-            class Reference < Softlayer::Model
+            class Reference < Softlayer::Entity
               SERVICE = 'SoftLayer_Monitoring_Agent_Configuration_Template_Group_Reference'
               attr_accessor :configuration_template_id
               attr_accessor :id
@@ -48,7 +48,7 @@ module Softlayer
                 request(:get_template_group, Softlayer::Monitoring::Agent::Configuration::Template::Group)
               end
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :configuration_template_id, type: Integer

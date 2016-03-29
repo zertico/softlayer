@@ -2,7 +2,7 @@ module Softlayer
   module Provisioning
     module Version1
       class Transaction
-        class Group < Softlayer::Model
+        class Group < Softlayer::Entity
           SERVICE = 'SoftLayer_Provisioning_Version1_Transaction_Group'
           attr_accessor :average_time_to_complete
           attr_accessor :name
@@ -15,7 +15,7 @@ module Softlayer
             request(:get_object, Softlayer::Provisioning::Version1::Transaction::Group)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :average_time_to_complete, type: Float

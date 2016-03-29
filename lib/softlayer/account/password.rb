@@ -1,6 +1,6 @@
 module Softlayer
   class Account
-    class Password < Softlayer::Model
+    class Password < Softlayer::Entity
       SERVICE = 'SoftLayer_Account_Password'
       autoload :Type, 'softlayer/account/password/type'
       attr_accessor :account_id
@@ -29,7 +29,7 @@ module Softlayer
         request(:get_type, Softlayer::Account::Password::Type)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

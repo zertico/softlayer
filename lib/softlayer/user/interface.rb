@@ -1,8 +1,8 @@
 module Softlayer
   module User
-    class Interface < Softlayer::Model
+    class Interface < Softlayer::Entity
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
       end

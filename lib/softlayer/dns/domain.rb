@@ -1,6 +1,6 @@
 module Softlayer
   module Dns
-    class Domain < Softlayer::Model
+    class Domain < Softlayer::Entity
       SERVICE = 'SoftLayer_Dns_Domain'
       autoload :Forward, 'softlayer/dns/domain/forward'
       autoload :Registration, 'softlayer/dns/domain/registration'
@@ -99,7 +99,7 @@ module Softlayer
         request(:get_zone_file_contents, String)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :id, type: Integer

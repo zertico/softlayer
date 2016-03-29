@@ -1,6 +1,6 @@
 module Softlayer
   class Ticket
-    class Survey < Softlayer::Model
+    class Survey < Softlayer::Entity
       SERVICE = 'SoftLayer_Ticket_Survey'
 
       def self.get_preference
@@ -15,7 +15,7 @@ module Softlayer
         request(:opt_out, Softlayer::Container::Ticket::Survey::Preference)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
       end

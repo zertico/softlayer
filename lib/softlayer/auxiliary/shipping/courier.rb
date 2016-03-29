@@ -1,14 +1,14 @@
 module Softlayer
   module Auxiliary
     module Shipping
-      class Courier < Softlayer::Model
+      class Courier < Softlayer::Entity
         autoload :Type, 'softlayer/auxiliary/shipping/courier/type'
         attr_accessor :id
         attr_accessor :key_name
         attr_accessor :name
         attr_accessor :url
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

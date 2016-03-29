@@ -1,7 +1,7 @@
 module Softlayer
   module User
     class Customer
-      class MobileDevice < Softlayer::Model
+      class MobileDevice < Softlayer::Entity
         SERVICE = 'SoftLayer_User_Customer_MobileDevice'
         autoload :OperatingSystem, 'softlayer/user/customer/mobile_device/operating_system'
         autoload :Type, 'softlayer/user/customer/mobile_device/type'
@@ -63,7 +63,7 @@ module Softlayer
           request(:get_type, Softlayer::User::Customer::MobileDevice::Type)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

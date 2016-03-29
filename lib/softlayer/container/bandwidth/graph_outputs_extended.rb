@@ -1,7 +1,7 @@
 module Softlayer
   module Container
     module Bandwidth
-      class GraphOutputsExtended < Softlayer::Model
+      class GraphOutputsExtended < Softlayer::Entity
         attr_accessor :graph_image
         attr_accessor :graph_title
         attr_accessor :in_bound_total_bytes
@@ -9,7 +9,7 @@ module Softlayer
         attr_accessor :min_start_date
         attr_accessor :out_bound_total_bytes
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :graph_title, type: String

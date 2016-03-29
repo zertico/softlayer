@@ -1,6 +1,6 @@
 module Softlayer
   module Monitoring
-    class Agent < Softlayer::Model
+    class Agent < Softlayer::Entity
       SERVICE = 'SoftLayer_Monitoring_Agent'
       autoload :Status, 'softlayer/monitoring/agent/status'
       autoload :Configuration, 'softlayer/monitoring/agent/configuration'
@@ -137,7 +137,7 @@ module Softlayer
         request(:set_active_alarm_subscriber, Boolean, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :configuration_template_id, type: Integer

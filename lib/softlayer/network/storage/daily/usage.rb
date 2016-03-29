@@ -2,7 +2,7 @@ module Softlayer
   class Network
     class Storage
       module Daily
-        class Usage < Softlayer::Model
+        class Usage < Softlayer::Entity
           attr_accessor :bytes_used
           attr_accessor :cdn_http_bandwidth
           attr_accessor :create_date
@@ -10,7 +10,7 @@ module Softlayer
           attr_accessor :public_bandwidth_out
           attr_accessor :nas_volume
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :bytes_used, type: BigDecimal

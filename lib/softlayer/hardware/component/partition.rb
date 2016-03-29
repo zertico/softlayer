@@ -1,7 +1,7 @@
 module Softlayer
   class Hardware
     class Component
-      class Partition < Softlayer::Model
+      class Partition < Softlayer::Entity
         autoload :OperatingSystem, 'softlayer/hardware/component/partition/operating_system'
         autoload :Template, 'softlayer/hardware/component/partition/template'
         attr_accessor :disk_number
@@ -11,7 +11,7 @@ module Softlayer
         attr_accessor :name
         attr_accessor :hardware_component
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :disk_number, type: Integer

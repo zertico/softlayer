@@ -1,6 +1,6 @@
 module Softlayer
   class Tag
-    class Reference < Softlayer::Model
+    class Reference < Softlayer::Entity
       autoload :Hardware, 'softlayer/tag/reference/hardware'
       autoload :Network, 'softlayer/tag/reference/network'
       autoload :Resource, 'softlayer/tag/reference/resource'
@@ -16,7 +16,7 @@ module Softlayer
       attr_accessor :tag
       attr_accessor :tag_type
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :emp_record_id, type: Integer

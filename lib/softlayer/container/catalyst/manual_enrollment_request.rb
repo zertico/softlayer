@@ -1,14 +1,14 @@
 module Softlayer
   module Container
     module Catalyst
-      class ManualEnrollmentRequest < Softlayer::Model
+      class ManualEnrollmentRequest < Softlayer::Entity
         attr_accessor :customer_email
         attr_accessor :customer_name
         attr_accessor :startup_name
         attr_accessor :venture_affiliation_flag
         attr_accessor :venture_fund_name
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :customer_email, type: String

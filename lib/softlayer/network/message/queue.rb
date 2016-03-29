@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module Message
-      class Queue < Softlayer::Model
+      class Queue < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Message_Queue'
         autoload :Node, 'softlayer/network/message/queue/node'
         autoload :Status, 'softlayer/network/message/queue/status'
@@ -37,7 +37,7 @@ module Softlayer
           request(:get_status, Softlayer::Network::Message::Queue::Status)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

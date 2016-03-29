@@ -3,14 +3,14 @@ module Softlayer
     module Network
       module ContentDelivery
         module Authentication
-          class Parameter < Softlayer::Model
+          class Parameter < Softlayer::Entity
             attr_accessor :cdn_account_name
             attr_accessor :client_ip
             attr_accessor :referrer
             attr_accessor :source_url
             attr_accessor :token
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :cdn_account_name, type: String

@@ -1,7 +1,7 @@
 module Softlayer
   module Scale
     class Group
-      class Status < Softlayer::Model
+      class Status < Softlayer::Entity
         SERVICE = 'SoftLayer_Scale_Group_Status'
         attr_accessor :id
         attr_accessor :key_name
@@ -15,7 +15,7 @@ module Softlayer
           request(:get_object, Softlayer::Scale::Group::Status)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

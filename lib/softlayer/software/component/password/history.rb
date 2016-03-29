@@ -2,7 +2,7 @@ module Softlayer
   module Software
     class Component
       class Password
-        class History < Softlayer::Model
+        class History < Softlayer::Entity
           attr_accessor :create_date
           attr_accessor :notes
           attr_accessor :password
@@ -10,7 +10,7 @@ module Softlayer
           attr_accessor :username
           attr_accessor :software_component
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :create_date, type: DateTime

@@ -3,7 +3,7 @@ module Softlayer
     module Dns
       module Domain
         module Registration
-          class ExtendedAttribute < Softlayer::Model
+          class ExtendedAttribute < Softlayer::Entity
             autoload :Configuration, 'softlayer/container/dns/domain/registration/extended_attribute/configuration'
             autoload :Option, 'softlayer/container/dns/domain/registration/extended_attribute/option'
             attr_accessor :child_flag
@@ -13,7 +13,7 @@ module Softlayer
             attr_accessor :required_flag
             attr_accessor :user_defined_flag
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :child_flag, type: Boolean

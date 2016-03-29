@@ -3,7 +3,7 @@ module Softlayer
     module Network
       module ContentDelivery
         module Bandwidth
-          class Summary < Softlayer::Model
+          class Summary < Softlayer::Entity
             autoload :Detail, 'softlayer/container/network/content_delivery/bandwidth/summary/detail'
             attr_accessor :cdn_account_id
             attr_accessor :end_date_time
@@ -13,7 +13,7 @@ module Softlayer
             attr_accessor :usage
             attr_accessor :usage_units
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :cdn_account_id, type: Integer

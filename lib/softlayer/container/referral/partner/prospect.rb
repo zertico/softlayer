@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Referral
       module Partner
-        class Prospect < Softlayer::Model
+        class Prospect < Softlayer::Entity
           attr_accessor :address1
           attr_accessor :address2
           attr_accessor :city
@@ -18,7 +18,7 @@ module Softlayer
           attr_accessor :state
           attr_accessor :survey_id
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :address1, type: String

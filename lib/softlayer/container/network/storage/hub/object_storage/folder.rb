@@ -4,12 +4,12 @@ module Softlayer
       module Storage
         module Hub
           module ObjectStorage
-            class Folder < Softlayer::Model
+            class Folder < Softlayer::Entity
               attr_accessor :bytes
               attr_accessor :count
               attr_accessor :name
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :bytes, type: BigDecimal

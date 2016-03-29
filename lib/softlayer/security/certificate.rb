@@ -1,6 +1,6 @@
 module Softlayer
   module Security
-    class Certificate < Softlayer::Model
+    class Certificate < Softlayer::Entity
       SERVICE = 'SoftLayer_Security_Certificate'
       autoload :Entry, 'softlayer/security/certificate/entry'
       autoload :Request, 'softlayer/security/certificate/request'
@@ -57,7 +57,7 @@ module Softlayer
         request(:get_pem_format, String)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :certificate, type: String

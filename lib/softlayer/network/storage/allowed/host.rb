@@ -2,7 +2,7 @@ module Softlayer
   class Network
     class Storage
       module Allowed
-        class Host < Softlayer::Model
+        class Host < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Storage_Allowed_Host'
           autoload :Hardware, 'softlayer/network/storage/allowed/host/hardware'
           autoload :IpAddress, 'softlayer/network/storage/allowed/host/ip_address'
@@ -60,7 +60,7 @@ module Softlayer
             request(:set_credential_password, Boolean, message)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :credential_id, type: Integer

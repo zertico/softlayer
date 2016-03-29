@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Storage
-      class Event < Softlayer::Model
+      class Event < Softlayer::Entity
         attr_accessor :create_date
         attr_accessor :message
         attr_accessor :schedule_id
@@ -10,7 +10,7 @@ module Softlayer
         attr_accessor :schedule
         attr_accessor :volume
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

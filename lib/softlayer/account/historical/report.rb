@@ -1,7 +1,7 @@
 module Softlayer
   class Account
     module Historical
-      class Report < Softlayer::Model
+      class Report < Softlayer::Entity
         SERVICE = 'SoftLayer_Account_Historical_Report'
 
         def self.get_account_host_uptime_graph_data(start_date = nil, end_date = nil)
@@ -44,7 +44,7 @@ module Softlayer
           request(:get_url_uptime_graph_data, Softlayer::Container::Graph, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
         end

@@ -1,6 +1,6 @@
 module Softlayer
   class Survey
-    class Question < Softlayer::Model
+    class Question < Softlayer::Entity
       attr_accessor :id
       attr_accessor :is_required
       attr_accessor :multi_answer
@@ -11,7 +11,7 @@ module Softlayer
       attr_accessor :answers
       attr_accessor :survey
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :id, type: Integer

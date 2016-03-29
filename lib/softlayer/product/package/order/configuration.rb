@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Package
       module Order
-        class Configuration < Softlayer::Model
+        class Configuration < Softlayer::Entity
           attr_accessor :error_message
           attr_accessor :id
           attr_accessor :is_required
@@ -14,7 +14,7 @@ module Softlayer
           attr_accessor :package
           attr_accessor :step
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :error_message, type: String

@@ -1,6 +1,6 @@
 module Softlayer
   module FlexibleCredit
-    class Enrollment < Softlayer::Model
+    class Enrollment < Softlayer::Entity
       attr_accessor :account_id
       attr_accessor :affiliate_id
       attr_accessor :agreement_complete_flag
@@ -17,7 +17,7 @@ module Softlayer
       attr_accessor :is_active_flag
       attr_accessor :representative
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

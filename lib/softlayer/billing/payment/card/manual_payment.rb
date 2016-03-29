@@ -2,7 +2,7 @@ module Softlayer
   module Billing
     module Payment
       module Card
-        class ManualPayment < Softlayer::Model
+        class ManualPayment < Softlayer::Entity
           attr_accessor :account_id
           attr_accessor :amount
           attr_accessor :authorized_credit_card_transaction_id
@@ -43,7 +43,7 @@ module Softlayer
           attr_accessor :capture_pay_pal_transaction
           attr_accessor :ticket_attachment_references
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

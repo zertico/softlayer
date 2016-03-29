@@ -1,6 +1,6 @@
 module Softlayer
   module Marketplace
-    class Partner < Softlayer::Model
+    class Partner < Softlayer::Entity
       SERVICE = 'SoftLayer_Marketplace_Partner'
       autoload :Attachment, 'softlayer/marketplace/partner/attachment'
       autoload :File, 'softlayer/marketplace/partner/file'
@@ -78,7 +78,7 @@ module Softlayer
         request(:get_partner_by_url_identifier, Softlayer::Marketplace::Partner, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

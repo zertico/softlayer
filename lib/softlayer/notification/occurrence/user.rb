@@ -1,7 +1,7 @@
 module Softlayer
   class Notification
     module Occurrence
-      class User < Softlayer::Model
+      class User < Softlayer::Entity
         SERVICE = 'SoftLayer_Notification_Occurrence_User'
         attr_accessor :acknowledged_flag
         attr_accessor :active
@@ -40,7 +40,7 @@ module Softlayer
           request(:get_user, Softlayer::User::Customer)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :acknowledged_flag, type: Integer

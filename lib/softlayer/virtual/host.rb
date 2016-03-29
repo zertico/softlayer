@@ -1,6 +1,6 @@
 module Softlayer
   module Virtual
-    class Host < Softlayer::Model
+    class Host < Softlayer::Entity
       SERVICE = 'SoftLayer_Virtual_Host'
       attr_accessor :account_id
       attr_accessor :create_date
@@ -92,7 +92,7 @@ module Softlayer
         request(:resume_live_guest, Boolean, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

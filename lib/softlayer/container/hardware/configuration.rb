@@ -1,7 +1,7 @@
 module Softlayer
   module Container
     module Hardware
-      class Configuration < Softlayer::Model
+      class Configuration < Softlayer::Entity
         autoload :Option, 'softlayer/container/hardware/configuration/option'
         attr_accessor :datacenters
         attr_accessor :fixed_configuration_presets
@@ -10,7 +10,7 @@ module Softlayer
         attr_accessor :operating_systems
         attr_accessor :processors
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
         end

@@ -1,6 +1,6 @@
 module Softlayer
   class Network
-    class Pod < Softlayer::Model
+    class Pod < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_Pod'
       attr_accessor :backend_router_id
       attr_accessor :backend_router_name
@@ -27,7 +27,7 @@ module Softlayer
         request(:list_capabilities, Array[String])
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :backend_router_id, type: Integer

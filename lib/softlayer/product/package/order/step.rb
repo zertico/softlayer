@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Package
       module Order
-        class Step < Softlayer::Model
+        class Step < Softlayer::Entity
           autoload :Next, 'softlayer/product/package/order/step/next'
           attr_accessor :id
           attr_accessor :step
@@ -13,7 +13,7 @@ module Softlayer
           attr_accessor :next_steps
           attr_accessor :previous_steps
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

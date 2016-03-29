@@ -1,7 +1,7 @@
 module Softlayer
   module User
     module Security
-      class Question < Softlayer::Model
+      class Question < Softlayer::Entity
         SERVICE = 'SoftLayer_User_Security_Question'
         attr_accessor :display_order
         attr_accessor :id
@@ -16,7 +16,7 @@ module Softlayer
           request(:get_object, Softlayer::User::Security::Question)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :display_order, type: Integer

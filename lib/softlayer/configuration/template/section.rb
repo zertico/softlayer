@@ -1,7 +1,7 @@
 module Softlayer
   module Configuration
     class Template
-      class Section < Softlayer::Model
+      class Section < Softlayer::Entity
         SERVICE = 'SoftLayer_Configuration_Template_Section'
         autoload :Attribute, 'softlayer/configuration/template/section/attribute'
         autoload :Definition, 'softlayer/configuration/template/section/definition'
@@ -75,7 +75,7 @@ module Softlayer
           request(:has_sub_sections, Boolean)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

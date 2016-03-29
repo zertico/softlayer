@@ -1,7 +1,7 @@
 module Softlayer
   module Provisioning
     module Version1
-      class Transaction < Softlayer::Model
+      class Transaction < Softlayer::Entity
         autoload :Group, 'softlayer/provisioning/version1/transaction/group'
         autoload :History, 'softlayer/provisioning/version1/transaction/history'
         autoload :Status, 'softlayer/provisioning/version1/transaction/status'
@@ -25,7 +25,7 @@ module Softlayer
         attr_accessor :transaction_group
         attr_accessor :transaction_status
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

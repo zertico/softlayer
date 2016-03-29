@@ -4,14 +4,14 @@ module Softlayer
       module Microsoft
         module Windows
           module UpdateServices
-            class UpdateItem < Softlayer::Model
+            class UpdateItem < Softlayer::Entity
               attr_accessor :description
               attr_accessor :failed
               attr_accessor :kb_article_number
               attr_accessor :optional
               attr_accessor :requires_reboot
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :description, type: String

@@ -3,7 +3,7 @@ module Softlayer
     class Item
       class Category
         class Question
-          class Xref < Softlayer::Model
+          class Xref < Softlayer::Entity
             attr_accessor :id
             attr_accessor :item_category_id
             attr_accessor :location_id
@@ -12,7 +12,7 @@ module Softlayer
             attr_accessor :item_category
             attr_accessor :question
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :id, type: Integer

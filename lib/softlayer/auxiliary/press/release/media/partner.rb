@@ -3,7 +3,7 @@ module Softlayer
     module Press
       class Release
         module Media
-          class Partner < Softlayer::Model
+          class Partner < Softlayer::Entity
             SERVICE = 'SoftLayer_Auxiliary_Press_Release_Media_Partner'
             autoload :Press, 'softlayer/auxiliary/press/release/media/partner/press'
             attr_accessor :id
@@ -13,7 +13,7 @@ module Softlayer
               request(:get_object, Softlayer::Auxiliary::Press::Release::Media::Partner)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :id, type: Integer

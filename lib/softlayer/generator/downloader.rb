@@ -20,7 +20,7 @@ module Softlayer
       def self.download_wsdl
         get_services.each do |service|
           unless File.exist?("./data/#{service}.wsdl")
-            wsdl_content = open("https://api.softlayer.com/soap/v3/SoftLayer_#{service}?wsdl").read
+            wsdl_content = open("https://api.softlayer.com/soap/v3.1/SoftLayer_#{service}?wsdl").read
             File.write("./data/#{service}.wsdl", wsdl_content)
           end
         end
@@ -28,7 +28,7 @@ module Softlayer
 
       def self.download_xsd
         unless File.exist?("./data/types.xsd")
-          xsd_content = open("https://api.softlayer.com/soap/v3/SoftLayer_Account?xsd").read
+          xsd_content = open("https://api.softlayer.com/soap/v3.1/SoftLayer_Account?xsd").read
           File.write("./data/types.xsd", xsd_content)
         end
       end

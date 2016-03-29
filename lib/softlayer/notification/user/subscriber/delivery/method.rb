@@ -3,14 +3,14 @@ module Softlayer
     module User
       class Subscriber
         module Delivery
-          class Method < Softlayer::Model
+          class Method < Softlayer::Entity
             attr_accessor :active
             attr_accessor :notification_method_id
             attr_accessor :notification_user_subscriber_id
             attr_accessor :delivery_method
             attr_accessor :notification_user_subscriber
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :active, type: Integer

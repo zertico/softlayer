@@ -1,6 +1,6 @@
 module Softlayer
   class Hardware
-    class Component < Softlayer::Model
+    class Component < Softlayer::Entity
       autoload :Attribute, 'softlayer/hardware/component/attribute'
       autoload :DriveController, 'softlayer/hardware/component/drive_controller'
       autoload :HardDrive, 'softlayer/hardware/component/hard_drive'
@@ -37,7 +37,7 @@ module Softlayer
       attr_accessor :service_provider
       attr_accessor :uplink_hardware_components
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :hardware_component_model_id, type: Integer

@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Storage
-      class Partnership < Softlayer::Model
+      class Partnership < Softlayer::Entity
         autoload :Type, 'softlayer/network/storage/partnership/type'
         attr_accessor :create_date
         attr_accessor :modify_date
@@ -11,7 +11,7 @@ module Softlayer
         attr_accessor :type
         attr_accessor :volume
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

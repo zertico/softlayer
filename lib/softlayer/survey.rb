@@ -1,5 +1,5 @@
 module Softlayer
-  class Survey < Softlayer::Model
+  class Survey < Softlayer::Entity
     SERVICE = 'SoftLayer_Survey'
     autoload :Answer, 'softlayer/survey/answer'
     autoload :Question, 'softlayer/survey/question'
@@ -43,7 +43,7 @@ module Softlayer
       request(:take_survey, Boolean, message)
     end
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :active, type: Integer

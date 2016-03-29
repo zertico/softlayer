@@ -1,5 +1,5 @@
 module Softlayer
-  class Location < Softlayer::Model
+  class Location < Softlayer::Entity
     SERVICE = 'SoftLayer_Location'
     autoload :Datacenter, 'softlayer/location/datacenter'
     autoload :Group, 'softlayer/location/group'
@@ -126,7 +126,7 @@ module Softlayer
       request(:getpoint_of_presence, Array[Softlayer::Location])
     end
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :id, type: Integer

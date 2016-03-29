@@ -1,6 +1,6 @@
 module Softlayer
   class Network
-    class Component < Softlayer::Model
+    class Component < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_Component'
       autoload :Detail, 'softlayer/network/component/detail'
       autoload :Firewall, 'softlayer/network/component/firewall'
@@ -194,7 +194,7 @@ module Softlayer
         request(:remove_network_vlan_trunks, Array[Softlayer::Network::Vlan], message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :duplex_mode_id, type: String

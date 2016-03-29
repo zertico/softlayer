@@ -3,7 +3,7 @@ module Softlayer
     class Agent
       module Configuration
         module Template
-          class Group < Softlayer::Model
+          class Group < Softlayer::Entity
             SERVICE = 'SoftLayer_Monitoring_Agent_Configuration_Template_Group'
             autoload :Reference, 'softlayer/monitoring/agent/configuration/template/group/reference'
             attr_accessor :account_id
@@ -63,7 +63,7 @@ module Softlayer
               request(:get_object, Softlayer::Monitoring::Agent::Configuration::Template::Group)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :account_id, type: Integer

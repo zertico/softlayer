@@ -1,6 +1,6 @@
 module Softlayer
   module Catalyst
-    class Enrollment < Softlayer::Model
+    class Enrollment < Softlayer::Entity
       SERVICE = 'SoftLayer_Catalyst_Enrollment'
       autoload :Request, 'softlayer/catalyst/enrollment/request'
       attr_accessor :account_id
@@ -72,7 +72,7 @@ module Softlayer
         request(:request_self_enrollment, Softlayer::Account, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

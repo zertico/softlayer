@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module LoadBalancer
       module Global
-        class Host < Softlayer::Model
+        class Host < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_LoadBalancer_Global_Host'
           attr_accessor :destination_ip
           attr_accessor :destination_port
@@ -28,7 +28,7 @@ module Softlayer
             request(:get_object, Softlayer::Network::LoadBalancer::Global::Host)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :destination_ip, type: String

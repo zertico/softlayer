@@ -1,6 +1,6 @@
 module Softlayer
   module Product
-    class Item < Softlayer::Model
+    class Item < Softlayer::Entity
       autoload :Attribute, 'softlayer/product/item/attribute'
       autoload :Bundles, 'softlayer/product/item/bundles'
       autoload :Category, 'softlayer/product/item/category'
@@ -74,7 +74,7 @@ module Softlayer
       attr_accessor :upgrade_item
       attr_accessor :upgrade_items
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :capacity, type: Float

@@ -2,7 +2,7 @@ module Softlayer
   module User
     module Access
       module Facility
-        class Visitor < Softlayer::Model
+        class Visitor < Softlayer::Entity
           autoload :Type, 'softlayer/user/access/facility/visitor/type'
           attr_accessor :company_name
           attr_accessor :first_name
@@ -10,7 +10,7 @@ module Softlayer
           attr_accessor :type_id
           attr_accessor :visitor_type
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :company_name, type: String

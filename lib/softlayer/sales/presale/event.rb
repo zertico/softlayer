@@ -1,7 +1,7 @@
 module Softlayer
   module Sales
     module Presale
-      class Event < Softlayer::Model
+      class Event < Softlayer::Entity
         SERVICE = 'SoftLayer_Sales_Presale_Event'
         attr_accessor :description
         attr_accessor :end_date
@@ -44,7 +44,7 @@ module Softlayer
           request(:get_orders, Array[Softlayer::Billing::Order])
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :description, type: String

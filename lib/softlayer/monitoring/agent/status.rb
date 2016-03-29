@@ -1,7 +1,7 @@
 module Softlayer
   module Monitoring
     class Agent
-      class Status < Softlayer::Model
+      class Status < Softlayer::Entity
         SERVICE = 'SoftLayer_Monitoring_Agent_Status'
         attr_accessor :description
         attr_accessor :id
@@ -11,7 +11,7 @@ module Softlayer
           request(:get_object, Softlayer::Monitoring::Agent::Status)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :description, type: String

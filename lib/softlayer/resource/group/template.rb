@@ -1,7 +1,7 @@
 module Softlayer
   module Resource
     class Group
-      class Template < Softlayer::Model
+      class Template < Softlayer::Entity
         SERVICE = 'SoftLayer_Resource_Group_Template'
         autoload :Member, 'softlayer/resource/group/template/member'
         attr_accessor :description
@@ -33,7 +33,7 @@ module Softlayer
           request(:get_package, Softlayer::Product::Package)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :description, type: String

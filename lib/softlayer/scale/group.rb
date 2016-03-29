@@ -1,6 +1,6 @@
 module Softlayer
   module Scale
-    class Group < Softlayer::Model
+    class Group < Softlayer::Entity
       SERVICE = 'SoftLayer_Scale_Group'
       autoload :Log, 'softlayer/scale/group/log'
       autoload :Status, 'softlayer/scale/group/status'
@@ -124,7 +124,7 @@ module Softlayer
         request(:suspend, nil)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

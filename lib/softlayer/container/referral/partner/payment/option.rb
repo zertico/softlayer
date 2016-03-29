@@ -3,7 +3,7 @@ module Softlayer
     module Referral
       module Partner
         module Payment
-          class Option < Softlayer::Model
+          class Option < Softlayer::Entity
             attr_accessor :account_number
             attr_accessor :account_type
             attr_accessor :address1
@@ -21,7 +21,7 @@ module Softlayer
             attr_accessor :postal_code
             attr_accessor :state
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :account_number, type: String

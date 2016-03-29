@@ -1,12 +1,12 @@
 module Softlayer
   module Container
     module Hardware
-      class MassUpdate < Softlayer::Model
+      class MassUpdate < Softlayer::Entity
         attr_accessor :hardware_id
         attr_accessor :message
         attr_accessor :success_flag
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :hardware_id, type: Integer

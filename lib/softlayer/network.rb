@@ -1,5 +1,5 @@
 module Softlayer
-  class Network < Softlayer::Model
+  class Network < Softlayer::Entity
     SERVICE = 'SoftLayer_Network'
     autoload :Backbone, 'softlayer/network/backbone'
     autoload :Component, 'softlayer/network/component'
@@ -85,7 +85,7 @@ module Softlayer
       request(:get_subnets, Array[Softlayer::Network::Subnet])
     end
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :account_id, type: Integer

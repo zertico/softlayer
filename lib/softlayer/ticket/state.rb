@@ -1,6 +1,6 @@
 module Softlayer
   class Ticket
-    class State < Softlayer::Model
+    class State < Softlayer::Entity
       autoload :Type, 'softlayer/ticket/state/type'
       attr_accessor :id
       attr_accessor :state_type_id
@@ -8,7 +8,7 @@ module Softlayer
       attr_accessor :state_type
       attr_accessor :ticket
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :id, type: Integer

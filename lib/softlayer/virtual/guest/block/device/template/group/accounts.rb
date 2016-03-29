@@ -5,14 +5,14 @@ module Softlayer
         class Device
           class Template
             class Group
-              class Accounts < Softlayer::Model
+              class Accounts < Softlayer::Entity
                 attr_accessor :account_id
                 attr_accessor :create_date
                 attr_accessor :group_id
                 attr_accessor :account
                 attr_accessor :group
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :account_id, type: Integer

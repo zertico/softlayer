@@ -1,7 +1,7 @@
 module Softlayer
   module Product
     class Item
-      class Price < Softlayer::Model
+      class Price < Softlayer::Entity
         SERVICE = 'SoftLayer_Product_Item_Price'
         autoload :Attribute, 'softlayer/product/item/price/attribute'
         autoload :Premium, 'softlayer/product/item/price/premium'
@@ -128,7 +128,7 @@ module Softlayer
           request(:get_usage_rate_prices, Array[Softlayer::Product::Item::Price], message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :current_price_flag, type: Boolean

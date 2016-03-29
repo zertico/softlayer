@@ -1,7 +1,7 @@
 module Softlayer
   module Security
     class Certificate
-      class Entry < Softlayer::Model
+      class Entry < Softlayer::Entity
         attr_accessor :certificate_id
         attr_accessor :common_name
         attr_accessor :key_size
@@ -10,7 +10,7 @@ module Softlayer
         attr_accessor :validity_days
         attr_accessor :validity_end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :certificate_id, type: Integer

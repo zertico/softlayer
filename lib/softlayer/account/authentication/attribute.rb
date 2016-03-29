@@ -1,7 +1,7 @@
 module Softlayer
   class Account
     module Authentication
-      class Attribute < Softlayer::Model
+      class Attribute < Softlayer::Entity
         SERVICE = 'SoftLayer_Account_Authentication_Attribute'
         autoload :Type, 'softlayer/account/authentication/attribute/type'
         attr_accessor :account_id
@@ -28,7 +28,7 @@ module Softlayer
           request(:get_type, Softlayer::Account::Authentication::Attribute::Type)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

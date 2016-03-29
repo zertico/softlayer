@@ -3,12 +3,12 @@ module Softlayer
     module Disk
       class Image
         class Software
-          class Password < Softlayer::Model
+          class Password < Softlayer::Entity
             attr_accessor :password
             attr_accessor :username
             attr_accessor :software
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :password, type: String

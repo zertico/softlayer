@@ -2,7 +2,7 @@ module Softlayer
   module Security
     class Certificate
       class Request
-        class Status < Softlayer::Model
+        class Status < Softlayer::Entity
           SERVICE = 'SoftLayer_Security_Certificate_Request_Status'
           attr_accessor :description
           attr_accessor :id
@@ -16,7 +16,7 @@ module Softlayer
             request(:get_ssl_request_statuses, Array[Softlayer::Security::Certificate::Request::Status])
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :description, type: String

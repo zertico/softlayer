@@ -4,11 +4,11 @@ module Softlayer
       module Storage
         module Evault
           module WebCc
-            class AgentStatus < Softlayer::Model
+            class AgentStatus < Softlayer::Entity
               attr_accessor :last_backup
               attr_accessor :status
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :last_backup, type: DateTime

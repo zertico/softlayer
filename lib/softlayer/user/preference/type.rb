@@ -1,13 +1,13 @@
 module Softlayer
   module User
     class Preference
-      class Type < Softlayer::Model
+      class Type < Softlayer::Entity
         attr_accessor :description
         attr_accessor :key_name
         attr_accessor :name
         attr_accessor :value_example
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :description, type: String

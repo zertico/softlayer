@@ -1,7 +1,7 @@
 module Softlayer
   module Container
     module Product
-      class Order < Softlayer::Model
+      class Order < Softlayer::Entity
         autoload :Cart, 'softlayer/container/product/order/cart'
         autoload :Network, 'softlayer/container/product/order/network'
         autoload :Property, 'softlayer/container/product/order/property'
@@ -84,7 +84,7 @@ module Softlayer
         attr_accessor :use_hourly_pricing
         attr_accessor :virtual_guests
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :big_data_order_flag, type: Boolean

@@ -3,7 +3,7 @@ module Softlayer
     module Tracking
       class Object
         module Bandwidth
-          class Summary < Softlayer::Model
+          class Summary < Softlayer::Entity
             SERVICE = 'SoftLayer_Metric_Tracking_Object_Bandwidth_Summary'
             attr_accessor :allocation_amount
             attr_accessor :allocation_id
@@ -19,7 +19,7 @@ module Softlayer
               request(:get_object, Softlayer::Metric::Tracking::Object::Bandwidth::Summary)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :allocation_amount, type: Float

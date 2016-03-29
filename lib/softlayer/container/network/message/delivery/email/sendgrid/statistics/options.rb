@@ -6,7 +6,7 @@ module Softlayer
           class Email
             module Sendgrid
               class Statistics
-                class Options < Softlayer::Model
+                class Options < Softlayer::Entity
                   attr_accessor :aggregates_only
                   attr_accessor :category
                   attr_accessor :days
@@ -14,7 +14,7 @@ module Softlayer
                   attr_accessor :selected_statistics
                   attr_accessor :start_date
 
-                  class Representer < Representable::Decorator
+                  class Representer < Softlayer::Entity::Representer
                     include Representable::Hash
                     include Representable::Coercion
                     property :aggregates_only, type: Boolean

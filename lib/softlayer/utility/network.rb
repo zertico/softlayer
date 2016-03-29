@@ -1,6 +1,6 @@
 module Softlayer
   module Utility
-    class Network < Softlayer::Model
+    class Network < Softlayer::Entity
       SERVICE = 'SoftLayer_Utility_Network'
 
       def self.is_pingable(address = nil)
@@ -28,7 +28,7 @@ module Softlayer
         request(:whois, String, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
       end

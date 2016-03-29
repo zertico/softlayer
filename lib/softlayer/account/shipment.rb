@@ -1,6 +1,6 @@
 module Softlayer
   class Account
-    class Shipment < Softlayer::Model
+    class Shipment < Softlayer::Entity
       SERVICE = 'SoftLayer_Account_Shipment'
       autoload :Item, 'softlayer/account/shipment/item'
       autoload :Status, 'softlayer/account/shipment/status'
@@ -109,7 +109,7 @@ module Softlayer
         request(:get_type, Softlayer::Account::Shipment::Type)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

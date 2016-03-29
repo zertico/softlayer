@@ -1,6 +1,6 @@
 module Softlayer
   class Ticket
-    class Activity < Softlayer::Model
+    class Activity < Softlayer::Entity
       attr_accessor :create_date
       attr_accessor :create_timestamp
       attr_accessor :id
@@ -9,7 +9,7 @@ module Softlayer
       attr_accessor :ticket
       attr_accessor :ticket_update
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :create_date, type: DateTime

@@ -2,11 +2,11 @@ module Softlayer
   module Container
     module RemoteManagement
       module Graphs
-        class SensorSpeed < Softlayer::Model
+        class SensorSpeed < Softlayer::Entity
           attr_accessor :graph
           attr_accessor :title
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :title, type: String

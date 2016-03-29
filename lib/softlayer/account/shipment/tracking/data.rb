@@ -2,7 +2,7 @@ module Softlayer
   class Account
     class Shipment
       module Tracking
-        class Data < Softlayer::Model
+        class Data < Softlayer::Entity
           SERVICE = 'SoftLayer_Account_Shipment_Tracking_Data'
           attr_accessor :create_user_id
           attr_accessor :id
@@ -60,7 +60,7 @@ module Softlayer
             request(:get_shipment, Softlayer::Account::Shipment)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :create_user_id, type: Integer

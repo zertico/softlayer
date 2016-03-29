@@ -1,6 +1,6 @@
 module Softlayer
   class Location
-    class Reservation < Softlayer::Model
+    class Reservation < Softlayer::Entity
       SERVICE = 'SoftLayer_Location_Reservation'
       autoload :Rack, 'softlayer/location/reservation/rack'
       attr_accessor :allotment_id
@@ -42,7 +42,7 @@ module Softlayer
         request(:get_object, Softlayer::Location::Reservation)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :allotment_id, type: Integer

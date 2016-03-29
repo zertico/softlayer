@@ -1,9 +1,9 @@
 module Softlayer
   module Billing
     module Payment
-      class Transaction < Softlayer::Model
+      class Transaction < Softlayer::Entity
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
         end

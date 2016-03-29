@@ -8,7 +8,7 @@ describe Softlayer::Generator::ClassFile do
     subject.generate.must_equal "module Softlayer
   class Account
     module Authentication
-      class Saml < Softlayer::Model
+      class Saml < Softlayer::Entity
         SERVICE = 'SoftLayer_Account_Authentication_Saml'
         attr_accessor :account_id
         attr_accessor :certificate
@@ -60,7 +60,7 @@ describe Softlayer::Generator::ClassFile do
           request(:get_object, Softlayer::Account::Authentication::Saml)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: String
@@ -104,7 +104,7 @@ end
     subject.generate_header.must_equal "module Softlayer
   class Account
     module Authentication
-      class Saml < Softlayer::Model
+      class Saml < Softlayer::Entity
 "
   end
 

@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Network
       module Port
-        class Statistic < Softlayer::Model
+        class Statistic < Softlayer::Entity
           attr_accessor :administrative_status
           attr_accessor :in_discard_packets
           attr_accessor :in_error_packets
@@ -17,7 +17,7 @@ module Softlayer
           attr_accessor :port_duplex
           attr_accessor :speed
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :administrative_status, type: Integer

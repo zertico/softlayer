@@ -3,11 +3,11 @@ module Softlayer
     module Dns
       module Domain
         module Registration
-          class Nameserver < Softlayer::Model
+          class Nameserver < Softlayer::Entity
             autoload :List, 'softlayer/container/dns/domain/registration/nameserver/list'
             attr_accessor :nameservers
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
             end

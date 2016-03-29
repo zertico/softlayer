@@ -3,7 +3,7 @@ module Softlayer
     class Item
       module Cancellation
         class Request
-          class Item < Softlayer::Model
+          class Item < Softlayer::Entity
             attr_accessor :billing_item_id
             attr_accessor :cancellation_request_id
             attr_accessor :id
@@ -13,7 +13,7 @@ module Softlayer
             attr_accessor :billing_item
             attr_accessor :cancellation_request
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :billing_item_id, type: Integer

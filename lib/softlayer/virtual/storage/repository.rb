@@ -1,7 +1,7 @@
 module Softlayer
   module Virtual
     module Storage
-      class Repository < Softlayer::Model
+      class Repository < Softlayer::Entity
         SERVICE = 'SoftLayer_Virtual_Storage_Repository'
         autoload :Type, 'softlayer/virtual/storage/repository/type'
         attr_accessor :capacity
@@ -84,7 +84,7 @@ module Softlayer
           request(:get_usage_metric_image_by_date, Softlayer::Container::Bandwidth::GraphOutputs, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :capacity, type: Float

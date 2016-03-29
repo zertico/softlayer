@@ -1,9 +1,9 @@
 module Softlayer
   module Utility
     module Bandwidth
-      class Graph < Softlayer::Model
+      class Graph < Softlayer::Entity
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
         end

@@ -3,7 +3,7 @@ module Softlayer
     module Maintenance
       class Classification
         module Item
-          class Category < Softlayer::Model
+          class Category < Softlayer::Entity
             SERVICE = 'SoftLayer_Provisioning_Maintenance_Classification_Item_Category'
             attr_accessor :item_category_id
             attr_accessor :maintenance_classification_id
@@ -17,7 +17,7 @@ module Softlayer
               request(:get_object, Softlayer::Provisioning::Maintenance::Classification::Item::Category)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :item_category_id, type: Integer

@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Storage
-      class Credential < Softlayer::Model
+      class Credential < Softlayer::Entity
         autoload :Type, 'softlayer/network/storage/credential/type'
         attr_accessor :account_id
         attr_accessor :create_date
@@ -16,7 +16,7 @@ module Softlayer
         attr_accessor :type
         attr_accessor :volumes
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: String

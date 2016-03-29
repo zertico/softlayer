@@ -1,7 +1,7 @@
 module Softlayer
   module Scale
     class Policy
-      class Trigger < Softlayer::Model
+      class Trigger < Softlayer::Entity
         SERVICE = 'SoftLayer_Scale_Policy_Trigger'
         autoload :OneTime, 'softlayer/scale/policy/trigger/one_time'
         autoload :Repeating, 'softlayer/scale/policy/trigger/repeating'
@@ -42,7 +42,7 @@ module Softlayer
           request(:get_type, Softlayer::Scale::Policy::Trigger::Type)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

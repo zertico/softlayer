@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module ContentDelivery
       module Authentication
-        class Token < Softlayer::Model
+        class Token < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_ContentDelivery_Authentication_Token'
           attr_accessor :cdn_account_id
           attr_accessor :client_ip
@@ -50,7 +50,7 @@ module Softlayer
             request(:revoke_managed_tokens, Boolean, message)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :cdn_account_id, type: Integer

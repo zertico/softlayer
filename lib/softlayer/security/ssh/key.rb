@@ -1,7 +1,7 @@
 module Softlayer
   module Security
     module Ssh
-      class Key < Softlayer::Model
+      class Key < Softlayer::Entity
         SERVICE = 'SoftLayer_Security_Ssh_Key'
         attr_accessor :create_date
         attr_accessor :fingerprint
@@ -46,7 +46,7 @@ module Softlayer
           request(:get_software_passwords, Array[Softlayer::Software::Component::Password])
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

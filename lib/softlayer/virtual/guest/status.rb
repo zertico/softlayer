@@ -1,11 +1,11 @@
 module Softlayer
   module Virtual
     class Guest
-      class Status < Softlayer::Model
+      class Status < Softlayer::Entity
         attr_accessor :key_name
         attr_accessor :name
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :key_name, type: String

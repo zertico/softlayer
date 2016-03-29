@@ -1,6 +1,6 @@
 module Softlayer
   module Configuration
-    class Template < Softlayer::Model
+    class Template < Softlayer::Entity
       SERVICE = 'SoftLayer_Configuration_Template'
       autoload :Attribute, 'softlayer/configuration/template/attribute'
       autoload :Section, 'softlayer/configuration/template/section'
@@ -91,7 +91,7 @@ module Softlayer
         request(:update_default_values, Boolean, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

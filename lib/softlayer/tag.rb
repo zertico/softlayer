@@ -1,5 +1,5 @@
 module Softlayer
-  class Tag < Softlayer::Model
+  class Tag < Softlayer::Entity
     SERVICE = 'SoftLayer_Tag'
     autoload :Reference, 'softlayer/tag/reference'
     autoload :Type, 'softlayer/tag/type'
@@ -42,7 +42,7 @@ module Softlayer
       request(:set_tags, Boolean, message)
     end
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :account_id, type: Integer

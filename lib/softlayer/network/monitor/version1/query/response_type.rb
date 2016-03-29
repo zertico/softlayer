@@ -3,12 +3,12 @@ module Softlayer
     class Monitor
       module Version1
         module Query
-          class ResponseType < Softlayer::Model
+          class ResponseType < Softlayer::Entity
             attr_accessor :action_description
             attr_accessor :id
             attr_accessor :level
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :action_description, type: String

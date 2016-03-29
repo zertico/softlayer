@@ -3,7 +3,7 @@ module Softlayer
     class Guest
       module Block
         class Device
-          class Template < Softlayer::Model
+          class Template < Softlayer::Entity
             autoload :Group, 'softlayer/virtual/guest/block/device/template/group'
             attr_accessor :device
             attr_accessor :disk_image_id
@@ -14,7 +14,7 @@ module Softlayer
             attr_accessor :disk_image
             attr_accessor :group
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :device, type: String

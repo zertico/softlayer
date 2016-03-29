@@ -5,14 +5,14 @@ module Softlayer
         module Version36
           module Antivirus
             module Event
-              module AccessProtection < Softlayer::Model
+              module AccessProtection < Softlayer::Entity
                 attr_accessor :event_local_date_time
                 attr_accessor :filename
                 attr_accessor :process_name
                 attr_accessor :rule_name
                 attr_accessor :source
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :event_local_date_time, type: DateTime

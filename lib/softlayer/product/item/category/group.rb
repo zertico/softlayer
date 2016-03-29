@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Item
       class Category
-        class Group < Softlayer::Model
+        class Group < Softlayer::Entity
           SERVICE = 'SoftLayer_Product_Item_Category_Group'
           attr_accessor :id
           attr_accessor :name
@@ -11,7 +11,7 @@ module Softlayer
             request(:get_object, Softlayer::Product::Item::Category::Group)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :id, type: Integer

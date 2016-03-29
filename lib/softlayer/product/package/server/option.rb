@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Package
       class Server
-        class Option < Softlayer::Model
+        class Option < Softlayer::Entity
           SERVICE = 'SoftLayer_Product_Package_Server_Option'
           attr_accessor :catalog_id
           attr_accessor :description
@@ -23,7 +23,7 @@ module Softlayer
             request(:get_options, Array[Softlayer::Product::Package::Server::Option], message)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :catalog_id, type: Integer

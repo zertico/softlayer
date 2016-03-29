@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module Logging
-      class Syslog < Softlayer::Model
+      class Syslog < Softlayer::Entity
         attr_accessor :create_date
         attr_accessor :destination_ip_address
         attr_accessor :destination_port
@@ -12,7 +12,7 @@ module Softlayer
         attr_accessor :source_port
         attr_accessor :total_events
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

@@ -3,7 +3,7 @@ module Softlayer
     module Firewall
       module Update
         class Request
-          class Rule < Softlayer::Model
+          class Rule < Softlayer::Entity
             SERVICE = 'SoftLayer_Network_Firewall_Update_Request_Rule'
             autoload :Version6, 'softlayer/network/firewall/update/request/rule/version6'
             attr_accessor :action
@@ -41,7 +41,7 @@ module Softlayer
               request(:validate_rule, nil, message)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :action, type: String

@@ -1,6 +1,6 @@
 module Softlayer
   module Provisioning
-    class Hook < Softlayer::Model
+    class Hook < Softlayer::Entity
       SERVICE = 'SoftLayer_Provisioning_Hook'
       autoload :Type, 'softlayer/provisioning/hook/type'
       attr_accessor :account_id
@@ -39,7 +39,7 @@ module Softlayer
         request(:get_object, Softlayer::Provisioning::Hook)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

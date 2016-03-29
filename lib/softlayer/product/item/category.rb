@@ -1,7 +1,7 @@
 module Softlayer
   module Product
     class Item
-      class Category < Softlayer::Model
+      class Category < Softlayer::Entity
         SERVICE = 'SoftLayer_Product_Item_Category'
         autoload :Group, 'softlayer/product/item/category/group'
         autoload :Question, 'softlayer/product/item/category/question'
@@ -100,7 +100,7 @@ module Softlayer
           request(:get_vlan_categories, Array[Softlayer::Product::Item::Category])
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :category_code, type: String

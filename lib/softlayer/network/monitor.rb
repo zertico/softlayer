@@ -1,6 +1,6 @@
 module Softlayer
   class Network
-    class Monitor < Softlayer::Model
+    class Monitor < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_Monitor'
       autoload :Version1, 'softlayer/network/monitor/version1'
 
@@ -14,7 +14,7 @@ module Softlayer
         request(:get_ip_addresses_by_virtual_guest, Array[Softlayer::Network::Subnet::IpAddress], message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
       end

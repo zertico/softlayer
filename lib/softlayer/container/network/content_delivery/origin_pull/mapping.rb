@@ -3,14 +3,14 @@ module Softlayer
     module Network
       module ContentDelivery
         module OriginPull
-          class Mapping < Softlayer::Model
+          class Mapping < Softlayer::Entity
             attr_accessor :cname
             attr_accessor :id
             attr_accessor :is_secure_content
             attr_accessor :media_type
             attr_accessor :origin_url
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :cname, type: String

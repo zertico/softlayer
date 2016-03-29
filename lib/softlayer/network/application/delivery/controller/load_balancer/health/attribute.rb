@@ -5,7 +5,7 @@ module Softlayer
         class Controller
           module LoadBalancer
             module Health
-              class Attribute < Softlayer::Model
+              class Attribute < Softlayer::Entity
                 SERVICE = 'SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Attribute'
                 autoload :Type, 'softlayer/network/application/delivery/controller/load_balancer/health/attribute/type'
                 attr_accessor :health_attribute_type_id
@@ -27,7 +27,7 @@ module Softlayer
                   request(:get_type, Softlayer::Network::Application::Delivery::Controller::LoadBalancer::Health::Attribute::Type)
                 end
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :health_attribute_type_id, type: Integer

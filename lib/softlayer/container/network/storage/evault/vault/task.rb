@@ -4,12 +4,12 @@ module Softlayer
       module Storage
         module Evault
           module Vault
-            class Task < Softlayer::Model
+            class Task < Softlayer::Entity
               attr_accessor :id
               attr_accessor :name
               attr_accessor :used_poolsize
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :id, type: Integer

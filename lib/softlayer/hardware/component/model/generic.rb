@@ -2,7 +2,7 @@ module Softlayer
   class Hardware
     class Component
       class Model
-        class Generic < Softlayer::Model
+        class Generic < Softlayer::Entity
           autoload :Attribute, 'softlayer/hardware/component/model/generic/attribute'
           autoload :MarketingFeature, 'softlayer/hardware/component/model/generic/marketing_feature'
           attr_accessor :capacity
@@ -16,7 +16,7 @@ module Softlayer
           attr_accessor :hardware_component_type
           attr_accessor :marketing_features
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :capacity, type: Float

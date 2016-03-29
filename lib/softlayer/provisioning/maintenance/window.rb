@@ -1,7 +1,7 @@
 module Softlayer
   module Provisioning
     module Maintenance
-      class Window < Softlayer::Model
+      class Window < Softlayer::Entity
         SERVICE = 'SoftLayer_Provisioning_Maintenance_Window'
         attr_accessor :begin_date
         attr_accessor :day_of_week
@@ -49,7 +49,7 @@ module Softlayer
           request(:update_customer_upgrade_window, Boolean, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :begin_date, type: DateTime

@@ -3,11 +3,11 @@ module Softlayer
     module Network
       module ContentDelivery
         module Authentication
-          class ServiceEndpoint < Softlayer::Model
+          class ServiceEndpoint < Softlayer::Entity
             attr_accessor :endpoint
             attr_accessor :protocol
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :endpoint, type: String

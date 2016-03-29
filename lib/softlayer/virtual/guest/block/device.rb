@@ -2,7 +2,7 @@ module Softlayer
   module Virtual
     class Guest
       module Block
-        class Device < Softlayer::Model
+        class Device < Softlayer::Entity
           autoload :Status, 'softlayer/virtual/guest/block/device/status'
           autoload :Template, 'softlayer/virtual/guest/block/device/template'
           attr_accessor :bootable_flag
@@ -21,7 +21,7 @@ module Softlayer
           attr_accessor :guest
           attr_accessor :status
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :bootable_flag, type: Integer

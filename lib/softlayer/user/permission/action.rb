@@ -1,7 +1,7 @@
 module Softlayer
   module User
     module Permission
-      class Action < Softlayer::Model
+      class Action < Softlayer::Entity
         SERVICE = 'SoftLayer_User_Permission_Action'
         attr_accessor :create_date
         attr_accessor :description
@@ -18,7 +18,7 @@ module Softlayer
           request(:get_object, Softlayer::User::Permission::Action)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

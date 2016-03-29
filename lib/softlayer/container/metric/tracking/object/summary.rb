@@ -3,10 +3,10 @@ module Softlayer
     module Metric
       module Tracking
         module Object
-          class Summary < Softlayer::Model
+          class Summary < Softlayer::Entity
             attr_accessor :metric_name
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :metric_name, type: String

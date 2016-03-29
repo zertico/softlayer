@@ -2,7 +2,7 @@ module Softlayer
   module Provisioning
     module Version1
       class Transaction
-        class History < Softlayer::Model
+        class History < Softlayer::Entity
           attr_accessor :finish_date
           attr_accessor :guest_id
           attr_accessor :hardware_id
@@ -16,7 +16,7 @@ module Softlayer
           attr_accessor :transaction
           attr_accessor :transaction_status
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :finish_date, type: DateTime

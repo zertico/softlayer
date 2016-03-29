@@ -2,7 +2,7 @@ module Softlayer
   class Brand
     module Restriction
       module Location
-        class CustomerCountry < Softlayer::Model
+        class CustomerCountry < Softlayer::Entity
           SERVICE = 'SoftLayer_Brand_Restriction_Location_CustomerCountry'
           attr_accessor :brand_id
           attr_accessor :customer_country_code
@@ -26,7 +26,7 @@ module Softlayer
             request(:get_object, Softlayer::Brand::Restriction::Location::CustomerCountry)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :brand_id, type: Integer

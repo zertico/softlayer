@@ -1,7 +1,7 @@
 module Softlayer
   module Billing
     class Info
-      class Ach < Softlayer::Model
+      class Ach < Softlayer::Entity
         attr_accessor :account_id
         attr_accessor :account_number
         attr_accessor :account_type
@@ -20,7 +20,7 @@ module Softlayer
         attr_accessor :verified_date
         attr_accessor :account
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

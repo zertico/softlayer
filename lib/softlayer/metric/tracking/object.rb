@@ -1,7 +1,7 @@
 module Softlayer
   module Metric
     module Tracking
-      class Object < Softlayer::Model
+      class Object < Softlayer::Entity
         SERVICE = 'SoftLayer_Metric_Tracking_Object'
         autoload :Abstract, 'softlayer/metric/tracking/object/abstract'
         autoload :Data, 'softlayer/metric/tracking/object/data'
@@ -74,7 +74,7 @@ module Softlayer
           request(:get_type, Softlayer::Metric::Tracking::Object::Type)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

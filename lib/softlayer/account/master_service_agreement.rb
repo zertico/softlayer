@@ -1,6 +1,6 @@
 module Softlayer
   class Account
-    class MasterServiceAgreement < Softlayer::Model
+    class MasterServiceAgreement < Softlayer::Entity
       SERVICE = 'SoftLayer_Account_MasterServiceAgreement'
       attr_accessor :account_id
       attr_accessor :guid
@@ -20,7 +20,7 @@ module Softlayer
         request(:get_object, Softlayer::Account::MasterServiceAgreement)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

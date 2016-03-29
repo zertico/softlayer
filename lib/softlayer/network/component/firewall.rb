@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Component
-      class Firewall < Softlayer::Model
+      class Firewall < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Component_Firewall'
         autoload :Rule, 'softlayer/network/component/firewall/rule'
         autoload :Subnets, 'softlayer/network/component/firewall/subnets'
@@ -53,7 +53,7 @@ module Softlayer
           request(:get_subnets, Array[Softlayer::Network::Subnet])
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :guest_network_component_id, type: Integer

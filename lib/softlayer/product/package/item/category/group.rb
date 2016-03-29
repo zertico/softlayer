@@ -3,7 +3,7 @@ module Softlayer
     class Package
       module Item
         module Category
-          class Group < Softlayer::Model
+          class Group < Softlayer::Entity
             attr_accessor :item_category_id
             attr_accessor :package_id
             attr_accessor :sort
@@ -13,7 +13,7 @@ module Softlayer
             attr_accessor :package
             attr_accessor :prices
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :item_category_id, type: Integer

@@ -1,10 +1,10 @@
 module Softlayer
   module Marketplace
-    class EmailDistribution < Softlayer::Model
+    class EmailDistribution < Softlayer::Entity
       attr_accessor :email
       attr_accessor :id
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :email, type: String

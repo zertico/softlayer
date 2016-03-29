@@ -1,6 +1,6 @@
 module Softlayer
   module Billing
-    class Order < Softlayer::Model
+    class Order < Softlayer::Entity
       SERVICE = 'SoftLayer_Billing_Order'
       autoload :Cart, 'softlayer/billing/order/cart'
       autoload :Item, 'softlayer/billing/order/item'
@@ -196,7 +196,7 @@ module Softlayer
         request(:is_pending_edit_approval, Boolean)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

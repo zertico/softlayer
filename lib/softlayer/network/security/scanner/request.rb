@@ -2,7 +2,7 @@ module Softlayer
   class Network
     module Security
       module Scanner
-        class Request < Softlayer::Model
+        class Request < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Security_Scanner_Request'
           autoload :Status, 'softlayer/network/security/scanner/request/status'
           attr_accessor :account_id
@@ -53,7 +53,7 @@ module Softlayer
             request(:get_status, Softlayer::Network::Security::Scanner::Request::Status)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :account_id, type: Integer

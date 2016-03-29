@@ -1,6 +1,6 @@
 module Softlayer
   class Hardware
-    class Chassis < Softlayer::Model
+    class Chassis < Softlayer::Entity
       attr_accessor :form_factor_id
       attr_accessor :id
       attr_accessor :manufacturer
@@ -15,7 +15,7 @@ module Softlayer
       attr_accessor :hardware_function
       attr_accessor :power_capacity
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :form_factor_id, type: Integer

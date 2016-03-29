@@ -11,7 +11,7 @@ module Softlayer
       end
 
       def filter(filter)
-        @filter = Filter.new(service_name, filter) if filter.is_a? Hash
+        @filter = Filter.new(service_name, filter) if filter.is_a? Hash or filter.is_a? String
         @filter = filter if filter.is_a? Filter
         self
       end
@@ -22,7 +22,7 @@ module Softlayer
       end
 
       def mask(mask)
-        @mask = Mask.new(service_name, mask) if mask.is_a? Hash
+        @mask = Mask.new(service_name, mask) if mask.is_a? Hash or mask.is_a? String
         @mask = mask if mask.is_a? Mask
         self
       end

@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Product
       class Order
-        class Receipt < Softlayer::Model
+        class Receipt < Softlayer::Entity
           attr_accessor :external_payment_checkout_url
           attr_accessor :external_payment_token
           attr_accessor :order_date
@@ -13,7 +13,7 @@ module Softlayer
           attr_accessor :placed_order
           attr_accessor :quote
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :external_payment_checkout_url, type: String

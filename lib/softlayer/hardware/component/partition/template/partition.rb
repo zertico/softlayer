@@ -3,7 +3,7 @@ module Softlayer
     class Component
       class Partition
         class Template
-          class Partition < Softlayer::Model
+          class Partition < Softlayer::Entity
             attr_accessor :id
             attr_accessor :is_grow
             attr_accessor :partition_name
@@ -12,7 +12,7 @@ module Softlayer
             attr_accessor :filesystem_type
             attr_accessor :partition_template
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :id, type: Integer

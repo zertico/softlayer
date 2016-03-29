@@ -2,7 +2,7 @@ module Softlayer
   module Product
     class Catalog
       module Item
-        class Price < Softlayer::Model
+        class Price < Softlayer::Entity
           attr_accessor :catalog_id
           attr_accessor :create_date
           attr_accessor :modify_date
@@ -10,7 +10,7 @@ module Softlayer
           attr_accessor :catalog
           attr_accessor :price
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :catalog_id, type: Integer

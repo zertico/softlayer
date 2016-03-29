@@ -4,13 +4,13 @@ module Softlayer
       module Domain
         module Registration
           class Nameserver
-            class List < Softlayer::Model
+            class List < Softlayer::Entity
               attr_accessor :ipv4_address
               attr_accessor :ipv6_address
               attr_accessor :name
               attr_accessor :sort_order
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :ipv4_address, type: String

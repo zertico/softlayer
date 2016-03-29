@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     module Service
-      class Health < Softlayer::Model
+      class Health < Softlayer::Entity
         autoload :Status, 'softlayer/network/service/health/status'
         attr_accessor :create_date
         attr_accessor :location_id
@@ -10,7 +10,7 @@ module Softlayer
         attr_accessor :location
         attr_accessor :status
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime

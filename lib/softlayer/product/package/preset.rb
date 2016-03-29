@@ -1,7 +1,7 @@
 module Softlayer
   module Product
     class Package
-      class Preset < Softlayer::Model
+      class Preset < Softlayer::Entity
         SERVICE = 'SoftLayer_Product_Package_Preset'
         autoload :Attribute, 'softlayer/product/package/preset/attribute'
         autoload :Configuration, 'softlayer/product/package/preset/configuration'
@@ -76,7 +76,7 @@ module Softlayer
           request(:get_total_minimum_recurring_fee, Float)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :description, type: String

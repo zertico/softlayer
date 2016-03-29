@@ -1,13 +1,13 @@
 module Softlayer
   class Survey
-    class Answer < Softlayer::Model
+    class Answer < Softlayer::Entity
       attr_accessor :answer
       attr_accessor :answer_order
       attr_accessor :id
       attr_accessor :survey_question_id
       attr_accessor :survey_question
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :answer, type: String

@@ -1,6 +1,6 @@
 module Softlayer
   class Account
-    class Attribute < Softlayer::Model
+    class Attribute < Softlayer::Entity
       autoload :Type, 'softlayer/account/attribute/type'
       attr_accessor :account_attribute_type_id
       attr_accessor :account_id
@@ -9,7 +9,7 @@ module Softlayer
       attr_accessor :account
       attr_accessor :account_attribute_type
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_attribute_type_id, type: Integer

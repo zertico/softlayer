@@ -3,7 +3,7 @@ module Softlayer
     module Network
       module Message
         module Delivery
-          class Email < Softlayer::Model
+          class Email < Softlayer::Entity
             autoload :Sendgrid, 'softlayer/container/network/message/delivery/email/sendgrid'
             attr_accessor :body
             attr_accessor :contains_html
@@ -11,7 +11,7 @@ module Softlayer
             attr_accessor :subject
             attr_accessor :to
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :body, type: String

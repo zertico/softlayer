@@ -4,7 +4,7 @@ module Softlayer
       module Module
         class Context
           module Address
-            class Translation < Softlayer::Model
+            class Translation < Softlayer::Entity
               attr_accessor :customer_ip_address
               attr_accessor :customer_ip_address_id
               attr_accessor :id
@@ -16,7 +16,7 @@ module Softlayer
               attr_accessor :internal_ip_address_record
               attr_accessor :network_tunnel_context
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :customer_ip_address, type: String

@@ -1,11 +1,11 @@
 module Softlayer
   class Ticket
     class Group
-      class Category < Softlayer::Model
+      class Category < Softlayer::Entity
         attr_accessor :id
         attr_accessor :name
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :id, type: Integer

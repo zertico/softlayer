@@ -1,6 +1,6 @@
 module Softlayer
   class Network
-    class Vlan < Softlayer::Model
+    class Vlan < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_Vlan'
       autoload :Firewall, 'softlayer/network/vlan/firewall'
       autoload :Type, 'softlayer/network/vlan/type'
@@ -281,7 +281,7 @@ module Softlayer
         request(:update_firewall_intra_vlan_communication, nil, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

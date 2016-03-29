@@ -2,12 +2,12 @@ module Softlayer
   module Container
     module Utility
       module File
-        class Descriptor < Softlayer::Model
+        class Descriptor < Softlayer::Entity
           attr_accessor :file_name
           attr_accessor :friendly_name
           attr_accessor :modify_date
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :file_name, type: String

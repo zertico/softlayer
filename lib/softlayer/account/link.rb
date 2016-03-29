@@ -1,6 +1,6 @@
 module Softlayer
   class Account
-    class Link < Softlayer::Model
+    class Link < Softlayer::Entity
       autoload :OpenStack, 'softlayer/account/link/open_stack'
       autoload :ThePlanet, 'softlayer/account/link/the_planet'
       autoload :Vendor, 'softlayer/account/link/vendor'
@@ -13,7 +13,7 @@ module Softlayer
       attr_accessor :account
       attr_accessor :service_provider
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

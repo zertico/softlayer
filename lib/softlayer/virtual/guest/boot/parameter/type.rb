@@ -3,7 +3,7 @@ module Softlayer
     class Guest
       module Boot
         class Parameter
-          class Type < Softlayer::Model
+          class Type < Softlayer::Entity
             SERVICE = 'SoftLayer_Virtual_Guest_Boot_Parameter_Type'
             attr_accessor :boot_option
             attr_accessor :create_date
@@ -22,7 +22,7 @@ module Softlayer
               request(:get_object, Softlayer::Virtual::Guest::Boot::Parameter::Type)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :boot_option, type: String

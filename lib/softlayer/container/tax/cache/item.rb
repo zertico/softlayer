@@ -2,13 +2,13 @@ module Softlayer
   module Container
     module Tax
       class Cache
-        class Item < Softlayer::Model
+        class Item < Softlayer::Entity
           attr_accessor :category_code
           attr_accessor :container_hash
           attr_accessor :item_price_id
           attr_accessor :tax_rates
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :category_code, type: String

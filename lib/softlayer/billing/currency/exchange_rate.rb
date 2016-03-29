@@ -1,7 +1,7 @@
 module Softlayer
   module Billing
     class Currency
-      class ExchangeRate < Softlayer::Model
+      class ExchangeRate < Softlayer::Entity
         SERVICE = 'SoftLayer_Billing_Currency_ExchangeRate'
         attr_accessor :effective_date
         attr_accessor :expiration_date
@@ -41,7 +41,7 @@ module Softlayer
           request(:get_price, String, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :effective_date, type: DateTime

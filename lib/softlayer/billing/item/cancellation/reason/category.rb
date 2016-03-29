@@ -3,7 +3,7 @@ module Softlayer
     class Item
       module Cancellation
         class Reason
-          class Category < Softlayer::Model
+          class Category < Softlayer::Entity
             SERVICE = 'SoftLayer_Billing_Item_Cancellation_Reason_Category'
             attr_accessor :id
             attr_accessor :name
@@ -22,7 +22,7 @@ module Softlayer
               request(:get_object, Softlayer::Billing::Item::Cancellation::Reason::Category)
             end
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :id, type: Integer

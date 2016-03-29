@@ -1,12 +1,12 @@
 module Softlayer
   module Container
     module KnowledgeLayer
-      class QuestionAnswer < Softlayer::Model
+      class QuestionAnswer < Softlayer::Entity
         attr_accessor :answer
         attr_accessor :link
         attr_accessor :question
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :answer, type: String

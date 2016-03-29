@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Gateway
-      class Member < Softlayer::Model
+      class Member < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Gateway_Member'
         attr_accessor :hardware_id
         attr_accessor :id
@@ -32,7 +32,7 @@ module Softlayer
           request(:get_object, Softlayer::Network::Gateway::Member)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :hardware_id, type: Integer

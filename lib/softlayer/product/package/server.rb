@@ -1,7 +1,7 @@
 module Softlayer
   module Product
     class Package
-      class Server < Softlayer::Model
+      class Server < Softlayer::Entity
         SERVICE = 'SoftLayer_Product_Package_Server'
         autoload :Option, 'softlayer/product/package/server/option'
         attr_accessor :catalog_id
@@ -71,7 +71,7 @@ module Softlayer
           request(:get_preset, Softlayer::Product::Package::Preset)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :catalog_id, type: Integer

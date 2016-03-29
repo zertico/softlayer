@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Subnet
-      class Registration < Softlayer::Model
+      class Registration < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Subnet_Registration'
         autoload :Apnic, 'softlayer/network/subnet/registration/apnic'
         autoload :Arin, 'softlayer/network/subnet/registration/arin'
@@ -90,7 +90,7 @@ module Softlayer
           request(:get_subnet, Softlayer::Network::Subnet)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :account_id, type: Integer

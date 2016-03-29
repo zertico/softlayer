@@ -4,11 +4,11 @@ module Softlayer
       module Domain
         module Registration
           class Lookup
-            class Items < Softlayer::Model
+            class Items < Softlayer::Entity
               attr_accessor :domain_name
               attr_accessor :status
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :domain_name, type: String

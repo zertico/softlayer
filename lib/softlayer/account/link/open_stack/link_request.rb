@@ -2,12 +2,12 @@ module Softlayer
   class Account
     class Link
       class OpenStack
-        class LinkRequest < Softlayer::Model
+        class LinkRequest < Softlayer::Entity
           attr_accessor :desired_password
           attr_accessor :desired_project_name
           attr_accessor :desired_username
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :desired_password, type: String

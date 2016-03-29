@@ -5,7 +5,7 @@ module Softlayer
         class Controller
           module LoadBalancer
             class Service
-              class Group < Softlayer::Model
+              class Group < Softlayer::Entity
                 SERVICE = 'SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group'
                 autoload :CrossReference, 'softlayer/network/application/delivery/controller/load_balancer/service/group/cross_reference'
                 attr_accessor :id
@@ -56,7 +56,7 @@ module Softlayer
                   request(:kick_all_connections, Boolean)
                 end
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :id, type: Integer

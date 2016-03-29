@@ -1,7 +1,7 @@
 module Softlayer
   module Billing
     class Info
-      class Cycle < Softlayer::Model
+      class Cycle < Softlayer::Entity
         attr_accessor :current_cycle_end_date
         attr_accessor :current_cycle_start_date
         attr_accessor :next_cycle_start_date
@@ -9,7 +9,7 @@ module Softlayer
         attr_accessor :previous_cycle_start_date
         attr_accessor :account
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :current_cycle_end_date, type: DateTime

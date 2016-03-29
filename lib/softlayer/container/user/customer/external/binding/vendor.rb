@@ -4,11 +4,11 @@ module Softlayer
       module Customer
         module External
           class Binding
-            class Vendor < Softlayer::Model
+            class Vendor < Softlayer::Entity
               attr_accessor :key_name
               attr_accessor :name
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :key_name, type: String

@@ -5,7 +5,7 @@ module Softlayer
         module Version36
           module Hips
             module Version7
-              module IPSEvent < Softlayer::Model
+              module IPSEvent < Softlayer::Entity
                 attr_accessor :incident_time
                 attr_accessor :process_name
                 attr_accessor :reaction_text
@@ -13,7 +13,7 @@ module Softlayer
                 attr_accessor :severity_text
                 attr_accessor :signature
 
-                class Representer < Representable::Decorator
+                class Representer < Softlayer::Entity::Representer
                   include Representable::Hash
                   include Representable::Coercion
                   property :incident_time, type: DateTime

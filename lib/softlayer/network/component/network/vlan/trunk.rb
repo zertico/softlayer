@@ -3,13 +3,13 @@ module Softlayer
     class Component
       module Network
         module Vlan
-          class Trunk < Softlayer::Model
+          class Trunk < Softlayer::Entity
             attr_accessor :network_component_id
             attr_accessor :network_vlan_id
             attr_accessor :network_component
             attr_accessor :network_vlan
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :network_component_id, type: Integer

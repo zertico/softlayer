@@ -1,6 +1,6 @@
 module Softlayer
   module Event
-    class Log < Softlayer::Model
+    class Log < Softlayer::Entity
       SERVICE = 'SoftLayer_Event_Log'
       attr_accessor :account_id
       attr_accessor :event_create_date
@@ -10,6 +10,7 @@ module Softlayer
       attr_accessor :meta_data
       attr_accessor :object_id
       attr_accessor :object_name
+      attr_accessor :resource
       attr_accessor :trace_id
       attr_accessor :user_id
       attr_accessor :user_type
@@ -37,7 +38,7 @@ module Softlayer
         request(:get_user, Softlayer::User::Customer)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

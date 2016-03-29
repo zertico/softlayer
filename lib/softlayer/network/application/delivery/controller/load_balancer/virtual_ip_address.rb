@@ -4,7 +4,7 @@ module Softlayer
       module Delivery
         class Controller
           module LoadBalancer
-            class VirtualIpAddress < Softlayer::Model
+            class VirtualIpAddress < Softlayer::Entity
               SERVICE = 'SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualIpAddress'
               autoload :SecureTransportCipher, 'softlayer/network/application/delivery/controller/load_balancer/virtual_ip_address/secure_transport_cipher'
               autoload :SecureTransportProtocol, 'softlayer/network/application/delivery/controller/load_balancer/virtual_ip_address/secure_transport_protocol'
@@ -123,7 +123,7 @@ module Softlayer
                 request(:upgrade_connection_limit, Boolean)
               end
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :account_id, type: Integer

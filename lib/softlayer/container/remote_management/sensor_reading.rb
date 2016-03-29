@@ -1,7 +1,7 @@
 module Softlayer
   module Container
     module RemoteManagement
-      class SensorReading < Softlayer::Model
+      class SensorReading < Softlayer::Entity
         attr_accessor :lower_critical
         attr_accessor :lower_non_critical
         attr_accessor :lower_non_recoverable
@@ -13,7 +13,7 @@ module Softlayer
         attr_accessor :upper_non_critical
         attr_accessor :upper_non_recoverable
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :lower_critical, type: String

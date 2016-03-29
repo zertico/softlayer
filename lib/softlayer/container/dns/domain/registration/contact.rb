@@ -3,7 +3,7 @@ module Softlayer
     module Dns
       module Domain
         module Registration
-          class Contact < Softlayer::Model
+          class Contact < Softlayer::Entity
             attr_accessor :address1
             attr_accessor :address2
             attr_accessor :address3
@@ -19,7 +19,7 @@ module Softlayer
             attr_accessor :state
             attr_accessor :type
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :address1, type: String

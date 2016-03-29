@@ -1,5 +1,5 @@
 module Softlayer
-  class Notification < Softlayer::Model
+  class Notification < Softlayer::Entity
     SERVICE = 'SoftLayer_Notification'
     autoload :Mobile, 'softlayer/notification/mobile'
     autoload :Preference, 'softlayer/notification/preference'
@@ -31,7 +31,7 @@ module Softlayer
       request(:get_required_preferences, Array[Softlayer::Notification::Preference])
     end
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :id, type: Integer

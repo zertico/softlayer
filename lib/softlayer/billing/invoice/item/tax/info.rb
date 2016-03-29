@@ -3,7 +3,7 @@ module Softlayer
     class Invoice
       class Item
         module Tax
-          class Info < Softlayer::Model
+          class Info < Softlayer::Entity
             attr_accessor :create_date
             attr_accessor :description
             attr_accessor :effective_tax_rate
@@ -25,7 +25,7 @@ module Softlayer
             attr_accessor :invoice_tax_info
             attr_accessor :to_currency
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :create_date, type: DateTime

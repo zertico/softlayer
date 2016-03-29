@@ -1,7 +1,7 @@
 module Softlayer
   module Billing
     class Invoice
-      class Next < Softlayer::Model
+      class Next < Softlayer::Entity
         SERVICE = 'SoftLayer_Billing_Invoice_Next'
 
         def get_excel(document_create_date = nil)
@@ -19,7 +19,7 @@ module Softlayer
           request(:get_pdf_detailed, Softlayer::Base64Binary, message)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
         end

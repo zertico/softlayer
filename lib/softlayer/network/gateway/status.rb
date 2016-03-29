@@ -1,7 +1,7 @@
 module Softlayer
   class Network
     class Gateway
-      class Status < Softlayer::Model
+      class Status < Softlayer::Entity
         SERVICE = 'SoftLayer_Network_Gateway_Status'
         attr_accessor :description
         attr_accessor :id
@@ -12,7 +12,7 @@ module Softlayer
           request(:get_object, Softlayer::Network::Gateway::Status)
         end
 
-        class Representer < Representable::Decorator
+        class Representer < Softlayer::Entity::Representer
           include Representable::Hash
           include Representable::Coercion
           property :description, type: String

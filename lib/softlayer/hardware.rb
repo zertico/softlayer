@@ -1,5 +1,5 @@
 module Softlayer
-  class Hardware < Softlayer::Model
+  class Hardware < Softlayer::Entity
     SERVICE = 'SoftLayer_Hardware'
     autoload :Attribute, 'softlayer/hardware/attribute'
     autoload :Chassis, 'softlayer/hardware/chassis'
@@ -930,7 +930,7 @@ module Softlayer
       request(:set_tags, Boolean, message)
     end
 
-    class Representer < Representable::Decorator
+    class Representer < Softlayer::Entity::Representer
       include Representable::Hash
       include Representable::Coercion
       property :account_id, type: Integer

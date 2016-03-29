@@ -1,6 +1,6 @@
 module Softlayer
   class Network
-    class Gateway < Softlayer::Model
+    class Gateway < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_Gateway'
       autoload :Member, 'softlayer/network/gateway/member'
       autoload :Status, 'softlayer/network/gateway/status'
@@ -100,7 +100,7 @@ module Softlayer
         request(:unbypass_vlans, nil, message)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :account_id, type: Integer

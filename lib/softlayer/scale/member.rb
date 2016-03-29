@@ -1,6 +1,6 @@
 module Softlayer
   module Scale
-    class Member < Softlayer::Model
+    class Member < Softlayer::Entity
       SERVICE = 'SoftLayer_Scale_Member'
       autoload :Virtual, 'softlayer/scale/member/virtual'
       attr_accessor :create_date
@@ -20,7 +20,7 @@ module Softlayer
         request(:get_scale_group, Softlayer::Scale::Group)
       end
 
-      class Representer < Representable::Decorator
+      class Representer < Softlayer::Entity::Representer
         include Representable::Hash
         include Representable::Coercion
         property :create_date, type: DateTime

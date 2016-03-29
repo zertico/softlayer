@@ -4,7 +4,7 @@ module Softlayer
       module Block
         class Device
           class Template
-            class Group < Softlayer::Model
+            class Group < Softlayer::Entity
               SERVICE = 'SoftLayer_Virtual_Guest_Block_Device_Template_Group'
               autoload :Accounts, 'softlayer/virtual/guest/block/device/template/group/accounts'
               autoload :Status, 'softlayer/virtual/guest/block/device/template/group/status'
@@ -191,7 +191,7 @@ module Softlayer
                 request(:set_tags, Boolean, message)
               end
 
-              class Representer < Representable::Decorator
+              class Representer < Softlayer::Entity::Representer
                 include Representable::Hash
                 include Representable::Coercion
                 property :account_id, type: Integer

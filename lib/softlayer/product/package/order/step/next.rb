@@ -3,13 +3,13 @@ module Softlayer
     class Package
       module Order
         class Step
-          class Next < Softlayer::Model
+          class Next < Softlayer::Entity
             attr_accessor :id
             attr_accessor :next_order_step_id
             attr_accessor :order_step_id
             attr_accessor :step
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :id, type: Integer

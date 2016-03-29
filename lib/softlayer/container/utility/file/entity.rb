@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Utility
       module File
-        class Entity < Softlayer::Model
+        class Entity < Softlayer::Entity
           attr_accessor :content
           attr_accessor :content_type
           attr_accessor :create_date
@@ -16,7 +16,7 @@ module Softlayer
           attr_accessor :type
           attr_accessor :version
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :content_type, type: String

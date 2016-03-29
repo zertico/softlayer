@@ -2,7 +2,7 @@ module Softlayer
   module User
     class Customer
       module Security
-        class Answer < Softlayer::Model
+        class Answer < Softlayer::Entity
           SERVICE = 'SoftLayer_User_Customer_Security_Answer'
           attr_accessor :answer
           attr_accessor :id
@@ -23,7 +23,7 @@ module Softlayer
             request(:get_user, Softlayer::User::Customer)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :answer, type: String

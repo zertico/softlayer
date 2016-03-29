@@ -3,12 +3,12 @@ module Softlayer
     module User
       module Customer
         module Portal
-          class Token < Softlayer::Model
+          class Token < Softlayer::Entity
             attr_accessor :hash
             attr_accessor :user
             attr_accessor :user_id
 
-            class Representer < Representable::Decorator
+            class Representer < Softlayer::Entity::Representer
               include Representable::Hash
               include Representable::Coercion
               property :hash, type: String

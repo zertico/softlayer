@@ -2,7 +2,7 @@ module Softlayer
   class Network
     class Subnet
       class Registration
-        class Details < Softlayer::Model
+        class Details < Softlayer::Entity
           SERVICE = 'SoftLayer_Network_Subnet_Registration_Details'
           attr_accessor :create_date
           attr_accessor :detail_id
@@ -33,7 +33,7 @@ module Softlayer
             request(:get_registration, Softlayer::Network::Subnet::Registration)
           end
 
-          class Representer < Representable::Decorator
+          class Representer < Softlayer::Entity::Representer
             include Representable::Hash
             include Representable::Coercion
             property :create_date, type: DateTime
