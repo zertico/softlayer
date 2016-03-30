@@ -39,13 +39,98 @@ Softlayer::Account.get_master_user
 Softlayer::Account.get_virtual_guests
 ```
 
+### Masks
+
+If you'd like to get relational properties, you can use masks to get more information in a single request, lets consider the example below
+
+Consider an example where we want to get datacenters, but not only their `id`, `longName`, `name` and `statusId` (default returned information), we want to get their groups too, instead of make one request per datacenter, we can get all the information with just one request
+
+```ruby
+location_object_mask = "mask[groups]"
+Softlayer::Location::Datacenter.mask(location_object_mask).get_datacenters
+```
+
+And _voilá_, we have all datacenters and its groups, pretty neat and cool, no?
+
+Check the [Object Mask Article](https://sldn.softlayer.com/article/object-masks) on SoftLayer for more information.
+
+### Filters
+
+Lets consider an example where we want to find a datacenter based on its name, we can create a filter and do the request as following:
+
+```ruby
+location_object_filter = {
+  'name': {'operation': 'wdc01'}
+}
+Softlayer::Location::Datacenter.filter(location_object_filter)
+```
+
+For an `in` operation you must add the array inside an array because the client known issue, let's search for wdc01 and wdc04
+
+```ruby
+location_object_filter = {
+    'name': {
+      'operation': "in",
+      "options": [[
+        {
+          "name": "data",
+          "value": [['wdc01', 'wdc04']]
+        }
+      ]]
+    }
+}
+Softlayer::Location::Datacenter.filter(location_object_filter).get_datacenters
+```
+
+Check the [Object Filter Article](https://sldn.softlayer.com/article/object-filters) on SoftLayer for more information and operations.
+
+### Limits
+
+To use limits, let's search for groups of a datacenter, first we get a specific one
+
+```ruby
+location_object_filter = {
+    'name': {'operation': 'sao01'}
+}
+sao01 = Softlayer::Location::Datacenter.filter(location_object_filter).get_datacenters.first
+```
+
+Then we can call the limits passing first the quantity, then the offset
+
+```ruby
+sao01.limit(2, 0).get_groups # 2 elements, offset 0 (page 1)
+sao01.limit(2, 2).get_groups # 2 elements, offset 2 (page 2)
+sao01.limit(2, 4).get_groups # 2 elements, offset 4 (page 3)
+```
+
+### Complex Operations
+
+What if you want to use a mask, filtering just what you want and limiting the request, can we do this? Sure!
+
+```ruby
+location_object_filter = {
+    'name': {
+      'operation': "in",
+      "options": [[
+        {
+          "name": "data",
+          "value": [['wdc01', 'wdc04']]
+        }
+      ]]
+    }
+}
+location_object_mask = "mask[groups]"
+Softlayer::Location::Datacenter.filter(location_object_filter).mask(location_object_mask).limit(1, 0).get_datacenters
+```
+
+ps: `getDatacenters` message does not accept a `resultLimit` header, just using on the call above as an example, to check if the message accepts a `resultLimit` or not you need to check the WSDL file for the service.
+
 ## README Driven Development
 
-* Improve support for masks and filters (parse a better format instead of using ruby hash)
+* No feature on roadmap
 
 ## Known Issues
 
-* Mask and Filter not working correctly with `SoftLayer_Account` calls
 * Using Savon master until a version is released containing the commit to support rpc/encoded XML
 * Actually arrays are being wrongly mapped, so when we pass an argument containing **one** array, we need to pass inside another array, like this:
 
@@ -61,7 +146,7 @@ parameters = {
 }
 ```
 
-hope to fix this _really soon_
+hope to fix this _really soon_, in the meanwhile you can check the progress of this bug on this [issue](https://github.com/savonrb/savon/issues/752)
 
 ## Development
 
