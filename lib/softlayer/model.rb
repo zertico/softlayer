@@ -129,6 +129,10 @@ module Softlayer #:nodoc:
       (self.class.to_s+"::Representer").constantize.new(self).to_hash
     end
 
+    def service_name
+      self.class.service_name
+    end
+
     def init_headers
       raise Exception.new('You need to set the ID on object') if id.nil?
       {
