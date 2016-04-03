@@ -8,7 +8,7 @@ module Softlayer
 
       def to_header
         {
-          "tns:#{@service_name}ObjectFilter" => @filter
+          "tns:#{@service_name}ObjectFilter" => @filter.to_softlayer_filter
         }
       end
     end

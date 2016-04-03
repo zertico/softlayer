@@ -162,6 +162,18 @@ class Array
     end
     [ary]
   end
+
+  def to_softlayer_filter
+    ary = []
+    self.each do |item|
+      if item.respond_to?(:to_softlayer_filter)
+        ary << item.to_softlayer_filter
+      else
+        ary << item
+      end
+    end
+    [ary]
+  end
 end
 
 class Hash
@@ -190,5 +202,12 @@ class Hash
       end
     end
     hash.camelize_keys!
+  end
+
+  def to_softlayer_filter
+    keys.each do |k|
+      self[k] = self[k].to_softlayer_filter if self[k].respond_to?(:to_softlayer_filter)
+    end
+    self
   end
 end
