@@ -20,8 +20,8 @@ module Softlayer
             attr_accessor :configuration_templates
             attr_accessor :item
 
-            def self.create_object(template_object = nil)
-              message = {template_object: template_object}
+            # template_object
+            def self.create_object(message)
               request(:create_object, Softlayer::Monitoring::Agent::Configuration::Template::Group, message)
             end
 
@@ -29,8 +29,8 @@ module Softlayer
               request(:delete_object, Boolean)
             end
 
-            def edit_object(template_object = nil)
-              message = {template_object: template_object}
+            # template_object
+            def edit_object(message)
               request(:edit_object, Boolean, message)
             end
 
@@ -42,8 +42,8 @@ module Softlayer
               request(:get_all_objects, Array[Softlayer::Monitoring::Agent::Configuration::Template::Group])
             end
 
-            def self.get_configuration_groups(package_id = nil)
-              message = {package_id: package_id}
+            # package_id
+            def self.get_configuration_groups(message)
               request(:get_configuration_groups, Array[Softlayer::Monitoring::Agent::Configuration::Template::Group], message)
             end
 

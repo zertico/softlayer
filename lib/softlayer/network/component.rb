@@ -59,8 +59,8 @@ module Softlayer
       attr_accessor :uplink_component
       attr_accessor :uplink_duplex_mode
 
-      def add_network_vlan_trunks(network_vlans = nil)
-        message = {network_vlans: network_vlans}
+      # network_vlans
+      def add_network_vlan_trunks(message)
         request(:add_network_vlan_trunks, Array[Softlayer::Network::Vlan], message)
       end
 
@@ -72,8 +72,8 @@ module Softlayer
         request(:get_active_command, Softlayer::Hardware::Component::RemoteManagement::Command::Request)
       end
 
-      def get_custom_bandwidth_data_by_date(graph_data = nil)
-        message = {graph_data: graph_data}
+      # graph_data
+      def get_custom_bandwidth_data_by_date(message)
         request(:get_custom_bandwidth_data_by_date, Softlayer::Container::Graph, message)
       end
 
@@ -189,8 +189,8 @@ module Softlayer
         request(:get_uplink_duplex_mode, Softlayer::Network::Component::Duplex::Mode)
       end
 
-      def remove_network_vlan_trunks(network_vlans = nil)
-        message = {network_vlans: network_vlans}
+      # network_vlans
+      def remove_network_vlan_trunks(message)
         request(:remove_network_vlan_trunks, Array[Softlayer::Network::Vlan], message)
       end
 

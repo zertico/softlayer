@@ -34,6 +34,7 @@ module Softlayer #:nodoc:
 
       def request(method, return_object, message = {}, headers = {})
         headers.merge! request_headers
+        message = process_message(message)
 
         return Softlayer::Mock.request(service_name, method, return_object, message, headers) if Softlayer.mock?
         parse(Softlayer::Client.new(service_name).call(method, message, headers), return_object, method)
@@ -117,6 +118,13 @@ module Softlayer #:nodoc:
         return nil unless requests.has_key?(klass)
         requests[klass]
       end
+
+      def process_message(message)
+        message.each_pair do |k, v|
+          message[k] = v.to_softlayer if v.respond_to?(:to_softlayer)
+        end
+        message
+      end
     end
 
     def request(method, return_object, message = {})
@@ -131,6 +139,21 @@ module Softlayer #:nodoc:
 
     def service_name
       self.class.service_name
+    end
+
+    def to_softlayer
+      hash = "#{self.class}::Representer".constantize.new(self).to_hash
+      self.instance_variables.each do |var|
+        value = self.instance_variable_get(var)
+        unless value.nil?
+          if value.respond_to?(:to_softlayer)
+            hash[var.to_s.tr('@', '').camelize(:lower)] = value.to_softlayer
+          else
+            hash[var.to_s.tr('@', '').camelize(:lower)] = value
+          end
+        end
+      end
+      hash.camelize_keys!
     end
 
     def init_headers

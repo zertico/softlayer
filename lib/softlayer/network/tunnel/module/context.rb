@@ -43,18 +43,18 @@ module Softlayer
           attr_accessor :static_route_subnets
           attr_accessor :transaction_history
 
-          def add_customer_subnet_to_network_tunnel(subnet_id = nil)
-            message = {subnet_id: subnet_id}
+          # subnet_id
+          def add_customer_subnet_to_network_tunnel(message)
             request(:add_customer_subnet_to_network_tunnel, Boolean, message)
           end
 
-          def add_private_subnet_to_network_tunnel(subnet_id = nil)
-            message = {subnet_id: subnet_id}
+          # subnet_id
+          def add_private_subnet_to_network_tunnel(message)
             request(:add_private_subnet_to_network_tunnel, Boolean, message)
           end
 
-          def add_service_subnet_to_network_tunnel(subnet_id = nil)
-            message = {subnet_id: subnet_id}
+          # subnet_id
+          def add_service_subnet_to_network_tunnel(message)
             request(:add_service_subnet_to_network_tunnel, Boolean, message)
           end
 
@@ -62,18 +62,18 @@ module Softlayer
             request(:apply_configurations_to_device, Boolean)
           end
 
-          def create_address_translation(translation = nil)
-            message = {translation: translation}
+          # translation
+          def create_address_translation(message)
             request(:create_address_translation, Softlayer::Network::Tunnel::Module::Context::Address::Translation, message)
           end
 
-          def create_address_translations(translations = nil)
-            message = {translations: translations}
+          # translations
+          def create_address_translations(message)
             request(:create_address_translations, Array[Softlayer::Network::Tunnel::Module::Context::Address::Translation], message)
           end
 
-          def delete_address_translation(translation_id = nil)
-            message = {translation_id: translation_id}
+          # translation_id
+          def delete_address_translation(message)
             request(:delete_address_translation, Boolean, message)
           end
 
@@ -85,18 +85,18 @@ module Softlayer
             request(:download_parameter_configurations, Softlayer::Container::Utility::File::Entity)
           end
 
-          def edit_address_translation(translation = nil)
-            message = {translation: translation}
+          # translation
+          def edit_address_translation(message)
             request(:edit_address_translation, Softlayer::Network::Tunnel::Module::Context::Address::Translation, message)
           end
 
-          def edit_address_translations(translations = nil)
-            message = {translations: translations}
+          # translations
+          def edit_address_translations(message)
             request(:edit_address_translations, Array[Softlayer::Network::Tunnel::Module::Context::Address::Translation], message)
           end
 
-          def edit_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def edit_object(message)
             request(:edit_object, Boolean, message)
           end
 
@@ -192,18 +192,18 @@ module Softlayer
             request(:get_transaction_history, Array[Softlayer::Provisioning::Version1::Transaction])
           end
 
-          def remove_customer_subnet_from_network_tunnel(subnet_id = nil)
-            message = {subnet_id: subnet_id}
+          # subnet_id
+          def remove_customer_subnet_from_network_tunnel(message)
             request(:remove_customer_subnet_from_network_tunnel, Boolean, message)
           end
 
-          def remove_private_subnet_from_network_tunnel(subnet_id = nil)
-            message = {subnet_id: subnet_id}
+          # subnet_id
+          def remove_private_subnet_from_network_tunnel(message)
             request(:remove_private_subnet_from_network_tunnel, Boolean, message)
           end
 
-          def remove_service_subnet_from_network_tunnel(subnet_id = nil)
-            message = {subnet_id: subnet_id}
+          # subnet_id
+          def remove_service_subnet_from_network_tunnel(message)
             request(:remove_service_subnet_from_network_tunnel, Boolean, message)
           end
 

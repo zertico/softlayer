@@ -17,38 +17,54 @@ module Softlayer
         attr_accessor :start_date
         attr_accessor :type
 
-        def get_backbone_bandwidth_graph(graph_title = nil)
-          message = {graph_title: graph_title}
+        # graph_title
+        def get_backbone_bandwidth_graph(message)
           request(:get_backbone_bandwidth_graph, Softlayer::Container::Bandwidth::GraphOutputs, message)
         end
 
-        def get_bandwidth_data(start_date_time = nil, end_date_time = nil, type = nil, rollup_seconds = nil)
-          message = {start_date_time: start_date_time, end_date_time: end_date_time, type: type, rollup_seconds: rollup_seconds}
+        # start_date_time
+        # end_date_time
+        # type
+        # rollup_seconds
+        def get_bandwidth_data(message)
           request(:get_bandwidth_data, Array[Softlayer::Metric::Tracking::Object::Data], message)
         end
 
-        def get_bandwidth_graph(start_date_time = nil, end_date_time = nil, graph_type = nil, font_size = nil, graph_width = nil, graph_height = nil, do_not_show_time_zone = nil)
-          message = {start_date_time: start_date_time, end_date_time: end_date_time, graph_type: graph_type, font_size: font_size, graph_width: graph_width, graph_height: graph_height, do_not_show_time_zone: do_not_show_time_zone}
+        # start_date_time
+        # end_date_time
+        # graph_type
+        # font_size
+        # graph_width
+        # graph_height
+        # do_not_show_time_zone
+        def get_bandwidth_graph(message)
           request(:get_bandwidth_graph, Softlayer::Container::Bandwidth::GraphOutputs, message)
         end
 
-        def get_bandwidth_total(start_date_time = nil, end_date_time = nil, direction = nil, type = nil)
-          message = {start_date_time: start_date_time, end_date_time: end_date_time, direction: direction, type: type}
+        # start_date_time
+        # end_date_time
+        # direction
+        # type
+        def get_bandwidth_total(message)
           request(:get_bandwidth_total, BigDecimal, message)
         end
 
-        def get_custom_graph_data(graph_container = nil)
-          message = {graph_container: graph_container}
+        # graph_container
+        def get_custom_graph_data(message)
           request(:get_custom_graph_data, Softlayer::Container::Graph, message)
         end
 
-        def get_details_for_date_range(start_date = nil, end_date = nil, graph_type = nil)
-          message = {start_date: start_date, end_date: end_date, graph_type: graph_type}
+        # start_date
+        # end_date
+        # graph_type
+        def get_details_for_date_range(message)
           request(:get_details_for_date_range, Array[Softlayer::Container::Metric::Tracking::Object::Details], message)
         end
 
-        def get_graph(start_date_time = nil, end_date_time = nil, graph_type = nil)
-          message = {start_date_time: start_date_time, end_date_time: end_date_time, graph_type: graph_type}
+        # start_date_time
+        # end_date_time
+        # graph_type
+        def get_graph(message)
           request(:get_graph, Softlayer::Container::Bandwidth::GraphOutputs, message)
         end
 
@@ -60,13 +76,16 @@ module Softlayer
           request(:get_object, Softlayer::Metric::Tracking::Object)
         end
 
-        def get_summary(graph_type = nil)
-          message = {graph_type: graph_type}
+        # graph_type
+        def get_summary(message)
           request(:get_summary, Softlayer::Container::Metric::Tracking::Object::Summary, message)
         end
 
-        def get_summary_data(start_date_time = nil, end_date_time = nil, valid_types = nil, summary_period = nil)
-          message = {start_date_time: start_date_time, end_date_time: end_date_time, valid_types: valid_types, summary_period: summary_period}
+        # start_date_time
+        # end_date_time
+        # valid_types
+        # summary_period
+        def get_summary_data(message)
           request(:get_summary_data, Array[Softlayer::Metric::Tracking::Object::Data], message)
         end
 

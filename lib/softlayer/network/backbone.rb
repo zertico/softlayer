@@ -17,8 +17,8 @@ module Softlayer
         request(:get_all_backbones, Array[Softlayer::Network::Backbone])
       end
 
-      def self.get_backbones_for_location_name(location_name = nil)
-        message = {location_name: location_name}
+      # location_name
+      def self.get_backbones_for_location_name(message)
         request(:get_backbones_for_location_name, Array[Softlayer::Network::Backbone], message)
       end
 

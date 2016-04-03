@@ -14,18 +14,19 @@ module Softlayer
           request(:cancel_request, nil)
         end
 
-        def disable_locked_account(disable_date = nil)
-          message = {disable_date: disable_date}
+        # disable_date
+        def disable_locked_account(message)
           request(:disable_locked_account, Integer, message)
         end
 
-        def self.disconnect_compute(account_id = nil, disconnect_date = nil)
-          message = {account_id: account_id, disconnect_date: disconnect_date}
+        # account_id
+        # disconnect_date
+        def self.disconnect_compute(message)
           request(:disconnect_compute, Integer, message)
         end
 
-        def self.get_account_history(account_id = nil)
-          message = {account_id: account_id}
+        # account_id
+        def self.get_account_history(message)
           request(:get_account_history, Array[Softlayer::Account::Lockdown::Request], message)
         end
 
@@ -33,8 +34,8 @@ module Softlayer
           request(:get_object, Softlayer::Account::Lockdown::Request)
         end
 
-        def reconnect_compute(reconnect_date = nil)
-          message = {reconnect_date: reconnect_date}
+        # reconnect_date
+        def reconnect_compute(message)
           request(:reconnect_compute, Integer, message)
         end
 

@@ -18,8 +18,8 @@ module Softlayer
               request(:delete_object, Boolean)
             end
 
-            def disable(reason = nil)
-              message = {reason: reason}
+            # reason
+            def disable(message)
               request(:disable, Boolean, message)
             end
 
@@ -59,8 +59,8 @@ module Softlayer
               request(:get_vendor, Softlayer::User::External::Binding::Vendor)
             end
 
-            def update_note(text = nil)
-              message = {text: text}
+            # text
+            def update_note(message)
               request(:update_note, Boolean, message)
             end
 

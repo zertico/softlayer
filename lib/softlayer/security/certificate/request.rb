@@ -30,8 +30,8 @@ module Softlayer
           request(:get_account, Softlayer::Account)
         end
 
-        def self.get_administrator_email_domains(common_name = nil)
-          message = {common_name: common_name}
+        # common_name
+        def self.get_administrator_email_domains(message)
           request(:get_administrator_email_domains, Array[String], message)
         end
 
@@ -59,8 +59,8 @@ module Softlayer
           request(:get_previous_order_data, Softlayer::Container::Product::Order::Security::Certificate)
         end
 
-        def self.get_ssl_certificate_requests(account_id = nil)
-          message = {account_id: account_id}
+        # account_id
+        def self.get_ssl_certificate_requests(message)
           request(:get_ssl_certificate_requests, Array[Softlayer::Security::Certificate::Request], message)
         end
 
@@ -68,13 +68,16 @@ module Softlayer
           request(:get_status, Softlayer::Security::Certificate::Request::Status)
         end
 
-        def resend_email(email_type = nil)
-          message = {email_type: email_type}
+        # email_type
+        def resend_email(message)
           request(:resend_email, Boolean, message)
         end
 
-        def self.validate_csr(csr = nil, validity_months = nil, item_id = nil, server_type = nil)
-          message = {csr: csr, validity_months: validity_months, item_id: item_id, server_type: server_type}
+        # csr
+        # validity_months
+        # item_id
+        # server_type
+        def self.validate_csr(message)
           request(:validate_csr, Boolean, message)
         end
 

@@ -38,8 +38,8 @@ module Softlayer
           request(:get_billing_items, Array[Softlayer::Billing::Item])
         end
 
-        def self.get_computing_categories(reset_cache = nil)
-          message = {reset_cache: reset_cache}
+        # reset_cache
+        def self.get_computing_categories(message)
           request(:get_computing_categories, Array[Softlayer::Product::Item::Category], message)
         end
 
@@ -87,8 +87,8 @@ module Softlayer
           request(:get_subnet_categories, Array[Softlayer::Product::Item::Category])
         end
 
-        def self.get_top_level_categories(reset_cache = nil)
-          message = {reset_cache: reset_cache}
+        # reset_cache
+        def self.get_top_level_categories(message)
           request(:get_top_level_categories, Array[Softlayer::Product::Item::Category], message)
         end
 

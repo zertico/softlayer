@@ -11,13 +11,13 @@ module Softlayer
           attr_accessor :default_preference
           attr_accessor :notification_user_subscriber
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Boolean, message)
           end
 
-          def self.edit_objects(template_objects = nil)
-            message = {template_objects: template_objects}
+          # template_objects
+          def self.edit_objects(message)
             request(:edit_objects, Boolean, message)
           end
 

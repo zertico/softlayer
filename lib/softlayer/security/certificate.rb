@@ -22,8 +22,8 @@ module Softlayer
       attr_accessor :associated_service_count
       attr_accessor :load_balancer_virtual_ip_addresses
 
-      def self.create_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.create_object(message)
         request(:create_object, Softlayer::Security::Certificate, message)
       end
 
@@ -31,13 +31,13 @@ module Softlayer
         request(:delete_object, Boolean)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
-      def self.find_by_common_name(common_name = nil)
-        message = {common_name: common_name}
+      # common_name
+      def self.find_by_common_name(message)
         request(:find_by_common_name, Array[Softlayer::Security::Certificate], message)
       end
 

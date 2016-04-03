@@ -8,8 +8,8 @@ module Softlayer
             attr_accessor :binding_status
             attr_accessor :pin_length
 
-            def check_phone_validation_result(token = nil)
-              message = {token: token}
+            # token
+            def check_phone_validation_result(message)
               request(:check_phone_validation_result, Boolean, message)
             end
 
@@ -17,8 +17,8 @@ module Softlayer
               request(:delete_object, Boolean)
             end
 
-            def disable(reason = nil)
-              message = {reason: reason}
+            # reason
+            def disable(message)
               request(:disable, Boolean, message)
             end
 
@@ -30,8 +30,8 @@ module Softlayer
               request(:get_all_authentication_modes, Array[String])
             end
 
-            def get_all_authentication_pin_modes(authentication_mode_key_name = nil)
-              message = {authentication_mode_key_name: authentication_mode_key_name}
+            # authentication_mode_key_name
+            def get_all_authentication_pin_modes(message)
               request(:get_all_authentication_pin_modes, Array[String], message)
             end
 
@@ -83,23 +83,23 @@ module Softlayer
               request(:get_vendor, Softlayer::User::External::Binding::Vendor)
             end
 
-            def request_phone_validation(phone_data = nil)
-              message = {phone_data: phone_data}
+            # phone_data
+            def request_phone_validation(message)
               request(:request_phone_validation, String, message)
             end
 
-            def update_authentication_mode(mode = nil)
-              message = {mode: mode}
+            # mode
+            def update_authentication_mode(message)
               request(:update_authentication_mode, Boolean, message)
             end
 
-            def update_note(text = nil)
-              message = {text: text}
+            # text
+            def update_note(message)
               request(:update_note, Boolean, message)
             end
 
-            def update_phone(phone_data = nil)
-              message = {phone_data: phone_data}
+            # phone_data
+            def update_phone(message)
               request(:update_phone, Boolean, message)
             end
 

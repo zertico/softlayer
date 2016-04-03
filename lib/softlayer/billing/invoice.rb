@@ -56,8 +56,8 @@ module Softlayer
       attr_accessor :tax_message
       attr_accessor :tax_type
 
-      def self.email_invoices(options = nil)
-        message = {options: options}
+      # options
+      def self.email_invoices(message)
         request(:email_invoices, nil, message)
       end
 

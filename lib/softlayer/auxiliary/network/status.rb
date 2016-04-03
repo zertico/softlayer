@@ -4,8 +4,8 @@ module Softlayer
       class Status < Softlayer::Entity
         SERVICE = 'SoftLayer_Auxiliary_Network_Status'
 
-        def self.get_network_status(target = nil)
-          message = {target: target}
+        # target
+        def self.get_network_status(message)
           request(:get_network_status, Array[Softlayer::Container::Auxiliary::Network::Status::Reading], message)
         end
 

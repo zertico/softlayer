@@ -17,8 +17,8 @@ module Softlayer
       attr_accessor :username
       attr_accessor :user
 
-      def self.get_all_event_names(object_name = nil)
-        message = {object_name: object_name}
+      # object_name
+      def self.get_all_event_names(message)
         request(:get_all_event_names, Array[String], message)
       end
 

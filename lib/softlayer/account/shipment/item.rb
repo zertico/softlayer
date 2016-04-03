@@ -14,8 +14,8 @@ module Softlayer
         attr_accessor :shipment
         attr_accessor :shipment_item_type
 
-        def edit_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def edit_object(message)
           request(:edit_object, Boolean, message)
         end
 

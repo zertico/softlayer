@@ -82,78 +82,106 @@ module Softlayer
     attr_accessor :tag_references
     attr_accessor :updates
 
-    def add_assigned_agent(agent_id = nil)
-      message = {agent_id: agent_id}
+    # agent_id
+    def add_assigned_agent(message)
       request(:add_assigned_agent, nil, message)
     end
 
-    def add_attached_additional_emails(emails = nil)
-      message = {emails: emails}
+    # emails
+    def add_attached_additional_emails(message)
       request(:add_attached_additional_emails, Boolean, message)
     end
 
-    def add_attached_file(file_attachment = nil)
-      message = {file_attachment: file_attachment}
+    # file_attachment
+    def add_attached_file(message)
       request(:add_attached_file, Softlayer::Ticket::Attachment::File, message)
     end
 
-    def add_attached_hardware(hardware_id = nil)
-      message = {hardware_id: hardware_id}
+    # hardware_id
+    def add_attached_hardware(message)
       request(:add_attached_hardware, Softlayer::Ticket::Attachment::Hardware, message)
     end
 
-    def add_attached_virtual_guest(guest_id = nil)
-      message = {guest_id: guest_id}
+    # guest_id
+    def add_attached_virtual_guest(message)
       request(:add_attached_virtual_guest, Softlayer::Ticket::Attachment::Virtual::Guest, message)
     end
 
-    def add_final_comments(final_comments = nil)
-      message = {final_comments: final_comments}
+    # final_comments
+    def add_final_comments(message)
       request(:add_final_comments, Boolean, message)
     end
 
-    def add_scheduled_alert(activation_time = nil)
-      message = {activation_time: activation_time}
+    # activation_time
+    def add_scheduled_alert(message)
       request(:add_scheduled_alert, nil, message)
     end
 
-    def add_scheduled_auto_close(activation_time = nil)
-      message = {activation_time: activation_time}
+    # activation_time
+    def add_scheduled_auto_close(message)
       request(:add_scheduled_auto_close, nil, message)
     end
 
-    def add_update(template_object = nil, attached_files = nil)
-      message = {template_object: template_object, attached_files: attached_files}
+    # template_object
+    # attached_files
+    def add_update(message)
       request(:add_update, Array[Softlayer::Ticket::Update], message)
     end
 
-    def self.create_administrative_ticket(template_object = nil, contents = nil, attachment_id = nil, root_password = nil, control_panel_password = nil, access_port = nil, attached_files = nil, attachment_type = nil)
-      message = {template_object: template_object, contents: contents, attachment_id: attachment_id, root_password: root_password, control_panel_password: control_panel_password, access_port: access_port, attached_files: attached_files, attachment_type: attachment_type}
+    # template_object
+    # contents
+    # attachment_id
+    # root_password
+    # control_panel_password
+    # access_port
+    # attached_files
+    # attachment_type
+    def self.create_administrative_ticket(message)
       request(:create_administrative_ticket, Softlayer::Ticket, message)
     end
 
-    def self.create_cancel_server_ticket(attachment_id = nil, reason = nil, content = nil, cancel_associated_items = nil, attachment_type = nil)
-      message = {attachment_id: attachment_id, reason: reason, content: content, cancel_associated_items: cancel_associated_items, attachment_type: attachment_type}
+    # attachment_id
+    # reason
+    # content
+    # cancel_associated_items
+    # attachment_type
+    def self.create_cancel_server_ticket(message)
       request(:create_cancel_server_ticket, Softlayer::Ticket, message)
     end
 
-    def self.create_cancel_service_ticket(attachment_id = nil, reason = nil, content = nil, attachment_type = nil)
-      message = {attachment_id: attachment_id, reason: reason, content: content, attachment_type: attachment_type}
+    # attachment_id
+    # reason
+    # content
+    # attachment_type
+    def self.create_cancel_service_ticket(message)
       request(:create_cancel_service_ticket, Softlayer::Ticket, message)
     end
 
-    def self.create_standard_ticket(template_object = nil, contents = nil, attachment_id = nil, root_password = nil, control_panel_password = nil, access_port = nil, attached_files = nil, attachment_type = nil)
-      message = {template_object: template_object, contents: contents, attachment_id: attachment_id, root_password: root_password, control_panel_password: control_panel_password, access_port: access_port, attached_files: attached_files, attachment_type: attachment_type}
+    # template_object
+    # contents
+    # attachment_id
+    # root_password
+    # control_panel_password
+    # access_port
+    # attached_files
+    # attachment_type
+    def self.create_standard_ticket(message)
       request(:create_standard_ticket, Softlayer::Ticket, message)
     end
 
-    def self.create_upgrade_ticket(attachment_id = nil, generic_upgrade = nil, upgrade_maintenance_window = nil, details = nil, attachment_type = nil)
-      message = {attachment_id: attachment_id, generic_upgrade: generic_upgrade, upgrade_maintenance_window: upgrade_maintenance_window, details: details, attachment_type: attachment_type}
+    # attachment_id
+    # generic_upgrade
+    # upgrade_maintenance_window
+    # details
+    # attachment_type
+    def self.create_upgrade_ticket(message)
       request(:create_upgrade_ticket, Softlayer::Ticket, message)
     end
 
-    def edit(template_object = nil, contents = nil, attached_files = nil)
-      message = {template_object: template_object, contents: contents, attached_files: attached_files}
+    # template_object
+    # contents
+    # attached_files
+    def edit(message)
       request(:edit, Softlayer::Ticket, message)
     end
 
@@ -181,8 +209,8 @@ module Softlayer
       request(:get_attached_additional_emails, Array[Softlayer::User::Customer::AdditionalEmail])
     end
 
-    def get_attached_file(attachment_id = nil)
-      message = {attachment_id: attachment_id}
+    # attachment_id
+    def get_attached_file(message)
       request(:get_attached_file, Softlayer::Base64Binary, message)
     end
 
@@ -294,8 +322,8 @@ module Softlayer
       request(:get_tag_references, Array[Softlayer::Tag::Reference])
     end
 
-    def self.get_tickets_closed_since_date(close_date = nil)
-      message = {close_date: close_date}
+    # close_date
+    def self.get_tickets_closed_since_date(message)
       request(:get_tickets_closed_since_date, Array[Softlayer::Ticket], message)
     end
 
@@ -307,23 +335,23 @@ module Softlayer
       request(:mark_as_viewed, nil)
     end
 
-    def remove_assigned_agent(agent_id = nil)
-      message = {agent_id: agent_id}
+    # agent_id
+    def remove_assigned_agent(message)
       request(:remove_assigned_agent, nil, message)
     end
 
-    def remove_attached_additional_emails(emails = nil)
-      message = {emails: emails}
+    # emails
+    def remove_attached_additional_emails(message)
       request(:remove_attached_additional_emails, Boolean, message)
     end
 
-    def remove_attached_hardware(hardware_id = nil)
-      message = {hardware_id: hardware_id}
+    # hardware_id
+    def remove_attached_hardware(message)
       request(:remove_attached_hardware, Boolean, message)
     end
 
-    def remove_attached_virtual_guest(guest_id = nil)
-      message = {guest_id: guest_id}
+    # guest_id
+    def remove_attached_virtual_guest(message)
       request(:remove_attached_virtual_guest, Boolean, message)
     end
 
@@ -335,8 +363,8 @@ module Softlayer
       request(:remove_scheduled_auto_close, nil)
     end
 
-    def set_tags(tags = nil)
-      message = {tags: tags}
+    # tags
+    def set_tags(message)
       request(:set_tags, Boolean, message)
     end
 
@@ -344,8 +372,8 @@ module Softlayer
       request(:survey_eligible, Boolean)
     end
 
-    def update_attached_additional_emails(emails = nil)
-      message = {emails: emails}
+    # emails
+    def update_attached_additional_emails(message)
       request(:update_attached_additional_emails, Boolean, message)
     end
 

@@ -456,18 +456,19 @@ module Softlayer
     attr_accessor :virtual_storage_archive_repositories
     attr_accessor :virtual_storage_public_repositories
 
-    def self.activate_partner(account_id = nil, hash_code = nil)
-      message = {account_id: account_id, hash_code: hash_code}
+    # account_id
+    # hash_code
+    def self.activate_partner(message)
       request(:activate_partner, Softlayer::Account, message)
     end
 
-    def self.add_ach_information(ach_information = nil)
-      message = {ach_information: ach_information}
+    # ach_information
+    def self.add_ach_information(message)
       request(:add_ach_information, Boolean, message)
     end
 
-    def self.add_referral_partner_payment_option(payment_option = nil)
-      message = {payment_option: payment_option}
+    # payment_option
+    def self.add_referral_partner_payment_option(message)
       request(:add_referral_partner_payment_option, Boolean, message)
     end
 
@@ -475,13 +476,15 @@ module Softlayer
       request(:are_vdr_updates_blocked_for_billing, Boolean)
     end
 
-    def self.cancel_pay_pal_transaction(token = nil, payer_id = nil)
-      message = {token: token, payer_id: payer_id}
+    # token
+    # payer_id
+    def self.cancel_pay_pal_transaction(message)
       request(:cancel_pay_pal_transaction, Boolean, message)
     end
 
-    def self.complete_pay_pal_transaction(token = nil, payer_id = nil)
-      message = {token: token, payer_id: payer_id}
+    # token
+    # payer_id
+    def self.complete_pay_pal_transaction(message)
       request(:complete_pay_pal_transaction, String, message)
     end
 
@@ -497,8 +500,10 @@ module Softlayer
       request(:get_abuse_emails, Array[Softlayer::Account::AbuseEmail])
     end
 
-    def self.get_account_backup_history(start_date = nil, end_date = nil, backup_status = nil)
-      message = {start_date: start_date, end_date: end_date, backup_status: backup_status}
+    # start_date
+    # end_date
+    # backup_status
+    def self.get_account_backup_history(message)
       request(:get_account_backup_history, Array[Softlayer::Container::Network::Storage::Evault::WebCc::JobDetails], message)
     end
 
@@ -518,8 +523,8 @@ module Softlayer
       request(:get_account_status, Softlayer::Account::Status)
     end
 
-    def self.get_account_trait_value(key_name = nil)
-      message = {key_name: key_name}
+    # key_name
+    def self.get_account_trait_value(message)
       request(:get_account_trait_value, String, message)
     end
 
@@ -567,8 +572,8 @@ module Softlayer
       request(:get_active_packages, Array[Softlayer::Product::Package])
     end
 
-    def self.get_active_packages_by_attribute(attribute_key_name = nil)
-      message = {attribute_key_name: attribute_key_name}
+    # attribute_key_name
+    def self.get_active_packages_by_attribute(message)
       request(:get_active_packages_by_attribute, Array[Softlayer::Product::Package], message)
     end
 
@@ -596,8 +601,9 @@ module Softlayer
       request(:get_affiliate_id, String)
     end
 
-    def self.get_aggregated_uptime_graph(start_date = nil, end_date = nil)
-      message = {start_date: start_date, end_date: end_date}
+    # start_date
+    # end_date
+    def self.get_aggregated_uptime_graph(message)
       request(:get_aggregated_uptime_graph, Softlayer::Container::Graph, message)
     end
 
@@ -637,8 +643,8 @@ module Softlayer
       request(:get_application_delivery_controllers, Array[Softlayer::Network::Application::Delivery::Controller])
     end
 
-    def self.get_attribute_by_type(attribute_type = nil)
-      message = {attribute_type: attribute_type}
+    # attribute_type
+    def self.get_attribute_by_type(message)
       request(:get_attribute_by_type, Softlayer::Account::Attribute, message)
     end
 
@@ -654,13 +660,15 @@ module Softlayer
       request(:get_available_public_network_vlans, Array[Softlayer::Network::Vlan])
     end
 
-    def self.get_average_archive_usage_metric_data_by_date(start_date_time = nil, end_date_time = nil)
-      message = {start_date_time: start_date_time, end_date_time: end_date_time}
+    # start_date_time
+    # end_date_time
+    def self.get_average_archive_usage_metric_data_by_date(message)
       request(:get_average_archive_usage_metric_data_by_date, Float, message)
     end
 
-    def self.get_average_public_usage_metric_data_by_date(start_date_time = nil, end_date_time = nil)
-      message = {start_date_time: start_date_time, end_date_time: end_date_time}
+    # start_date_time
+    # end_date_time
+    def self.get_average_public_usage_metric_data_by_date(message)
       request(:get_average_public_usage_metric_data_by_date, Float, message)
     end
 
@@ -728,13 +736,13 @@ module Softlayer
       request(:get_closed_tickets, Array[Softlayer::Ticket])
     end
 
-    def self.get_current_backup_statistics_graph(detailed_graph = nil)
-      message = {detailed_graph: detailed_graph}
+    # detailed_graph
+    def self.get_current_backup_statistics_graph(message)
       request(:get_current_backup_statistics_graph, Softlayer::Container::Account::Graph::Outputs, message)
     end
 
-    def self.get_current_ticket_statistics_graph(detailed_graph = nil)
-      message = {detailed_graph: detailed_graph}
+    # detailed_graph
+    def self.get_current_ticket_statistics_graph(message)
       request(:get_current_ticket_statistics_graph, Softlayer::Container::Account::Graph::Outputs, message)
     end
 
@@ -750,23 +758,27 @@ module Softlayer
       request(:get_disable_payment_processing_flag, Boolean)
     end
 
-    def self.get_disk_usage_metric_data_by_date(start_date_time = nil, end_date_time = nil)
-      message = {start_date_time: start_date_time, end_date_time: end_date_time}
+    # start_date_time
+    # end_date_time
+    def self.get_disk_usage_metric_data_by_date(message)
       request(:get_disk_usage_metric_data_by_date, Array[Softlayer::Metric::Tracking::Object::Data], message)
     end
 
-    def self.get_disk_usage_metric_data_from_legacy_by_date(start_date_time = nil, end_date_time = nil)
-      message = {start_date_time: start_date_time, end_date_time: end_date_time}
+    # start_date_time
+    # end_date_time
+    def self.get_disk_usage_metric_data_from_legacy_by_date(message)
       request(:get_disk_usage_metric_data_from_legacy_by_date, Array[Softlayer::Metric::Tracking::Object::Data], message)
     end
 
-    def self.get_disk_usage_metric_data_from_metric_tracking_object_system_by_date(start_date_time = nil, end_date_time = nil)
-      message = {start_date_time: start_date_time, end_date_time: end_date_time}
+    # start_date_time
+    # end_date_time
+    def self.get_disk_usage_metric_data_from_metric_tracking_object_system_by_date(message)
       request(:get_disk_usage_metric_data_from_metric_tracking_object_system_by_date, Array[Softlayer::Metric::Tracking::Object::Data], message)
     end
 
-    def self.get_disk_usage_metric_image_by_date(start_date_time = nil, end_date_time = nil)
-      message = {start_date_time: start_date_time, end_date_time: end_date_time}
+    # start_date_time
+    # end_date_time
+    def self.get_disk_usage_metric_image_by_date(message)
       request(:get_disk_usage_metric_image_by_date, Softlayer::Container::Account::Graph::Outputs, message)
     end
 
@@ -798,8 +810,11 @@ module Softlayer
       request(:get_evault_network_storage, Array[Softlayer::Network::Storage])
     end
 
-    def self.get_executive_summary_pdf(pdf_type = nil, historical_type = nil, start_date = nil, end_date = nil)
-      message = {pdf_type: pdf_type, historical_type: historical_type, start_date: start_date, end_date: end_date}
+    # pdf_type
+    # historical_type
+    # start_date
+    # end_date
+    def self.get_executive_summary_pdf(message)
       request(:get_executive_summary_pdf, Softlayer::Base64Binary, message)
     end
 
@@ -815,8 +830,8 @@ module Softlayer
       request(:get_flexible_credit_enrollments, Array[Softlayer::FlexibleCredit::Enrollment])
     end
 
-    def self.get_flexible_credit_program_info(for_next_bill_cycle = nil)
-      message = {for_next_bill_cycle: for_next_bill_cycle}
+    # for_next_bill_cycle
+    def self.get_flexible_credit_program_info(message)
       request(:get_flexible_credit_program_info, Softlayer::Container::Account::Discount::Program, message)
     end
 
@@ -904,23 +919,27 @@ module Softlayer
       request(:get_has_r1soft_bare_metal_restore_plugin_flag, Boolean)
     end
 
-    def self.get_historical_backup_graph(start_date = nil, end_date = nil)
-      message = {start_date: start_date, end_date: end_date}
+    # start_date
+    # end_date
+    def self.get_historical_backup_graph(message)
       request(:get_historical_backup_graph, Softlayer::Container::Account::Graph::Outputs, message)
     end
 
-    def self.get_historical_bandwidth_graph(start_date = nil, end_date = nil)
-      message = {start_date: start_date, end_date: end_date}
+    # start_date
+    # end_date
+    def self.get_historical_bandwidth_graph(message)
       request(:get_historical_bandwidth_graph, Softlayer::Container::Account::Graph::Outputs, message)
     end
 
-    def self.get_historical_ticket_graph(start_date = nil, end_date = nil)
-      message = {start_date: start_date, end_date: end_date}
+    # start_date
+    # end_date
+    def self.get_historical_ticket_graph(message)
       request(:get_historical_ticket_graph, Softlayer::Container::Account::Graph::Outputs, message)
     end
 
-    def self.get_historical_uptime_graph(start_date = nil, end_date = nil)
-      message = {start_date: start_date, end_date: end_date}
+    # start_date
+    # end_date
+    def self.get_historical_uptime_graph(message)
       request(:get_historical_uptime_graph, Softlayer::Container::Account::Graph::Outputs, message)
     end
 
@@ -956,8 +975,9 @@ module Softlayer
       request(:get_iscsi_network_storage, Array[Softlayer::Network::Storage])
     end
 
-    def self.get_largest_allowed_subnet_cidr(number_of_hosts = nil, location_id = nil)
-      message = {number_of_hosts: number_of_hosts, location_id: location_id}
+    # number_of_hosts
+    # location_id
+    def self.get_largest_allowed_subnet_cidr(message)
       request(:get_largest_allowed_subnet_cidr, Integer, message)
     end
 
@@ -1117,8 +1137,8 @@ module Softlayer
       request(:get_next_billing_public_allotment_hardware_bandwidth_details, Array[Softlayer::Network::Bandwidth::Version1::Allotment])
     end
 
-    def self.get_next_invoice_excel(document_create_date = nil)
-      message = {document_create_date: document_create_date}
+    # document_create_date
+    def self.get_next_invoice_excel(message)
       request(:get_next_invoice_excel, Softlayer::Base64Binary, message)
     end
 
@@ -1126,13 +1146,13 @@ module Softlayer
       request(:get_next_invoice_incubator_exempt_total, Float)
     end
 
-    def self.get_next_invoice_pdf(document_create_date = nil)
-      message = {document_create_date: document_create_date}
+    # document_create_date
+    def self.get_next_invoice_pdf(message)
       request(:get_next_invoice_pdf, Softlayer::Base64Binary, message)
     end
 
-    def self.get_next_invoice_pdf_detailed(document_create_date = nil)
-      message = {document_create_date: document_create_date}
+    # document_create_date
+    def self.get_next_invoice_pdf_detailed(message)
       request(:get_next_invoice_pdf_detailed, Softlayer::Base64Binary, message)
     end
 
@@ -1480,8 +1500,8 @@ module Softlayer
       request(:get_tags, Array[Softlayer::Tag])
     end
 
-    def self.get_tech_incubator_program_info(for_next_bill_cycle = nil)
-      message = {for_next_bill_cycle: for_next_bill_cycle}
+    # for_next_bill_cycle
+    def self.get_tech_incubator_program_info(message)
       request(:get_tech_incubator_program_info, Softlayer::Container::Account::Discount::Program, message)
     end
 
@@ -1593,8 +1613,8 @@ module Softlayer
       request(:get_windows_update_status, Array[Softlayer::Container::Utility::Microsoft::Windows::UpdateServices::Status])
     end
 
-    def self.has_attribute(attribute_type = nil)
-      message = {attribute_type: attribute_type}
+    # attribute_type
+    def self.has_attribute(message)
       request(:has_attribute, Boolean, message)
     end
 
@@ -1610,23 +1630,28 @@ module Softlayer
       request(:remove_alternate_credit_card, Boolean)
     end
 
-    def self.request_credit_card_change(request = nil, vat_id = nil, payment_role_name = nil, only_change_nickname_flag = nil)
-      message = {request: request, vat_id: vat_id, payment_role_name: payment_role_name, only_change_nickname_flag: only_change_nickname_flag}
+    # request
+    # vat_id
+    # payment_role_name
+    # only_change_nickname_flag
+    def self.request_credit_card_change(message)
       request(:request_credit_card_change, Softlayer::Billing::Payment::Card::ChangeRequest, message)
     end
 
-    def self.request_manual_payment(request = nil)
-      message = {request: request}
+    # request
+    def self.request_manual_payment(message)
       request(:request_manual_payment, Softlayer::Billing::Payment::Card::ManualPayment, message)
     end
 
-    def self.request_manual_payment_using_credit_card_on_file(amount = nil, pay_with_alternate_card_flag = nil, note = nil)
-      message = {amount: amount, pay_with_alternate_card_flag: pay_with_alternate_card_flag, note: note}
+    # amount
+    # pay_with_alternate_card_flag
+    # note
+    def self.request_manual_payment_using_credit_card_on_file(message)
       request(:request_manual_payment_using_credit_card_on_file, Softlayer::Billing::Payment::Card::ManualPayment, message)
     end
 
-    def self.set_vlan_span(enabled = nil)
-      message = {enabled: enabled}
+    # enabled
+    def self.set_vlan_span(message)
       request(:set_vlan_span, Boolean, message)
     end
 
@@ -1634,18 +1659,19 @@ module Softlayer
       request(:swap_credit_cards, Boolean)
     end
 
-    def self.update_vpn_users_for_resource(object_id = nil, object_type = nil)
-      message = {object_id: object_id, object_type: object_type}
+    # object_id
+    # object_type
+    def self.update_vpn_users_for_resource(message)
       request(:update_vpn_users_for_resource, Boolean, message)
     end
 
-    def self.validate(account = nil)
-      message = {account: account}
+    # account
+    def self.validate(message)
       request(:validate, Array[String], message)
     end
 
-    def self.validate_manual_payment_amount(amount = nil)
-      message = {amount: amount}
+    # amount
+    def self.validate_manual_payment_amount(message)
       request(:validate_manual_payment_amount, Boolean, message)
     end
 

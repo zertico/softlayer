@@ -19,8 +19,8 @@ module Softlayer
             request(:get_object, Softlayer::Auxiliary::Shipping::Courier::Type)
           end
 
-          def self.get_type_by_key_name(key_name = nil)
-            message = {key_name: key_name}
+          # key_name
+          def self.get_type_by_key_name(message)
             request(:get_type_by_key_name, Softlayer::Auxiliary::Shipping::Courier::Type, message)
           end
 

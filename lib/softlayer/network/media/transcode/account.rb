@@ -16,8 +16,8 @@ module Softlayer
             request(:create_transcode_account, Boolean)
           end
 
-          def create_transcode_job(new_job = nil)
-            message = {new_job: new_job}
+          # new_job
+          def create_transcode_job(message)
             request(:create_transcode_job, Boolean, message)
           end
 
@@ -25,13 +25,14 @@ module Softlayer
             request(:get_account, Softlayer::Account)
           end
 
-          def get_directory_information(directory_name = nil, extension_filter = nil)
-            message = {directory_name: directory_name, extension_filter: extension_filter}
+          # directory_name
+          # extension_filter
+          def get_directory_information(message)
             request(:get_directory_information, Array[Softlayer::Container::Network::Directory::Listing], message)
           end
 
-          def get_file_detail(source = nil)
-            message = {source: source}
+          # source
+          def get_file_detail(message)
             request(:get_file_detail, Softlayer::Container::Network::Media::Information, message)
           end
 
@@ -43,8 +44,8 @@ module Softlayer
             request(:get_object, Softlayer::Network::Media::Transcode::Account)
           end
 
-          def get_preset_detail(guid = nil)
-            message = {guid: guid}
+          # guid
+          def get_preset_detail(message)
             request(:get_preset_detail, Array[Softlayer::Container::Network::Media::Transcode::Preset::Element], message)
           end
 

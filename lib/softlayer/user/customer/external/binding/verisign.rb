@@ -14,8 +14,8 @@ module Softlayer
               request(:delete_object, Boolean)
             end
 
-            def disable(reason = nil)
-              message = {reason: reason}
+            # reason
+            def disable(message)
               request(:disable, Boolean, message)
             end
 
@@ -71,18 +71,19 @@ module Softlayer
               request(:get_vendor, Softlayer::User::External::Binding::Vendor)
             end
 
-            def unlock(security_code = nil)
-              message = {security_code: security_code}
+            # security_code
+            def unlock(message)
               request(:unlock, Boolean, message)
             end
 
-            def update_note(text = nil)
-              message = {text: text}
+            # text
+            def update_note(message)
               request(:update_note, Boolean, message)
             end
 
-            def self.validate_credential_id(user_id = nil, external_id = nil)
-              message = {user_id: user_id, external_id: external_id}
+            # user_id
+            # external_id
+            def self.validate_credential_id(message)
               request(:validate_credential_id, Boolean, message)
             end
 

@@ -72,8 +72,9 @@ module Softlayer
           request(:get_virtual_guest, Softlayer::Virtual::Guest)
         end
 
-        def update_maintenance_window(maintenance_start_time = nil, maintenance_window_id = nil)
-          message = {maintenance_start_time: maintenance_start_time, maintenance_window_id: maintenance_window_id}
+        # maintenance_start_time
+        # maintenance_window_id
+        def update_maintenance_window(message)
           request(:update_maintenance_window, Boolean, message)
         end
 

@@ -28,8 +28,8 @@ module Softlayer
       attr_accessor :parent
       attr_accessor :user
 
-      def copy_template(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def copy_template(message)
         request(:copy_template, Softlayer::Configuration::Template, message)
       end
 
@@ -37,8 +37,8 @@ module Softlayer
         request(:delete_object, Boolean)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -86,8 +86,8 @@ module Softlayer
         request(:get_user, Softlayer::User::Customer)
       end
 
-      def update_default_values(configuration_values = nil)
-        message = {configuration_values: configuration_values}
+      # configuration_values
+      def update_default_values(message)
         request(:update_default_values, Boolean, message)
       end
 

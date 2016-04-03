@@ -12,23 +12,23 @@ module Softlayer
               attr_accessor :configuration_template
               attr_accessor :template_group
 
-              def self.create_object(template_object = nil)
-                message = {template_object: template_object}
+              # template_object
+              def self.create_object(message)
                 request(:create_object, Softlayer::Monitoring::Agent::Configuration::Template::Group::Reference, message)
               end
 
-              def self.create_objects(template_objects = nil)
-                message = {template_objects: template_objects}
+              # template_objects
+              def self.create_objects(message)
                 request(:create_objects, Boolean, message)
               end
 
-              def edit_object(template_object = nil)
-                message = {template_object: template_object}
+              # template_object
+              def edit_object(message)
                 request(:edit_object, Boolean, message)
               end
 
-              def self.edit_objects(template_objects = nil)
-                message = {template_objects: template_objects}
+              # template_objects
+              def self.edit_objects(message)
                 request(:edit_objects, Boolean, message)
               end
 

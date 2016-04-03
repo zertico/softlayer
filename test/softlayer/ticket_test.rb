@@ -45,7 +45,7 @@ describe Softlayer::Ticket, :vcr do
       root_password = 'TestPassword'
       control_panel_password = 'TestPassword'
       access_port = '22'
-      ticket = Softlayer::Ticket.create_administrative_ticket(template_object, contents, nil, root_password, control_panel_password,access_port)
+      ticket = Softlayer::Ticket.create_administrative_ticket(template_object: template_object, contents: contents, root_password: root_password, control_panel_password: control_panel_password, access_port: access_port)
       ticket.must_be_kind_of Softlayer::Ticket
       tickets = Softlayer::Account.get_tickets
       tickets[0].id.must_equal 12345

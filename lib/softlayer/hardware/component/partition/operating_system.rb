@@ -14,8 +14,8 @@ module Softlayer
             request(:get_all_objects, Array[Softlayer::Hardware::Component::Partition::OperatingSystem])
           end
 
-          def self.get_by_description(description = nil)
-            message = {description: description}
+          # description
+          def self.get_by_description(message)
             request(:get_by_description, Softlayer::Hardware::Component::Partition::OperatingSystem, message)
           end
 

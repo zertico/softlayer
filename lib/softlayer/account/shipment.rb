@@ -35,8 +35,8 @@ module Softlayer
       attr_accessor :tracking_data
       attr_accessor :type
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -48,8 +48,8 @@ module Softlayer
         request(:get_all_couriers, Array[Softlayer::Auxiliary::Shipping::Courier])
       end
 
-      def self.get_all_couriers_by_type(courier_type_key_name = nil)
-        message = {courier_type_key_name: courier_type_key_name}
+      # courier_type_key_name
+      def self.get_all_couriers_by_type(message)
         request(:get_all_couriers_by_type, Array[Softlayer::Auxiliary::Shipping::Courier], message)
       end
 

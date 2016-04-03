@@ -11,13 +11,13 @@ module Softlayer
           attr_accessor :referrer
           attr_accessor :token
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Network::ContentDelivery::Authentication::Token, message)
           end
 
-          def self.get_all_managed_tokens(cdn_account_id = nil)
-            message = {cdn_account_id: cdn_account_id}
+          # cdn_account_id
+          def self.get_all_managed_tokens(message)
             request(:get_all_managed_tokens, Array[Softlayer::Network::ContentDelivery::Authentication::Token], message)
           end
 
@@ -25,28 +25,34 @@ module Softlayer
             request(:get_object, Softlayer::Network::ContentDelivery::Authentication::Token)
           end
 
-          def self.get_timed_token(cdn_account_id = nil, token_life = nil, client_ip = nil, referrer = nil, media_type = nil)
-            message = {cdn_account_id: cdn_account_id, token_life: token_life, client_ip: client_ip, referrer: referrer, media_type: media_type}
+          # cdn_account_id
+          # token_life
+          # client_ip
+          # referrer
+          # media_type
+          def self.get_timed_token(message)
             request(:get_timed_token, String, message)
           end
 
-          def self.revoke_all_managed_tokens(cdn_account_id = nil)
-            message = {cdn_account_id: cdn_account_id}
+          # cdn_account_id
+          def self.revoke_all_managed_tokens(message)
             request(:revoke_all_managed_tokens, Boolean, message)
           end
 
-          def self.revoke_all_tokens(cdn_account_id = nil, media_type = nil)
-            message = {cdn_account_id: cdn_account_id, media_type: media_type}
+          # cdn_account_id
+          # media_type
+          def self.revoke_all_tokens(message)
             request(:revoke_all_tokens, Boolean, message)
           end
 
-          def self.revoke_managed_token(cdn_account_id = nil, token = nil)
-            message = {cdn_account_id: cdn_account_id, token: token}
+          # cdn_account_id
+          # token
+          def self.revoke_managed_token(message)
             request(:revoke_managed_token, Boolean, message)
           end
 
-          def self.revoke_managed_tokens(template_objects = nil)
-            message = {template_objects: template_objects}
+          # template_objects
+          def self.revoke_managed_tokens(message)
             request(:revoke_managed_tokens, Boolean, message)
           end
 

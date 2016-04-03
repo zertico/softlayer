@@ -53,8 +53,14 @@ module Softlayer
           request(:get_virtual_guest, Softlayer::Virtual::Guest)
         end
 
-        def update_hips_policies(new_ips_mode = nil, new_ips_protection = nil, new_firewall_mode = nil, new_firewall_ruleset = nil, new_application_mode = nil, new_application_ruleset = nil, new_enforcement_policy = nil)
-          message = {new_ips_mode: new_ips_mode, new_ips_protection: new_ips_protection, new_firewall_mode: new_firewall_mode, new_firewall_ruleset: new_firewall_ruleset, new_application_mode: new_application_mode, new_application_ruleset: new_application_ruleset, new_enforcement_policy: new_enforcement_policy}
+        # new_ips_mode
+        # new_ips_protection
+        # new_firewall_mode
+        # new_firewall_ruleset
+        # new_application_mode
+        # new_application_ruleset
+        # new_enforcement_policy
+        def update_hips_policies(message)
           request(:update_hips_policies, Boolean, message)
         end
 

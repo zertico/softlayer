@@ -29,8 +29,9 @@ module Softlayer
           request(:get_archive_disk_usage_rate_per_gb, Float)
         end
 
-        def get_average_usage_metric_data_by_date(start_date_time = nil, end_date_time = nil)
-          message = {start_date_time: start_date_time, end_date_time: end_date_time}
+        # start_date_time
+        # end_date_time
+        def get_average_usage_metric_data_by_date(message)
           request(:get_average_usage_metric_data_by_date, Float, message)
         end
 
@@ -74,13 +75,15 @@ module Softlayer
           request(:get_type, Softlayer::Virtual::Storage::Repository::Type)
         end
 
-        def get_usage_metric_data_by_date(start_date_time = nil, end_date_time = nil)
-          message = {start_date_time: start_date_time, end_date_time: end_date_time}
+        # start_date_time
+        # end_date_time
+        def get_usage_metric_data_by_date(message)
           request(:get_usage_metric_data_by_date, Array[Softlayer::Metric::Tracking::Object::Data], message)
         end
 
-        def get_usage_metric_image_by_date(start_date_time = nil, end_date_time = nil)
-          message = {start_date_time: start_date_time, end_date_time: end_date_time}
+        # start_date_time
+        # end_date_time
+        def get_usage_metric_image_by_date(message)
           request(:get_usage_metric_image_by_date, Softlayer::Container::Bandwidth::GraphOutputs, message)
         end
 

@@ -6,8 +6,8 @@ module Softlayer
         attr_accessor :hardware
         attr_accessor :hardware_id
 
-        def self.create_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def self.create_object(message)
           request(:create_object, Softlayer::Scale::Asset::Hardware, message)
         end
 

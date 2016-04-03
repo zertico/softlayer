@@ -25,8 +25,8 @@ module Softlayer
           request(:disable, Boolean)
         end
 
-        def edit_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def edit_object(message)
           request(:edit_object, Boolean, message)
         end
 

@@ -18,8 +18,8 @@ module Softlayer
             request(:get_object, Softlayer::Product::Package::Server::Option)
           end
 
-          def self.get_options(type = nil)
-            message = {type: type}
+          # type
+          def self.get_options(message)
             request(:get_options, Array[Softlayer::Product::Package::Server::Option], message)
           end
 

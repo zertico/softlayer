@@ -14,8 +14,8 @@ module Softlayer
           attr_accessor :priority
           attr_accessor :user_id
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Network::ContentDelivery::Authentication::Address, message)
           end
 
@@ -23,8 +23,8 @@ module Softlayer
             request(:delete_object, Boolean)
           end
 
-          def edit_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def edit_object(message)
             request(:edit_object, Boolean, message)
           end
 
@@ -32,8 +32,9 @@ module Softlayer
             request(:get_object, Softlayer::Network::ContentDelivery::Authentication::Address)
           end
 
-          def self.rearrange_authentication_ip(cdn_account_id = nil, template_objects = nil)
-            message = {cdn_account_id: cdn_account_id, template_objects: template_objects}
+          # cdn_account_id
+          # template_objects
+          def self.rearrange_authentication_ip(message)
             request(:rearrange_authentication_ip, Boolean, message)
           end
 

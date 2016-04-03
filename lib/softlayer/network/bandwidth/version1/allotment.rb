@@ -53,13 +53,13 @@ module Softlayer
           attr_accessor :total_bandwidth_allocated
           attr_accessor :virtual_guests
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Boolean, message)
           end
 
-          def edit_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def edit_object(message)
             request(:edit_object, Boolean, message)
           end
 
@@ -79,23 +79,28 @@ module Softlayer
             request(:get_average_daily_public_bandwidth_usage, Float)
           end
 
-          def get_backend_bandwidth_by_hour(date = nil)
-            message = {date: date}
+          # date
+          def get_backend_bandwidth_by_hour(message)
             request(:get_backend_bandwidth_by_hour, Array[Softlayer::Container::Network::Bandwidth::Version1::Usage], message)
           end
 
-          def get_backend_bandwidth_use(start_date = nil, end_date = nil)
-            message = {start_date: start_date, end_date: end_date}
+          # start_date
+          # end_date
+          def get_backend_bandwidth_use(message)
             request(:get_backend_bandwidth_use, Array[Softlayer::Network::Bandwidth::Version1::Usage::Detail], message)
           end
 
-          def get_bandwidth_for_date_range(start_date = nil, end_date = nil)
-            message = {start_date: start_date, end_date: end_date}
+          # start_date
+          # end_date
+          def get_bandwidth_for_date_range(message)
             request(:get_bandwidth_for_date_range, Array[Softlayer::Metric::Tracking::Object::Data], message)
           end
 
-          def get_bandwidth_image(network_type = nil, snapshot_range = nil, draw = nil, date_specified = nil)
-            message = {network_type: network_type, snapshot_range: snapshot_range, draw: draw, date_specified: date_specified}
+          # network_type
+          # snapshot_range
+          # draw
+          # date_specified
+          def get_bandwidth_image(message)
             request(:get_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
           end
 
@@ -127,8 +132,8 @@ module Softlayer
             request(:get_current_bandwidth_summary, Softlayer::Metric::Tracking::Object::Bandwidth::Summary)
           end
 
-          def get_custom_bandwidth_data_by_date(graph_data = nil)
-            message = {graph_data: graph_data}
+          # graph_data
+          def get_custom_bandwidth_data_by_date(message)
             request(:get_custom_bandwidth_data_by_date, Softlayer::Container::Graph, message)
           end
 
@@ -136,13 +141,14 @@ module Softlayer
             request(:get_details, Array[Softlayer::Network::Bandwidth::Version1::Allotment::Detail])
           end
 
-          def get_frontend_bandwidth_by_hour(date = nil)
-            message = {date: date}
+          # date
+          def get_frontend_bandwidth_by_hour(message)
             request(:get_frontend_bandwidth_by_hour, Array[Softlayer::Container::Network::Bandwidth::Version1::Usage], message)
           end
 
-          def get_frontend_bandwidth_use(start_date = nil, end_date = nil)
-            message = {start_date: start_date, end_date: end_date}
+          # start_date
+          # end_date
+          def get_frontend_bandwidth_use(message)
             request(:get_frontend_bandwidth_use, Array[Softlayer::Network::Bandwidth::Version1::Usage::Detail], message)
           end
 
@@ -214,13 +220,17 @@ module Softlayer
             request(:get_virtual_guests, Array[Softlayer::Virtual::Guest])
           end
 
-          def new_get_bandwidth_image(network_type = nil, snapshot_range = nil, draw = nil, date_specified = nil)
-            message = {network_type: network_type, snapshot_range: snapshot_range, draw: draw, date_specified: date_specified}
+          # network_type
+          # snapshot_range
+          # draw
+          # date_specified
+          def new_get_bandwidth_image(message)
             request(:new_get_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
           end
 
-          def self.reassign_servers(template_objects = nil, new_allotment_id = nil)
-            message = {template_objects: template_objects, new_allotment_id: new_allotment_id}
+          # template_objects
+          # new_allotment_id
+          def self.reassign_servers(message)
             request(:reassign_servers, Boolean, message)
           end
 
@@ -228,23 +238,34 @@ module Softlayer
             request(:request_vdr_cancellation, Boolean)
           end
 
-          def request_vdr_content_updates(hardware_to_add = nil, hardware_to_remove = nil, clouds_to_add = nil, clouds_to_remove = nil, optional_allotment_id = nil, adc_to_add = nil, adc_to_remove = nil)
-            message = {hardware_to_add: hardware_to_add, hardware_to_remove: hardware_to_remove, clouds_to_add: clouds_to_add, clouds_to_remove: clouds_to_remove, optional_allotment_id: optional_allotment_id, adc_to_add: adc_to_add, adc_to_remove: adc_to_remove}
+          # hardware_to_add
+          # hardware_to_remove
+          # clouds_to_add
+          # clouds_to_remove
+          # optional_allotment_id
+          # adc_to_add
+          # adc_to_remove
+          def request_vdr_content_updates(message)
             request(:request_vdr_content_updates, Boolean, message)
           end
 
-          def set_vdr_content(hardware = nil, bare_metal_servers = nil, virtual_server_instance = nil, adc = nil, optional_allotment_id = nil)
-            message = {hardware: hardware, bare_metal_servers: bare_metal_servers, virtual_server_instance: virtual_server_instance, adc: adc, optional_allotment_id: optional_allotment_id}
+          # hardware
+          # bare_metal_servers
+          # virtual_server_instance
+          # adc
+          # optional_allotment_id
+          def set_vdr_content(message)
             request(:set_vdr_content, Boolean, message)
           end
 
-          def self.unassign_servers(template_objects = nil)
-            message = {template_objects: template_objects}
+          # template_objects
+          def self.unassign_servers(message)
             request(:unassign_servers, Boolean, message)
           end
 
-          def void_pending_server_move(id = nil, type = nil)
-            message = {id: id, type: type}
+          # id
+          # type
+          def void_pending_server_move(message)
             request(:void_pending_server_move, Boolean, message)
           end
 

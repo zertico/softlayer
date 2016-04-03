@@ -2,8 +2,8 @@ module Softlayer
   class Search < Softlayer::Entity
     SERVICE = 'SoftLayer_Search'
 
-    def self.advanced_search(search_string = nil)
-      message = {search_string: search_string}
+    # search_string
+    def self.advanced_search(message)
       request(:advanced_search, Array[Softlayer::Container::Search::Result], message)
     end
 
@@ -11,8 +11,8 @@ module Softlayer
       request(:get_object_types, Array[Softlayer::Container::Search::ObjectType])
     end
 
-    def self.search(search_string = nil)
-      message = {search_string: search_string}
+    # search_string
+    def self.search(message)
       request(:search, Array[Softlayer::Container::Search::Result], message)
     end
 

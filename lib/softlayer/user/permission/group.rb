@@ -19,28 +19,30 @@ module Softlayer
         attr_accessor :roles
         attr_accessor :type
 
-        def add_action(action = nil)
-          message = {action: action}
+        # action
+        def add_action(message)
           request(:add_action, nil, message)
         end
 
-        def add_bulk_actions(actions = nil)
-          message = {actions: actions}
+        # actions
+        def add_bulk_actions(message)
           request(:add_bulk_actions, nil, message)
         end
 
-        def add_bulk_resource_objects(resource_objects = nil, resource_type_key_name = nil)
-          message = {resource_objects: resource_objects, resource_type_key_name: resource_type_key_name}
+        # resource_objects
+        # resource_type_key_name
+        def add_bulk_resource_objects(message)
           request(:add_bulk_resource_objects, Boolean, message)
         end
 
-        def add_resource_object(resource_object = nil, resource_type_key_name = nil)
-          message = {resource_object: resource_object, resource_type_key_name: resource_type_key_name}
+        # resource_object
+        # resource_type_key_name
+        def add_resource_object(message)
           request(:add_resource_object, Boolean, message)
         end
 
-        def self.create_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def self.create_object(message)
           request(:create_object, Softlayer::User::Permission::Group, message)
         end
 
@@ -48,8 +50,8 @@ module Softlayer
           request(:delete_object, Boolean)
         end
 
-        def edit_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def edit_object(message)
           request(:edit_object, Softlayer::User::Permission::Group, message)
         end
 
@@ -73,33 +75,35 @@ module Softlayer
           request(:get_type, Softlayer::User::Permission::Group::Type)
         end
 
-        def link_role(role = nil)
-          message = {role: role}
+        # role
+        def link_role(message)
           request(:link_role, nil, message)
         end
 
-        def remove_action(action = nil)
-          message = {action: action}
+        # action
+        def remove_action(message)
           request(:remove_action, nil, message)
         end
 
-        def remove_bulk_actions(actions = nil)
-          message = {actions: actions}
+        # actions
+        def remove_bulk_actions(message)
           request(:remove_bulk_actions, nil, message)
         end
 
-        def remove_bulk_resource_objects(resource_objects = nil, resource_type_key_name = nil)
-          message = {resource_objects: resource_objects, resource_type_key_name: resource_type_key_name}
+        # resource_objects
+        # resource_type_key_name
+        def remove_bulk_resource_objects(message)
           request(:remove_bulk_resource_objects, Boolean, message)
         end
 
-        def remove_resource_object(resource_object = nil, resource_type_key_name = nil)
-          message = {resource_object: resource_object, resource_type_key_name: resource_type_key_name}
+        # resource_object
+        # resource_type_key_name
+        def remove_resource_object(message)
           request(:remove_resource_object, Boolean, message)
         end
 
-        def unlink_role(role = nil)
-          message = {role: role}
+        # role
+        def unlink_role(message)
           request(:unlink_role, nil, message)
         end
 

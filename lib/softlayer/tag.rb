@@ -11,8 +11,8 @@ module Softlayer
     attr_accessor :account
     attr_accessor :references
 
-    def self.auto_complete(tag = nil)
-      message = {tag: tag}
+    # tag
+    def self.auto_complete(message)
       request(:auto_complete, Array[Softlayer::Tag], message)
     end
 
@@ -32,13 +32,15 @@ module Softlayer
       request(:get_references, Array[Softlayer::Tag::Reference])
     end
 
-    def self.get_tag_by_tag_name(tag_list = nil)
-      message = {tag_list: tag_list}
+    # tag_list
+    def self.get_tag_by_tag_name(message)
       request(:get_tag_by_tag_name, Array[Softlayer::Tag], message)
     end
 
-    def self.set_tags(tags = nil, key_name = nil, resource_table_id = nil)
-      message = {tags: tags, key_name: key_name, resource_table_id: resource_table_id}
+    # tags
+    # key_name
+    # resource_table_id
+    def self.set_tags(message)
       request(:set_tags, Boolean, message)
     end
 

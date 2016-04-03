@@ -10,8 +10,8 @@ module Softlayer
         attr_accessor :funding_currency
         attr_accessor :local_currency
 
-        def get_all_currency_exchange_rates(string_date = nil)
-          message = {string_date: string_date}
+        # string_date
+        def get_all_currency_exchange_rates(message)
           request(:get_all_currency_exchange_rates, Array[Softlayer::Billing::Currency::ExchangeRate], message)
         end
 
@@ -19,8 +19,10 @@ module Softlayer
           request(:get_currencies, Array[Softlayer::Billing::Currency])
         end
 
-        def self.get_exchange_rate(to = nil, from = nil, effective_date = nil)
-          message = {to: to, from: from, effective_date: effective_date}
+        # to
+        # from
+        # effective_date
+        def self.get_exchange_rate(message)
           request(:get_exchange_rate, Softlayer::Billing::Currency::ExchangeRate, message)
         end
 
@@ -36,8 +38,9 @@ module Softlayer
           request(:get_object, Softlayer::Billing::Currency::ExchangeRate)
         end
 
-        def get_price(price = nil, format_options = nil)
-          message = {price: price, format_options: format_options}
+        # price
+        # format_options
+        def get_price(message)
           request(:get_price, String, message)
         end
 

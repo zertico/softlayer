@@ -39,8 +39,8 @@ module Softlayer
             request(:get_object, Softlayer::Network::Subnet::IpAddress::Global)
           end
 
-          def route(new_end_point_ip_address = nil)
-            message = {new_end_point_ip_address: new_end_point_ip_address}
+          # new_end_point_ip_address
+          def route(message)
             request(:route, Softlayer::Provisioning::Version1::Transaction, message)
           end
 

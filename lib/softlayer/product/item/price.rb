@@ -123,8 +123,9 @@ module Softlayer
           request(:get_required_core_count, Integer)
         end
 
-        def self.get_usage_rate_prices(location = nil, items = nil)
-          message = {location: location, items: items}
+        # location
+        # items
+        def self.get_usage_rate_prices(message)
           request(:get_usage_rate_prices, Array[Softlayer::Product::Item::Price], message)
         end
 

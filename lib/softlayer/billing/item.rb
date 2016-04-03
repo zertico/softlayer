@@ -118,8 +118,11 @@ module Softlayer
       attr_accessor :upgrade_item
       attr_accessor :upgrade_items
 
-      def cancel_item(cancel_immediately = nil, cancel_associated_billing_items = nil, reason = nil, customer_note = nil)
-        message = {cancel_immediately: cancel_immediately, cancel_associated_billing_items: cancel_associated_billing_items, reason: reason, customer_note: customer_note}
+      # cancel_immediately
+      # cancel_associated_billing_items
+      # reason
+      # customer_note
+      def cancel_item(message)
         request(:cancel_item, Boolean, message)
       end
 
@@ -323,8 +326,9 @@ module Softlayer
         request(:get_provision_transaction, Softlayer::Provisioning::Version1::Transaction)
       end
 
-      def self.get_service_billing_items_by_category(category_code = nil, include_zero_recurring_fee = nil)
-        message = {category_code: category_code, include_zero_recurring_fee: include_zero_recurring_fee}
+      # category_code
+      # include_zero_recurring_fee
+      def self.get_service_billing_items_by_category(message)
         request(:get_service_billing_items_by_category, Array[Softlayer::Billing::Item], message)
       end
 
@@ -344,8 +348,8 @@ module Softlayer
         request(:remove_association_id, Boolean)
       end
 
-      def set_association_id(associated_id = nil)
-        message = {associated_id: associated_id}
+      # associated_id
+      def set_association_id(message)
         request(:set_association_id, Boolean, message)
       end
 

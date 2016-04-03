@@ -9,13 +9,13 @@ module Softlayer
             request(:clear_snooze_timer, Boolean)
           end
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Boolean, message)
           end
 
-          def edit_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def edit_object(message)
             request(:edit_object, Boolean, message)
           end
 
@@ -47,8 +47,9 @@ module Softlayer
             request(:get_user_record, Softlayer::User::Customer)
           end
 
-          def set_snooze_timer(start = nil, end = nil)
-            message = {start: start, end: end}
+          # start
+          # end
+          def set_snooze_timer(message)
             request(:set_snooze_timer, Boolean, message)
           end
 

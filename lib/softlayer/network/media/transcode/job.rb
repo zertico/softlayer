@@ -28,8 +28,8 @@ module Softlayer
           attr_accessor :transcode_status_name
           attr_accessor :user
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Network::Media::Transcode::Job, message)
           end
 

@@ -11,8 +11,8 @@ module Softlayer
         attr_accessor :network_vlan
         attr_accessor :scale_group
 
-        def self.create_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def self.create_object(message)
           request(:create_object, Softlayer::Scale::Network::Vlan, message)
         end
 

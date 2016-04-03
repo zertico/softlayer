@@ -23,33 +23,35 @@ module Softlayer
         attr_accessor :status
         attr_accessor :token_authentication_enabled_flag
 
-        def self.authenticate_resource_request(parameter = nil)
-          message = {parameter: parameter}
+        # parameter
+        def self.authenticate_resource_request(message)
           request(:authenticate_resource_request, Boolean, message)
         end
 
-        def create_directory(directory_name = nil)
-          message = {directory_name: directory_name}
+        # directory_name
+        def create_directory(message)
           request(:create_directory, Boolean, message)
         end
 
-        def create_ftp_user(new_password = nil)
-          message = {new_password: new_password}
+        # new_password
+        def create_ftp_user(message)
           request(:create_ftp_user, Boolean, message)
         end
 
-        def create_origin_pull_mapping(mapping_object = nil)
-          message = {mapping_object: mapping_object}
+        # mapping_object
+        def create_origin_pull_mapping(message)
           request(:create_origin_pull_mapping, Boolean, message)
         end
 
-        def create_origin_pull_rule(origin_domain = nil, cname_record = nil)
-          message = {origin_domain: origin_domain, cname_record: cname_record}
+        # origin_domain
+        # cname_record
+        def create_origin_pull_rule(message)
           request(:create_origin_pull_rule, Boolean, message)
         end
 
-        def create_token_authentication_directory(directory = nil, media_type = nil)
-          message = {directory: directory, media_type: media_type}
+        # directory
+        # media_type
+        def create_token_authentication_directory(message)
           request(:create_token_authentication_directory, Boolean, message)
         end
 
@@ -57,8 +59,8 @@ module Softlayer
           request(:delete_ftp_user, Boolean)
         end
 
-        def delete_origin_pull_rule(origin_mapping_id = nil)
-          message = {origin_mapping_id: origin_mapping_id}
+        # origin_mapping_id
+        def delete_origin_pull_rule(message)
           request(:delete_origin_pull_rule, Boolean, message)
         end
 
@@ -74,13 +76,17 @@ module Softlayer
           request(:get_account, Softlayer::Account)
         end
 
-        def get_all_pops_bandwidth_data(begin_date_time = nil, end_date_time = nil)
-          message = {begin_date_time: begin_date_time, end_date_time: end_date_time}
+        # begin_date_time
+        # end_date_time
+        def get_all_pops_bandwidth_data(message)
           request(:get_all_pops_bandwidth_data, Array[Softlayer::Container::Network::ContentDelivery::Bandwidth::PointsOfPresence::Summary], message)
         end
 
-        def get_all_pops_bandwidth_image(title = nil, begin_date_time = nil, end_date_time = nil, unit = nil)
-          message = {title: title, begin_date_time: begin_date_time, end_date_time: end_date_time, unit: unit}
+        # title
+        # begin_date_time
+        # end_date_time
+        # unit
+        def get_all_pops_bandwidth_image(message)
           request(:get_all_pops_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputsExtended, message)
         end
 
@@ -96,18 +102,23 @@ module Softlayer
           request(:get_authentication_service_endpoints, Array[Softlayer::Container::Network::ContentDelivery::Authentication::ServiceEndpoint])
         end
 
-        def get_bandwidth_data(begin_date_time = nil, end_date_time = nil)
-          message = {begin_date_time: begin_date_time, end_date_time: end_date_time}
+        # begin_date_time
+        # end_date_time
+        def get_bandwidth_data(message)
           request(:get_bandwidth_data, Array[Softlayer::Container::Network::ContentDelivery::Bandwidth::Summary], message)
         end
 
-        def get_bandwidth_data_with_types(begin_date_time = nil, end_date_time = nil, period = nil)
-          message = {begin_date_time: begin_date_time, end_date_time: end_date_time, period: period}
+        # begin_date_time
+        # end_date_time
+        # period
+        def get_bandwidth_data_with_types(message)
           request(:get_bandwidth_data_with_types, Array[Softlayer::Container::Network::ContentDelivery::Report::Usage], message)
         end
 
-        def get_bandwidth_image(title = nil, begin_date_time = nil, end_date_time = nil)
-          message = {title: title, begin_date_time: begin_date_time, end_date_time: end_date_time}
+        # title
+        # begin_date_time
+        # end_date_time
+        def get_bandwidth_image(message)
           request(:get_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputsExtended, message)
         end
 
@@ -127,8 +138,8 @@ module Softlayer
           request(:get_cdn_solution_name, String)
         end
 
-        def get_customer_origins(media_type = nil)
-          message = {media_type: media_type}
+        # media_type
+        def get_customer_origins(message)
           request(:get_customer_origins, Array[Softlayer::Container::Network::ContentDelivery::OriginPull::Mapping], message)
         end
 
@@ -136,18 +147,20 @@ module Softlayer
           request(:get_dependant_service_flag, Boolean)
         end
 
-        def get_directory_information(directory_name = nil)
-          message = {directory_name: directory_name}
+        # directory_name
+        def get_directory_information(message)
           request(:get_directory_information, Array[Softlayer::Container::Network::Directory::Listing], message)
         end
 
-        def get_disk_space_usage_data_by_date(begin_date_time = nil, end_date_time = nil)
-          message = {begin_date_time: begin_date_time, end_date_time: end_date_time}
+        # begin_date_time
+        # end_date_time
+        def get_disk_space_usage_data_by_date(message)
           request(:get_disk_space_usage_data_by_date, Array[Softlayer::Metric::Tracking::Object::Data], message)
         end
 
-        def get_disk_space_usage_image_by_date(begin_date_time = nil, end_date_time = nil)
-          message = {begin_date_time: begin_date_time, end_date_time: end_date_time}
+        # begin_date_time
+        # end_date_time
+        def get_disk_space_usage_image_by_date(message)
           request(:get_disk_space_usage_image_by_date, Softlayer::Container::Bandwidth::GraphOutputs, message)
         end
 
@@ -211,48 +224,52 @@ module Softlayer
           request(:get_vendor_ftp_attributes, Softlayer::Container::Network::Authentication::Data)
         end
 
-        def load_content(object_urls = nil)
-          message = {object_urls: object_urls}
+        # object_urls
+        def load_content(message)
           request(:load_content, Boolean, message)
         end
 
-        def manage_http_compression(enable_flag = nil, mime_types = nil)
-          message = {enable_flag: enable_flag, mime_types: mime_types}
+        # enable_flag
+        # mime_types
+        def manage_http_compression(message)
           request(:manage_http_compression, Boolean, message)
         end
 
-        def purge_cache(object_urls = nil)
-          message = {object_urls: object_urls}
+        # object_urls
+        def purge_cache(message)
           request(:purge_cache, Array[Softlayer::Container::Network::ContentDelivery::PurgeService::Response], message)
         end
 
-        def remove_authentication_directory(directory = nil, media_type = nil)
-          message = {directory: directory, media_type: media_type}
+        # directory
+        # media_type
+        def remove_authentication_directory(message)
           request(:remove_authentication_directory, Boolean, message)
         end
 
-        def remove_file(source = nil)
-          message = {source: source}
+        # source
+        def remove_file(message)
           request(:remove_file, Boolean, message)
         end
 
-        def set_authentication_service_endpoint(webservice_endpoint = nil, protocol = nil)
-          message = {webservice_endpoint: webservice_endpoint, protocol: protocol}
+        # webservice_endpoint
+        # protocol
+        def set_authentication_service_endpoint(message)
           request(:set_authentication_service_endpoint, Boolean, message)
         end
 
-        def set_ftp_password(new_password = nil)
-          message = {new_password: new_password}
+        # new_password
+        def set_ftp_password(message)
           request(:set_ftp_password, Boolean, message)
         end
 
-        def update_note(note = nil)
-          message = {note: note}
+        # note
+        def update_note(message)
           request(:update_note, Boolean, message)
         end
 
-        def upload_stream(source = nil, target = nil)
-          message = {source: source, target: target}
+        # source
+        # target
+        def upload_stream(message)
           request(:upload_stream, Boolean, message)
         end
 

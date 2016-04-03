@@ -130,98 +130,106 @@ module Softlayer
         request(:add_api_authentication_key, String)
       end
 
-      def add_bulk_hardware_access(hardware_ids = nil)
-        message = {hardware_ids: hardware_ids}
+      # hardware_ids
+      def add_bulk_hardware_access(message)
         request(:add_bulk_hardware_access, Boolean, message)
       end
 
-      def add_bulk_portal_permission(permissions = nil)
-        message = {permissions: permissions}
+      # permissions
+      def add_bulk_portal_permission(message)
         request(:add_bulk_portal_permission, Boolean, message)
       end
 
-      def add_bulk_roles(roles = nil)
-        message = {roles: roles}
+      # roles
+      def add_bulk_roles(message)
         request(:add_bulk_roles, nil, message)
       end
 
-      def add_bulk_virtual_guest_access(virtual_guest_ids = nil)
-        message = {virtual_guest_ids: virtual_guest_ids}
+      # virtual_guest_ids
+      def add_bulk_virtual_guest_access(message)
         request(:add_bulk_virtual_guest_access, Boolean, message)
       end
 
-      def add_external_binding(external_binding = nil)
-        message = {external_binding: external_binding}
+      # external_binding
+      def add_external_binding(message)
         request(:add_external_binding, Softlayer::User::Customer::External::Binding, message)
       end
 
-      def add_hardware_access(hardware_id = nil)
-        message = {hardware_id: hardware_id}
+      # hardware_id
+      def add_hardware_access(message)
         request(:add_hardware_access, Boolean, message)
       end
 
-      def add_notification_subscriber(notification_key_name = nil)
-        message = {notification_key_name: notification_key_name}
+      # notification_key_name
+      def add_notification_subscriber(message)
         request(:add_notification_subscriber, Boolean, message)
       end
 
-      def add_portal_permission(permission = nil)
-        message = {permission: permission}
+      # permission
+      def add_portal_permission(message)
         request(:add_portal_permission, Boolean, message)
       end
 
-      def add_role(role = nil)
-        message = {role: role}
+      # role
+      def add_role(message)
         request(:add_role, nil, message)
       end
 
-      def add_virtual_guest_access(virtual_guest_id = nil)
-        message = {virtual_guest_id: virtual_guest_id}
+      # virtual_guest_id
+      def add_virtual_guest_access(message)
         request(:add_virtual_guest_access, Boolean, message)
       end
 
-      def change_preference(preference_type_key_name = nil, value = nil)
-        message = {preference_type_key_name: preference_type_key_name, value: value}
+      # preference_type_key_name
+      # value
+      def change_preference(message)
         request(:change_preference, Array[Softlayer::User::Preference], message)
       end
 
-      def self.check_external_authentication_status(authentication_container = nil)
-        message = {authentication_container: authentication_container}
+      # authentication_container
+      def self.check_external_authentication_status(message)
         request(:check_external_authentication_status, Softlayer::Container::User::Customer::Portal::Token, message)
       end
 
-      def create_notification_subscriber(key_name = nil, resource_table_id = nil)
-        message = {key_name: key_name, resource_table_id: resource_table_id}
+      # key_name
+      # resource_table_id
+      def create_notification_subscriber(message)
         request(:create_notification_subscriber, Boolean, message)
       end
 
-      def self.create_object(template_object = nil, password = nil, vpn_password = nil)
-        message = {template_object: template_object, password: password, vpn_password: vpn_password}
+      # template_object
+      # password
+      # vpn_password
+      def self.create_object(message)
         request(:create_object, Softlayer::User::Customer, message)
       end
 
-      def create_subscriber_delivery_methods(notification_key_name = nil, delivery_method_key_names = nil)
-        message = {notification_key_name: notification_key_name, delivery_method_key_names: delivery_method_key_names}
+      # notification_key_name
+      # delivery_method_key_names
+      def create_subscriber_delivery_methods(message)
         request(:create_subscriber_delivery_methods, Boolean, message)
       end
 
-      def deactivate_notification_subscriber(key_name = nil, resource_table_id = nil)
-        message = {key_name: key_name, resource_table_id: resource_table_id}
+      # key_name
+      # resource_table_id
+      def deactivate_notification_subscriber(message)
         request(:deactivate_notification_subscriber, Boolean, message)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
-      def self.edit_objects(template_objects = nil)
-        message = {template_objects: template_objects}
+      # template_objects
+      def self.edit_objects(message)
         request(:edit_objects, Boolean, message)
       end
 
-      def find_user_preference(profile_name = nil, container_keyname = nil, preference_keyname = nil)
-        message = {profile_name: profile_name, container_keyname: container_keyname, preference_keyname: preference_keyname}
+      # profile_name
+      # container_keyname
+      # preference_keyname
+      def find_user_preference(message)
         request(:find_user_preference, Array[Softlayer::Layout::Profile], message)
       end
 
@@ -253,8 +261,8 @@ module Softlayer
         request(:get_api_authentication_keys, Array[Softlayer::User::Customer::ApiAuthentication])
       end
 
-      def get_authentication_token(token = nil)
-        message = {token: token}
+      # token
+      def get_authentication_token(message)
         request(:get_authentication_token, Softlayer::Container::User::Authentication::Token, message)
       end
 
@@ -270,8 +278,8 @@ module Softlayer
         request(:get_closed_tickets, Array[Softlayer::Ticket])
       end
 
-      def self.get_default_security_questions(key = nil)
-        message = {key: key}
+      # key
+      def self.get_default_security_questions(message)
         request(:get_default_security_questions, Array[Softlayer::User::Security::Question], message)
       end
 
@@ -347,13 +355,16 @@ module Softlayer
         request(:get_permissions, Array[Softlayer::User::Customer::CustomerPermission::Permission])
       end
 
-      def self.get_portal_login_token(username = nil, password = nil, security_question_id = nil, security_question_answer = nil)
-        message = {username: username, password: password, security_question_id: security_question_id, security_question_answer: security_question_answer}
+      # username
+      # password
+      # security_question_id
+      # security_question_answer
+      def self.get_portal_login_token(message)
         request(:get_portal_login_token, Softlayer::Container::User::Customer::Portal::Token, message)
       end
 
-      def get_preference(preference_type_key_name = nil)
-        message = {preference_type_key_name: preference_type_key_name}
+      # preference_type_key_name
+      def get_preference(message)
         request(:get_preference, Softlayer::User::Preference, message)
       end
 
@@ -421,8 +432,8 @@ module Softlayer
         request(:get_unsuccessful_logins, Array[Softlayer::User::Customer::Access::Authentication])
       end
 
-      def self.get_user_from_lost_password_request(key = nil)
-        message = {key: key}
+      # key
+      def self.get_user_from_lost_password_request(message)
         request(:get_user_from_lost_password_request, Array[Softlayer::User::Security::Question], message)
       end
 
@@ -430,8 +441,9 @@ module Softlayer
         request(:get_user_links, Array[Softlayer::User::Customer::Link])
       end
 
-      def get_user_preferences(profile_name = nil, container_keyname = nil)
-        message = {profile_name: profile_name, container_keyname: container_keyname}
+      # profile_name
+      # container_keyname
+      def get_user_preferences(message)
         request(:get_user_preferences, Array[Softlayer::Layout::Profile], message)
       end
 
@@ -451,8 +463,8 @@ module Softlayer
         request(:in_terminal_status, Boolean)
       end
 
-      def self.initiate_external_authentication(authentication_container = nil)
-        message = {authentication_container: authentication_container}
+      # authentication_container
+      def self.initiate_external_authentication(message)
         request(:initiate_external_authentication, String, message)
       end
 
@@ -460,23 +472,24 @@ module Softlayer
         request(:is_master_user, Boolean)
       end
 
-      def is_valid_forum_password(password = nil)
-        message = {password: password}
+      # password
+      def is_valid_forum_password(message)
         request(:is_valid_forum_password, Boolean, message)
       end
 
-      def is_valid_portal_password(password = nil)
-        message = {password: password}
+      # password
+      def is_valid_portal_password(message)
         request(:is_valid_portal_password, Boolean, message)
       end
 
-      def self.lost_password(username = nil, email = nil)
-        message = {username: username, email: email}
+      # username
+      # email
+      def self.lost_password(message)
         request(:lost_password, Boolean, message)
       end
 
-      def self.perform_external_authentication(authentication_container = nil)
-        message = {authentication_container: authentication_container}
+      # authentication_container
+      def self.perform_external_authentication(message)
         request(:perform_external_authentication, Softlayer::Container::User::Customer::Portal::Token, message)
       end
 
@@ -488,68 +501,73 @@ module Softlayer
         request(:remove_all_virtual_access_for_this_user, Boolean)
       end
 
-      def self.remove_api_authentication_key(key_id = nil)
-        message = {key_id: key_id}
+      # key_id
+      def self.remove_api_authentication_key(message)
         request(:remove_api_authentication_key, Boolean, message)
       end
 
-      def remove_bulk_hardware_access(hardware_ids = nil)
-        message = {hardware_ids: hardware_ids}
+      # hardware_ids
+      def remove_bulk_hardware_access(message)
         request(:remove_bulk_hardware_access, Boolean, message)
       end
 
-      def remove_bulk_portal_permission(permissions = nil)
-        message = {permissions: permissions}
+      # permissions
+      def remove_bulk_portal_permission(message)
         request(:remove_bulk_portal_permission, Boolean, message)
       end
 
-      def remove_bulk_roles(roles = nil)
-        message = {roles: roles}
+      # roles
+      def remove_bulk_roles(message)
         request(:remove_bulk_roles, nil, message)
       end
 
-      def remove_bulk_virtual_guest_access(virtual_guest_ids = nil)
-        message = {virtual_guest_ids: virtual_guest_ids}
+      # virtual_guest_ids
+      def remove_bulk_virtual_guest_access(message)
         request(:remove_bulk_virtual_guest_access, Boolean, message)
       end
 
-      def remove_external_binding(external_binding = nil)
-        message = {external_binding: external_binding}
+      # external_binding
+      def remove_external_binding(message)
         request(:remove_external_binding, Boolean, message)
       end
 
-      def remove_hardware_access(hardware_id = nil)
-        message = {hardware_id: hardware_id}
+      # hardware_id
+      def remove_hardware_access(message)
         request(:remove_hardware_access, Boolean, message)
       end
 
-      def remove_portal_permission(permission = nil)
-        message = {permission: permission}
+      # permission
+      def remove_portal_permission(message)
         request(:remove_portal_permission, Boolean, message)
       end
 
-      def remove_role(role = nil)
-        message = {role: role}
+      # role
+      def remove_role(message)
         request(:remove_role, nil, message)
       end
 
-      def remove_virtual_guest_access(virtual_guest_id = nil)
-        message = {virtual_guest_id: virtual_guest_id}
+      # virtual_guest_id
+      def remove_virtual_guest_access(message)
         request(:remove_virtual_guest_access, Boolean, message)
       end
 
-      def self.reset_expired_password(username = nil, password = nil, new_password = nil, security_question_id = nil, security_question_answer = nil)
-        message = {username: username, password: password, new_password: new_password, security_question_id: security_question_id, security_question_answer: security_question_answer}
+      # username
+      # password
+      # new_password
+      # security_question_id
+      # security_question_answer
+      def self.reset_expired_password(message)
         request(:reset_expired_password, Boolean, message)
       end
 
-      def self.saml_authenticate(account_id = nil, saml_response = nil)
-        message = {account_id: account_id, saml_response: saml_response}
+      # account_id
+      # saml_response
+      def self.saml_authenticate(message)
         request(:saml_authenticate, Softlayer::Container::User::Customer::Portal::Token, message)
       end
 
-      def self.saml_begin_authentication(account_id = nil)
-        message = {account_id: account_id}
+      # account_id
+      def self.saml_begin_authentication(message)
         request(:saml_begin_authentication, String, message)
       end
 
@@ -557,43 +575,49 @@ module Softlayer
         request(:saml_begin_logout, String)
       end
 
-      def saml_logout(saml_response = nil)
-        message = {saml_response: saml_response}
+      # saml_response
+      def saml_logout(message)
         request(:saml_logout, nil, message)
       end
 
-      def self.set_password_from_lost_password_request(key = nil, password = nil, security_answers = nil)
-        message = {key: key, password: password, security_answers: security_answers}
+      # key
+      # password
+      # security_answers
+      def self.set_password_from_lost_password_request(message)
         request(:set_password_from_lost_password_request, Boolean, message)
       end
 
-      def update_forum_password(password = nil)
-        message = {password: password}
+      # password
+      def update_forum_password(message)
         request(:update_forum_password, Boolean, message)
       end
 
-      def update_notification_subscriber(notification_key_name = nil, active = nil)
-        message = {notification_key_name: notification_key_name, active: active}
+      # notification_key_name
+      # active
+      def update_notification_subscriber(message)
         request(:update_notification_subscriber, Boolean, message)
       end
 
-      def update_password(password = nil)
-        message = {password: password}
+      # password
+      def update_password(message)
         request(:update_password, Boolean, message)
       end
 
-      def update_security_answers(questions = nil, answers = nil)
-        message = {questions: questions, answers: answers}
+      # questions
+      # answers
+      def update_security_answers(message)
         request(:update_security_answers, Boolean, message)
       end
 
-      def update_subscriber_delivery_method(notification_key_name = nil, delivery_method_key_names = nil, active = nil)
-        message = {notification_key_name: notification_key_name, delivery_method_key_names: delivery_method_key_names, active: active}
+      # notification_key_name
+      # delivery_method_key_names
+      # active
+      def update_subscriber_delivery_method(message)
         request(:update_subscriber_delivery_method, Boolean, message)
       end
 
-      def update_vpn_password(password = nil)
-        message = {password: password}
+      # password
+      def update_vpn_password(message)
         request(:update_vpn_password, Boolean, message)
       end
 
@@ -601,8 +625,8 @@ module Softlayer
         request(:update_vpn_user, Boolean)
       end
 
-      def self.validate_authentication_token(authentication_token = nil)
-        message = {authentication_token: authentication_token}
+      # authentication_token
+      def self.validate_authentication_token(message)
         request(:validate_authentication_token, Softlayer::Container::User::Customer::Portal::Token, message)
       end
 

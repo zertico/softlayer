@@ -5,18 +5,18 @@ module Softlayer
         class Iscsi < Softlayer::Network::Storage::Group
           SERVICE = 'SoftLayer_Network_Storage_Group_Iscsi'
 
-          def add_allowed_host(allowed_host = nil)
-            message = {allowed_host: allowed_host}
+          # allowed_host
+          def add_allowed_host(message)
             request(:add_allowed_host, Boolean, message)
           end
 
-          def attach_to_volume(volume = nil)
-            message = {volume: volume}
+          # volume
+          def attach_to_volume(message)
             request(:attach_to_volume, Boolean, message)
           end
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Boolean, message)
           end
 
@@ -24,8 +24,8 @@ module Softlayer
             request(:delete_object, Boolean)
           end
 
-          def edit_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def edit_object(message)
             request(:edit_object, Boolean, message)
           end
 
@@ -65,13 +65,13 @@ module Softlayer
             request(:get_service_resource, Softlayer::Network::Service::Resource)
           end
 
-          def remove_allowed_host(allowed_host = nil)
-            message = {allowed_host: allowed_host}
+          # allowed_host
+          def remove_allowed_host(message)
             request(:remove_allowed_host, Boolean, message)
           end
 
-          def remove_from_volume(volume = nil)
-            message = {volume: volume}
+          # volume
+          def remove_from_volume(message)
             request(:remove_from_volume, Boolean, message)
           end
 

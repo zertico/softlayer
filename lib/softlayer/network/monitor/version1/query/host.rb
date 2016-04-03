@@ -22,13 +22,13 @@ module Softlayer
             attr_accessor :response_action
             attr_accessor :subnet
 
-            def self.create_object(template_object = nil)
-              message = {template_object: template_object}
+            # template_object
+            def self.create_object(message)
               request(:create_object, Softlayer::Network::Monitor::Version1::Query::Host, message)
             end
 
-            def self.create_objects(template_objects = nil)
-              message = {template_objects: template_objects}
+            # template_objects
+            def self.create_objects(message)
               request(:create_objects, Array[Softlayer::Network::Monitor::Version1::Query::Host], message)
             end
 
@@ -36,23 +36,23 @@ module Softlayer
               request(:delete_object, Boolean)
             end
 
-            def self.delete_objects(template_objects = nil)
-              message = {template_objects: template_objects}
+            # template_objects
+            def self.delete_objects(message)
               request(:delete_objects, Boolean, message)
             end
 
-            def edit_object(template_object = nil)
-              message = {template_object: template_object}
+            # template_object
+            def edit_object(message)
               request(:edit_object, Boolean, message)
             end
 
-            def self.edit_objects(template_objects = nil)
-              message = {template_objects: template_objects}
+            # template_objects
+            def self.edit_objects(message)
               request(:edit_objects, Boolean, message)
             end
 
-            def self.find_by_hardware_id(hardware_id = nil)
-              message = {hardware_id: hardware_id}
+            # hardware_id
+            def self.find_by_hardware_id(message)
               request(:find_by_hardware_id, Array[Softlayer::Network::Monitor::Version1::Query::Host], message)
             end
 

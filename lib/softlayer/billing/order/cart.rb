@@ -4,13 +4,14 @@ module Softlayer
       class Cart < Softlayer::Billing::Order::Quote
         SERVICE = 'SoftLayer_Billing_Order_Cart'
 
-        def self.claim(quote_key = nil, quote_id = nil)
-          message = {quote_key: quote_key, quote_id: quote_id}
+        # quote_key
+        # quote_id
+        def self.claim(message)
           request(:claim, Softlayer::Billing::Order::Cart, message)
         end
 
-        def self.create_cart(order_data = nil)
-          message = {order_data: order_data}
+        # order_data
+        def self.create_cart(message)
           request(:create_cart, Integer, message)
         end
 
@@ -26,8 +27,8 @@ module Softlayer
           request(:get_account, Softlayer::Account)
         end
 
-        def self.get_cart_by_cart_key(cart_key = nil)
-          message = {cart_key: cart_key}
+        # cart_key
+        def self.get_cart_by_cart_key(message)
           request(:get_cart_by_cart_key, Softlayer::Billing::Order::Cart, message)
         end
 
@@ -47,23 +48,24 @@ module Softlayer
           request(:get_pdf, Softlayer::Base64Binary)
         end
 
-        def self.get_quote_by_quote_key(quote_key = nil)
-          message = {quote_key: quote_key}
+        # quote_key
+        def self.get_quote_by_quote_key(message)
           request(:get_quote_by_quote_key, Softlayer::Billing::Order::Cart, message)
         end
 
-        def get_recalculated_order_container(order_data = nil, order_being_placed_flag = nil)
-          message = {order_data: order_data, order_being_placed_flag: order_being_placed_flag}
+        # order_data
+        # order_being_placed_flag
+        def get_recalculated_order_container(message)
           request(:get_recalculated_order_container, Softlayer::Container::Product::Order, message)
         end
 
-        def place_order(order_data = nil)
-          message = {order_data: order_data}
+        # order_data
+        def place_order(message)
           request(:place_order, Softlayer::Container::Product::Order::Receipt, message)
         end
 
-        def place_quote(order_data = nil)
-          message = {order_data: order_data}
+        # order_data
+        def place_quote(message)
           request(:place_quote, Softlayer::Container::Product::Order, message)
         end
 
@@ -71,13 +73,13 @@ module Softlayer
           request(:save_quote, Softlayer::Billing::Order::Cart)
         end
 
-        def update_cart(order_data = nil)
-          message = {order_data: order_data}
+        # order_data
+        def update_cart(message)
           request(:update_cart, Integer, message)
         end
 
-        def verify_order(order_data = nil)
-          message = {order_data: order_data}
+        # order_data
+        def verify_order(message)
           request(:verify_order, Softlayer::Container::Product::Order, message)
         end
 

@@ -36,8 +36,8 @@ module Softlayer
       attr_accessor :virtual_guest_assets
       attr_accessor :virtual_guest_members
 
-      def self.create_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.create_object(message)
         request(:create_object, Softlayer::Scale::Group, message)
       end
 
@@ -45,8 +45,8 @@ module Softlayer
         request(:delete_object, Boolean)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -110,13 +110,13 @@ module Softlayer
         request(:resume, nil)
       end
 
-      def scale(delta = nil)
-        message = {delta: delta}
+      # delta
+      def scale(message)
         request(:scale, Array[Softlayer::Scale::Member], message)
       end
 
-      def scale_to(number = nil)
-        message = {number: number}
+      # number
+      def scale_to(message)
         request(:scale_to, Array[Softlayer::Scale::Member], message)
       end
 

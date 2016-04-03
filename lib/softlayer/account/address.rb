@@ -22,13 +22,13 @@ module Softlayer
       attr_accessor :modify_user
       attr_accessor :type
 
-      def self.create_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.create_object(message)
         request(:create_object, Softlayer::Account::Address, message)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -56,8 +56,8 @@ module Softlayer
         request(:get_modify_user, Softlayer::User::Customer)
       end
 
-      def self.get_network_address(name = nil)
-        message = {name: name}
+      # name
+      def self.get_network_address(message)
         request(:get_network_address, Array[Softlayer::Account::Address], message)
       end
 

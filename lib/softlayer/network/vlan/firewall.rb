@@ -71,13 +71,13 @@ module Softlayer
           request(:restore_defaults, Softlayer::Provisioning::Version1::Transaction)
         end
 
-        def set_tags(tags = nil)
-          message = {tags: tags}
+        # tags
+        def set_tags(message)
           request(:set_tags, Boolean, message)
         end
 
-        def update_route_bypass(bypass = nil)
-          message = {bypass: bypass}
+        # bypass
+        def update_route_bypass(message)
           request(:update_route_bypass, Softlayer::Provisioning::Version1::Transaction, message)
         end
 

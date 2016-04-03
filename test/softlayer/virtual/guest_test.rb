@@ -23,7 +23,7 @@ describe Softlayer::Virtual::Guest, :vcr do
         }
         Softlayer.configuration.username = 'SL000000'
         Softlayer.mock!
-        virtual_guest = Softlayer::Virtual::Guest.create_object(virtual_guest_attrs)
+        virtual_guest = Softlayer::Virtual::Guest.create_object(template_object: virtual_guest_attrs)
         virtual_guest.must_be_kind_of Softlayer::Virtual::Guest
         virtual_guest.domain.must_equal "example.com"
         virtual_guest.hostname.must_equal "host1"

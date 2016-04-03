@@ -137,3 +137,58 @@ module Softlayer
     end
   end
 end
+
+class Array
+  def camelize_keys
+    dup.camelize_keys!
+  end
+
+  def camelize_keys!
+    each do |v|
+      v.camelize_keys! if v.is_a?(Hash)
+      v.camelize_keys! if v.is_a?(Array)
+    end
+    self
+  end
+
+  def to_softlayer
+    ary = []
+    self.each do |item|
+      if item.respond_to?(:to_softlayer)
+        ary << item.to_softlayer
+      else
+        ary << item
+      end
+    end
+    [ary]
+  end
+end
+
+class Hash
+  def camelize_keys
+    dup.camelize_keys!
+  end
+
+  def camelize_keys!
+    keys.each do |k|
+      new_key = k.to_s.camelize(:lower)
+      new_key = new_key.to_sym if k.is_a? Symbol
+      self[new_key] = self.delete(k)
+      self[new_key].camelize_keys! if self[new_key].is_a?(Hash)
+      self[new_key].camelize_keys! if self[new_key].is_a?(Array)
+    end
+    self
+  end
+
+  def to_softlayer
+    hash = {}
+    self.each_pair do |k, v|
+      if v.respond_to?(:to_softlayer)
+        hash[k.to_s] = v.to_softlayer
+      else
+        hash[k.to_s] = v
+      end
+    end
+    hash.camelize_keys!
+  end
+end

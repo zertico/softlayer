@@ -35,18 +35,19 @@ module Softlayer
           request(:clear_registration, Boolean)
         end
 
-        def self.create_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def self.create_object(message)
           request(:create_object, Softlayer::Network::Subnet::Registration, message)
         end
 
-        def edit_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def edit_object(message)
           request(:edit_object, Boolean, message)
         end
 
-        def self.edit_registration_attached_details(person_object_skeleton = nil, network_object_skeleton = nil)
-          message = {person_object_skeleton: person_object_skeleton, network_object_skeleton: network_object_skeleton}
+        # person_object_skeleton
+        # network_object_skeleton
+        def self.edit_registration_attached_details(message)
           request(:edit_registration_attached_details, Boolean, message)
         end
 

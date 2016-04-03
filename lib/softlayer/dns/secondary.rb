@@ -20,13 +20,13 @@ module Softlayer
         request(:convert_to_primary, Boolean)
       end
 
-      def self.create_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.create_object(message)
         request(:create_object, Softlayer::Dns::Secondary, message)
       end
 
-      def self.create_objects(template_objects = nil)
-        message = {template_objects: template_objects}
+      # template_objects
+      def self.create_objects(message)
         request(:create_objects, Array[Softlayer::Dns::Secondary], message)
       end
 
@@ -34,8 +34,8 @@ module Softlayer
         request(:delete_object, Boolean)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -43,8 +43,8 @@ module Softlayer
         request(:get_account, Softlayer::Account)
       end
 
-      def self.get_by_domain_name(name = nil)
-        message = {name: name}
+      # name
+      def self.get_by_domain_name(message)
         request(:get_by_domain_name, Array[Softlayer::Dns::Secondary], message)
       end
 

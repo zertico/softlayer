@@ -23,8 +23,8 @@ module Softlayer
             attr_accessor :version
             attr_accessor :firewall_update_request
 
-            def self.create_object(template_object = nil)
-              message = {template_object: template_object}
+            # template_object
+            def self.create_object(message)
               request(:create_object, Softlayer::Network::Firewall::Update::Request::Rule, message)
             end
 
@@ -36,8 +36,10 @@ module Softlayer
               request(:get_object, Softlayer::Network::Firewall::Update::Request::Rule)
             end
 
-            def self.validate_rule(rule = nil, apply_to_component_id = nil, apply_to_acl_id = nil)
-              message = {rule: rule, apply_to_component_id: apply_to_component_id, apply_to_acl_id: apply_to_acl_id}
+            # rule
+            # apply_to_component_id
+            # apply_to_acl_id
+            def self.validate_rule(message)
               request(:validate_rule, nil, message)
             end
 

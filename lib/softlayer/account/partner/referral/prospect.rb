@@ -10,8 +10,9 @@ module Softlayer
           attr_accessor :id
           attr_accessor :last_name
 
-          def self.create_prospect(template_object = nil, commit = nil)
-            message = {template_object: template_object, commit: commit}
+          # template_object
+          # commit
+          def self.create_prospect(message)
             request(:create_prospect, Softlayer::Account::Partner::Referral::Prospect, message)
           end
 

@@ -17,8 +17,8 @@ module Softlayer
     attr_accessor :status
     attr_accessor :type
 
-    def self.get_active_survey_by_type(type = nil)
-      message = {type: type}
+    # type
+    def self.get_active_survey_by_type(message)
       request(:get_active_survey_by_type, Softlayer::Survey, message)
     end
 
@@ -38,8 +38,8 @@ module Softlayer
       request(:get_type, Softlayer::Survey::Type)
     end
 
-    def take_survey(responses = nil)
-      message = {responses: responses}
+    # responses
+    def take_survey(message)
       request(:take_survey, Boolean, message)
     end
 

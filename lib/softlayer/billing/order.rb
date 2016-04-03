@@ -171,8 +171,9 @@ module Softlayer
         request(:get_quote, Softlayer::Billing::Order::Quote)
       end
 
-      def get_recalculated_order_container(message = nil, ignore_discounts_flag = nil)
-        message = {message: message, ignore_discounts_flag: ignore_discounts_flag}
+      # message
+      # ignore_discounts_flag
+      def get_recalculated_order_container(message)
         request(:get_recalculated_order_container, Softlayer::Container::Product::Order, message)
       end
 

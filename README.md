@@ -39,6 +39,27 @@ Softlayer::Account.get_master_user
 Softlayer::Account.get_virtual_guests
 ```
 
+When you need to pass a parameter to a method, you can pass the Softlayer object, and the client handles eveything behind the curtains, if you generate a order template to virtual guest, then you wanna send this template to verifyOrder you can easily like this:
+
+```ruby
+template = {
+  hostname: 'anyhost',
+  domain: 'anydomain.com',
+  startCpus: 1,
+  maxMemory: 1024,
+  datacenter: {
+    name: 'wdc01'
+  },
+  operatingSystemReferenceCode: 'DEBIAN_8_64',
+  localDiskFlag: true
+}
+order_template = Softlayer::Virtual::Guest.generate_order_template(template_object: template)
+Softlayer::Product::Order.verify_order(order_data: order_template)
+# don't know why we are passing `order_data` here?
+# You can always check the parameters for a method, in this case you can check on this page
+# http://sldn.softlayer.com/reference/services/SoftLayer_Product_Order/verifyOrder
+```
+
 ### Masks
 
 If you'd like to get relational properties, you can use masks to get more information in a single request, lets consider the example below

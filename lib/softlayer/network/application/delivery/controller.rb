@@ -41,23 +41,23 @@ module Softlayer
           attr_accessor :type
           attr_accessor :virtual_ip_addresses
 
-          def create_live_load_balancer(load_balancer = nil)
-            message = {load_balancer: load_balancer}
+          # load_balancer
+          def create_live_load_balancer(message)
             request(:create_live_load_balancer, Boolean, message)
           end
 
-          def delete_live_load_balancer(load_balancer = nil)
-            message = {load_balancer: load_balancer}
+          # load_balancer
+          def delete_live_load_balancer(message)
             request(:delete_live_load_balancer, Boolean, message)
           end
 
-          def delete_live_load_balancer_service(service = nil)
-            message = {service: service}
+          # service
+          def delete_live_load_balancer_service(message)
             request(:delete_live_load_balancer_service, Boolean, message)
           end
 
-          def edit_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def edit_object(message)
             request(:edit_object, Boolean, message)
           end
 
@@ -69,13 +69,17 @@ module Softlayer
             request(:get_average_daily_public_bandwidth_usage, Float)
           end
 
-          def get_bandwidth_data_by_date(start_date_time = nil, end_date_time = nil, network_type = nil)
-            message = {start_date_time: start_date_time, end_date_time: end_date_time, network_type: network_type}
+          # start_date_time
+          # end_date_time
+          # network_type
+          def get_bandwidth_data_by_date(message)
             request(:get_bandwidth_data_by_date, Array[Softlayer::Metric::Tracking::Object::Data], message)
           end
 
-          def get_bandwidth_image_by_date(start_date_time = nil, end_date_time = nil, network_type = nil)
-            message = {start_date_time: start_date_time, end_date_time: end_date_time, network_type: network_type}
+          # start_date_time
+          # end_date_time
+          # network_type
+          def get_bandwidth_image_by_date(message)
             request(:get_bandwidth_image_by_date, Softlayer::Container::Bandwidth::GraphOutputs, message)
           end
 
@@ -87,8 +91,8 @@ module Softlayer
             request(:get_configuration_history, Array[Softlayer::Network::Application::Delivery::Controller::Configuration::History])
           end
 
-          def get_custom_bandwidth_data_by_date(graph_data = nil)
-            message = {graph_data: graph_data}
+          # graph_data
+          def get_custom_bandwidth_data_by_date(message)
             request(:get_custom_bandwidth_data_by_date, Softlayer::Container::Graph, message)
           end
 
@@ -104,8 +108,10 @@ module Softlayer
             request(:get_license_expiration_date, DateTime)
           end
 
-          def get_live_load_balancer_service_graph_image(service = nil, graph_type = nil, metric = nil)
-            message = {service: service, graph_type: graph_type, metric: metric}
+          # service
+          # graph_type
+          # metric
+          def get_live_load_balancer_service_graph_image(message)
             request(:get_live_load_balancer_service_graph_image, Softlayer::Base64Binary, message)
           end
 
@@ -169,18 +175,18 @@ module Softlayer
             request(:restore_base_configuration, Boolean)
           end
 
-          def restore_configuration(configuration_history_id = nil)
-            message = {configuration_history_id: configuration_history_id}
+          # configuration_history_id
+          def restore_configuration(message)
             request(:restore_configuration, Boolean, message)
           end
 
-          def save_current_configuration(notes = nil)
-            message = {notes: notes}
+          # notes
+          def save_current_configuration(message)
             request(:save_current_configuration, Softlayer::Network::Application::Delivery::Controller::Configuration::History, message)
           end
 
-          def update_live_load_balancer(load_balancer = nil)
-            message = {load_balancer: load_balancer}
+          # load_balancer
+          def update_live_load_balancer(message)
             request(:update_live_load_balancer, Boolean, message)
           end
 

@@ -10,8 +10,8 @@ module Softlayer
         attr_accessor :user_id
         attr_accessor :user
 
-        def edit_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def edit_object(message)
           request(:edit_object, Softlayer::User::Customer::ApiAuthentication, message)
         end
 

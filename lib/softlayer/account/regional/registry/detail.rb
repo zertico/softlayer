@@ -21,8 +21,8 @@ module Softlayer
           attr_accessor :properties
           attr_accessor :regional_internet_registry_handle
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Account::Regional::Registry::Detail, message)
           end
 
@@ -30,8 +30,8 @@ module Softlayer
             request(:delete_object, Boolean)
           end
 
-          def edit_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def edit_object(message)
             request(:edit_object, Boolean, message)
           end
 

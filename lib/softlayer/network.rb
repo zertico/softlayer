@@ -33,13 +33,14 @@ module Softlayer
     attr_accessor :notes
     attr_accessor :subnets
 
-    def self.create_object(template_object = nil)
-      message = {template_object: template_object}
+    # template_object
+    def self.create_object(message)
       request(:create_object, Softlayer::Network, message)
     end
 
-    def create_subnet(subnet = nil, pod = nil)
-      message = {subnet: subnet, pod: pod}
+    # subnet
+    # pod
+    def create_subnet(message)
       request(:create_subnet, Softlayer::Network::Subnet, message)
     end
 
@@ -47,13 +48,13 @@ module Softlayer
       request(:delete_object, Boolean)
     end
 
-    def delete_subnet(subnet = nil)
-      message = {subnet: subnet}
+    # subnet
+    def delete_subnet(message)
       request(:delete_subnet, Boolean, message)
     end
 
-    def edit_object(template_object = nil)
-      message = {template_object: template_object}
+    # template_object
+    def edit_object(message)
       request(:edit_object, Boolean, message)
     end
 

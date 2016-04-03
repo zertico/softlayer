@@ -4,13 +4,15 @@ module Softlayer
       SERVICE = 'SoftLayer_Network_Monitor'
       autoload :Version1, 'softlayer/network/monitor/version1'
 
-      def self.get_ip_addresses_by_hardware(hardware = nil, partial_ip_address = nil)
-        message = {hardware: hardware, partial_ip_address: partial_ip_address}
+      # hardware
+      # partial_ip_address
+      def self.get_ip_addresses_by_hardware(message)
         request(:get_ip_addresses_by_hardware, Array[Softlayer::Network::Subnet::IpAddress], message)
       end
 
-      def self.get_ip_addresses_by_virtual_guest(guest = nil, partial_ip_address = nil)
-        message = {guest: guest, partial_ip_address: partial_ip_address}
+      # guest
+      # partial_ip_address
+      def self.get_ip_addresses_by_virtual_guest(message)
         request(:get_ip_addresses_by_virtual_guest, Array[Softlayer::Network::Subnet::IpAddress], message)
       end
 

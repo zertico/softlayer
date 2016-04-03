@@ -23,8 +23,10 @@ module Softlayer
         attr_accessor :ticket
         attr_accessor :user
 
-        def self.create_request(contact = nil, reason = nil, report_type = nil)
-          message = {contact: contact, reason: reason, report_type: report_type}
+        # contact
+        # reason
+        # report_type
+        def self.create_request(message)
           request(:create_request, Softlayer::Account::Reports::Request, message)
         end
 
@@ -48,8 +50,8 @@ module Softlayer
           request(:get_report_type, Softlayer::Compliance::Report::Type)
         end
 
-        def self.get_request_by_request_key(request_key = nil)
-          message = {request_key: request_key}
+        # request_key
+        def self.get_request_by_request_key(message)
           request(:get_request_by_request_key, Softlayer::Account::Reports::Request, message)
         end
 
@@ -61,13 +63,13 @@ module Softlayer
           request(:get_user, Softlayer::User::Customer)
         end
 
-        def self.send_report_email(request = nil)
-          message = {request: request}
+        # request
+        def self.send_report_email(message)
           request(:send_report_email, Boolean, message)
         end
 
-        def self.update_ticket_on_decline(request = nil)
-          message = {request: request}
+        # request
+        def self.update_ticket_on_decline(message)
           request(:update_ticket_on_decline, Boolean, message)
         end
 

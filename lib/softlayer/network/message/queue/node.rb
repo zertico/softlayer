@@ -13,13 +13,13 @@ module Softlayer
           attr_accessor :metric_tracking_object
           attr_accessor :service_resource
 
-          def add_user(username = nil)
-            message = {username: username}
+          # username
+          def add_user(message)
             request(:add_user, Boolean, message)
           end
 
-          def delete_user(username = nil)
-            message = {username: username}
+          # username
+          def delete_user(message)
             request(:delete_user, Boolean, message)
           end
 
@@ -43,13 +43,14 @@ module Softlayer
             request(:get_service_resource, Softlayer::Network::Service::Resource)
           end
 
-          def get_usage(start_date = nil, end_date = nil)
-            message = {start_date: start_date, end_date: end_date}
+          # start_date
+          # end_date
+          def get_usage(message)
             request(:get_usage, Array[Softlayer::Metric::Tracking::Object::Data], message)
           end
 
-          def get_usage_graph(graph_data = nil)
-            message = {graph_data: graph_data}
+          # graph_data
+          def get_usage_graph(message)
             request(:get_usage_graph, Softlayer::Container::Graph, message)
           end
 

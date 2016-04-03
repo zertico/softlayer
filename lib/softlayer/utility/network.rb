@@ -3,28 +3,29 @@ module Softlayer
     class Network < Softlayer::Entity
       SERVICE = 'SoftLayer_Utility_Network'
 
-      def self.is_pingable(address = nil)
-        message = {address: address}
+      # address
+      def self.is_pingable(message)
         request(:is_pingable, Boolean, message)
       end
 
-      def self.ns_lookup(address = nil, type = nil)
-        message = {address: address, type: type}
+      # address
+      # type
+      def self.ns_lookup(message)
         request(:ns_lookup, String, message)
       end
 
-      def self.ping(address = nil)
-        message = {address: address}
+      # address
+      def self.ping(message)
         request(:ping, String, message)
       end
 
-      def self.traceroute(address = nil)
-        message = {address: address}
+      # address
+      def self.traceroute(message)
         request(:traceroute, String, message)
       end
 
-      def self.whois(address = nil)
-        message = {address: address}
+      # address
+      def self.whois(message)
         request(:whois, String, message)
       end
 

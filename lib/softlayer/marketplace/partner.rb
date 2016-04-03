@@ -34,8 +34,8 @@ module Softlayer
         request(:get_all_objects, Array[Softlayer::Marketplace::Partner])
       end
 
-      def self.get_all_published_partners(search_term = nil)
-        message = {search_term: search_term}
+      # search_term
+      def self.get_all_published_partners(message)
         request(:get_all_published_partners, Array[Softlayer::Marketplace::Partner], message)
       end
 
@@ -43,13 +43,13 @@ module Softlayer
         request(:get_attachments, Array[Softlayer::Marketplace::Partner::Attachment])
       end
 
-      def self.get_featured_partners(non = nil)
-        message = {non: non}
+      # non
+      def self.get_featured_partners(message)
         request(:get_featured_partners, Array[Softlayer::Marketplace::Partner], message)
       end
 
-      def get_file(name = nil)
-        message = {name: name}
+      # name
+      def get_file(message)
         request(:get_file, Softlayer::Marketplace::Partner::File, message)
       end
 
@@ -73,8 +73,8 @@ module Softlayer
         request(:get_object, Softlayer::Marketplace::Partner)
       end
 
-      def self.get_partner_by_url_identifier(url_identifier = nil)
-        message = {url_identifier: url_identifier}
+      # url_identifier
+      def self.get_partner_by_url_identifier(message)
         request(:get_partner_by_url_identifier, Softlayer::Marketplace::Partner, message)
       end
 

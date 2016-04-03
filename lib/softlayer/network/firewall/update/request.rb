@@ -23,8 +23,8 @@ module Softlayer
           attr_accessor :network_component_firewall
           attr_accessor :rules
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Network::Firewall::Update::Request, message)
           end
 
@@ -56,8 +56,9 @@ module Softlayer
             request(:get_rules, Array[Softlayer::Network::Firewall::Update::Request::Rule])
           end
 
-          def self.update_rule_note(fw_rule = nil, note = nil)
-            message = {fw_rule: fw_rule, note: note}
+          # fw_rule
+          # note
+          def self.update_rule_note(message)
             request(:update_rule_note, Boolean, message)
           end
 

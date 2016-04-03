@@ -29,8 +29,8 @@ module Softlayer
       attr_accessor :template
       attr_accessor :vlan_members
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 

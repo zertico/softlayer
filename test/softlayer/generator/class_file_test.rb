@@ -30,8 +30,8 @@ describe Softlayer::Generator::ClassFile do
         attr_accessor :account
         attr_accessor :attributes
 
-        def self.create_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def self.create_object(message)
           request(:create_object, Softlayer::Account::Authentication::Saml, message)
         end
 
@@ -39,8 +39,8 @@ describe Softlayer::Generator::ClassFile do
           request(:delete_object, Boolean)
         end
 
-        def edit_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def edit_object(message)
           request(:edit_object, Boolean, message)
         end
 
@@ -124,8 +124,9 @@ end
       return: "Softlayer::Account",
       method_scope: :instance
     }
-    subject.generate_method("activate_partner", hash).must_equal "        def activate_partner(account_id = nil, hash_code = nil)
-          message = {account_id: account_id, hash_code: hash_code}
+    subject.generate_method("activate_partner", hash).must_equal "        # account_id
+        # hash_code
+        def activate_partner(message)
           request(:activate_partner, Softlayer::Account, message)
         end
 "

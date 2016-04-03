@@ -16,53 +16,70 @@ module Softlayer
       attr_accessor :resource_records
       attr_accessor :secondary
 
-      def create_a_record(host = nil, data = nil, ttl = nil)
-        message = {host: host, data: data, ttl: ttl}
+      # host
+      # data
+      # ttl
+      def create_a_record(message)
         request(:create_a_record, Softlayer::Dns::Domain::ResourceRecord::AType, message)
       end
 
-      def create_aaaa_record(host = nil, data = nil, ttl = nil)
-        message = {host: host, data: data, ttl: ttl}
+      # host
+      # data
+      # ttl
+      def create_aaaa_record(message)
         request(:create_aaaa_record, Softlayer::Dns::Domain::ResourceRecord::AaaaType, message)
       end
 
-      def create_cname_record(host = nil, data = nil, ttl = nil)
-        message = {host: host, data: data, ttl: ttl}
+      # host
+      # data
+      # ttl
+      def create_cname_record(message)
         request(:create_cname_record, Softlayer::Dns::Domain::ResourceRecord::CnameType, message)
       end
 
-      def create_mx_record(host = nil, data = nil, ttl = nil, mx_priority = nil)
-        message = {host: host, data: data, ttl: ttl, mx_priority: mx_priority}
+      # host
+      # data
+      # ttl
+      # mx_priority
+      def create_mx_record(message)
         request(:create_mx_record, Softlayer::Dns::Domain::ResourceRecord::MxType, message)
       end
 
-      def create_ns_record(host = nil, data = nil, ttl = nil)
-        message = {host: host, data: data, ttl: ttl}
+      # host
+      # data
+      # ttl
+      def create_ns_record(message)
         request(:create_ns_record, Softlayer::Dns::Domain::ResourceRecord::NsType, message)
       end
 
-      def self.create_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.create_object(message)
         request(:create_object, Softlayer::Dns::Domain, message)
       end
 
-      def self.create_objects(template_objects = nil)
-        message = {template_objects: template_objects}
+      # template_objects
+      def self.create_objects(message)
         request(:create_objects, Array[Softlayer::Dns::Domain], message)
       end
 
-      def self.create_ptr_record(ip_address = nil, ptr_record = nil, ttl = nil)
-        message = {ip_address: ip_address, ptr_record: ptr_record, ttl: ttl}
+      # ip_address
+      # ptr_record
+      # ttl
+      def self.create_ptr_record(message)
         request(:create_ptr_record, Softlayer::Dns::Domain::ResourceRecord, message)
       end
 
-      def create_spf_record(host = nil, data = nil, ttl = nil)
-        message = {host: host, data: data, ttl: ttl}
+      # host
+      # data
+      # ttl
+      def create_spf_record(message)
         request(:create_spf_record, Softlayer::Dns::Domain::ResourceRecord::SpfType, message)
       end
 
-      def create_txt_record(host = nil, data = nil, ttl = nil)
-        message = {host: host, data: data, ttl: ttl}
+      # host
+      # data
+      # ttl
+      def create_txt_record(message)
         request(:create_txt_record, Softlayer::Dns::Domain::ResourceRecord::TxtType, message)
       end
 
@@ -74,8 +91,8 @@ module Softlayer
         request(:get_account, Softlayer::Account)
       end
 
-      def self.get_by_domain_name(name = nil)
-        message = {name: name}
+      # name
+      def self.get_by_domain_name(message)
         request(:get_by_domain_name, Array[Softlayer::Dns::Domain], message)
       end
 

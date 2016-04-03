@@ -17,8 +17,8 @@ module Softlayer
         request(:check_connection, Boolean)
       end
 
-      def deploy_monitoring_agents(configuration_template_group = nil)
-        message = {configuration_template_group: configuration_template_group}
+      # configuration_template_group
+      def deploy_monitoring_agents(message)
         request(:deploy_monitoring_agents, Softlayer::Provisioning::Version1::Transaction, message)
       end
 

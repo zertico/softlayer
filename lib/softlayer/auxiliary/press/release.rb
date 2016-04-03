@@ -49,8 +49,9 @@ module Softlayer
           request(:get_rendered_press_release, Array[Softlayer::Auxiliary::Press::Release])
         end
 
-        def self.get_rendered_press_releases(result_limit = nil, year = nil)
-          message = {result_limit: result_limit, year: year}
+        # result_limit
+        # year
+        def self.get_rendered_press_releases(message)
           request(:get_rendered_press_releases, Array[Softlayer::Auxiliary::Press::Release], message)
         end
 

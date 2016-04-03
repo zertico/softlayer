@@ -37,8 +37,8 @@ module Softlayer
           request(:get_all_objects, Array[Softlayer::Notification::Occurrence::Event])
         end
 
-        def get_attached_file(attachment_id = nil)
-          message = {attachment_id: attachment_id}
+        # attachment_id
+        def get_attached_file(message)
           request(:get_attached_file, Softlayer::Base64Binary, message)
         end
 

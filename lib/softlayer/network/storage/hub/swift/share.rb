@@ -10,13 +10,15 @@ module Softlayer
               request(:get_container_list, Array[Softlayer::Container::Network::Storage::Hub::ObjectStorage::Folder])
             end
 
-            def self.get_file(file_name = nil, container = nil)
-              message = {file_name: file_name, container: container}
+            # file_name
+            # container
+            def self.get_file(message)
               request(:get_file, Softlayer::Container::Network::Storage::Hub::ObjectStorage::File, message)
             end
 
-            def self.get_file_list(container = nil, path = nil)
-              message = {container: container, path: path}
+            # container
+            # path
+            def self.get_file_list(message)
               request(:get_file_list, Array[Softlayer::Container::Utility::File::Entity], message)
             end
 

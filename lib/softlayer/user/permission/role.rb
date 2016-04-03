@@ -19,13 +19,13 @@ module Softlayer
         attr_accessor :groups
         attr_accessor :users
 
-        def add_user(user = nil)
-          message = {user: user}
+        # user
+        def add_user(message)
           request(:add_user, nil, message)
         end
 
-        def self.create_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def self.create_object(message)
           request(:create_object, Softlayer::User::Permission::Role, message)
         end
 
@@ -33,8 +33,8 @@ module Softlayer
           request(:delete_object, Boolean)
         end
 
-        def edit_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def edit_object(message)
           request(:edit_object, Softlayer::User::Permission::Role, message)
         end
 
@@ -58,18 +58,18 @@ module Softlayer
           request(:get_users, Array[Softlayer::User::Customer])
         end
 
-        def link_group(group = nil)
-          message = {group: group}
+        # group
+        def link_group(message)
           request(:link_group, nil, message)
         end
 
-        def remove_user(user = nil)
-          message = {user: user}
+        # user
+        def remove_user(message)
           request(:remove_user, nil, message)
         end
 
-        def unlink_group(group = nil)
-          message = {group: group}
+        # group
+        def unlink_group(message)
           request(:unlink_group, nil, message)
         end
 

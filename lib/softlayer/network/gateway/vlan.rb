@@ -14,13 +14,13 @@ module Softlayer
           request(:bypass, nil)
         end
 
-        def self.create_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def self.create_object(message)
           request(:create_object, Softlayer::Network::Gateway::Vlan, message)
         end
 
-        def self.create_objects(template_objects = nil)
-          message = {template_objects: template_objects}
+        # template_objects
+        def self.create_objects(message)
           request(:create_objects, Array[Softlayer::Network::Gateway::Vlan], message)
         end
 
@@ -28,8 +28,8 @@ module Softlayer
           request(:delete_object, nil)
         end
 
-        def self.delete_objects(template_objects = nil)
-          message = {template_objects: template_objects}
+        # template_objects
+        def self.delete_objects(message)
           request(:delete_objects, Boolean, message)
         end
 

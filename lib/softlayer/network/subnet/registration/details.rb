@@ -12,8 +12,8 @@ module Softlayer
           attr_accessor :detail
           attr_accessor :registration
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Network::Subnet::Registration::Details, message)
           end
 

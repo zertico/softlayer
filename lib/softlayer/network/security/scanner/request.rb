@@ -20,8 +20,8 @@ module Softlayer
           attr_accessor :requestor_owned_flag
           attr_accessor :status
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Network::Security::Scanner::Request, message)
           end
 

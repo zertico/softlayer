@@ -18,8 +18,8 @@ module Softlayer
       attr_accessor :type
       attr_accessor :volume
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -63,8 +63,8 @@ module Softlayer
         request(:get_volume, Softlayer::Network::Storage)
       end
 
-      def self.remove_media_from_list(media_template = nil)
-        message = {media_template: media_template}
+      # media_template
+      def self.remove_media_from_list(message)
         request(:remove_media_from_list, Integer, message)
       end
 

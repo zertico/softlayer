@@ -49,8 +49,8 @@ module Softlayer
           request(:get_virtual_guest, Softlayer::Virtual::Guest)
         end
 
-        def update_antivirus_spyware_policy(new_policy = nil)
-          message = {new_policy: new_policy}
+        # new_policy
+        def update_antivirus_spyware_policy(message)
           request(:update_antivirus_spyware_policy, Boolean, message)
         end
 

@@ -8,13 +8,14 @@ module Softlayer
             attr_accessor :email_address
             attr_accessor :smtp_access
 
-            def add_unsubscribe_email_address(email_address = nil)
-              message = {email_address: email_address}
+            # email_address
+            def add_unsubscribe_email_address(message)
               request(:add_unsubscribe_email_address, Boolean, message)
             end
 
-            def delete_email_list_entries(list = nil, entries = nil)
-              message = {list: list, entries: entries}
+            # list
+            # entries
+            def delete_email_list_entries(message)
               request(:delete_email_list_entries, Boolean, message)
             end
 
@@ -22,8 +23,8 @@ module Softlayer
               request(:disable_smtp_access, Boolean)
             end
 
-            def edit_object(template_object = nil)
-              message = {template_object: template_object}
+            # template_object
+            def edit_object(message)
               request(:edit_object, Boolean, message)
             end
 
@@ -51,8 +52,8 @@ module Softlayer
               request(:get_email_address, String)
             end
 
-            def get_email_list(list = nil)
-              message = {list: list}
+            # list
+            def get_email_list(message)
               request(:get_email_list, Array[Softlayer::Container::Network::Message::Delivery::Email::Sendgrid::List::Entry], message)
             end
 
@@ -64,13 +65,13 @@ module Softlayer
               request(:get_smtp_access, String)
             end
 
-            def get_statistics(options = nil)
-              message = {options: options}
+            # options
+            def get_statistics(message)
               request(:get_statistics, Array[Softlayer::Container::Network::Message::Delivery::Email::Sendgrid::Statistics], message)
             end
 
-            def get_statistics_graph(options = nil)
-              message = {options: options}
+            # options
+            def get_statistics_graph(message)
               request(:get_statistics_graph, Softlayer::Container::Network::Message::Delivery::Email::Sendgrid::Statistics::Graph, message)
             end
 
@@ -86,13 +87,13 @@ module Softlayer
               request(:get_vendor_portal_url, String)
             end
 
-            def send_email(email_container = nil)
-              message = {email_container: email_container}
+            # email_container
+            def send_email(message)
               request(:send_email, Boolean, message)
             end
 
-            def update_email_address(email_address = nil)
-              message = {email_address: email_address}
+            # email_address
+            def update_email_address(message)
               request(:update_email_address, Boolean, message)
             end
 

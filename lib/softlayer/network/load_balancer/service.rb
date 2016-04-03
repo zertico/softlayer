@@ -26,8 +26,9 @@ module Softlayer
           request(:delete_object, Boolean)
         end
 
-        def get_graph_image(graph_type = nil, metric = nil)
-          message = {graph_type: graph_type, metric: metric}
+        # graph_type
+        # metric
+        def get_graph_image(message)
           request(:get_graph_image, Softlayer::Base64Binary, message)
         end
 

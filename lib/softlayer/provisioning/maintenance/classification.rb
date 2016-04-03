@@ -14,8 +14,8 @@ module Softlayer
           request(:get_item_categories, Array[Softlayer::Provisioning::Maintenance::Classification::Item::Category])
         end
 
-        def self.get_maintenance_classification(maintenance_classification_id = nil)
-          message = {maintenance_classification_id: maintenance_classification_id}
+        # maintenance_classification_id
+        def self.get_maintenance_classification(message)
           request(:get_maintenance_classification, Array[Softlayer::Provisioning::Maintenance::Classification], message)
         end
 

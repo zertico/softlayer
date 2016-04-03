@@ -143,19 +143,22 @@ module Softlayer
 
       def generate_method(name, hash)
         method = String.new
-        count_steps(@name).times { method << "  " }
+
+        # generate method comment
+        unless hash[:input].empty?
+          hash[:input].each do |param|
+            count_steps(@name).times { method << "  " }
+            method << "# #{param[:name]}\n"
+          end
+        end
 
         # generate method content
+        count_steps(@name).times { method << "  " }
         method << "def "
         method << "self." if hash[:method_scope] == :class
         method << "#{name}"
         if has_params?(hash)
-          method << "("
-          hash[:input].each do |param|
-            method << param[:name] + " = nil, "
-          end
-          method.gsub!(/, \z/, '')
-          method << ")\n"
+          method << "(message)\n"
         else
           method << "\n"
         end
@@ -167,13 +170,6 @@ module Softlayer
           request_return = "nil" if request_return.nil?
           method << "request(:#{name}, #{request_return})\n"
         else
-          method << "message = {"
-          hash[:input].each do |param|
-            method << param[:name] + ": " + param[:name] + ", "
-          end
-          method.gsub!(/, \z/, '')
-          method << "}\n"
-          (count_steps(@name) + 1).times { method << "  " }
           request_return = hash[:return]
           request_return = "nil" if request_return.nil?
           method << "request(:#{name}, #{request_return}, message)\n"

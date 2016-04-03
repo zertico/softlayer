@@ -21,8 +21,8 @@ module Softlayer
           attr_accessor :ticket
           attr_accessor :user
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Billing::Item::Cancellation::Request, message)
           end
 
@@ -34,8 +34,9 @@ module Softlayer
             request(:get_all_cancellation_requests, Array[Softlayer::Billing::Item::Cancellation::Request])
           end
 
-          def self.get_cancellation_cutoff_date(account_id = nil, category_code = nil)
-            message = {account_id: account_id, category_code: category_code}
+          # account_id
+          # category_code
+          def self.get_cancellation_cutoff_date(message)
             request(:get_cancellation_cutoff_date, DateTime, message)
           end
 
@@ -59,18 +60,18 @@ module Softlayer
             request(:get_user, Softlayer::User::Customer)
           end
 
-          def remove_cancellation_item(item_id = nil)
-            message = {item_id: item_id}
+          # item_id
+          def remove_cancellation_item(message)
             request(:remove_cancellation_item, Boolean, message)
           end
 
-          def self.validate_billing_item_for_cancellation(billing_item_id = nil)
-            message = {billing_item_id: billing_item_id}
+          # billing_item_id
+          def self.validate_billing_item_for_cancellation(message)
             request(:validate_billing_item_for_cancellation, Boolean, message)
           end
 
-          def void(close_related_ticket_flag = nil)
-            message = {close_related_ticket_flag: close_related_ticket_flag}
+          # close_related_ticket_flag
+          def void(message)
             request(:void, Boolean, message)
           end
 

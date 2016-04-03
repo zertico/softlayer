@@ -57,28 +57,28 @@ module Softlayer
         attr_accessor :virtual_guest
         attr_accessor :virtual_licenses
 
-        def allow_access_to_network_storage(network_storage_template_object = nil)
-          message = {network_storage_template_object: network_storage_template_object}
+        # network_storage_template_object
+        def allow_access_to_network_storage(message)
           request(:allow_access_to_network_storage, Boolean, message)
         end
 
-        def allow_access_to_network_storage_list(network_storage_template_objects = nil)
-          message = {network_storage_template_objects: network_storage_template_objects}
+        # network_storage_template_objects
+        def allow_access_to_network_storage_list(message)
           request(:allow_access_to_network_storage_list, Boolean, message)
         end
 
-        def edit_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def edit_object(message)
           request(:edit_object, Boolean, message)
         end
 
-        def self.edit_objects(template_objects = nil)
-          message = {template_objects: template_objects}
+        # template_objects
+        def self.edit_objects(message)
           request(:edit_objects, Boolean, message)
         end
 
-        def self.find_by_ipv4_address(ip_address = nil)
-          message = {ip_address: ip_address}
+        # ip_address
+        def self.find_by_ipv4_address(message)
           request(:find_by_ipv4_address, Softlayer::Network::Subnet::IpAddress, message)
         end
 
@@ -98,18 +98,18 @@ module Softlayer
           request(:get_application_delivery_controller, Softlayer::Network::Application::Delivery::Controller)
         end
 
-        def get_attached_network_storages(nas_type = nil)
-          message = {nas_type: nas_type}
+        # nas_type
+        def get_attached_network_storages(message)
           request(:get_attached_network_storages, Array[Softlayer::Network::Storage], message)
         end
 
-        def get_available_network_storages(nas_type = nil)
-          message = {nas_type: nas_type}
+        # nas_type
+        def get_available_network_storages(message)
           request(:get_available_network_storages, Array[Softlayer::Network::Storage], message)
         end
 
-        def self.get_by_ip_address(ip_address = nil)
-          message = {ip_address: ip_address}
+        # ip_address
+        def self.get_by_ip_address(message)
           request(:get_by_ip_address, Softlayer::Network::Subnet::IpAddress, message)
         end
 
@@ -209,8 +209,8 @@ module Softlayer
           request(:get_virtual_licenses, Array[Softlayer::Software::VirtualLicense])
         end
 
-        def remove_access_to_network_storage_list(network_storage_template_objects = nil)
-          message = {network_storage_template_objects: network_storage_template_objects}
+        # network_storage_template_objects
+        def remove_access_to_network_storage_list(message)
           request(:remove_access_to_network_storage_list, Boolean, message)
         end
 

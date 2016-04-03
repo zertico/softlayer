@@ -38,8 +38,8 @@ module Softlayer
               attr_accessor :security_certificate_entry
               attr_accessor :virtual_servers
 
-              def edit_object(template_object = nil)
-                message = {template_object: template_object}
+              # template_object
+              def edit_object(message)
                 request(:edit_object, Boolean, message)
               end
 

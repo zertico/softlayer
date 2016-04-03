@@ -13,8 +13,8 @@ module Softlayer
         attr_accessor :ip_address_count
         attr_accessor :ip_addresses
 
-        def self.create_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def self.create_object(message)
           request(:create_object, Softlayer::Network::Customer::Subnet, message)
         end
 

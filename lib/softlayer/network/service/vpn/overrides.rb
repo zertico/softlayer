@@ -10,8 +10,8 @@ module Softlayer
           attr_accessor :subnet
           attr_accessor :user
 
-          def self.create_objects(template_objects = nil)
-            message = {template_objects: template_objects}
+          # template_objects
+          def self.create_objects(message)
             request(:create_objects, Boolean, message)
           end
 
@@ -19,8 +19,8 @@ module Softlayer
             request(:delete_object, Boolean)
           end
 
-          def self.delete_objects(template_objects = nil)
-            message = {template_objects: template_objects}
+          # template_objects
+          def self.delete_objects(message)
             request(:delete_objects, Boolean, message)
           end
 

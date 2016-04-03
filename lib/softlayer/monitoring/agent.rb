@@ -28,13 +28,13 @@ module Softlayer
         request(:activate, Boolean)
       end
 
-      def add_configuration_profile(configuration_values = nil)
-        message = {configuration_values: configuration_values}
+      # configuration_values
+      def add_configuration_profile(message)
         request(:add_configuration_profile, Softlayer::Provisioning::Version1::Transaction, message)
       end
 
-      def apply_configuration_values(configuration_values = nil)
-        message = {configuration_values: configuration_values}
+      # configuration_values
+      def apply_configuration_values(message)
         request(:apply_configuration_values, Softlayer::Provisioning::Version1::Transaction, message)
       end
 
@@ -42,13 +42,14 @@ module Softlayer
         request(:deactivate, Boolean)
       end
 
-      def delete_configuration_profile(section_id = nil, profile_id = nil)
-        message = {section_id: section_id, profile_id: profile_id}
+      # section_id
+      # profile_id
+      def delete_configuration_profile(message)
         request(:delete_configuration_profile, Boolean, message)
       end
 
-      def deploy_monitoring_agent(configuration_template_id = nil)
-        message = {configuration_template_id: configuration_template_id}
+      # configuration_template_id
+      def deploy_monitoring_agent(message)
         request(:deploy_monitoring_agent, Softlayer::Provisioning::Version1::Transaction, message)
       end
 
@@ -64,8 +65,9 @@ module Softlayer
         request(:get_available_configuration_templates, Array[Softlayer::Configuration::Template])
       end
 
-      def get_available_configuration_values(configuration_definition_id = nil, config_values = nil)
-        message = {configuration_definition_id: configuration_definition_id, config_values: config_values}
+      # configuration_definition_id
+      # config_values
+      def get_available_configuration_values(message)
         request(:get_available_configuration_values, Array[Softlayer::Monitoring::Agent::Configuration::Value], message)
       end
 
@@ -85,13 +87,17 @@ module Softlayer
         request(:get_eligible_alarm_subscibers, Array[Softlayer::User::Customer])
       end
 
-      def get_graph(configuration_values = nil, begin_date = nil, end_date = nil)
-        message = {configuration_values: configuration_values, begin_date: begin_date, end_date: end_date}
+      # configuration_values
+      # begin_date
+      # end_date
+      def get_graph(message)
         request(:get_graph, Softlayer::Container::Monitoring::Graph::Outputs, message)
       end
 
-      def get_graph_data(metric_data_types = nil, start_date = nil, end_date = nil)
-        message = {metric_data_types: metric_data_types, start_date: start_date, end_date: end_date}
+      # metric_data_types
+      # start_date
+      # end_date
+      def get_graph_data(message)
         request(:get_graph_data, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
@@ -119,8 +125,8 @@ module Softlayer
         request(:get_virtual_guest, Softlayer::Virtual::Guest)
       end
 
-      def remove_active_alarm_subscriber(user_record_id = nil)
-        message = {user_record_id: user_record_id}
+      # user_record_id
+      def remove_active_alarm_subscriber(message)
         request(:remove_active_alarm_subscriber, Boolean, message)
       end
 
@@ -132,8 +138,8 @@ module Softlayer
         request(:restart_monitoring_agent, Boolean)
       end
 
-      def set_active_alarm_subscriber(user_record_id = nil)
-        message = {user_record_id: user_record_id}
+      # user_record_id
+      def set_active_alarm_subscriber(message)
         request(:set_active_alarm_subscriber, Boolean, message)
       end
 

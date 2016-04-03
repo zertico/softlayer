@@ -62,13 +62,13 @@ module Softlayer
         request(:get_representative, Softlayer::User::Employee)
       end
 
-      def self.request_manual_enrollment(request = nil)
-        message = {request: request}
+      # request
+      def self.request_manual_enrollment(message)
         request(:request_manual_enrollment, nil, message)
       end
 
-      def self.request_self_enrollment(enrollment_request = nil)
-        message = {enrollment_request: enrollment_request}
+      # enrollment_request
+      def self.request_self_enrollment(message)
         request(:request_self_enrollment, Softlayer::Account, message)
       end
 

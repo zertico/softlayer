@@ -71,8 +71,8 @@ module Softlayer
       attr_accessor :type
       attr_accessor :virtual_guests
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -200,8 +200,8 @@ module Softlayer
         request(:get_private_vlan, Softlayer::Network::Vlan)
       end
 
-      def self.get_private_vlan_by_ip_address(ip_address = nil)
-        message = {ip_address: ip_address}
+      # ip_address
+      def self.get_private_vlan_by_ip_address(message)
         request(:get_private_vlan_by_ip_address, Softlayer::Network::Vlan, message)
       end
 
@@ -213,8 +213,8 @@ module Softlayer
         request(:get_public_network_gateways, Array[Softlayer::Network::Gateway])
       end
 
-      def self.get_public_vlan_by_fqdn(fqdn = nil)
-        message = {fqdn: fqdn}
+      # fqdn
+      def self.get_public_vlan_by_fqdn(message)
         request(:get_public_vlan_by_fqdn, Softlayer::Network::Vlan, message)
       end
 
@@ -266,18 +266,18 @@ module Softlayer
         request(:get_virtual_guests, Array[Softlayer::Virtual::Guest])
       end
 
-      def self.get_vlan_for_ip_address(ip_address = nil)
-        message = {ip_address: ip_address}
+      # ip_address
+      def self.get_vlan_for_ip_address(message)
         request(:get_vlan_for_ip_address, Softlayer::Network::Vlan, message)
       end
 
-      def set_tags(tags = nil)
-        message = {tags: tags}
+      # tags
+      def set_tags(message)
         request(:set_tags, Boolean, message)
       end
 
-      def update_firewall_intra_vlan_communication(enabled = nil)
-        message = {enabled: enabled}
+      # enabled
+      def update_firewall_intra_vlan_communication(message)
         request(:update_firewall_intra_vlan_communication, nil, message)
       end
 

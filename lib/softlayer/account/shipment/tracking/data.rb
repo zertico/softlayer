@@ -17,13 +17,13 @@ module Softlayer
           attr_accessor :modify_user
           attr_accessor :shipment
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Account::Shipment::Tracking::Data, message)
           end
 
-          def self.create_objects(template_objects = nil)
-            message = {template_objects: template_objects}
+          # template_objects
+          def self.create_objects(message)
             request(:create_objects, Array[Softlayer::Account::Shipment::Tracking::Data], message)
           end
 
@@ -31,8 +31,8 @@ module Softlayer
             request(:delete_object, Boolean)
           end
 
-          def edit_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def edit_object(message)
             request(:edit_object, Boolean, message)
           end
 

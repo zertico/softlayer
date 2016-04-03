@@ -15,8 +15,9 @@ module Softlayer
         request(:get_object, Softlayer::Billing::Currency)
       end
 
-      def get_price(price = nil, format_options = nil)
-        message = {price: price, format_options: format_options}
+      # price
+      # format_options
+      def get_price(message)
         request(:get_price, String, message)
       end
 

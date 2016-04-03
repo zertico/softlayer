@@ -24,7 +24,7 @@ describe "Impersonate", :vcr do
       Softlayer.mock!
       brands = Softlayer::Account.get_owned_brands
       brand = brands.first
-      token = brand.get_token(222222)
+      token = brand.get_token(user_id: 222222)
       Softlayer.impersonate(222222, token)
       account = Softlayer::Account.get_object
       account.company_name.must_equal "Test Mock Example"

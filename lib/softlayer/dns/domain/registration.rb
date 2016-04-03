@@ -19,13 +19,13 @@ module Softlayer
         attr_accessor :registrant_verification_status
         attr_accessor :service_provider
 
-        def add_nameservers_to_domain(nameservers = nil)
-          message = {nameservers: nameservers}
+        # nameservers
+        def add_nameservers_to_domain(message)
           request(:add_nameservers_to_domain, Boolean, message)
         end
 
-        def delete_registered_nameserver(nameserver = nil)
-          message = {nameserver: nameserver}
+        # nameserver
+        def delete_registered_nameserver(message)
           request(:delete_registered_nameserver, Boolean, message)
         end
 
@@ -49,8 +49,8 @@ module Softlayer
           request(:get_domain_registration_status, Softlayer::Dns::Domain::Registration::Status)
         end
 
-        def self.get_extended_attributes(domain_name = nil)
-          message = {domain_name: domain_name}
+        # domain_name
+        def self.get_extended_attributes(message)
           request(:get_extended_attributes, Array[Softlayer::Container::Dns::Domain::Registration::ExtendedAttribute], message)
         end
 
@@ -74,8 +74,8 @@ module Softlayer
           request(:get_service_provider, Softlayer::Service::Provider)
         end
 
-        def self.get_transfer_information(domain_name = nil)
-          message = {domain_name: domain_name}
+        # domain_name
+        def self.get_transfer_information(message)
           request(:get_transfer_information, Softlayer::Container::Dns::Domain::Registration::Transfer::Information, message)
         end
 
@@ -83,28 +83,31 @@ module Softlayer
           request(:lock_domain, Boolean)
         end
 
-        def self.lookup_domain(domain_name = nil)
-          message = {domain_name: domain_name}
+        # domain_name
+        def self.lookup_domain(message)
           request(:lookup_domain, Array[Softlayer::Container::Dns::Domain::Registration::Lookup], message)
         end
 
-        def modify_contact(contact = nil)
-          message = {contact: contact}
+        # contact
+        def modify_contact(message)
           request(:modify_contact, Boolean, message)
         end
 
-        def modify_registered_nameserver(old_nameserver = nil, new_nameserver = nil, ip_address = nil)
-          message = {old_nameserver: old_nameserver, new_nameserver: new_nameserver, ip_address: ip_address}
+        # old_nameserver
+        # new_nameserver
+        # ip_address
+        def modify_registered_nameserver(message)
           request(:modify_registered_nameserver, Boolean, message)
         end
 
-        def register_nameserver(nameserver = nil, ip_address = nil)
-          message = {nameserver: nameserver, ip_address: ip_address}
+        # nameserver
+        # ip_address
+        def register_nameserver(message)
           request(:register_nameserver, Boolean, message)
         end
 
-        def remove_nameservers_from_domain(nameservers = nil)
-          message = {nameservers: nameservers}
+        # nameservers
+        def remove_nameservers_from_domain(message)
           request(:remove_nameservers_from_domain, Boolean, message)
         end
 
@@ -120,8 +123,8 @@ module Softlayer
           request(:send_transfer_approval_email, Boolean)
         end
 
-        def set_authentication_code(authentication_code = nil)
-          message = {authentication_code: authentication_code}
+        # authentication_code
+        def set_authentication_code(message)
           request(:set_authentication_code, Boolean, message)
         end
 

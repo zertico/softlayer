@@ -9,8 +9,8 @@ module Softlayer
           attr_accessor :policy_name
           attr_accessor :product
 
-          def accept_from_ticket(ticket_id = nil)
-            message = {ticket_id: ticket_id}
+          # ticket_id
+          def accept_from_ticket(message)
             request(:accept_from_ticket, Boolean, message)
           end
 

@@ -77,13 +77,13 @@ module Softlayer
       attr_accessor :unbound_descendants
       attr_accessor :virtual_guests
 
-      def allow_access_to_network_storage(network_storage_template_object = nil)
-        message = {network_storage_template_object: network_storage_template_object}
+      # network_storage_template_object
+      def allow_access_to_network_storage(message)
         request(:allow_access_to_network_storage, Boolean, message)
       end
 
-      def allow_access_to_network_storage_list(network_storage_template_objects = nil)
-        message = {network_storage_template_objects: network_storage_template_objects}
+      # network_storage_template_objects
+      def allow_access_to_network_storage_list(message)
         request(:allow_access_to_network_storage_list, Boolean, message)
       end
 
@@ -91,8 +91,8 @@ module Softlayer
         request(:create_reverse_domain_records, Softlayer::Dns::Domain::Reverse)
       end
 
-      def create_subnet_route_update_transaction(new_end_point_ip_address = nil)
-        message = {new_end_point_ip_address: new_end_point_ip_address}
+      # new_end_point_ip_address
+      def create_subnet_route_update_transaction(message)
         request(:create_subnet_route_update_transaction, Boolean, message)
       end
 
@@ -100,8 +100,8 @@ module Softlayer
         request(:create_swip_transaction, Boolean)
       end
 
-      def edit_note(note = nil)
-        message = {note: note}
+      # note
+      def edit_note(message)
         request(:edit_note, Boolean, message)
       end
 
@@ -141,13 +141,13 @@ module Softlayer
         request(:get_allowed_network_storage_replicas, Array[Softlayer::Network::Storage])
       end
 
-      def get_attached_network_storages(nas_type = nil)
-        message = {nas_type: nas_type}
+      # nas_type
+      def get_attached_network_storages(message)
         request(:get_attached_network_storages, Array[Softlayer::Network::Storage], message)
       end
 
-      def get_available_network_storages(nas_type = nil)
-        message = {nas_type: nas_type}
+      # nas_type
+      def get_available_network_storages(message)
         request(:get_available_network_storages, Array[Softlayer::Network::Storage], message)
       end
 
@@ -271,8 +271,8 @@ module Softlayer
         request(:get_routing_type_name, String)
       end
 
-      def self.get_subnet_for_ip_address(ip_address = nil)
-        message = {ip_address: ip_address}
+      # ip_address
+      def self.get_subnet_for_ip_address(message)
         request(:get_subnet_for_ip_address, Softlayer::Network::Subnet, message)
       end
 
@@ -288,8 +288,8 @@ module Softlayer
         request(:get_virtual_guests, Array[Softlayer::Virtual::Guest])
       end
 
-      def remove_access_to_network_storage_list(network_storage_template_objects = nil)
-        message = {network_storage_template_objects: network_storage_template_objects}
+      # network_storage_template_objects
+      def remove_access_to_network_storage_list(message)
         request(:remove_access_to_network_storage_list, Boolean, message)
       end
 

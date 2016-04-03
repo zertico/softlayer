@@ -5,8 +5,8 @@ module Softlayer
         SERVICE = 'SoftLayer_Ticket_Update_Employee'
         attr_accessor :response_rating
 
-        def add_response_rating(response_rating = nil)
-          message = {response_rating: response_rating}
+        # response_rating
+        def add_response_rating(message)
           request(:add_response_rating, Boolean, message)
         end
 

@@ -98,8 +98,8 @@ module Softlayer
         request(:get_active_items, Array[Softlayer::Product::Item])
       end
 
-      def self.get_active_packages_by_attribute(attribute_key_name = nil)
-        message = {attribute_key_name: attribute_key_name}
+      # attribute_key_name
+      def self.get_active_packages_by_attribute(message)
         request(:get_active_packages_by_attribute, Array[Softlayer::Product::Package], message)
       end
 
@@ -127,8 +127,9 @@ module Softlayer
         request(:get_active_usage_prices, Array[Softlayer::Product::Item::Price])
       end
 
-      def get_active_usage_rate_prices(location_id = nil, category_code = nil)
-        message = {location_id: location_id, category_code: category_code}
+      # location_id
+      # category_code
+      def get_active_usage_rate_prices(message)
         request(:get_active_usage_rate_prices, Array[Softlayer::Product::Item::Price], message)
       end
 
@@ -148,8 +149,8 @@ module Softlayer
         request(:get_available_locations, Array[Softlayer::Product::Package::Locations])
       end
 
-      def self.get_available_packages_for_image_template(image_template = nil)
-        message = {image_template: image_template}
+      # image_template
+      def self.get_available_packages_for_image_template(message)
         request(:get_available_packages_for_image_template, Array[Softlayer::Product::Package], message)
       end
 
@@ -165,8 +166,8 @@ module Softlayer
         request(:get_cdn_items, Array[Softlayer::Product::Item])
       end
 
-      def get_cloud_storage_items(provider = nil)
-        message = {provider: provider}
+      # provider
+      def get_cloud_storage_items(message)
         request(:get_cloud_storage_items, Array[Softlayer::Product::Item], message)
       end
 
@@ -234,8 +235,10 @@ module Softlayer
         request(:get_item_prices, Array[Softlayer::Product::Item::Price])
       end
 
-      def get_item_prices_from_software_descriptions(software_descriptions = nil, include_translations_flag = nil, return_all_prices_flag = nil)
-        message = {software_descriptions: software_descriptions, include_translations_flag: include_translations_flag, return_all_prices_flag: return_all_prices_flag}
+      # software_descriptions
+      # include_translations_flag
+      # return_all_prices_flag
+      def get_item_prices_from_software_descriptions(message)
         request(:get_item_prices_from_software_descriptions, Array[Softlayer::Product::Item::Price], message)
       end
 
@@ -243,8 +246,8 @@ module Softlayer
         request(:get_items, Array[Softlayer::Product::Item])
       end
 
-      def get_items_from_image_template(image_template = nil)
-        message = {image_template: image_template}
+      # image_template
+      def get_items_from_image_template(message)
         request(:get_items_from_image_template, Array[Softlayer::Product::Item], message)
       end
 

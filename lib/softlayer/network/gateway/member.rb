@@ -10,13 +10,13 @@ module Softlayer
         attr_accessor :hardware
         attr_accessor :network_gateway
 
-        def self.create_object(template_object = nil)
-          message = {template_object: template_object}
+        # template_object
+        def self.create_object(message)
           request(:create_object, Softlayer::Network::Gateway::Member, message)
         end
 
-        def self.create_objects(template_objects = nil)
-          message = {template_objects: template_objects}
+        # template_objects
+        def self.create_objects(message)
           request(:create_objects, Array[Softlayer::Network::Gateway::Member], message)
         end
 

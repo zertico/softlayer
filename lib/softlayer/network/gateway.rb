@@ -32,18 +32,18 @@ module Softlayer
         request(:bypass_all_vlans, nil)
       end
 
-      def bypass_vlans(vlans = nil)
-        message = {vlans: vlans}
+      # vlans
+      def bypass_vlans(message)
         request(:bypass_vlans, nil, message)
       end
 
-      def self.create_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.create_object(message)
         request(:create_object, Softlayer::Network::Gateway, message)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -95,8 +95,8 @@ module Softlayer
         request(:unbypass_all_vlans, nil)
       end
 
-      def unbypass_vlans(vlans = nil)
-        message = {vlans: vlans}
+      # vlans
+      def unbypass_vlans(message)
         request(:unbypass_vlans, nil, message)
       end
 

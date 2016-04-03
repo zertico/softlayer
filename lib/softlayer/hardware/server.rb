@@ -53,43 +53,47 @@ module Softlayer
         request(:activate_public_port, Boolean)
       end
 
-      def allow_access_to_network_storage(network_storage_template_object = nil)
-        message = {network_storage_template_object: network_storage_template_object}
+      # network_storage_template_object
+      def allow_access_to_network_storage(message)
         request(:allow_access_to_network_storage, Boolean, message)
       end
 
-      def allow_access_to_network_storage_list(network_storage_template_objects = nil)
-        message = {network_storage_template_objects: network_storage_template_objects}
+      # network_storage_template_objects
+      def allow_access_to_network_storage_list(message)
         request(:allow_access_to_network_storage_list, Boolean, message)
       end
 
-      def boot_to_rescue_layer(no_os_boot_environment = nil)
-        message = {no_os_boot_environment: no_os_boot_environment}
+      # no_os_boot_environment
+      def boot_to_rescue_layer(message)
         request(:boot_to_rescue_layer, Boolean, message)
       end
 
-      def capture_image(capture_template = nil)
-        message = {capture_template: capture_template}
+      # capture_template
+      def capture_image(message)
         request(:capture_image, Softlayer::Virtual::Guest::Block::Device::Template::Group, message)
       end
 
-      def close_alarm(alarm_id = nil)
-        message = {alarm_id: alarm_id}
+      # alarm_id
+      def close_alarm(message)
         request(:close_alarm, Boolean, message)
       end
 
-      def create_firmware_update_transaction(ipmi = nil, raid_controller = nil, bios = nil, harddrive = nil)
-        message = {ipmi: ipmi, raid_controller: raid_controller, bios: bios, harddrive: harddrive}
+      # ipmi
+      # raid_controller
+      # bios
+      # harddrive
+      def create_firmware_update_transaction(message)
         request(:create_firmware_update_transaction, Boolean, message)
       end
 
-      def self.create_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.create_object(message)
         request(:create_object, Softlayer::Hardware::Server, message)
       end
 
-      def create_post_software_install_transaction(install_codes = nil, return_boolean = nil)
-        message = {install_codes: install_codes, return_boolean: return_boolean}
+      # install_codes
+      # return_boolean
+      def create_post_software_install_transaction(message)
         request(:create_post_software_install_transaction, Boolean, message)
       end
 
@@ -97,33 +101,33 @@ module Softlayer
         request(:delete_object, Boolean)
       end
 
-      def delete_software_component_passwords(software_component_passwords = nil)
-        message = {software_component_passwords: software_component_passwords}
+      # software_component_passwords
+      def delete_software_component_passwords(message)
         request(:delete_software_component_passwords, Boolean, message)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
-      def edit_software_component_passwords(software_component_passwords = nil)
-        message = {software_component_passwords: software_component_passwords}
+      # software_component_passwords
+      def edit_software_component_passwords(message)
         request(:edit_software_component_passwords, Boolean, message)
       end
 
-      def execute_remote_script(uri = nil)
-        message = {uri: uri}
+      # uri
+      def execute_remote_script(message)
         request(:execute_remote_script, nil, message)
       end
 
-      def self.find_by_ip_address(ip_address = nil)
-        message = {ip_address: ip_address}
+      # ip_address
+      def self.find_by_ip_address(message)
         request(:find_by_ip_address, Softlayer::Hardware::Server, message)
       end
 
-      def self.generate_order_template(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.generate_order_template(message)
         request(:generate_order_template, Softlayer::Container::Product::Order, message)
       end
 
@@ -155,8 +159,10 @@ module Softlayer
         request(:get_active_transactions, Array[Softlayer::Provisioning::Version1::Transaction])
       end
 
-      def get_alarm_history(start_date = nil, end_date = nil, alarm_id = nil)
-        message = {start_date: start_date, end_date: end_date, alarm_id: alarm_id}
+      # start_date
+      # end_date
+      # alarm_id
+      def get_alarm_history(message)
         request(:get_alarm_history, Array[Softlayer::Container::Monitoring::Alarm::History], message)
       end
 
@@ -180,8 +186,8 @@ module Softlayer
         request(:get_antivirus_spyware_software_component, Softlayer::Software::Component)
       end
 
-      def get_attached_network_storages(nas_type = nil)
-        message = {nas_type: nas_type}
+      # nas_type
+      def get_attached_network_storages(message)
         request(:get_attached_network_storages, Array[Softlayer::Network::Storage], message)
       end
 
@@ -193,8 +199,8 @@ module Softlayer
         request(:get_available_monitoring, Array[Softlayer::Network::Monitor::Version1::Query::Host::Stratum])
       end
 
-      def get_available_network_storages(nas_type = nil)
-        message = {nas_type: nas_type}
+      # nas_type
+      def get_available_network_storages(message)
         request(:get_available_network_storages, Array[Softlayer::Network::Storage], message)
       end
 
@@ -210,18 +216,21 @@ module Softlayer
         request(:get_average_daily_public_bandwidth_usage, Float)
       end
 
-      def get_backend_bandwidth_usage(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_backend_bandwidth_usage(message)
         request(:get_backend_bandwidth_usage, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
-      def get_backend_bandwidth_use(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_backend_bandwidth_use(message)
         request(:get_backend_bandwidth_use, Array[Softlayer::Network::Bandwidth::Version1::Usage::Detail], message)
       end
 
-      def get_backend_incoming_bandwidth(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_backend_incoming_bandwidth(message)
         request(:get_backend_incoming_bandwidth, Float, message)
       end
 
@@ -229,8 +238,9 @@ module Softlayer
         request(:get_backend_network_components, Array[Softlayer::Network::Component])
       end
 
-      def get_backend_outgoing_bandwidth(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_backend_outgoing_bandwidth(message)
         request(:get_backend_outgoing_bandwidth, Float, message)
       end
 
@@ -246,13 +256,17 @@ module Softlayer
         request(:get_bandwidth_allotment_detail, Softlayer::Network::Bandwidth::Version1::Allotment::Detail)
       end
 
-      def get_bandwidth_for_date_range(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_bandwidth_for_date_range(message)
         request(:get_bandwidth_for_date_range, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
-      def get_bandwidth_image(network_type = nil, snapshot_range = nil, draw = nil, date_specified = nil)
-        message = {network_type: network_type, snapshot_range: snapshot_range, draw: draw, date_specified: date_specified}
+      # network_type
+      # snapshot_range
+      # draw
+      # date_specified
+      def get_bandwidth_image(message)
         request(:get_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
       end
 
@@ -332,8 +346,8 @@ module Softlayer
         request(:get_current_billing_total, Float)
       end
 
-      def get_custom_bandwidth_data_by_date(graph_data = nil)
-        message = {graph_data: graph_data}
+      # graph_data
+      def get_custom_bandwidth_data_by_date(message)
         request(:get_custom_bandwidth_data_by_date, Softlayer::Container::Graph, message)
       end
 
@@ -345,8 +359,9 @@ module Softlayer
         request(:get_customer_owned_flag, Boolean)
       end
 
-      def get_daily_average(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_daily_average(message)
         request(:get_daily_average, Float, message)
       end
 
@@ -414,18 +429,21 @@ module Softlayer
         request(:get_fixed_configuration_preset, Softlayer::Product::Package::Preset)
       end
 
-      def get_frontend_bandwidth_usage(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_frontend_bandwidth_usage(message)
         request(:get_frontend_bandwidth_usage, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
-      def get_frontend_bandwidth_use(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_frontend_bandwidth_use(message)
         request(:get_frontend_bandwidth_use, Array[Softlayer::Network::Bandwidth::Version1::Usage::Detail], message)
       end
 
-      def get_frontend_incoming_bandwidth(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_frontend_incoming_bandwidth(message)
         request(:get_frontend_incoming_bandwidth, Float, message)
       end
 
@@ -433,8 +451,9 @@ module Softlayer
         request(:get_frontend_network_components, Array[Softlayer::Network::Component])
       end
 
-      def get_frontend_outgoing_bandwidth(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_frontend_outgoing_bandwidth(message)
         request(:get_frontend_outgoing_bandwidth, Float, message)
       end
 
@@ -450,8 +469,8 @@ module Softlayer
         request(:get_hard_drives, Array[Softlayer::Hardware::Component])
       end
 
-      def self.get_hardware_by_ip_address(ip_address = nil)
-        message = {ip_address: ip_address}
+      # ip_address
+      def self.get_hardware_by_ip_address(message)
         request(:get_hardware_by_ip_address, Softlayer::Hardware::Server, message)
       end
 
@@ -479,8 +498,9 @@ module Softlayer
         request(:get_host_ips_software_component, Softlayer::Software::Component)
       end
 
-      def get_hourly_bandwidth(mode = nil, day = nil)
-        message = {mode: mode, day: day}
+      # mode
+      # day
+      def get_hourly_bandwidth(message)
         request(:get_hourly_bandwidth, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
@@ -500,8 +520,10 @@ module Softlayer
         request(:get_inbound_public_bandwidth_usage, Float)
       end
 
-      def get_item_prices_from_software_descriptions(software_descriptions = nil, include_translations_flag = nil, return_all_prices_flag = nil)
-        message = {software_descriptions: software_descriptions, include_translations_flag: include_translations_flag, return_all_prices_flag: return_all_prices_flag}
+      # software_descriptions
+      # include_translations_flag
+      # return_all_prices_flag
+      def get_item_prices_from_software_descriptions(message)
         request(:get_item_prices_from_software_descriptions, Array[Softlayer::Product::Item], message)
       end
 
@@ -553,8 +575,9 @@ module Softlayer
         request(:get_metric_tracking_object_id, Integer)
       end
 
-      def get_monitoring_active_alarms(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_monitoring_active_alarms(message)
         request(:get_monitoring_active_alarms, Array[Softlayer::Container::Monitoring::Alarm::History], message)
       end
 
@@ -562,8 +585,9 @@ module Softlayer
         request(:get_monitoring_agents, Array[Softlayer::Monitoring::Agent])
       end
 
-      def get_monitoring_closed_alarms(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_monitoring_closed_alarms(message)
         request(:get_monitoring_closed_alarms, Array[Softlayer::Container::Monitoring::Alarm::History], message)
       end
 
@@ -723,8 +747,9 @@ module Softlayer
         request(:get_primary_network_component, Softlayer::Network::Component)
       end
 
-      def get_private_bandwidth_data(start_time = nil, end_time = nil)
-        message = {start_time: start_time, end_time: end_time}
+      # start_time
+      # end_time
+      def get_private_bandwidth_data(message)
         request(:get_private_bandwidth_data, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
@@ -732,8 +757,9 @@ module Softlayer
         request(:get_private_bandwidth_data_summary, Softlayer::Container::Network::Bandwidth::Data::Summary)
       end
 
-      def get_private_bandwidth_graph_image(start_time = nil, end_time = nil)
-        message = {start_time: start_time, end_time: end_time}
+      # start_time
+      # end_time
+      def get_private_bandwidth_graph_image(message)
         request(:get_private_bandwidth_graph_image, Softlayer::Base64Binary, message)
       end
 
@@ -753,8 +779,8 @@ module Softlayer
         request(:get_private_vlan, Softlayer::Network::Vlan)
       end
 
-      def self.get_private_vlan_by_ip_address(ip_address = nil)
-        message = {ip_address: ip_address}
+      # ip_address
+      def self.get_private_vlan_by_ip_address(message)
         request(:get_private_vlan_by_ip_address, Softlayer::Network::Vlan, message)
       end
 
@@ -782,8 +808,9 @@ module Softlayer
         request(:get_provision_date, DateTime)
       end
 
-      def get_public_bandwidth_data(start_time = nil, end_time = nil)
-        message = {start_time: start_time, end_time: end_time}
+      # start_time
+      # end_time
+      def get_public_bandwidth_data(message)
         request(:get_public_bandwidth_data, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
@@ -791,13 +818,15 @@ module Softlayer
         request(:get_public_bandwidth_data_summary, Softlayer::Container::Network::Bandwidth::Data::Summary)
       end
 
-      def get_public_bandwidth_graph_image(start_time = nil, end_time = nil)
-        message = {start_time: start_time, end_time: end_time}
+      # start_time
+      # end_time
+      def get_public_bandwidth_graph_image(message)
         request(:get_public_bandwidth_graph_image, Softlayer::Base64Binary, message)
       end
 
-      def get_public_bandwidth_total(start_time = nil, end_time = nil)
-        message = {start_time: start_time, end_time: end_time}
+      # start_time
+      # end_time
+      def get_public_bandwidth_total(message)
         request(:get_public_bandwidth_total, BigDecimal, message)
       end
 
@@ -809,8 +838,8 @@ module Softlayer
         request(:get_public_vlan, Softlayer::Network::Vlan)
       end
 
-      def self.get_public_vlan_by_hostname(hostname = nil)
-        message = {hostname: hostname}
+      # hostname
+      def self.get_public_vlan_by_hostname(message)
         request(:get_public_vlan_by_hostname, Softlayer::Network::Vlan, message)
       end
 
@@ -962,8 +991,8 @@ module Softlayer
         request(:get_users, Array[Softlayer::User::Customer])
       end
 
-      def get_valid_block_device_template_groups(visibility = nil)
-        message = {visibility: visibility}
+      # visibility
+      def get_valid_block_device_template_groups(message)
         request(:get_valid_block_device_template_groups, Array[Softlayer::Virtual::Guest::Block::Device::Template::Group], message)
       end
 
@@ -1067,23 +1096,24 @@ module Softlayer
         request(:reboot_soft, Boolean)
       end
 
-      def reload_current_operating_system_configuration(token = nil)
-        message = {token: token}
+      # token
+      def reload_current_operating_system_configuration(message)
         request(:reload_current_operating_system_configuration, String, message)
       end
 
-      def reload_operating_system(token = nil, config = nil)
-        message = {token: token, config: config}
+      # token
+      # config
+      def reload_operating_system(message)
         request(:reload_operating_system, String, message)
       end
 
-      def remove_access_to_network_storage(network_storage_template_object = nil)
-        message = {network_storage_template_object: network_storage_template_object}
+      # network_storage_template_object
+      def remove_access_to_network_storage(message)
         request(:remove_access_to_network_storage, Boolean, message)
       end
 
-      def remove_access_to_network_storage_list(network_storage_template_objects = nil)
-        message = {network_storage_template_objects: network_storage_template_objects}
+      # network_storage_template_objects
+      def remove_access_to_network_storage_list(message)
         request(:remove_access_to_network_storage_list, Boolean, message)
       end
 
@@ -1091,28 +1121,28 @@ module Softlayer
         request(:run_passmark_certification_benchmark, Boolean)
       end
 
-      def set_operating_system_password(new_password = nil)
-        message = {new_password: new_password}
+      # new_password
+      def set_operating_system_password(message)
         request(:set_operating_system_password, Boolean, message)
       end
 
-      def set_private_network_interface_speed(new_speed = nil)
-        message = {new_speed: new_speed}
+      # new_speed
+      def set_private_network_interface_speed(message)
         request(:set_private_network_interface_speed, Boolean, message)
       end
 
-      def set_public_network_interface_speed(new_speed = nil)
-        message = {new_speed: new_speed}
+      # new_speed
+      def set_public_network_interface_speed(message)
         request(:set_public_network_interface_speed, Boolean, message)
       end
 
-      def set_tags(tags = nil)
-        message = {tags: tags}
+      # tags
+      def set_tags(message)
         request(:set_tags, Boolean, message)
       end
 
-      def set_user_metadata(metadata = nil)
-        message = {metadata: metadata}
+      # metadata
+      def set_user_metadata(message)
         request(:set_user_metadata, Array[Softlayer::Hardware::Attribute], message)
       end
 
@@ -1124,13 +1154,15 @@ module Softlayer
         request(:shutdown_public_port, Boolean)
       end
 
-      def spare_pool(action = nil, new_order = nil)
-        message = {action: action, new_order: new_order}
+      # action
+      # new_order
+      def spare_pool(message)
         request(:spare_pool, Boolean, message)
       end
 
-      def self.validate_partitions_for_operating_system(operating_system = nil, partitions = nil)
-        message = {operating_system: operating_system, partitions: partitions}
+      # operating_system
+      # partitions
+      def self.validate_partitions_for_operating_system(message)
         request(:validate_partitions_for_operating_system, Boolean, message)
       end
 

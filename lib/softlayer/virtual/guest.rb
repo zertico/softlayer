@@ -165,18 +165,18 @@ module Softlayer
         request(:activate_public_port, Boolean)
       end
 
-      def allow_access_to_network_storage(network_storage_template_object = nil)
-        message = {network_storage_template_object: network_storage_template_object}
+      # network_storage_template_object
+      def allow_access_to_network_storage(message)
         request(:allow_access_to_network_storage, Boolean, message)
       end
 
-      def allow_access_to_network_storage_list(network_storage_template_objects = nil)
-        message = {network_storage_template_objects: network_storage_template_objects}
+      # network_storage_template_objects
+      def allow_access_to_network_storage_list(message)
         request(:allow_access_to_network_storage_list, Boolean, message)
       end
 
-      def attach_disk_image(image_id = nil)
-        message = {image_id: image_id}
+      # image_id
+      def attach_disk_image(message)
         request(:attach_disk_image, Softlayer::Provisioning::Version1::Transaction, message)
       end
 
@@ -184,18 +184,18 @@ module Softlayer
         request(:cancel_isolation_for_destructive_action, nil)
       end
 
-      def capture_image(capture_template = nil)
-        message = {capture_template: capture_template}
+      # capture_template
+      def capture_image(message)
         request(:capture_image, Softlayer::Virtual::Guest::Block::Device::Template::Group, message)
       end
 
-      def check_host_disk_availability(disk_capacity = nil)
-        message = {disk_capacity: disk_capacity}
+      # disk_capacity
+      def check_host_disk_availability(message)
         request(:check_host_disk_availability, Boolean, message)
       end
 
-      def close_alarm(alarm_id = nil)
-        message = {alarm_id: alarm_id}
+      # alarm_id
+      def close_alarm(message)
         request(:close_alarm, Boolean, message)
       end
 
@@ -203,23 +203,26 @@ module Softlayer
         request(:configure_metadata_disk, Softlayer::Provisioning::Version1::Transaction)
       end
 
-      def create_archive_transaction(group_name = nil, block_devices = nil, note = nil)
-        message = {group_name: group_name, block_devices: block_devices, note: note}
+      # group_name
+      # block_devices
+      # note
+      def create_archive_transaction(message)
         request(:create_archive_transaction, Softlayer::Provisioning::Version1::Transaction, message)
       end
 
-      def self.create_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.create_object(message)
         request(:create_object, Softlayer::Virtual::Guest, message)
       end
 
-      def self.create_objects(template_objects = nil)
-        message = {template_objects: template_objects}
+      # template_objects
+      def self.create_objects(message)
         request(:create_objects, Array[Softlayer::Virtual::Guest], message)
       end
 
-      def create_post_software_install_transaction(data = nil, return_boolean = nil)
-        message = {data: data, return_boolean: return_boolean}
+      # data
+      # return_boolean
+      def create_post_software_install_transaction(message)
         request(:create_post_software_install_transaction, Boolean, message)
       end
 
@@ -227,13 +230,13 @@ module Softlayer
         request(:delete_object, Boolean)
       end
 
-      def detach_disk_image(image_id = nil)
-        message = {image_id: image_id}
+      # image_id
+      def detach_disk_image(message)
         request(:detach_disk_image, Softlayer::Provisioning::Version1::Transaction, message)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -249,13 +252,13 @@ module Softlayer
         request(:execute_rescue_layer, Boolean)
       end
 
-      def self.find_by_ip_address(ip_address = nil)
-        message = {ip_address: ip_address}
+      # ip_address
+      def self.find_by_ip_address(message)
         request(:find_by_ip_address, Softlayer::Virtual::Guest, message)
       end
 
-      def self.generate_order_template(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.generate_order_template(message)
         request(:generate_order_template, Softlayer::Container::Product::Order, message)
       end
 
@@ -283,13 +286,15 @@ module Softlayer
         request(:get_active_transactions, Array[Softlayer::Provisioning::Version1::Transaction])
       end
 
-      def get_additional_required_prices_for_os_reload(config = nil)
-        message = {config: config}
+      # config
+      def get_additional_required_prices_for_os_reload(message)
         request(:get_additional_required_prices_for_os_reload, Array[Softlayer::Product::Item::Price], message)
       end
 
-      def get_alarm_history(start_date = nil, end_date = nil, alarm_id = nil)
-        message = {start_date: start_date, end_date: end_date, alarm_id: alarm_id}
+      # start_date
+      # end_date
+      # alarm_id
+      def get_alarm_history(message)
         request(:get_alarm_history, Array[Softlayer::Container::Monitoring::Alarm::History], message)
       end
 
@@ -313,8 +318,8 @@ module Softlayer
         request(:get_application_delivery_controller, Softlayer::Network::Application::Delivery::Controller)
       end
 
-      def get_attached_network_storages(nas_type = nil)
-        message = {nas_type: nas_type}
+      # nas_type
+      def get_attached_network_storages(message)
         request(:get_attached_network_storages, Array[Softlayer::Network::Storage], message)
       end
 
@@ -330,8 +335,8 @@ module Softlayer
         request(:get_available_monitoring, Array[Softlayer::Network::Monitor::Version1::Query::Host::Stratum])
       end
 
-      def get_available_network_storages(nas_type = nil)
-        message = {nas_type: nas_type}
+      # nas_type
+      def get_available_network_storages(message)
         request(:get_available_network_storages, Array[Softlayer::Network::Storage], message)
       end
 
@@ -359,28 +364,38 @@ module Softlayer
         request(:get_bandwidth_allotment_detail, Softlayer::Network::Bandwidth::Version1::Allotment::Detail)
       end
 
-      def get_bandwidth_data_by_date(start_date_time = nil, end_date_time = nil, network_type = nil)
-        message = {start_date_time: start_date_time, end_date_time: end_date_time, network_type: network_type}
+      # start_date_time
+      # end_date_time
+      # network_type
+      def get_bandwidth_data_by_date(message)
         request(:get_bandwidth_data_by_date, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
-      def get_bandwidth_for_date_range(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_bandwidth_for_date_range(message)
         request(:get_bandwidth_for_date_range, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
-      def get_bandwidth_image(network_type = nil, snapshot_range = nil, date_specified = nil)
-        message = {network_type: network_type, snapshot_range: snapshot_range, date_specified: date_specified}
+      # network_type
+      # snapshot_range
+      # date_specified
+      def get_bandwidth_image(message)
         request(:get_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
       end
 
-      def get_bandwidth_image_by_date(start_date_time = nil, end_date_time = nil, network_type = nil)
-        message = {start_date_time: start_date_time, end_date_time: end_date_time, network_type: network_type}
+      # start_date_time
+      # end_date_time
+      # network_type
+      def get_bandwidth_image_by_date(message)
         request(:get_bandwidth_image_by_date, Softlayer::Container::Bandwidth::GraphOutputs, message)
       end
 
-      def get_bandwidth_total(start_date_time = nil, end_date_time = nil, direction = nil, side = nil)
-        message = {start_date_time: start_date_time, end_date_time: end_date_time, direction: direction, side: side}
+      # start_date_time
+      # end_date_time
+      # direction
+      # side
+      def get_bandwidth_total(message)
         request(:get_bandwidth_total, BigDecimal, message)
       end
 
@@ -440,18 +455,23 @@ module Softlayer
         request(:get_core_restricted_operating_system_price, Softlayer::Product::Item::Price)
       end
 
-      def get_cpu_metric_data_by_date(start_date_time = nil, end_date_time = nil, cpu_indexes = nil)
-        message = {start_date_time: start_date_time, end_date_time: end_date_time, cpu_indexes: cpu_indexes}
+      # start_date_time
+      # end_date_time
+      # cpu_indexes
+      def get_cpu_metric_data_by_date(message)
         request(:get_cpu_metric_data_by_date, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
-      def get_cpu_metric_image(snapshot_range = nil, date_specified = nil)
-        message = {snapshot_range: snapshot_range, date_specified: date_specified}
+      # snapshot_range
+      # date_specified
+      def get_cpu_metric_image(message)
         request(:get_cpu_metric_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
       end
 
-      def get_cpu_metric_image_by_date(start_date_time = nil, end_date_time = nil, cpu_indexes = nil)
-        message = {start_date_time: start_date_time, end_date_time: end_date_time, cpu_indexes: cpu_indexes}
+      # start_date_time
+      # end_date_time
+      # cpu_indexes
+      def get_cpu_metric_image_by_date(message)
         request(:get_cpu_metric_image_by_date, Softlayer::Container::Bandwidth::GraphOutputs, message)
       end
 
@@ -471,13 +491,13 @@ module Softlayer
         request(:get_current_billing_total, Float)
       end
 
-      def get_custom_bandwidth_data_by_date(graph_data = nil)
-        message = {graph_data: graph_data}
+      # graph_data
+      def get_custom_bandwidth_data_by_date(message)
         request(:get_custom_bandwidth_data_by_date, Softlayer::Container::Graph, message)
       end
 
-      def get_custom_metric_data_by_date(graph_data = nil)
-        message = {graph_data: graph_data}
+      # graph_data
+      def get_custom_metric_data_by_date(message)
         request(:get_custom_metric_data_by_date, Softlayer::Container::Graph, message)
       end
 
@@ -549,8 +569,10 @@ module Softlayer
         request(:get_iso_boot_image, Softlayer::Virtual::Disk::Image)
       end
 
-      def get_item_prices_from_software_descriptions(software_descriptions = nil, include_translations_flag = nil, return_all_prices_flag = nil)
-        message = {software_descriptions: software_descriptions, include_translations_flag: include_translations_flag, return_all_prices_flag: return_all_prices_flag}
+      # software_descriptions
+      # include_translations_flag
+      # return_all_prices_flag
+      def get_item_prices_from_software_descriptions(message)
         request(:get_item_prices_from_software_descriptions, Array[Softlayer::Product::Item], message)
       end
 
@@ -582,18 +604,21 @@ module Softlayer
         request(:get_managed_resource_flag, Boolean)
       end
 
-      def get_memory_metric_data_by_date(start_date_time = nil, end_date_time = nil)
-        message = {start_date_time: start_date_time, end_date_time: end_date_time}
+      # start_date_time
+      # end_date_time
+      def get_memory_metric_data_by_date(message)
         request(:get_memory_metric_data_by_date, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
-      def get_memory_metric_image(snapshot_range = nil, date_specified = nil)
-        message = {snapshot_range: snapshot_range, date_specified: date_specified}
+      # snapshot_range
+      # date_specified
+      def get_memory_metric_image(message)
         request(:get_memory_metric_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
       end
 
-      def get_memory_metric_image_by_date(start_date_time = nil, end_date_time = nil)
-        message = {start_date_time: start_date_time, end_date_time: end_date_time}
+      # start_date_time
+      # end_date_time
+      def get_memory_metric_image_by_date(message)
         request(:get_memory_metric_image_by_date, Softlayer::Container::Bandwidth::GraphOutputs, message)
       end
 
@@ -605,8 +630,9 @@ module Softlayer
         request(:get_metric_tracking_object_id, Integer)
       end
 
-      def get_monitoring_active_alarms(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_monitoring_active_alarms(message)
         request(:get_monitoring_active_alarms, Array[Softlayer::Container::Monitoring::Alarm::History], message)
       end
 
@@ -614,8 +640,9 @@ module Softlayer
         request(:get_monitoring_agents, Array[Softlayer::Monitoring::Agent])
       end
 
-      def get_monitoring_closed_alarms(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_monitoring_closed_alarms(message)
         request(:get_monitoring_closed_alarms, Array[Softlayer::Container::Monitoring::Alarm::History], message)
       end
 
@@ -679,8 +706,9 @@ module Softlayer
         request(:get_operating_system_reference_code, String)
       end
 
-      def get_order_template(billing_type = nil, order_prices = nil)
-        message = {billing_type: billing_type, order_prices: order_prices}
+      # billing_type
+      # order_prices
+      def get_order_template(message)
         request(:get_order_template, Softlayer::Container::Product::Order, message)
       end
 
@@ -740,8 +768,8 @@ module Softlayer
         request(:get_recent_events, Array[Softlayer::Notification::Occurrence::Event])
       end
 
-      def get_recent_metric_data(time = nil)
-        message = {time: time}
+      # time
+      def get_recent_metric_data(message)
         request(:get_recent_metric_data, Array[Softlayer::Metric::Tracking::Object], message)
       end
 
@@ -753,13 +781,15 @@ module Softlayer
         request(:get_regional_internet_registry, Softlayer::Network::Regional::Internet::Registry)
       end
 
-      def get_remote_monitoring_active_alarms(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_remote_monitoring_active_alarms(message)
         request(:get_remote_monitoring_active_alarms, Array[Softlayer::Container::Monitoring::Alarm::History], message)
       end
 
-      def get_remote_monitoring_closed_alarms(start_date = nil, end_date = nil)
-        message = {start_date: start_date, end_date: end_date}
+      # start_date
+      # end_date
+      def get_remote_monitoring_closed_alarms(message)
         request(:get_remote_monitoring_closed_alarms, Array[Softlayer::Container::Monitoring::Alarm::History], message)
       end
 
@@ -803,8 +833,8 @@ module Softlayer
         request(:get_tag_references, Array[Softlayer::Tag::Reference])
       end
 
-      def get_upgrade_item_prices(include_downgrade_item_prices = nil)
-        message = {include_downgrade_item_prices: include_downgrade_item_prices}
+      # include_downgrade_item_prices
+      def get_upgrade_item_prices(message)
         request(:get_upgrade_item_prices, Array[Softlayer::Product::Item::Price], message)
       end
 
@@ -820,8 +850,8 @@ module Softlayer
         request(:get_users, Array[Softlayer::User::Customer])
       end
 
-      def get_valid_block_device_template_groups(visibility = nil)
-        message = {visibility: visibility}
+      # visibility
+      def get_valid_block_device_template_groups(message)
         request(:get_valid_block_device_template_groups, Array[Softlayer::Virtual::Guest::Block::Device::Template::Group], message)
       end
 
@@ -849,8 +879,8 @@ module Softlayer
         request(:isolate_instance_for_destructive_action, nil)
       end
 
-      def mount_iso_image(disk_image_id = nil)
-        message = {disk_image_id: disk_image_id}
+      # disk_image_id
+      def mount_iso_image(message)
         request(:mount_iso_image, Softlayer::Provisioning::Version1::Transaction, message)
       end
 
@@ -890,18 +920,19 @@ module Softlayer
         request(:reload_current_operating_system_configuration, Softlayer::Provisioning::Version1::Transaction)
       end
 
-      def reload_operating_system(token = nil, config = nil)
-        message = {token: token, config: config}
+      # token
+      # config
+      def reload_operating_system(message)
         request(:reload_operating_system, String, message)
       end
 
-      def remove_access_to_network_storage(network_storage_template_object = nil)
-        message = {network_storage_template_object: network_storage_template_object}
+      # network_storage_template_object
+      def remove_access_to_network_storage(message)
         request(:remove_access_to_network_storage, Boolean, message)
       end
 
-      def remove_access_to_network_storage_list(network_storage_template_objects = nil)
-        message = {network_storage_template_objects: network_storage_template_objects}
+      # network_storage_template_objects
+      def remove_access_to_network_storage_list(message)
         request(:remove_access_to_network_storage_list, Boolean, message)
       end
 
@@ -909,23 +940,23 @@ module Softlayer
         request(:resume, Boolean)
       end
 
-      def set_private_network_interface_speed(new_speed = nil)
-        message = {new_speed: new_speed}
+      # new_speed
+      def set_private_network_interface_speed(message)
         request(:set_private_network_interface_speed, Boolean, message)
       end
 
-      def set_public_network_interface_speed(new_speed = nil)
-        message = {new_speed: new_speed}
+      # new_speed
+      def set_public_network_interface_speed(message)
         request(:set_public_network_interface_speed, Boolean, message)
       end
 
-      def set_tags(tags = nil)
-        message = {tags: tags}
+      # tags
+      def set_tags(message)
         request(:set_tags, Boolean, message)
       end
 
-      def set_user_metadata(metadata = nil)
-        message = {metadata: metadata}
+      # metadata
+      def set_user_metadata(message)
         request(:set_user_metadata, Boolean, message)
       end
 
@@ -941,13 +972,13 @@ module Softlayer
         request(:unmount_iso_image, Softlayer::Provisioning::Version1::Transaction)
       end
 
-      def validate_image_template(image_template_id = nil)
-        message = {image_template_id: image_template_id}
+      # image_template_id
+      def validate_image_template(message)
         request(:validate_image_template, Boolean, message)
       end
 
-      def verify_reload_operating_system(config = nil)
-        message = {config: config}
+      # config
+      def verify_reload_operating_system(message)
         request(:verify_reload_operating_system, Boolean, message)
       end
 

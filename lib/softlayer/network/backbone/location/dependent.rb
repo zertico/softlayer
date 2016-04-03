@@ -22,8 +22,8 @@ module Softlayer
             request(:get_object, Softlayer::Network::Backbone::Location::Dependent)
           end
 
-          def self.get_source_dependents_by_name(location_name = nil)
-            message = {location_name: location_name}
+          # location_name
+          def self.get_source_dependents_by_name(message)
             request(:get_source_dependents_by_name, Softlayer::Location, message)
           end
 

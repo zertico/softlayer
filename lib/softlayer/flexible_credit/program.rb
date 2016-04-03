@@ -6,8 +6,8 @@ module Softlayer
       attr_accessor :key_name
       attr_accessor :name
 
-      def get_affiliates_available_for_self_enrollment_by_verification_type(verification_type_key_name = nil)
-        message = {verification_type_key_name: verification_type_key_name}
+      # verification_type_key_name
+      def get_affiliates_available_for_self_enrollment_by_verification_type(message)
         request(:get_affiliates_available_for_self_enrollment_by_verification_type, Array[Softlayer::FlexibleCredit::Affiliate], message)
       end
 
@@ -19,8 +19,8 @@ module Softlayer
         request(:get_object, Softlayer::FlexibleCredit::Program)
       end
 
-      def self_enroll_new_account(account_template = nil)
-        message = {account_template: account_template}
+      # account_template
+      def self_enroll_new_account(message)
         request(:self_enroll_new_account, Softlayer::Account, message)
       end
 

@@ -3,8 +3,10 @@ module Softlayer
     class Mobile < Softlayer::Notification
       SERVICE = 'SoftLayer_Notification_Mobile'
 
-      def self.create_subscriber_for_mobile_device(key_name = nil, resource_table_id = nil, user_record_id = nil)
-        message = {key_name: key_name, resource_table_id: resource_table_id, user_record_id: user_record_id}
+      # key_name
+      # resource_table_id
+      # user_record_id
+      def self.create_subscriber_for_mobile_device(message)
         request(:create_subscriber_for_mobile_device, Boolean, message)
       end
 

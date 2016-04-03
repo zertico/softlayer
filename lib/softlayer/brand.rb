@@ -38,13 +38,14 @@ module Softlayer
     attr_accessor :users
     attr_accessor :virtual_guests
 
-    def self.create_customer_account(account = nil, bypass_duplicate_account_check = nil)
-      message = {account: account, bypass_duplicate_account_check: bypass_duplicate_account_check}
+    # account
+    # bypass_duplicate_account_check
+    def self.create_customer_account(message)
       request(:create_customer_account, Softlayer::Account, message)
     end
 
-    def self.create_object(template_object = nil)
-      message = {template_object: template_object}
+    # template_object
+    def self.create_object(message)
       request(:create_object, Softlayer::Brand, message)
     end
 
@@ -56,8 +57,8 @@ module Softlayer
       request(:get_all_owned_accounts, Array[Softlayer::Account])
     end
 
-    def get_all_ticket_subjects(account = nil)
-      message = {account: account}
+    # account
+    def get_all_ticket_subjects(message)
       request(:get_all_ticket_subjects, Array[Softlayer::Ticket::Subject], message)
     end
 
@@ -125,8 +126,8 @@ module Softlayer
       request(:get_tickets, Array[Softlayer::Ticket])
     end
 
-    def get_token(user_id = nil)
-      message = {user_id: user_id}
+    # user_id
+    def get_token(message)
       request(:get_token, String, message)
     end
 

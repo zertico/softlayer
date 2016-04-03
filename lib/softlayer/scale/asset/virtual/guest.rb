@@ -7,8 +7,8 @@ module Softlayer
           attr_accessor :virtual_guest
           attr_accessor :virtual_guest_id
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::Scale::Asset::Virtual::Guest, message)
           end
 

@@ -9,8 +9,8 @@ module Softlayer
       attr_accessor :modify_date
       attr_accessor :account
 
-      def self.create_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def self.create_object(message)
         request(:create_object, Softlayer::Account::Affiliation, message)
       end
 
@@ -18,8 +18,8 @@ module Softlayer
         request(:delete_object, Boolean)
       end
 
-      def edit_object(template_object = nil)
-        message = {template_object: template_object}
+      # template_object
+      def edit_object(message)
         request(:edit_object, Boolean, message)
       end
 
@@ -27,8 +27,8 @@ module Softlayer
         request(:get_account, Softlayer::Account)
       end
 
-      def self.get_account_affiliations_by_affiliate_id(affiliate_id = nil)
-        message = {affiliate_id: affiliate_id}
+      # affiliate_id
+      def self.get_account_affiliations_by_affiliate_id(message)
         request(:get_account_affiliations_by_affiliate_id, Array[Softlayer::Account::Affiliation], message)
       end
 

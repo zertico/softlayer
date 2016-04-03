@@ -40,8 +40,8 @@ module Softlayer
         request(:get_hardware, Softlayer::Hardware::Server)
       end
 
-      def get_live_guest_by_uuid(uuid = nil)
-        message = {uuid: uuid}
+      # uuid
+      def get_live_guest_by_uuid(message)
         request(:get_live_guest_by_uuid, Softlayer::Virtual::Guest, message)
       end
 
@@ -49,8 +49,11 @@ module Softlayer
         request(:get_live_guest_list, Array[Softlayer::Virtual::Guest])
       end
 
-      def get_live_guest_recent_metric_data(uuid = nil, time = nil, limit = nil, interval = nil)
-        message = {uuid: uuid, time: time, limit: limit, interval: interval}
+      # uuid
+      # time
+      # limit
+      # interval
+      def get_live_guest_recent_metric_data(message)
         request(:get_live_guest_recent_metric_data, Array[Softlayer::Metric::Tracking::Object], message)
       end
 
@@ -62,33 +65,33 @@ module Softlayer
         request(:get_object, Softlayer::Virtual::Host)
       end
 
-      def pause_live_guest(uuid = nil)
-        message = {uuid: uuid}
+      # uuid
+      def pause_live_guest(message)
         request(:pause_live_guest, Boolean, message)
       end
 
-      def power_cycle_live_guest(uuid = nil)
-        message = {uuid: uuid}
+      # uuid
+      def power_cycle_live_guest(message)
         request(:power_cycle_live_guest, Boolean, message)
       end
 
-      def power_off_live_guest(uuid = nil)
-        message = {uuid: uuid}
+      # uuid
+      def power_off_live_guest(message)
         request(:power_off_live_guest, Boolean, message)
       end
 
-      def power_on_live_guest(uuid = nil)
-        message = {uuid: uuid}
+      # uuid
+      def power_on_live_guest(message)
         request(:power_on_live_guest, Boolean, message)
       end
 
-      def reboot_soft_live_guest(uuid = nil)
-        message = {uuid: uuid}
+      # uuid
+      def reboot_soft_live_guest(message)
         request(:reboot_soft_live_guest, Boolean, message)
       end
 
-      def resume_live_guest(uuid = nil)
-        message = {uuid: uuid}
+      # uuid
+      def resume_live_guest(message)
         request(:resume_live_guest, Boolean, message)
       end
 

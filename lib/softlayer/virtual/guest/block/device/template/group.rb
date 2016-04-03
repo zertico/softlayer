@@ -45,23 +45,26 @@ module Softlayer
               attr_accessor :tag_references
               attr_accessor :transaction
 
-              def add_locations(locations = nil)
-                message = {locations: locations}
+              # locations
+              def add_locations(message)
                 request(:add_locations, Boolean, message)
               end
 
-              def copy_to_external_source(configuration = nil)
-                message = {configuration: configuration}
+              # configuration
+              def copy_to_external_source(message)
                 request(:copy_to_external_source, Boolean, message)
               end
 
-              def self.create_from_external_source(configuration = nil)
-                message = {configuration: configuration}
+              # configuration
+              def self.create_from_external_source(message)
                 request(:create_from_external_source, Softlayer::Virtual::Guest::Block::Device::Template::Group, message)
               end
 
-              def create_public_archive_transaction(group_name = nil, summary = nil, note = nil, locations = nil)
-                message = {group_name: group_name, summary: summary, note: note, locations: locations}
+              # group_name
+              # summary
+              # note
+              # locations
+              def create_public_archive_transaction(message)
                 request(:create_public_archive_transaction, Integer, message)
               end
 
@@ -69,13 +72,13 @@ module Softlayer
                 request(:delete_object, Softlayer::Provisioning::Version1::Transaction)
               end
 
-              def deny_sharing_access(account_id = nil)
-                message = {account_id: account_id}
+              # account_id
+              def deny_sharing_access(message)
                 request(:deny_sharing_access, Boolean, message)
               end
 
-              def edit_object(template_object = nil)
-                message = {template_object: template_object}
+              # template_object
+              def edit_object(message)
                 request(:edit_object, Boolean, message)
               end
 
@@ -171,23 +174,23 @@ module Softlayer
                 request(:get_vhd_import_software_descriptions, Array[Softlayer::Software::Description])
               end
 
-              def permit_sharing_access(account_id = nil)
-                message = {account_id: account_id}
+              # account_id
+              def permit_sharing_access(message)
                 request(:permit_sharing_access, Boolean, message)
               end
 
-              def remove_locations(locations = nil)
-                message = {locations: locations}
+              # locations
+              def remove_locations(message)
                 request(:remove_locations, Boolean, message)
               end
 
-              def set_available_locations(locations = nil)
-                message = {locations: locations}
+              # locations
+              def set_available_locations(message)
                 request(:set_available_locations, Boolean, message)
               end
 
-              def set_tags(tags = nil)
-                message = {tags: tags}
+              # tags
+              def set_tags(message)
                 request(:set_tags, Boolean, message)
               end
 

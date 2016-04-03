@@ -5,13 +5,13 @@ module Softlayer
         class Billing < Softlayer::Notification::User::Subscriber
           SERVICE = 'SoftLayer_Notification_User_Subscriber_Billing'
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Boolean, message)
           end
 
-          def edit_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def edit_object(message)
             request(:edit_object, Boolean, message)
           end
 

@@ -47,13 +47,14 @@ module Softlayer
         request(:get_provision_state, String)
       end
 
-      def self.get_router(mac_address = nil)
-        message = {mac_address: mac_address}
+      # mac_address
+      def self.get_router(message)
         request(:get_router, String, message)
       end
 
-      def self.get_service_resource(service_name = nil, index = nil)
-        message = {service_name: service_name, index: index}
+      # service_name
+      # index
+      def self.get_service_resource(message)
         request(:get_service_resource, String, message)
       end
 
@@ -69,13 +70,13 @@ module Softlayer
         request(:get_user_metadata, String)
       end
 
-      def self.get_vlan_ids(mac_address = nil)
-        message = {mac_address: mac_address}
+      # mac_address
+      def self.get_vlan_ids(message)
         request(:get_vlan_ids, Array[Integer], message)
       end
 
-      def self.get_vlans(mac_address = nil)
-        message = {mac_address: mac_address}
+      # mac_address
+      def self.get_vlans(message)
         request(:get_vlans, Array[Integer], message)
       end
 

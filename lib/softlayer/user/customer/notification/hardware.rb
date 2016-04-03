@@ -10,23 +10,23 @@ module Softlayer
           attr_accessor :hardware
           attr_accessor :user
 
-          def self.create_object(template_object = nil)
-            message = {template_object: template_object}
+          # template_object
+          def self.create_object(message)
             request(:create_object, Softlayer::User::Customer::Notification::Hardware, message)
           end
 
-          def self.create_objects(template_objects = nil)
-            message = {template_objects: template_objects}
+          # template_objects
+          def self.create_objects(message)
             request(:create_objects, Array[Softlayer::Dns::Domain], message)
           end
 
-          def self.delete_objects(template_objects = nil)
-            message = {template_objects: template_objects}
+          # template_objects
+          def self.delete_objects(message)
             request(:delete_objects, Boolean, message)
           end
 
-          def self.find_by_hardware_id(hardware_id = nil)
-            message = {hardware_id: hardware_id}
+          # hardware_id
+          def self.find_by_hardware_id(message)
             request(:find_by_hardware_id, Array[Softlayer::User::Customer::Notification::Hardware], message)
           end
 
