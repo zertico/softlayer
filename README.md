@@ -153,20 +153,7 @@ ps: `getDatacenters` message does not accept a `resultLimit` header, just using 
 ## Known Issues
 
 * Using Savon master until a version is released containing the commit to support rpc/encoded XML
-* Actually arrays are being wrongly mapped, so when we pass an argument containing **one** array, we need to pass inside another array, like this:
-
-```ruby
-# instead of
-parameters = {
-  list_of_something: ["arg1", "arg2"]
-}
-
-# use
-parameters = {
-  list_of_something: [["arg1", "arg2"]]
-}
-```
-
+* Savon do not construct our array correctly, so the client workaround on the problem, this is not a real big deal to who is using the client, but I'm leaving this as a future reference if some problem appears.
 hope to fix this _really soon_, in the meanwhile you can check the progress of this bug on this [issue](https://github.com/savonrb/savon/issues/752)
 
 ## Development
