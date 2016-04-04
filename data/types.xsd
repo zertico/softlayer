@@ -13767,6 +13767,33 @@
       </restriction>
     </complexContent>
   </complexType>
+  <complexType name="SoftLayer_Container_Resource_Metadata_ServiceResource">
+    <complexContent>
+      <extension base="tns:SoftLayer_Entity">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="backendIpAddress" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="type" type="tns:SoftLayer_Network_Service_Resource_Type"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Resource_Metadata_ServiceResourceObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Utility_ObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="backendIpAddress" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="type" type="tns:SoftLayer_Network_Service_Resource_TypeObjectFilter"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Resource_Metadata_ServiceResourceArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Container_Resource_Metadata_ServiceResource[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
   <complexType name="SoftLayer_Container_Search_ObjectType">
     <complexContent>
       <extension base="tns:SoftLayer_Entity">

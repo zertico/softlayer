@@ -59,7 +59,7 @@ module Softlayer
       end
 
       def self.get_service_resources
-        request(:get_service_resources, Array[Softlayer::Network::Service::Resource])
+        request(:get_service_resources, Array[Softlayer::Container::Resource::Metadata::ServiceResource])
       end
 
       def self.get_tags
