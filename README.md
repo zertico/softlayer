@@ -86,18 +86,18 @@ location_object_filter = {
 Softlayer::Location::Datacenter.filter(location_object_filter)
 ```
 
-For an `in` operation you must add the array inside an array because the client known issue, let's search for wdc01 and wdc04
+For an `in` operation you must add the operation `in` and the options array, let's search for wdc01 and wdc04
 
 ```ruby
 location_object_filter = {
     'name': {
       'operation': "in",
-      "options": [[
+      "options": [
         {
           "name": "data",
-          "value": [['wdc01', 'wdc04']]
+          "value": ['wdc01', 'wdc04']
         }
-      ]]
+      ]
     }
 }
 Softlayer::Location::Datacenter.filter(location_object_filter).get_datacenters
@@ -130,15 +130,15 @@ What if you want to use a mask, filtering just what you want and limiting the re
 
 ```ruby
 location_object_filter = {
-    'name': {
-      'operation': "in",
-      "options": [[
-        {
-          "name": "data",
-          "value": [['wdc01', 'wdc04']]
-        }
-      ]]
-    }
+  'name': {
+    'operation': "in",
+    "options": [
+      {
+        "name": "data",
+        "value": ['wdc01', 'wdc04']
+      }
+    ]
+  }
 }
 location_object_mask = "mask[groups]"
 Softlayer::Location::Datacenter.filter(location_object_filter).mask(location_object_mask).limit(1, 0).get_datacenters
