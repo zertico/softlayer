@@ -45,6 +45,7 @@ module Softlayer
       attr_accessor :credential_count
       attr_accessor :event_count
       attr_accessor :iscsi_lun_count
+      attr_accessor :manual_snapshot_count
       attr_accessor :notification_subscriber_count
       attr_accessor :parent_partnership_count
       attr_accessor :partnership_count
@@ -80,6 +81,7 @@ module Softlayer
       attr_accessor :iops
       attr_accessor :iscsi_luns
       attr_accessor :lun_id
+      attr_accessor :manual_snapshots
       attr_accessor :metric_tracking_object
       attr_accessor :mountable_flag
       attr_accessor :notification_subscribers
@@ -484,6 +486,10 @@ module Softlayer
         request(:get_lun_id, String)
       end
 
+      def get_manual_snapshots
+        request(:get_manual_snapshots, Array[Softlayer::Network::Storage])
+      end
+
       def get_metric_tracking_object
         request(:get_metric_tracking_object, Softlayer::Metric::Tracking::Object)
       end
@@ -829,6 +835,7 @@ module Softlayer
         property :credential_count, type: BigDecimal
         property :event_count, type: BigDecimal
         property :iscsi_lun_count, type: BigDecimal
+        property :manual_snapshot_count, type: BigDecimal
         property :notification_subscriber_count, type: BigDecimal
         property :parent_partnership_count, type: BigDecimal
         property :partnership_count, type: BigDecimal

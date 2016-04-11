@@ -428,6 +428,10 @@
   <message name="getLunIdResponse">
     <part name="getLunIdReturn" type="xsd:string"/>
   </message>
+  <message name="getManualSnapshots"/>
+  <message name="getManualSnapshotsResponse">
+    <part name="getManualSnapshotsReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
   <message name="getMetricTrackingObject"/>
   <message name="getMetricTrackingObjectResponse">
     <part name="getMetricTrackingObjectReturn" type="tns:SoftLayer_Metric_Tracking_Object"/>
@@ -915,7 +919,7 @@ collectBytesUsed() retrieves the number of bytes capacity currently in use on a 
       <output message="tns:createFolderResponse"/>
     </operation>
     <operation name="createSnapshot">
-      <documentation>Create a new snapshot of the data on the network storage volume. </documentation>
+      <documentation></documentation>
       <input message="tns:createSnapshot"/>
       <output message="tns:createSnapshotResponse"/>
     </operation>
@@ -1198,6 +1202,11 @@ getGraph() retrieves a Storage account's usage and returns a PNG graph image, ti
       <documentation>Retrieve the ID of the LUN volume.</documentation>
       <input message="tns:getLunId"/>
       <output message="tns:getLunIdResponse"/>
+    </operation>
+    <operation name="getManualSnapshots">
+      <documentation>Retrieve the manually-created snapshots associated with this SoftLayer_Network_Storage volume. Does not support pagination by result limit and offset.</documentation>
+      <input message="tns:getManualSnapshots"/>
+      <output message="tns:getManualSnapshotsResponse"/>
     </operation>
     <operation name="getMetricTrackingObject">
       <documentation>Retrieve a network storage volume's metric tracking object. This object records all periodic polled data available to this volume.</documentation>
@@ -2541,6 +2550,22 @@ The following properties are required in the ''file'' parameter.
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getManualSnapshots">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_StorageAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_StorageObjectMaskHeader" part="SoftLayer_Network_StorageObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_StorageObjectFilterHeader" part="SoftLayer_Network_StorageObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_StorageInitParametersHeader" part="SoftLayer_Network_StorageInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>

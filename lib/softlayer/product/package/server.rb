@@ -5,6 +5,7 @@ module Softlayer
         SERVICE = 'SoftLayer_Product_Package_Server'
         autoload :Option, 'softlayer/product/package/server/option'
         attr_accessor :catalog_id
+        attr_accessor :datacenters
         attr_accessor :default_ram_capacity
         attr_accessor :dual_path_network_flag
         attr_accessor :gpu_flag
@@ -75,6 +76,7 @@ module Softlayer
           include Representable::Hash
           include Representable::Coercion
           property :catalog_id, type: Integer
+          property :datacenters, type: String
           property :default_ram_capacity, type: Float
           property :dual_path_network_flag, type: Boolean
           property :gpu_flag, type: Boolean

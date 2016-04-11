@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     class Backbone
       module Location
         autoload :Dependent, 'softlayer/network/backbone/location/dependent'

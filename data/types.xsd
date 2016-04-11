@@ -23149,6 +23149,7 @@
           <element minOccurs="0" maxOccurs="1" name="credentialCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="eventCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="iscsiLunCount" type="unsignedLong"/>
+          <element minOccurs="0" maxOccurs="1" name="manualSnapshotCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="notificationSubscriberCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="parentPartnershipCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="partnershipCount" type="unsignedLong"/>
@@ -23184,6 +23185,7 @@
           <element minOccurs="0" maxOccurs="1" name="iops" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="iscsiLuns" type="tns:SoftLayer_Network_StorageArray"/>
           <element minOccurs="0" maxOccurs="1" name="lunId" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="manualSnapshots" type="tns:SoftLayer_Network_StorageArray"/>
           <element minOccurs="0" maxOccurs="1" name="metricTrackingObject" type="tns:SoftLayer_Metric_Tracking_Object"/>
           <element minOccurs="0" maxOccurs="1" name="mountableFlag" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="notificationSubscribers" type="tns:SoftLayer_Notification_User_SubscriberArray"/>
@@ -23244,6 +23246,7 @@
           <element minOccurs="0" maxOccurs="1" name="storageTypeId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="upgradableFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="username" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="manualSnapshotCount" type="tns:SoftLayer_Network_StorageObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="account" type="tns:SoftLayer_AccountObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="accountPassword" type="tns:SoftLayer_Account_PasswordObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="activeTransactions" type="tns:SoftLayer_Provisioning_Version1_TransactionObjectFilter"/>
@@ -23267,6 +23270,7 @@
           <element minOccurs="0" maxOccurs="1" name="iops" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="iscsiLuns" type="tns:SoftLayer_Network_StorageObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="lunId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="manualSnapshots" type="tns:SoftLayer_Network_StorageObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="metricTrackingObject" type="tns:SoftLayer_Metric_Tracking_ObjectObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="mountableFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="notificationSubscribers" type="tns:SoftLayer_Notification_User_SubscriberObjectFilter"/>
@@ -28174,6 +28178,7 @@
       <extension base="tns:SoftLayer_Entity">
         <sequence>
           <element minOccurs="0" maxOccurs="1" nillable="true" name="catalogId" type="int"/>
+          <element minOccurs="0" maxOccurs="1" name="datacenters" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="defaultRamCapacity" type="decimal"/>
           <element minOccurs="0" maxOccurs="1" nillable="true" name="dualPathNetworkFlag" type="boolean"/>
           <element minOccurs="0" maxOccurs="1" nillable="true" name="gpuFlag" type="boolean"/>
@@ -28220,6 +28225,7 @@
       <extension base="tns:SoftLayer_Utility_ObjectFilter">
         <sequence>
           <element minOccurs="0" maxOccurs="1" name="catalogId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="datacenters" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="defaultRamCapacity" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="dualPathNetworkFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="gpuFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>

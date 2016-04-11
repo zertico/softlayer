@@ -388,6 +388,10 @@ module Softlayer
             request(:get_lun_id, String)
           end
 
+          def get_manual_snapshots
+            request(:get_manual_snapshots, Array[Softlayer::Network::Storage])
+          end
+
           def get_metric_tracking_object
             request(:get_metric_tracking_object, Softlayer::Metric::Tracking::Object)
           end
