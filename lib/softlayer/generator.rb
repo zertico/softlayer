@@ -1,4 +1,5 @@
 require 'nokogiri'
+require 'savon'
 require 'active_support/inflector'
 require 'softlayer/generator/class_file'
 require 'softlayer/generator/converter'

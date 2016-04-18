@@ -100,10 +100,15 @@ module Softlayer
           autoload = []
           children.each do |child|
             class_symbol = child.sub(element+'_', '').to_sym
-            class_file = Converter.type(child).underscore
+            class_file = process_autoload(child)
             autoload << [class_symbol, class_file]
           end
           autoload
+        end
+
+        def process_autoload(child)
+          return Converter.class_name(child).underscore if child =~ /Array\z/
+          Converter.type(child).underscore
         end
 
         private

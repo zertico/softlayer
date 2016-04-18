@@ -4,15 +4,22 @@ require "rake/testtask"
 namespace :generator do
   desc "Download needed files"
   task :download do
-    require 'softlayer'
     require "softlayer/generator"
     Softlayer::Generator.download
   end
 
   desc "Create model files"
   task :do_your_job => :download do
-    require 'softlayer'
+    core_files = %w(
+      version.rb generator generator.rb model.rb big_decimal.rb boolean.rb client.rb
+      config.rb errors.rb fixtures.rb float.rb mock.rb errors mock model
+    )
     require "softlayer/generator"
+    lib_folder = File.join(File.expand_path(File.dirname(__FILE__)), 'lib', 'softlayer')
+    FileUtils.rm_rf lib_folder
+    core_files.each do |file|
+      system("git checkout -- #{File.join(lib_folder, file)}")
+    end
     Softlayer::Generator.new.runner
   end
 end
