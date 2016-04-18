@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3.1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3.1/" schemaLocation="https://api.softlayer.com/soap/v3.1/SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequest?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:complexType name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequest"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestInitParametersHeader">
+    <part name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestInitParameters" type="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestInitParameters"/>
+  </message>
+  <message name="enroll">
+    <part name="templateObject" type="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequest"/>
+  </message>
+  <message name="enrollResponse">
+    <part name="enrollReturn" type="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequest"/>
+  </message>
+  <message name="getCompanyType"/>
+  <message name="getCompanyTypeResponse">
+    <part name="getCompanyTypeReturn" type="tns:SoftLayer_Catalyst_Company_Type"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequest"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMaskHeader">
+    <part name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMask" type="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMask"/>
+  </message>
+  <message name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectFilterHeader">
+    <part name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectFilter" type="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestPortType">
+    <documentation></documentation>
+    <operation name="enroll">
+      <documentation>Create a new Service Provider Enrollment </documentation>
+      <input message="tns:enroll"/>
+      <output message="tns:enrollResponse"/>
+    </operation>
+    <operation name="getCompanyType">
+      <documentation>Retrieve catalyst company types.</documentation>
+      <input message="tns:getCompanyType"/>
+      <output message="tns:getCompanyTypeResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestBinding" type="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="enroll">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMaskHeader" part="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getCompanyType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMaskHeader" part="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectFilterHeader" part="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestInitParametersHeader" part="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMaskHeader" part="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectFilterHeader" part="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestInitParametersHeader" part="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestService">
+    <port name="SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestPort" binding="tns:SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequestBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3.1/SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequest"/>
+    </port>
+  </service>
+</definitions>

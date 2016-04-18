@@ -22449,7 +22449,6 @@
           <element minOccurs="0" maxOccurs="1" name="lastResult" type="tns:SoftLayer_Network_Monitor_Version1_Query_Result"/>
           <element minOccurs="0" maxOccurs="1" name="queryType" type="tns:SoftLayer_Network_Monitor_Version1_Query_Type"/>
           <element minOccurs="0" maxOccurs="1" name="responseAction" type="tns:SoftLayer_Network_Monitor_Version1_Query_ResponseType"/>
-          <element minOccurs="0" maxOccurs="1" name="subnet" type="tns:SoftLayer_Network_Subnet"/>
         </sequence>
       </extension>
     </complexContent>
@@ -22472,7 +22471,6 @@
           <element minOccurs="0" maxOccurs="1" name="lastResult" type="tns:SoftLayer_Network_Monitor_Version1_Query_ResultObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="queryType" type="tns:SoftLayer_Network_Monitor_Version1_Query_TypeObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="responseAction" type="tns:SoftLayer_Network_Monitor_Version1_Query_ResponseTypeObjectFilter"/>
-          <element minOccurs="0" maxOccurs="1" name="subnet" type="tns:SoftLayer_Network_SubnetObjectFilter"/>
         </sequence>
       </extension>
     </complexContent>
@@ -25971,6 +25969,35 @@
       </restriction>
     </complexContent>
   </complexType>
+  <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_Iscsi_EqualLogic">
+    <complexContent>
+      <extension base="tns:SoftLayer_Notification_Occurrence_Resource">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="hostname" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="privateIp" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="resourceType" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_Iscsi_EqualLogicObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Notification_Occurrence_ResourceObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="hostname" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="privateIp" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="resourceType" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_Iscsi_EqualLogicArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Notification_Occurrence_Resource_Network_Storage_Iscsi_EqualLogic[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
   <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_Iscsi_NetApp">
     <complexContent>
       <extension base="tns:SoftLayer_Notification_Occurrence_Resource">
@@ -25997,6 +26024,64 @@
     <complexContent>
       <restriction base="soapenc:Array">
         <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Notification_Occurrence_Resource_Network_Storage_Iscsi_NetApp[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_Lockbox">
+    <complexContent>
+      <extension base="tns:SoftLayer_Notification_Occurrence_Resource">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="hostname" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="privateIp" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="resourceType" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_LockboxObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Notification_Occurrence_ResourceObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="hostname" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="privateIp" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="resourceType" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_LockboxArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Notification_Occurrence_Resource_Network_Storage_Lockbox[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_Nas">
+    <complexContent>
+      <extension base="tns:SoftLayer_Notification_Occurrence_Resource">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="hostname" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="privateIp" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="resourceType" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_NasObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Notification_Occurrence_ResourceObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="hostname" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="privateIp" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="resourceType" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Notification_Occurrence_Resource_Network_Storage_NasArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Notification_Occurrence_Resource_Network_Storage_Nas[]"/>
       </restriction>
     </complexContent>
   </complexType>

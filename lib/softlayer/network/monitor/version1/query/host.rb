@@ -20,7 +20,6 @@ module Softlayer
             attr_accessor :last_result
             attr_accessor :query_type
             attr_accessor :response_action
-            attr_accessor :subnet
 
             # template_object
             def self.create_object(message)
@@ -74,10 +73,6 @@ module Softlayer
 
             def get_response_action
               request(:get_response_action, Softlayer::Network::Monitor::Version1::Query::ResponseType)
-            end
-
-            def get_subnet
-              request(:get_subnet, Softlayer::Network::Subnet)
             end
 
             class Representer < Softlayer::Entity::Representer

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3.1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3.1/" schemaLocation="https://api.softlayer.com/soap/v3.1/SoftLayer_Software_AccountLicense?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:complexType name="SoftLayer_Software_AccountLicenseInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Software_AccountLicenseObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Software_AccountLicense"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Software_AccountLicenseInitParametersHeader">
+    <part name="SoftLayer_Software_AccountLicenseInitParameters" type="tns:SoftLayer_Software_AccountLicenseInitParameters"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getBillingItem"/>
+  <message name="getBillingItemResponse">
+    <part name="getBillingItemReturn" type="tns:SoftLayer_Billing_Item"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Software_AccountLicense"/>
+  </message>
+  <message name="getSoftwareDescription"/>
+  <message name="getSoftwareDescriptionResponse">
+    <part name="getSoftwareDescriptionReturn" type="tns:SoftLayer_Software_Description"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Software_AccountLicenseObjectMaskHeader">
+    <part name="SoftLayer_Software_AccountLicenseObjectMask" type="tns:SoftLayer_Software_AccountLicenseObjectMask"/>
+  </message>
+  <message name="SoftLayer_Software_AccountLicenseObjectFilterHeader">
+    <part name="SoftLayer_Software_AccountLicenseObjectFilter" type="tns:SoftLayer_Software_AccountLicenseObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Software_AccountLicensePortType">
+    <documentation>SoftLayer_Software_AccountLicense is the application class that handles a special type of Software License.  Most software licenses are licensed to a specific hardware ID or IP address, this is tied to an account. </documentation>
+    <operation name="getAccount">
+      <documentation>Retrieve the customer account this Account License belongs to.</documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getBillingItem">
+      <documentation>Retrieve the billing item for a software account license.</documentation>
+      <input message="tns:getBillingItem"/>
+      <output message="tns:getBillingItemResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getSoftwareDescription">
+      <documentation>Retrieve the SoftLayer_Software_Description that this account license is for.</documentation>
+      <input message="tns:getSoftwareDescription"/>
+      <output message="tns:getSoftwareDescriptionResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Software_AccountLicenseBinding" type="tns:SoftLayer_Software_AccountLicensePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Software_AccountLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseObjectMaskHeader" part="SoftLayer_Software_AccountLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseObjectFilterHeader" part="SoftLayer_Software_AccountLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseInitParametersHeader" part="SoftLayer_Software_AccountLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBillingItem">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Software_AccountLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseObjectMaskHeader" part="SoftLayer_Software_AccountLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseObjectFilterHeader" part="SoftLayer_Software_AccountLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseInitParametersHeader" part="SoftLayer_Software_AccountLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Software_AccountLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseObjectMaskHeader" part="SoftLayer_Software_AccountLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseObjectFilterHeader" part="SoftLayer_Software_AccountLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseInitParametersHeader" part="SoftLayer_Software_AccountLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSoftwareDescription">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Software_AccountLicenseAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseObjectMaskHeader" part="SoftLayer_Software_AccountLicenseObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseObjectFilterHeader" part="SoftLayer_Software_AccountLicenseObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Software_AccountLicenseInitParametersHeader" part="SoftLayer_Software_AccountLicenseInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Software_AccountLicenseService">
+    <port name="SoftLayer_Software_AccountLicensePort" binding="tns:SoftLayer_Software_AccountLicenseBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3.1/SoftLayer_Software_AccountLicense"/>
+    </port>
+  </service>
+</definitions>

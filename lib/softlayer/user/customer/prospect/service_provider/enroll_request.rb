@@ -4,6 +4,7 @@ module Softlayer
       class Prospect
         module ServiceProvider
           class EnrollRequest < Softlayer::Entity
+            SERVICE = 'SoftLayer_User_Customer_Prospect_ServiceProvider_EnrollRequest'
             attr_accessor :account_id
             attr_accessor :address1
             attr_accessor :address2
@@ -37,6 +38,19 @@ module Softlayer
             attr_accessor :survey_responses
             attr_accessor :vat_id
             attr_accessor :company_type
+
+            # template_object
+            def self.enroll(message)
+              request(:enroll, Softlayer::User::Customer::Prospect::ServiceProvider::EnrollRequest, message)
+            end
+
+            def get_company_type
+              request(:get_company_type, Softlayer::Catalyst::Company::Type)
+            end
+
+            def get_object
+              request(:get_object, Softlayer::User::Customer::Prospect::ServiceProvider::EnrollRequest)
+            end
 
             class Representer < Softlayer::Entity::Representer
               include Representable::Hash

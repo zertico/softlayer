@@ -81,10 +81,6 @@
   <message name="getResponseActionResponse">
     <part name="getResponseActionReturn" type="tns:SoftLayer_Network_Monitor_Version1_Query_ResponseType"/>
   </message>
-  <message name="getSubnet"/>
-  <message name="getSubnetResponse">
-    <part name="getSubnetReturn" type="tns:SoftLayer_Network_Subnet"/>
-  </message>
   <message name="authenticateHeader">
     <part name="authenticate" type="tns:authenticate"/>
   </message>
@@ -170,11 +166,6 @@ This behavior can also be accomplished by simply tapping networkMonitors on the 
       <documentation>Retrieve the action taken when a monitor fails.</documentation>
       <input message="tns:getResponseAction"/>
       <output message="tns:getResponseActionResponse"/>
-    </operation>
-    <operation name="getSubnet">
-      <documentation>Retrieve the subnet object that holds the IP address associated with this query host.</documentation>
-      <input message="tns:getSubnet"/>
-      <output message="tns:getSubnetResponse"/>
     </operation>
   </portType>
   <binding name="SoftLayer_Network_Monitor_Version1_Query_HostBinding" type="tns:SoftLayer_Network_Monitor_Version1_Query_HostPortType">
@@ -314,20 +305,6 @@ This behavior can also be accomplished by simply tapping networkMonitors on the 
       </output>
     </operation>
     <operation name="getResponseAction">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
-      <input>
-        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectFilterHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostInitParametersHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-      </input>
-      <output>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-      </output>
-    </operation>
-    <operation name="getSubnet">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Monitor_Version1_Query_HostAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Network_Monitor_Version1_Query_HostObjectMaskHeader" part="SoftLayer_Network_Monitor_Version1_Query_HostObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
