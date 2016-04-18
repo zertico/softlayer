@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Product
       class Order
-        module Network
+        class Network
           module Application
             module Delivery
               autoload :Controller, 'softlayer/container/product/order/network/application/delivery/controller'

@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Protection
       autoload :Address, 'softlayer/network/protection/address'
     end

@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Media
       autoload :Transcode, 'softlayer/network/media/transcode'
     end

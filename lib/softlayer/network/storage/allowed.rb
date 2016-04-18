@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     class Storage
       module Allowed
         autoload :Host, 'softlayer/network/storage/allowed/host'

@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module ContentDelivery
       module Authentication
         autoload :Address, 'softlayer/network/content_delivery/authentication/address'

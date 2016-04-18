@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Product
       class Order
-        module Network
+        class Network
           module Protection
             autoload :Firewall, 'softlayer/container/product/order/network/protection/firewall'
           end

@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Security
       module Scanner
         autoload :Request, 'softlayer/network/security/scanner/request'

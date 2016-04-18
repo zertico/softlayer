@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Regional
       autoload :Internet, 'softlayer/network/regional/internet'
     end

@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Application
       module Delivery
         autoload :Controller, 'softlayer/network/application/delivery/controller'

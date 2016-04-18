@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Firewall
       module Module
         autoload :Context, 'softlayer/network/firewall/module/context'

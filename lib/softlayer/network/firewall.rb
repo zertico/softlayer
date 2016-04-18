@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Firewall
       autoload :AccessControlList, 'softlayer/network/firewall/access_control_list'
       autoload :Interface, 'softlayer/network/firewall/interface'

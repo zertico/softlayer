@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Product
       class Order
-        module Network
+        class Network
           module Storage
             autoload :Enterprise, 'softlayer/container/product/order/network/storage/enterprise'
             autoload :Hub, 'softlayer/container/product/order/network/storage/hub'

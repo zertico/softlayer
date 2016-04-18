@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Product
       class Order
-        module Network
+        class Network
           module Tunnel
             autoload :Ipsec, 'softlayer/container/product/order/network/tunnel/ipsec'
           end

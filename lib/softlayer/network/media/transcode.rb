@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Media
       module Transcode
         autoload :Account, 'softlayer/network/media/transcode/account'

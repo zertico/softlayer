@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Logging
       autoload :Syslog, 'softlayer/network/logging/syslog'
     end

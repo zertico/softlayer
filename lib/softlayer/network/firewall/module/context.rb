@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Firewall
       module Module
         module Context

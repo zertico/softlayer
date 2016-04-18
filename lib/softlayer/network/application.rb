@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Application
       autoload :Delivery, 'softlayer/network/application/delivery'
     end

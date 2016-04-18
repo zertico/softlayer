@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Regional
       module Internet
         autoload :Registry, 'softlayer/network/regional/internet/registry'

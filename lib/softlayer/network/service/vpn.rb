@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Service
       module Vpn
         autoload :Overrides, 'softlayer/network/service/vpn/overrides'

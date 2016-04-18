@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module LoadBalancer
       module Global
         autoload :Account, 'softlayer/network/load_balancer/global/account'

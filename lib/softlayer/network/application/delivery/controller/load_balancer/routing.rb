@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Application
       module Delivery
         class Controller

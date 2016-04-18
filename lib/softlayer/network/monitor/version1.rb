@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     class Monitor
       module Version1
         autoload :Incident, 'softlayer/network/monitor/version1/incident'

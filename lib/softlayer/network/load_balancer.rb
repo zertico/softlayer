@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module LoadBalancer
       autoload :Service, 'softlayer/network/load_balancer/service'
       autoload :VirtualIpAddress, 'softlayer/network/load_balancer/virtual_ip_address'

@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     class Component
       module Network
         module Vlan

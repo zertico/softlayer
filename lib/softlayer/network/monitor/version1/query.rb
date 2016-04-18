@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     class Monitor
       module Version1
         module Query

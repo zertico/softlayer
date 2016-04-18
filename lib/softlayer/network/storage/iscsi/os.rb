@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     class Storage
       class Iscsi
         module Os

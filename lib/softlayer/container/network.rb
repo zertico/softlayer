@@ -10,6 +10,7 @@ module Softlayer
       autoload :Media, 'softlayer/container/network/media'
       autoload :Message, 'softlayer/container/network/message'
       autoload :Port, 'softlayer/container/network/port'
+      autoload :Service, 'softlayer/container/network/service'
       autoload :Storage, 'softlayer/container/network/storage'
       autoload :Subnet, 'softlayer/container/network/subnet'
     end

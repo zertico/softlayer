@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     class Component
       module Duplex
         autoload :Mode, 'softlayer/network/component/duplex/mode'

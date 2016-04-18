@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Customer
       autoload :Subnet, 'softlayer/network/customer/subnet'
     end

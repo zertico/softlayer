@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     class Component
       module Uplink
         autoload :Hardware, 'softlayer/network/component/uplink/hardware'

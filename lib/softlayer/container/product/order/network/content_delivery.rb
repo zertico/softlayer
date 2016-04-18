@@ -2,7 +2,7 @@ module Softlayer
   module Container
     module Product
       class Order
-        module Network
+        class Network
           module ContentDelivery
             autoload :Account, 'softlayer/container/product/order/network/content_delivery/account'
           end

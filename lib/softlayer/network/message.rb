@@ -1,5 +1,5 @@
 module Softlayer
-  module Network
+  class Network
     module Message
       autoload :Delivery, 'softlayer/network/message/delivery'
       autoload :Queue, 'softlayer/network/message/queue'
