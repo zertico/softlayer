@@ -19,6 +19,7 @@ module Softlayer
         attr_accessor :impacted_resource_count
         attr_accessor :impacted_user_count
         attr_accessor :update_count
+        attr_accessor :acknowledged_flag
         attr_accessor :attachments
         attr_accessor :first_update
         attr_accessor :impacted_accounts
@@ -31,6 +32,10 @@ module Softlayer
 
         def acknowledge_notification
           request(:acknowledge_notification, Boolean)
+        end
+
+        def get_acknowledged_flag
+          request(:get_acknowledged_flag, Boolean)
         end
 
         def self.get_all_objects
@@ -111,6 +116,7 @@ module Softlayer
           property :impacted_resource_count, type: BigDecimal
           property :impacted_user_count, type: BigDecimal
           property :update_count, type: BigDecimal
+          property :acknowledged_flag, type: Boolean
         end
       end
     end

@@ -5857,6 +5857,31 @@
       </restriction>
     </complexContent>
   </complexType>
+  <complexType name="SoftLayer_Billing_Item_Software_License">
+    <complexContent>
+      <extension base="tns:SoftLayer_Billing_Item">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="resource" type="tns:SoftLayer_Software_AccountLicense"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Billing_Item_Software_LicenseObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Billing_ItemObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="resource" type="tns:SoftLayer_Software_AccountLicenseObjectFilter"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Billing_Item_Software_LicenseArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Billing_Item_Software_License[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
   <complexType name="SoftLayer_Billing_Item_Support">
     <complexContent>
       <extension base="tns:SoftLayer_Billing_Item"/>
@@ -13258,6 +13283,23 @@
     <complexContent>
       <restriction base="soapenc:Array">
         <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Container_Product_Order_Software_Component_Virtual[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Product_Order_Software_License">
+    <complexContent>
+      <extension base="tns:SoftLayer_Container_Product_Order"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Product_Order_Software_LicenseObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Container_Product_OrderObjectFilter"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Container_Product_Order_Software_LicenseArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Container_Product_Order_Software_License[]"/>
       </restriction>
     </complexContent>
   </complexType>
@@ -25734,6 +25776,7 @@
           <element minOccurs="0" maxOccurs="1" name="impactedResourceCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="impactedUserCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="updateCount" type="unsignedLong"/>
+          <element minOccurs="0" maxOccurs="1" name="acknowledgedFlag" type="boolean"/>
           <element minOccurs="0" maxOccurs="1" name="attachments" type="tns:SoftLayer_Notification_Occurrence_Event_AttachmentArray"/>
           <element minOccurs="0" maxOccurs="1" name="firstUpdate" type="tns:SoftLayer_Notification_Occurrence_Update"/>
           <element minOccurs="0" maxOccurs="1" name="impactedAccounts" type="tns:SoftLayer_Notification_Occurrence_AccountArray"/>
@@ -25760,6 +25803,7 @@
           <element minOccurs="0" maxOccurs="1" name="subject" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="summary" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="systemTicketId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="acknowledgedFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="attachments" type="tns:SoftLayer_Notification_Occurrence_Event_AttachmentObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="firstUpdate" type="tns:SoftLayer_Notification_Occurrence_UpdateObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="impactedAccounts" type="tns:SoftLayer_Notification_Occurrence_AccountObjectFilter"/>
@@ -33499,6 +33543,7 @@
           <element minOccurs="0" maxOccurs="1" name="lastName" type="string"/>
           <element minOccurs="0" maxOccurs="1" nillable="true" name="localeId" type="int"/>
           <element minOccurs="0" maxOccurs="1" nillable="true" name="managedByFederationFlag" type="boolean"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="managedByOIDCFlag" type="boolean"/>
           <element minOccurs="0" maxOccurs="1" nillable="true" name="modifyDate" type="dateTime"/>
           <element minOccurs="0" maxOccurs="1" name="msn" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="nameId" type="string"/>
@@ -33615,6 +33660,7 @@
           <element minOccurs="0" maxOccurs="1" name="lastName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="localeId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="managedByFederationFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="managedByOIDCFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="modifyDate" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="msn" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="nameId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>

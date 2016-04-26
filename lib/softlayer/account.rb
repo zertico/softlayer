@@ -1609,6 +1609,10 @@ module Softlayer
       request(:get_virtual_storage_public_repositories, Array[Softlayer::Virtual::Storage::Repository])
     end
 
+    def self.get_vm_ware_active_account_license_keys
+      request(:get_vm_ware_active_account_license_keys, Array[String])
+    end
+
     def self.get_windows_update_status
       request(:get_windows_update_status, Array[Softlayer::Container::Utility::Microsoft::Windows::UpdateServices::Status])
     end

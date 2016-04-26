@@ -35,6 +35,7 @@ module Softlayer
       attr_accessor :last_name
       attr_accessor :locale_id
       attr_accessor :managed_by_federation_flag
+      attr_accessor :managed_by_oidc_flag
       attr_accessor :modify_date
       attr_accessor :msn
       attr_accessor :name_id
@@ -654,6 +655,7 @@ module Softlayer
         property :last_name, type: String
         property :locale_id, type: Integer
         property :managed_by_federation_flag, type: Boolean
+        property :managed_by_oidc_flag, type: Boolean
         property :modify_date, type: DateTime
         property :msn, type: String
         property :name_id, type: String

@@ -25,6 +25,10 @@
   <message name="acknowledgeNotificationResponse">
     <part name="acknowledgeNotificationReturn" type="xsd:boolean"/>
   </message>
+  <message name="getAcknowledgedFlag"/>
+  <message name="getAcknowledgedFlagResponse">
+    <part name="getAcknowledgedFlagReturn" type="xsd:boolean"/>
+  </message>
   <message name="getAllObjects"/>
   <message name="getAllObjectsResponse">
     <part name="getAllObjectsReturn" type="tns:SoftLayer_Notification_Occurrence_EventArray"/>
@@ -106,11 +110,16 @@
     <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
   </message>
   <portType name="SoftLayer_Notification_Occurrence_EventPortType">
-    <documentation>The SoftLayer_Notification_Occurrence_Event service represents all events with potential to cause a disruption in service. </documentation>
+    <documentation>The [[SoftLayer_Notification_Occurrence_Event]] service represents all events with potential to cause a disruption in service. </documentation>
     <operation name="acknowledgeNotification">
       <documentation>&amp;lt;&amp;lt;&amp;lt;&amp;lt; EOT</documentation>
       <input message="tns:acknowledgeNotification"/>
       <output message="tns:acknowledgeNotificationResponse"/>
+    </operation>
+    <operation name="getAcknowledgedFlag">
+      <documentation>Retrieve indicates whether or not this event has been acknowledged by the user.</documentation>
+      <input message="tns:getAcknowledgedFlag"/>
+      <output message="tns:getAcknowledgedFlagResponse"/>
     </operation>
     <operation name="getAllObjects">
       <documentation></documentation>
@@ -195,6 +204,20 @@
       <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_Notification_Occurrence_EventInitParametersHeader" part="SoftLayer_Notification_Occurrence_EventInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAcknowledgedFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Notification_Occurrence_EventAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_EventObjectMaskHeader" part="SoftLayer_Notification_Occurrence_EventObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_EventObjectFilterHeader" part="SoftLayer_Notification_Occurrence_EventObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Notification_Occurrence_EventInitParametersHeader" part="SoftLayer_Notification_Occurrence_EventInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>

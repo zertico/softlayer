@@ -1194,6 +1194,10 @@
   <message name="getVirtualStoragePublicRepositoriesResponse">
     <part name="getVirtualStoragePublicRepositoriesReturn" type="tns:SoftLayer_Virtual_Storage_RepositoryArray"/>
   </message>
+  <message name="getVmWareActiveAccountLicenseKeys"/>
+  <message name="getVmWareActiveAccountLicenseKeysResponse">
+    <part name="getVmWareActiveAccountLicenseKeysReturn" type="tns:ArrayOfstring"/>
+  </message>
   <message name="getWindowsUpdateStatus"/>
   <message name="getWindowsUpdateStatusResponse">
     <part name="getWindowsUpdateStatusReturn" type="tns:SoftLayer_Container_Utility_Microsoft_Windows_UpdateServices_StatusArray"/>
@@ -2676,6 +2680,11 @@ This method will return the [[SoftLayer_Product_Package]] objects from which you
       <documentation>Retrieve an account's associated virtual server public storage repositories.</documentation>
       <input message="tns:getVirtualStoragePublicRepositories"/>
       <output message="tns:getVirtualStoragePublicRepositoriesResponse"/>
+    </operation>
+    <operation name="getVmWareActiveAccountLicenseKeys">
+      <documentation>This returns a collection of active VMware software account license keys.</documentation>
+      <input message="tns:getVmWareActiveAccountLicenseKeys"/>
+      <output message="tns:getVmWareActiveAccountLicenseKeysResponse"/>
     </operation>
     <operation name="getWindowsUpdateStatus">
       <documentation>Retrieve a list of an account's hardware's Windows Update status. This list includes which servers have available updates, which servers require rebooting due to updates, which servers have failed retrieving updates, and which servers have failed to communicate with the SoftLayer private Windows Software Update Services server. </documentation>
@@ -6576,6 +6585,16 @@ Always call this method to enable changes when manually configuring VPN subnet a
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVmWareActiveAccountLicenseKeys">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_AccountAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>

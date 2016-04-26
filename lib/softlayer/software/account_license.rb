@@ -14,6 +14,10 @@ module Softlayer
         request(:get_account, Softlayer::Account)
       end
 
+      def self.get_all_objects
+        request(:get_all_objects, Array[Softlayer::Software::AccountLicense])
+      end
+
       def get_billing_item
         request(:get_billing_item, Softlayer::Billing::Item)
       end
