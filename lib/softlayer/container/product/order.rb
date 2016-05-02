@@ -2,7 +2,6 @@ module Softlayer
   module Container
     module Product
       class Order < Softlayer::Entity
-        autoload :Cart, 'softlayer/container/product/order/cart'
         autoload :Network, 'softlayer/container/product/order/network'
         autoload :Property, 'softlayer/container/product/order/property'
         autoload :Receipt, 'softlayer/container/product/order/receipt'

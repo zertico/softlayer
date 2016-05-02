@@ -50,6 +50,7 @@ module Softlayer
         end
 
         # new_policy
+        # enforce
         def update_antivirus_spyware_policy(message)
           request(:update_antivirus_spyware_policy, Boolean, message)
         end

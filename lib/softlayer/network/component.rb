@@ -2,7 +2,6 @@ module Softlayer
   class Network
     class Component < Softlayer::Entity
       SERVICE = 'SoftLayer_Network_Component'
-      autoload :Detail, 'softlayer/network/component/detail'
       autoload :Firewall, 'softlayer/network/component/firewall'
       autoload :Group, 'softlayer/network/component/group'
       autoload :IpAddress, 'softlayer/network/component/ip_address'
