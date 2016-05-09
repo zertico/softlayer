@@ -309,8 +309,8 @@ module Softlayer
         property :note, type: String
         property :sort_order, type: String
         property :subnet_type, type: String
-        property :total_ip_addresses, type: Integer
-        property :usable_ip_address_count, type: Integer
+        property :total_ip_addresses, type: Float
+        property :usable_ip_address_count, type: Float
         property :version, type: Integer
         property :allowed_network_storage_count, type: BigDecimal
         property :allowed_network_storage_replica_count, type: BigDecimal

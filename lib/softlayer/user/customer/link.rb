@@ -4,6 +4,7 @@ module Softlayer
       class Link < Softlayer::Entity
         autoload :ThePlanet, 'softlayer/user/customer/link/the_planet'
         attr_accessor :create_date
+        attr_accessor :default_flag
         attr_accessor :destination_user_alphanumeric_id
         attr_accessor :destination_user_id
         attr_accessor :id
@@ -16,6 +17,7 @@ module Softlayer
           include Representable::Hash
           include Representable::Coercion
           property :create_date, type: DateTime
+          property :default_flag, type: Integer
           property :destination_user_alphanumeric_id, type: String
           property :destination_user_id, type: Integer
           property :id, type: Integer
