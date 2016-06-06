@@ -15,6 +15,7 @@ module Softlayer
         attr_accessor :volume_id
         attr_accessor :event_count
         attr_accessor :property_count
+        attr_accessor :replica_snapshot_count
         attr_accessor :snapshot_count
         attr_accessor :day_of_month
         attr_accessor :day_of_week
@@ -24,6 +25,7 @@ module Softlayer
         attr_accessor :month_of_year
         attr_accessor :partnership
         attr_accessor :properties
+        attr_accessor :replica_snapshots
         attr_accessor :retention_count
         attr_accessor :snapshots
         attr_accessor :type
@@ -79,6 +81,10 @@ module Softlayer
           request(:get_properties, Array[Softlayer::Network::Storage::Schedule::Property])
         end
 
+        def get_replica_snapshots
+          request(:get_replica_snapshots, Array[Softlayer::Network::Storage])
+        end
+
         def get_retention_count
           request(:get_retention_count, String)
         end
@@ -108,6 +114,7 @@ module Softlayer
           property :volume_id, type: Integer
           property :event_count, type: BigDecimal
           property :property_count, type: BigDecimal
+          property :replica_snapshot_count, type: BigDecimal
           property :snapshot_count, type: BigDecimal
           property :day_of_month, type: String
           property :day_of_week, type: String

@@ -910,6 +910,7 @@
           <element minOccurs="0" maxOccurs="1" name="allSubnetBillingItems" type="tns:SoftLayer_Billing_ItemArray"/>
           <element minOccurs="0" maxOccurs="1" name="allTopLevelBillingItems" type="tns:SoftLayer_Billing_ItemArray"/>
           <element minOccurs="0" maxOccurs="1" name="allTopLevelBillingItemsUnfiltered" type="tns:SoftLayer_Billing_ItemArray"/>
+          <element minOccurs="0" maxOccurs="1" name="allowsBluemixAccountLinkingFlag" type="boolean"/>
           <element minOccurs="0" maxOccurs="1" name="applicationDeliveryControllers" type="tns:SoftLayer_Network_Application_Delivery_ControllerArray"/>
           <element minOccurs="0" maxOccurs="1" name="attributes" type="tns:SoftLayer_Account_AttributeArray"/>
           <element minOccurs="0" maxOccurs="1" name="availablePublicNetworkVlans" type="tns:SoftLayer_Network_VlanArray"/>
@@ -921,6 +922,7 @@
           <element minOccurs="0" maxOccurs="1" name="billingAgreements" type="tns:SoftLayer_Account_AgreementArray"/>
           <element minOccurs="0" maxOccurs="1" name="billingInfo" type="tns:SoftLayer_Billing_Info"/>
           <element minOccurs="0" maxOccurs="1" name="blockDeviceTemplateGroups" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupArray"/>
+          <element minOccurs="0" maxOccurs="1" name="bluemixLinkedFlag" type="boolean"/>
           <element minOccurs="0" maxOccurs="1" name="brand" type="tns:SoftLayer_Brand"/>
           <element minOccurs="0" maxOccurs="1" name="brandAccountFlag" type="boolean"/>
           <element minOccurs="0" maxOccurs="1" name="brandKeyName" type="string"/>
@@ -1204,6 +1206,7 @@
           <element minOccurs="0" maxOccurs="1" name="allSubnetBillingItems" type="tns:SoftLayer_Billing_ItemObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="allTopLevelBillingItems" type="tns:SoftLayer_Billing_ItemObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="allTopLevelBillingItemsUnfiltered" type="tns:SoftLayer_Billing_ItemObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="allowsBluemixAccountLinkingFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="applicationDeliveryControllers" type="tns:SoftLayer_Network_Application_Delivery_ControllerObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="attributes" type="tns:SoftLayer_Account_AttributeObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="availablePublicNetworkVlans" type="tns:SoftLayer_Network_VlanObjectFilter"/>
@@ -1215,6 +1218,7 @@
           <element minOccurs="0" maxOccurs="1" name="billingAgreements" type="tns:SoftLayer_Account_AgreementObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="billingInfo" type="tns:SoftLayer_Billing_InfoObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="blockDeviceTemplateGroups" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="bluemixLinkedFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="brand" type="tns:SoftLayer_BrandObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="brandAccountFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="brandKeyName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
@@ -17149,24 +17153,12 @@
   </complexType>
   <complexType name="SoftLayer_Hardware_SecurityModule">
     <complexContent>
-      <extension base="tns:SoftLayer_Hardware">
-        <sequence>
-          <element minOccurs="0" maxOccurs="1" name="softwareUserCount" type="unsignedLong"/>
-          <element minOccurs="0" maxOccurs="1" name="userCount" type="unsignedLong"/>
-          <element minOccurs="0" maxOccurs="1" name="softwareUsers" type="tns:SoftLayer_Software_Component_PasswordArray"/>
-          <element minOccurs="0" maxOccurs="1" name="users" type="tns:SoftLayer_User_CustomerArray"/>
-        </sequence>
-      </extension>
+      <extension base="tns:SoftLayer_Hardware_Server"/>
     </complexContent>
   </complexType>
   <complexType name="SoftLayer_Hardware_SecurityModuleObjectFilter">
     <complexContent>
-      <extension base="tns:SoftLayer_HardwareObjectFilter">
-        <sequence>
-          <element minOccurs="0" maxOccurs="1" name="softwareUsers" type="tns:SoftLayer_Software_Component_PasswordObjectFilter"/>
-          <element minOccurs="0" maxOccurs="1" name="users" type="tns:SoftLayer_User_CustomerObjectFilter"/>
-        </sequence>
-      </extension>
+      <extension base="tns:SoftLayer_Hardware_ServerObjectFilter"/>
     </complexContent>
   </complexType>
   <complexType name="SoftLayer_Hardware_SecurityModuleArray">
@@ -22919,6 +22911,7 @@
     <complexContent>
       <extension base="tns:SoftLayer_Network_Service_Resource">
         <sequence>
+          <element minOccurs="0" maxOccurs="1" name="adnServicesIp" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="hubAddress" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="hubConnectionTimeout" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="robotsCount" type="string"/>
@@ -22931,6 +22924,7 @@
     <complexContent>
       <extension base="tns:SoftLayer_Network_Service_ResourceObjectFilter">
         <sequence>
+          <element minOccurs="0" maxOccurs="1" name="adnServicesIp" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="hubAddress" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="hubConnectionTimeout" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="robotsCount" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
@@ -24201,6 +24195,7 @@
           <element minOccurs="0" maxOccurs="1" nillable="true" name="volumeId" type="int"/>
           <element minOccurs="0" maxOccurs="1" name="eventCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="propertyCount" type="unsignedLong"/>
+          <element minOccurs="0" maxOccurs="1" name="replicaSnapshotCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="snapshotCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="dayOfMonth" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="dayOfWeek" type="string"/>
@@ -24210,6 +24205,7 @@
           <element minOccurs="0" maxOccurs="1" name="monthOfYear" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="partnership" type="tns:SoftLayer_Network_Storage_Partnership"/>
           <element minOccurs="0" maxOccurs="1" name="properties" type="tns:SoftLayer_Network_Storage_Schedule_PropertyArray"/>
+          <element minOccurs="0" maxOccurs="1" name="replicaSnapshots" type="tns:SoftLayer_Network_StorageArray"/>
           <element minOccurs="0" maxOccurs="1" name="retentionCount" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="snapshots" type="tns:SoftLayer_Network_StorageArray"/>
           <element minOccurs="0" maxOccurs="1" name="type" type="tns:SoftLayer_Network_Storage_Schedule_Type"/>
@@ -24238,6 +24234,7 @@
           <element minOccurs="0" maxOccurs="1" name="monthOfYear" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="partnership" type="tns:SoftLayer_Network_Storage_PartnershipObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="properties" type="tns:SoftLayer_Network_Storage_Schedule_PropertyObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="replicaSnapshots" type="tns:SoftLayer_Network_StorageObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="retentionCount" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="snapshots" type="tns:SoftLayer_Network_StorageObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="type" type="tns:SoftLayer_Network_Storage_Schedule_TypeObjectFilter"/>
@@ -31555,6 +31552,40 @@
       </restriction>
     </complexContent>
   </complexType>
+  <complexType name="SoftLayer_Software_Component_Security">
+    <complexContent>
+      <extension base="tns:SoftLayer_Software_Component"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Software_Component_SecurityObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Software_ComponentObjectFilter"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Software_Component_SecurityArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Software_Component_Security[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Software_Component_Security_SafeNet">
+    <complexContent>
+      <extension base="tns:SoftLayer_Software_Component_Security"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Software_Component_Security_SafeNetObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Software_Component_SecurityObjectFilter"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Software_Component_Security_SafeNetArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Software_Component_Security_SafeNet[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
   <complexType name="SoftLayer_Software_Description">
     <complexContent>
       <extension base="tns:SoftLayer_Entity">
@@ -33408,7 +33439,7 @@
           <element minOccurs="0" maxOccurs="1" name="lastName" type="string"/>
           <element minOccurs="0" maxOccurs="1" nillable="true" name="localeId" type="int"/>
           <element minOccurs="0" maxOccurs="1" nillable="true" name="managedByFederationFlag" type="boolean"/>
-          <element minOccurs="0" maxOccurs="1" nillable="true" name="managedByOIDCFlag" type="boolean"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="managedByOpenIdConnectFlag" type="boolean"/>
           <element minOccurs="0" maxOccurs="1" nillable="true" name="modifyDate" type="dateTime"/>
           <element minOccurs="0" maxOccurs="1" name="msn" type="string"/>
           <element minOccurs="0" maxOccurs="1" name="nameId" type="string"/>
@@ -33525,7 +33556,7 @@
           <element minOccurs="0" maxOccurs="1" name="lastName" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="localeId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="managedByFederationFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
-          <element minOccurs="0" maxOccurs="1" name="managedByOIDCFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="managedByOpenIdConnectFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="modifyDate" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="msn" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="nameId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
@@ -33877,6 +33908,57 @@
       </restriction>
     </complexContent>
   </complexType>
+  <complexType name="SoftLayer_User_Customer_Invitation">
+    <complexContent>
+      <extension base="tns:SoftLayer_Entity">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="code" type="string"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="createDate" type="dateTime"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="creatorId" type="int"/>
+          <element minOccurs="0" maxOccurs="1" name="creatorType" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="email" type="string"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="existingBlueIdFlag" type="int"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="expirationDate" type="dateTime"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="id" type="int"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="isFederatedEmailDomainFlag" type="int"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="modifyDate" type="dateTime"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="responseDate" type="dateTime"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="statusId" type="int"/>
+          <element minOccurs="0" maxOccurs="1" nillable="true" name="userId" type="int"/>
+          <element minOccurs="0" maxOccurs="1" name="user" type="tns:SoftLayer_User_Customer"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_User_Customer_InvitationObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Utility_ObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="code" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="createDate" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="creatorId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="creatorType" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="email" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="existingBlueIdFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="expirationDate" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="id" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="isFederatedEmailDomainFlag" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="modifyDate" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="responseDate" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="statusId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="userId" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="user" type="tns:SoftLayer_User_CustomerObjectFilter"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_User_Customer_InvitationArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_User_Customer_Invitation[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
   <complexType name="SoftLayer_User_Customer_Link">
     <complexContent>
       <extension base="tns:SoftLayer_Entity">
@@ -34129,6 +34211,23 @@
     <complexContent>
       <restriction base="soapenc:Array">
         <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_User_Customer_Notification_Virtual_Guest[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_User_Customer_OpenIdConnect">
+    <complexContent>
+      <extension base="tns:SoftLayer_User_Customer"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_User_Customer_OpenIdConnectObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_User_CustomerObjectFilter"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_User_Customer_OpenIdConnectArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_User_Customer_OpenIdConnect[]"/>
       </restriction>
     </complexContent>
   </complexType>

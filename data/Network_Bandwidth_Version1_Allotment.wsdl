@@ -141,7 +141,7 @@
     <part name="templateObject" type="tns:SoftLayer_Network_Bandwidth_Version1_Allotment"/>
   </message>
   <message name="createObjectResponse">
-    <part name="createObjectReturn" type="xsd:boolean"/>
+    <part name="createObjectReturn" type="tns:SoftLayer_Network_Bandwidth_Version1_Allotment"/>
   </message>
   <message name="editObject">
     <part name="templateObject" type="tns:SoftLayer_Network_Bandwidth_Version1_Allotment"/>
@@ -635,6 +635,8 @@ For example, if you had 5 servers, each with 2000 GB of bandwidth, and one serve
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
       <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMaskHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>

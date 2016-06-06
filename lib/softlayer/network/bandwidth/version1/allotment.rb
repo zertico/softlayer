@@ -55,7 +55,7 @@ module Softlayer
 
           # template_object
           def self.create_object(message)
-            request(:create_object, Boolean, message)
+            request(:create_object, Softlayer::Network::Bandwidth::Version1::Allotment, message)
           end
 
           # template_object

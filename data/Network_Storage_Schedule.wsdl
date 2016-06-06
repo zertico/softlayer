@@ -73,6 +73,10 @@
   <message name="getPropertiesResponse">
     <part name="getPropertiesReturn" type="tns:SoftLayer_Network_Storage_Schedule_PropertyArray"/>
   </message>
+  <message name="getReplicaSnapshots"/>
+  <message name="getReplicaSnapshotsResponse">
+    <part name="getReplicaSnapshotsReturn" type="tns:SoftLayer_Network_StorageArray"/>
+  </message>
   <message name="getRetentionCount"/>
   <message name="getRetentionCountResponse">
     <part name="getRetentionCountReturn" type="xsd:string"/>
@@ -170,6 +174,11 @@ The schedule service can be used to create, edit, or delete a schedule. Schedule
       <documentation>Retrieve properties used for configuration of a schedule.</documentation>
       <input message="tns:getProperties"/>
       <output message="tns:getPropertiesResponse"/>
+    </operation>
+    <operation name="getReplicaSnapshots">
+      <documentation>Retrieve replica snapshots which have been created as the result of this schedule's execution.</documentation>
+      <input message="tns:getReplicaSnapshots"/>
+      <output message="tns:getReplicaSnapshotsResponse"/>
     </operation>
     <operation name="getRetentionCount">
       <documentation>Retrieve the number of snapshots this schedule is configured to retain.</documentation>
@@ -343,6 +352,22 @@ The schedule service can be used to create, edit, or delete a schedule. Schedule
       </output>
     </operation>
     <operation name="getProperties">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Storage_ScheduleAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectFilterHeader" part="SoftLayer_Network_Storage_ScheduleObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:resultLimitHeader" part="resultLimit" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Storage_ScheduleInitParametersHeader" part="SoftLayer_Network_Storage_ScheduleInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getReplicaSnapshots">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Storage_ScheduleAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Network_Storage_ScheduleObjectMaskHeader" part="SoftLayer_Network_Storage_ScheduleObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

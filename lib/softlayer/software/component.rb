@@ -9,6 +9,7 @@ module Softlayer
       autoload :OperatingSystem, 'softlayer/software/component/operating_system'
       autoload :Package, 'softlayer/software/component/package'
       autoload :Password, 'softlayer/software/component/password'
+      autoload :Security, 'softlayer/software/component/security'
       attr_accessor :hardware_id
       attr_accessor :id
       attr_accessor :manufacturer_activation_code

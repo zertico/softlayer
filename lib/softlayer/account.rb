@@ -252,6 +252,7 @@ module Softlayer
     attr_accessor :all_subnet_billing_items
     attr_accessor :all_top_level_billing_items
     attr_accessor :all_top_level_billing_items_unfiltered
+    attr_accessor :allows_bluemix_account_linking_flag
     attr_accessor :application_delivery_controllers
     attr_accessor :attributes
     attr_accessor :available_public_network_vlans
@@ -263,6 +264,7 @@ module Softlayer
     attr_accessor :billing_agreements
     attr_accessor :billing_info
     attr_accessor :block_device_template_groups
+    attr_accessor :bluemix_linked_flag
     attr_accessor :brand
     attr_accessor :brand_account_flag
     attr_accessor :brand_key_name
@@ -635,6 +637,10 @@ module Softlayer
       request(:get_all_top_level_billing_items_unfiltered, Array[Softlayer::Billing::Item])
     end
 
+    def self.get_allows_bluemix_account_linking_flag
+      request(:get_allows_bluemix_account_linking_flag, Boolean)
+    end
+
     def self.get_alternate_credit_card_data
       request(:get_alternate_credit_card_data, Softlayer::Container::Account::Payment::Method::CreditCard)
     end
@@ -702,6 +708,10 @@ module Softlayer
 
     def self.get_block_device_template_groups
       request(:get_block_device_template_groups, Array[Softlayer::Virtual::Guest::Block::Device::Template::Group])
+    end
+
+    def self.get_bluemix_linked_flag
+      request(:get_bluemix_linked_flag, Boolean)
     end
 
     def self.get_brand
@@ -1630,6 +1640,13 @@ module Softlayer
       request(:hourly_server_limit, Integer)
     end
 
+    # external_account_id
+    # authorization_token
+    # external_service_provider_key
+    def self.link_external_account(message)
+      request(:link_external_account, nil, message)
+    end
+
     def self.remove_alternate_credit_card
       request(:remove_alternate_credit_card, Boolean)
     end
@@ -1652,6 +1669,11 @@ module Softlayer
     # note
     def self.request_manual_payment_using_credit_card_on_file(message)
       request(:request_manual_payment_using_credit_card_on_file, Softlayer::Billing::Payment::Card::ManualPayment, message)
+    end
+
+    # emails
+    def self.set_abuse_emails(message)
+      request(:set_abuse_emails, Boolean, message)
     end
 
     # enabled
@@ -1887,7 +1909,9 @@ module Softlayer
       property :virtual_storage_public_repository_count, type: BigDecimal
       property :abuse_email, type: String
       property :affiliate_id, type: String
+      property :allows_bluemix_account_linking_flag, type: Boolean
       property :balance, type: Float
+      property :bluemix_linked_flag, type: Boolean
       property :brand_account_flag, type: Boolean
       property :brand_key_name, type: String
       property :can_order_additional_vlans_flag, type: Boolean

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3.1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3.1/" schemaLocation="https://api.softlayer.com/soap/v3.1/SoftLayer_User_Customer_Invitation?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:complexType name="SoftLayer_User_Customer_InvitationInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_User_Customer_InvitationObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_User_Customer_Invitation"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_User_Customer_InvitationInitParametersHeader">
+    <part name="SoftLayer_User_Customer_InvitationInitParameters" type="tns:SoftLayer_User_Customer_InvitationInitParameters"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_User_Customer_Invitation"/>
+  </message>
+  <message name="getUser"/>
+  <message name="getUserResponse">
+    <part name="getUserReturn" type="tns:SoftLayer_User_Customer"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_User_Customer_InvitationObjectMaskHeader">
+    <part name="SoftLayer_User_Customer_InvitationObjectMask" type="tns:SoftLayer_User_Customer_InvitationObjectMask"/>
+  </message>
+  <message name="SoftLayer_User_Customer_InvitationObjectFilterHeader">
+    <part name="SoftLayer_User_Customer_InvitationObjectFilter" type="tns:SoftLayer_User_Customer_InvitationObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_User_Customer_InvitationPortType">
+    <documentation></documentation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getUser">
+      <documentation></documentation>
+      <input message="tns:getUser"/>
+      <output message="tns:getUserResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_User_Customer_InvitationBinding" type="tns:SoftLayer_User_Customer_InvitationPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_InvitationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_InvitationObjectMaskHeader" part="SoftLayer_User_Customer_InvitationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_InvitationObjectFilterHeader" part="SoftLayer_User_Customer_InvitationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_InvitationInitParametersHeader" part="SoftLayer_User_Customer_InvitationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getUser">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_InvitationAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_User_Customer_InvitationObjectMaskHeader" part="SoftLayer_User_Customer_InvitationObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_InvitationObjectFilterHeader" part="SoftLayer_User_Customer_InvitationObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_InvitationInitParametersHeader" part="SoftLayer_User_Customer_InvitationInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_User_Customer_InvitationService">
+    <port name="SoftLayer_User_Customer_InvitationPort" binding="tns:SoftLayer_User_Customer_InvitationBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3.1/SoftLayer_User_Customer_Invitation"/>
+    </port>
+  </service>
+</definitions>

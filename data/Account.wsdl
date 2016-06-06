@@ -200,6 +200,10 @@
   <message name="getAllTopLevelBillingItemsUnfilteredResponse">
     <part name="getAllTopLevelBillingItemsUnfilteredReturn" type="tns:SoftLayer_Billing_ItemArray"/>
   </message>
+  <message name="getAllowsBluemixAccountLinkingFlag"/>
+  <message name="getAllowsBluemixAccountLinkingFlagResponse">
+    <part name="getAllowsBluemixAccountLinkingFlagReturn" type="xsd:boolean"/>
+  </message>
   <message name="getAlternateCreditCardData"/>
   <message name="getAlternateCreditCardDataResponse">
     <part name="getAlternateCreditCardDataReturn" type="tns:SoftLayer_Container_Account_Payment_Method_CreditCard"/>
@@ -271,6 +275,10 @@
   <message name="getBlockDeviceTemplateGroups"/>
   <message name="getBlockDeviceTemplateGroupsResponse">
     <part name="getBlockDeviceTemplateGroupsReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupArray"/>
+  </message>
+  <message name="getBluemixLinkedFlag"/>
+  <message name="getBluemixLinkedFlagResponse">
+    <part name="getBluemixLinkedFlagReturn" type="xsd:boolean"/>
   </message>
   <message name="getBrand"/>
   <message name="getBrandResponse">
@@ -1216,6 +1224,11 @@
   <message name="hourlyServerLimitResponse">
     <part name="hourlyServerLimitReturn" type="xsd:int"/>
   </message>
+  <message name="linkExternalAccount">
+    <part name="externalAccountId" type="xsd:string"/>
+    <part name="authorizationToken" type="xsd:string"/>
+    <part name="externalServiceProviderKey" type="xsd:string"/>
+  </message>
   <message name="removeAlternateCreditCard"/>
   <message name="removeAlternateCreditCardResponse">
     <part name="removeAlternateCreditCardReturn" type="xsd:boolean"/>
@@ -1242,6 +1255,12 @@
   </message>
   <message name="requestManualPaymentUsingCreditCardOnFileResponse">
     <part name="requestManualPaymentUsingCreditCardOnFileReturn" type="tns:SoftLayer_Billing_Payment_Card_ManualPayment"/>
+  </message>
+  <message name="setAbuseEmails">
+    <part name="emails" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="setAbuseEmailsResponse">
+    <part name="setAbuseEmailsReturn" type="xsd:boolean"/>
   </message>
   <message name="setVlanSpan">
     <part name="enabled" type="xsd:boolean"/>
@@ -1506,6 +1525,11 @@ This method will return the [[SoftLayer_Product_Package]] objects from which you
       <input message="tns:getAllTopLevelBillingItemsUnfiltered"/>
       <output message="tns:getAllTopLevelBillingItemsUnfilteredResponse"/>
     </operation>
+    <operation name="getAllowsBluemixAccountLinkingFlag">
+      <documentation>Retrieve flag indicating if this account can be linked with Bluemix.</documentation>
+      <input message="tns:getAllowsBluemixAccountLinkingFlag"/>
+      <output message="tns:getAllowsBluemixAccountLinkingFlagResponse"/>
+    </operation>
     <operation name="getAlternateCreditCardData">
       <documentation></documentation>
       <input message="tns:getAlternateCreditCardData"/>
@@ -1585,6 +1609,11 @@ This method will return the [[SoftLayer_Product_Package]] objects from which you
       <documentation>Retrieve private template group objects (parent and children) and the shared template group objects (parent only) for an account.</documentation>
       <input message="tns:getBlockDeviceTemplateGroups"/>
       <output message="tns:getBlockDeviceTemplateGroupsResponse"/>
+    </operation>
+    <operation name="getBluemixLinkedFlag">
+      <documentation>Retrieve returns true if this account is linked to IBM Bluemix, false if not.</documentation>
+      <input message="tns:getBluemixLinkedFlag"/>
+      <output message="tns:getBluemixLinkedFlagResponse"/>
     </operation>
     <operation name="getBrand">
       <documentation></documentation>
@@ -2706,6 +2735,10 @@ This method will return the [[SoftLayer_Product_Package]] objects from which you
       <input message="tns:hourlyServerLimit"/>
       <output message="tns:hourlyServerLimitResponse"/>
     </operation>
+    <operation name="linkExternalAccount">
+      <documentation>This method will link this SoftLayer account with the provided external account. </documentation>
+      <input message="tns:linkExternalAccount"/>
+    </operation>
     <operation name="removeAlternateCreditCard">
       <documentation></documentation>
       <input message="tns:removeAlternateCreditCard"/>
@@ -2727,6 +2760,11 @@ If the onlyChangeNicknameFlag parameter is set to true, the nickname of the cred
       <documentation>Retrieve the record data associated with the submission of a Manual Payment Request for a manual payment using a credit card which is on file and does not require an approval process.  Softlayer customers are permitted to request a manual one-time payment at a minimum amount of $2.00.  Customers may use an existing Credit Card on file (Mastercard, Visa, American Express).  SoftLayer engages the credit card financial institution to submit the payment request.  The financial institution's response and other data associated with the transaction are returned to the calling function.  The applicable data generated during the request is returned to the calling function. </documentation>
       <input message="tns:requestManualPaymentUsingCreditCardOnFile"/>
       <output message="tns:requestManualPaymentUsingCreditCardOnFileResponse"/>
+    </operation>
+    <operation name="setAbuseEmails">
+      <documentation>Set this account's abuse emails. Takes an array of email addresses as strings. </documentation>
+      <input message="tns:setAbuseEmails"/>
+      <output message="tns:setAbuseEmailsResponse"/>
     </operation>
     <operation name="setVlanSpan">
       <documentation>Set the flag that enables or disables automatic private network VLAN spanning for a SoftLayer customer account. Enabling VLAN spanning allows an account's servers to talk on the same broadcast domain even if they reside within different private vlans. </documentation>
@@ -3297,6 +3335,19 @@ Always call this method to enable changes when manually configuring VPN subnet a
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
+    <operation name="getAllowsBluemixAccountLinkingFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_AccountAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_AccountObjectMaskHeader" part="SoftLayer_AccountObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_AccountObjectFilterHeader" part="SoftLayer_AccountObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
     <operation name="getAlternateCreditCardData">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_AccountAction"/>
       <input>
@@ -3509,6 +3560,19 @@ Always call this method to enable changes when manually configuring VPN subnet a
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBluemixLinkedFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_AccountAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_AccountObjectMaskHeader" part="SoftLayer_AccountObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_AccountObjectFilterHeader" part="SoftLayer_AccountObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
@@ -6638,6 +6702,13 @@ Always call this method to enable changes when manually configuring VPN subnet a
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
+    <operation name="linkExternalAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_AccountAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
     <operation name="removeAlternateCreditCard">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_AccountAction"/>
       <input>
@@ -6678,6 +6749,16 @@ Always call this method to enable changes when manually configuring VPN subnet a
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_AccountObjectMaskHeader" part="SoftLayer_AccountObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="setAbuseEmails">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_AccountAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>

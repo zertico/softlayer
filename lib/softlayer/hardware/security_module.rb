@@ -1,11 +1,15 @@
 module Softlayer
   class Hardware
-    class SecurityModule < Softlayer::Hardware
+    class SecurityModule < Softlayer::Hardware::Server
       SERVICE = 'SoftLayer_Hardware_SecurityModule'
-      attr_accessor :software_user_count
-      attr_accessor :user_count
-      attr_accessor :software_users
-      attr_accessor :users
+
+      def activate_private_port
+        request(:activate_private_port, Boolean)
+      end
+
+      def activate_public_port
+        request(:activate_public_port, Boolean)
+      end
 
       # network_storage_template_object
       def allow_access_to_network_storage(message)
@@ -15,6 +19,11 @@ module Softlayer
       # network_storage_template_objects
       def allow_access_to_network_storage_list(message)
         request(:allow_access_to_network_storage_list, Boolean, message)
+      end
+
+      # no_os_boot_environment
+      def boot_to_rescue_layer(message)
+        request(:boot_to_rescue_layer, Boolean, message)
       end
 
       # capture_template
@@ -27,9 +36,23 @@ module Softlayer
         request(:close_alarm, Boolean, message)
       end
 
+      # ipmi
+      # raid_controller
+      # bios
+      # harddrive
+      def create_firmware_update_transaction(message)
+        request(:create_firmware_update_transaction, Boolean, message)
+      end
+
       # template_object
       def self.create_object(message)
         request(:create_object, Softlayer::Hardware::SecurityModule, message)
+      end
+
+      # install_codes
+      # return_boolean
+      def create_post_software_install_transaction(message)
+        request(:create_post_software_install_transaction, Boolean, message)
       end
 
       def delete_object
@@ -39,6 +62,11 @@ module Softlayer
       # software_component_passwords
       def delete_software_component_passwords(message)
         request(:delete_software_component_passwords, Boolean, message)
+      end
+
+      # template_object
+      def edit_object(message)
+        request(:edit_object, Boolean, message)
       end
 
       # software_component_passwords
@@ -69,8 +97,24 @@ module Softlayer
         request(:get_active_components, Array[Softlayer::Hardware::Component])
       end
 
+      def get_active_network_firewall_billing_item
+        request(:get_active_network_firewall_billing_item, Softlayer::Billing::Item)
+      end
+
       def get_active_network_monitor_incident
         request(:get_active_network_monitor_incident, Array[Softlayer::Network::Monitor::Version1::Incident])
+      end
+
+      def get_active_tickets
+        request(:get_active_tickets, Array[Softlayer::Ticket])
+      end
+
+      def get_active_transaction
+        request(:get_active_transaction, Softlayer::Provisioning::Version1::Transaction)
+      end
+
+      def get_active_transactions
+        request(:get_active_transactions, Array[Softlayer::Provisioning::Version1::Transaction])
       end
 
       # start_date
@@ -109,13 +153,37 @@ module Softlayer
         request(:get_attributes, Array[Softlayer::Hardware::Attribute])
       end
 
+      def get_available_monitoring
+        request(:get_available_monitoring, Array[Softlayer::Network::Monitor::Version1::Query::Host::Stratum])
+      end
+
       # nas_type
       def get_available_network_storages(message)
         request(:get_available_network_storages, Array[Softlayer::Network::Storage], message)
       end
 
+      def get_average_daily_bandwidth_usage
+        request(:get_average_daily_bandwidth_usage, Float)
+      end
+
+      def get_average_daily_private_bandwidth_usage
+        request(:get_average_daily_private_bandwidth_usage, Float)
+      end
+
       def get_average_daily_public_bandwidth_usage
         request(:get_average_daily_public_bandwidth_usage, Float)
+      end
+
+      # start_date
+      # end_date
+      def get_backend_bandwidth_usage(message)
+        request(:get_backend_bandwidth_usage, Array[Softlayer::Metric::Tracking::Object::Data], message)
+      end
+
+      # start_date
+      # end_date
+      def get_backend_bandwidth_use(message)
+        request(:get_backend_bandwidth_use, Array[Softlayer::Network::Bandwidth::Version1::Usage::Detail], message)
       end
 
       # start_date
@@ -146,8 +214,34 @@ module Softlayer
         request(:get_bandwidth_allotment_detail, Softlayer::Network::Bandwidth::Version1::Allotment::Detail)
       end
 
+      # start_date
+      # end_date
+      def get_bandwidth_for_date_range(message)
+        request(:get_bandwidth_for_date_range, Array[Softlayer::Metric::Tracking::Object::Data], message)
+      end
+
+      # network_type
+      # snapshot_range
+      # draw
+      # date_specified
+      def get_bandwidth_image(message)
+        request(:get_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
+      end
+
       def get_benchmark_certifications
         request(:get_benchmark_certifications, Array[Softlayer::Hardware::Benchmark::Certification])
+      end
+
+      def get_billing_cycle_bandwidth_usage
+        request(:get_billing_cycle_bandwidth_usage, Array[Softlayer::Network::Bandwidth::Usage])
+      end
+
+      def get_billing_cycle_private_bandwidth_usage
+        request(:get_billing_cycle_private_bandwidth_usage, Softlayer::Network::Bandwidth::Usage)
+      end
+
+      def get_billing_cycle_public_bandwidth_usage
+        request(:get_billing_cycle_public_bandwidth_usage, Softlayer::Network::Bandwidth::Usage)
       end
 
       def get_billing_item
@@ -170,12 +264,32 @@ module Softlayer
         request(:get_components, Array[Softlayer::Hardware::Component])
       end
 
+      def get_contains_solid_state_drives_flag
+        request(:get_contains_solid_state_drives_flag, Boolean)
+      end
+
       def get_continuous_data_protection_software_component
         request(:get_continuous_data_protection_software_component, Softlayer::Software::Component)
       end
 
+      def get_control_panel
+        request(:get_control_panel, Softlayer::Software::Component::ControlPanel)
+      end
+
+      def get_cost
+        request(:get_cost, Float)
+      end
+
       def self.get_create_object_options
         request(:get_create_object_options, Softlayer::Container::Hardware::Configuration)
+      end
+
+      def get_current_bandwidth_summary
+        request(:get_current_bandwidth_summary, Softlayer::Metric::Tracking::Object::Bandwidth::Summary)
+      end
+
+      def get_current_benchmark_certification_result_file
+        request(:get_current_benchmark_certification_result_file, Softlayer::Base64Binary)
       end
 
       def get_current_billable_bandwidth_usage
@@ -188,6 +302,19 @@ module Softlayer
 
       def get_current_billing_total
         request(:get_current_billing_total, Float)
+      end
+
+      # graph_data
+      def get_custom_bandwidth_data_by_date(message)
+        request(:get_custom_bandwidth_data_by_date, Softlayer::Container::Graph, message)
+      end
+
+      def get_customer_installed_operating_system_flag
+        request(:get_customer_installed_operating_system_flag, Boolean)
+      end
+
+      def get_customer_owned_flag
+        request(:get_customer_owned_flag, Boolean)
       end
 
       # start_date
@@ -248,12 +375,28 @@ module Softlayer
         request(:get_evault_network_storage, Array[Softlayer::Network::Storage])
       end
 
+      def get_firewall_protectable_subnets
+        request(:get_firewall_protectable_subnets, Array[Softlayer::Network::Subnet])
+      end
+
       def get_firewall_service_component
         request(:get_firewall_service_component, Softlayer::Network::Component::Firewall)
       end
 
       def get_fixed_configuration_preset
         request(:get_fixed_configuration_preset, Softlayer::Product::Package::Preset)
+      end
+
+      # start_date
+      # end_date
+      def get_frontend_bandwidth_usage(message)
+        request(:get_frontend_bandwidth_usage, Array[Softlayer::Metric::Tracking::Object::Data], message)
+      end
+
+      # start_date
+      # end_date
+      def get_frontend_bandwidth_use(message)
+        request(:get_frontend_bandwidth_use, Array[Softlayer::Network::Bandwidth::Version1::Usage::Detail], message)
       end
 
       # start_date
@@ -282,6 +425,11 @@ module Softlayer
 
       def get_hard_drives
         request(:get_hard_drives, Array[Softlayer::Hardware::Component])
+      end
+
+      # ip_address
+      def self.get_hardware_by_ip_address(message)
+        request(:get_hardware_by_ip_address, Softlayer::Hardware::SecurityModule, message)
       end
 
       def get_hardware_chassis
@@ -322,8 +470,23 @@ module Softlayer
         request(:get_inbound_bandwidth_usage, Float)
       end
 
+      def get_inbound_private_bandwidth_usage
+        request(:get_inbound_private_bandwidth_usage, Float)
+      end
+
       def get_inbound_public_bandwidth_usage
         request(:get_inbound_public_bandwidth_usage, Float)
+      end
+
+      # software_descriptions
+      # include_translations_flag
+      # return_all_prices_flag
+      def get_item_prices_from_software_descriptions(message)
+        request(:get_item_prices_from_software_descriptions, Array[Softlayer::Product::Item], message)
+      end
+
+      def get_last_operating_system_reload
+        request(:get_last_operating_system_reload, Softlayer::Provisioning::Version1::Transaction)
       end
 
       def get_last_transaction
@@ -350,6 +513,10 @@ module Softlayer
         request(:get_managed_resource_flag, Boolean)
       end
 
+      def get_management_network_component
+        request(:get_management_network_component, Softlayer::Network::Component)
+      end
+
       def get_memory
         request(:get_memory, Array[Softlayer::Hardware::Component])
       end
@@ -360,6 +527,10 @@ module Softlayer
 
       def get_metric_tracking_object
         request(:get_metric_tracking_object, Softlayer::Metric::Tracking::Object::HardwareServer)
+      end
+
+      def get_metric_tracking_object_id
+        request(:get_metric_tracking_object_id, Integer)
       end
 
       # start_date
@@ -394,12 +565,20 @@ module Softlayer
         request(:get_monitoring_service_flag, Boolean)
       end
 
+      def get_monitoring_user_notification
+        request(:get_monitoring_user_notification, Array[Softlayer::User::Customer::Notification::Hardware])
+      end
+
       def get_motherboard
         request(:get_motherboard, Softlayer::Hardware::Component)
       end
 
       def get_network_cards
         request(:get_network_cards, Array[Softlayer::Hardware::Component])
+      end
+
+      def get_network_component_firewall_protectable_ip_addresses
+        request(:get_network_component_firewall_protectable_ip_addresses, Array[Softlayer::Network::Subnet::IpAddress])
       end
 
       def get_network_components
@@ -462,6 +641,10 @@ module Softlayer
         request(:get_object, Softlayer::Hardware::SecurityModule)
       end
 
+      def get_open_cancellation_ticket
+        request(:get_open_cancellation_ticket, Softlayer::Ticket)
+      end
+
       def get_operating_system
         request(:get_operating_system, Softlayer::Software::Component::OperatingSystem)
       end
@@ -474,8 +657,20 @@ module Softlayer
         request(:get_outbound_bandwidth_usage, Float)
       end
 
+      def get_outbound_private_bandwidth_usage
+        request(:get_outbound_private_bandwidth_usage, Float)
+      end
+
       def get_outbound_public_bandwidth_usage
         request(:get_outbound_public_bandwidth_usage, Float)
+      end
+
+      def get_over_bandwidth_allocation_flag
+        request(:get_over_bandwidth_allocation_flag, Integer)
+      end
+
+      def self.get_pm_info
+        request(:get_pm_info, nil)
       end
 
       def get_point_of_presence_location
@@ -498,6 +693,10 @@ module Softlayer
         request(:get_primary_backend_network_component, Softlayer::Network::Component)
       end
 
+      def get_primary_drive_size
+        request(:get_primary_drive_size, Integer)
+      end
+
       def get_primary_ip_address
         request(:get_primary_ip_address, String)
       end
@@ -512,8 +711,35 @@ module Softlayer
         request(:get_private_bandwidth_data, Array[Softlayer::Metric::Tracking::Object::Data], message)
       end
 
+      def get_private_bandwidth_data_summary
+        request(:get_private_bandwidth_data_summary, Softlayer::Container::Network::Bandwidth::Data::Summary)
+      end
+
+      # start_time
+      # end_time
+      def get_private_bandwidth_graph_image(message)
+        request(:get_private_bandwidth_graph_image, Softlayer::Base64Binary, message)
+      end
+
+      def get_private_ip_address
+        request(:get_private_ip_address, String)
+      end
+
+      def get_private_network_component
+        request(:get_private_network_component, Softlayer::Network::Component)
+      end
+
       def get_private_network_only_flag
         request(:get_private_network_only_flag, Boolean)
+      end
+
+      def get_private_vlan
+        request(:get_private_vlan, Softlayer::Network::Vlan)
+      end
+
+      # ip_address
+      def self.get_private_vlan_by_ip_address(message)
+        request(:get_private_vlan_by_ip_address, Softlayer::Network::Vlan, message)
       end
 
       def get_processor_core_amount
@@ -528,10 +754,51 @@ module Softlayer
         request(:get_processors, Array[Softlayer::Hardware::Component])
       end
 
+      def get_projected_over_bandwidth_allocation_flag
+        request(:get_projected_over_bandwidth_allocation_flag, Integer)
+      end
+
+      def get_projected_public_bandwidth_usage
+        request(:get_projected_public_bandwidth_usage, Float)
+      end
+
+      def get_provision_date
+        request(:get_provision_date, DateTime)
+      end
+
       # start_time
       # end_time
       def get_public_bandwidth_data(message)
         request(:get_public_bandwidth_data, Array[Softlayer::Metric::Tracking::Object::Data], message)
+      end
+
+      def get_public_bandwidth_data_summary
+        request(:get_public_bandwidth_data_summary, Softlayer::Container::Network::Bandwidth::Data::Summary)
+      end
+
+      # start_time
+      # end_time
+      def get_public_bandwidth_graph_image(message)
+        request(:get_public_bandwidth_graph_image, Softlayer::Base64Binary, message)
+      end
+
+      # start_time
+      # end_time
+      def get_public_bandwidth_total(message)
+        request(:get_public_bandwidth_total, BigDecimal, message)
+      end
+
+      def get_public_network_component
+        request(:get_public_network_component, Softlayer::Network::Component)
+      end
+
+      def get_public_vlan
+        request(:get_public_vlan, Softlayer::Network::Vlan)
+      end
+
+      # hostname
+      def self.get_public_vlan_by_hostname(message)
+        request(:get_public_vlan_by_hostname, Softlayer::Network::Vlan, message)
       end
 
       def get_rack
@@ -546,12 +813,28 @@ module Softlayer
         request(:get_recent_events, Array[Softlayer::Notification::Occurrence::Event])
       end
 
+      def get_recent_remote_management_commands
+        request(:get_recent_remote_management_commands, Array[Softlayer::Hardware::Component::RemoteManagement::Command::Request])
+      end
+
+      def get_regional_internet_registry
+        request(:get_regional_internet_registry, Softlayer::Network::Regional::Internet::Registry)
+      end
+
+      def get_remote_management
+        request(:get_remote_management, Softlayer::Hardware::Component::RemoteManagement)
+      end
+
       def get_remote_management_accounts
         request(:get_remote_management_accounts, Array[Softlayer::Hardware::Component::RemoteManagement::User])
       end
 
       def get_remote_management_component
         request(:get_remote_management_component, Softlayer::Network::Component)
+      end
+
+      def get_remote_management_users
+        request(:get_remote_management_users, Array[Softlayer::Hardware::Component::RemoteManagement::User])
       end
 
       def get_resource_group_member_references
@@ -564,6 +847,10 @@ module Softlayer
 
       def get_resource_groups
         request(:get_resource_groups, Array[Softlayer::Resource::Group])
+      end
+
+      def get_reverse_domain_records
+        request(:get_reverse_domain_records, Array[Softlayer::Dns::Domain])
       end
 
       def get_routers
@@ -584,6 +871,10 @@ module Softlayer
 
       def get_sensor_data_with_graphs
         request(:get_sensor_data_with_graphs, Softlayer::Container::RemoteManagement::SensorReadingsWithGraphs)
+      end
+
+      def get_server_details
+        request(:get_server_details, Softlayer::Container::Hardware::Server::Details)
       end
 
       def get_server_fan_speed_graphs
@@ -610,16 +901,12 @@ module Softlayer
         request(:get_software_components, Array[Softlayer::Software::Component])
       end
 
-      def get_software_users
-        request(:get_software_users, Array[Softlayer::Software::Component::Password])
-      end
-
-      def get_spare_pool_billing_item
-        request(:get_spare_pool_billing_item, Softlayer::Billing::Item::Hardware)
-      end
-
       def get_ssh_keys
         request(:get_ssh_keys, Array[Softlayer::Security::Ssh::Key])
+      end
+
+      def get_statistics_remote_management
+        request(:get_statistics_remote_management, Softlayer::Hardware::Component::RemoteManagement)
       end
 
       def get_storage_network_components
@@ -662,12 +949,21 @@ module Softlayer
         request(:get_users, Array[Softlayer::User::Customer])
       end
 
+      # visibility
+      def get_valid_block_device_template_groups(message)
+        request(:get_valid_block_device_template_groups, Array[Softlayer::Virtual::Guest::Block::Device::Template::Group], message)
+      end
+
       def get_virtual_chassis
         request(:get_virtual_chassis, Softlayer::Hardware::Group)
       end
 
       def get_virtual_chassis_siblings
         request(:get_virtual_chassis_siblings, Array[Softlayer::Hardware])
+      end
+
+      def get_virtual_guests
+        request(:get_virtual_guests, Array[Softlayer::Virtual::Guest])
       end
 
       def get_virtual_host
@@ -694,12 +990,40 @@ module Softlayer
         request(:get_virtualization_platform, Softlayer::Software::Component)
       end
 
+      def get_windows_update_available_updates
+        request(:get_windows_update_available_updates, Array[Softlayer::Container::Utility::Microsoft::Windows::UpdateServices::UpdateItem])
+      end
+
+      def get_windows_update_installed_updates
+        request(:get_windows_update_installed_updates, Array[Softlayer::Container::Utility::Microsoft::Windows::UpdateServices::UpdateItem])
+      end
+
+      def get_windows_update_status
+        request(:get_windows_update_status, Softlayer::Container::Utility::Microsoft::Windows::UpdateServices::Status)
+      end
+
       def import_virtual_host
         request(:import_virtual_host, Softlayer::Virtual::Host)
       end
 
+      def initiate_idera_bare_metal_restore
+        request(:initiate_idera_bare_metal_restore, Boolean)
+      end
+
+      def initiate_r1_soft_bare_metal_restore
+        request(:initiate_r1_soft_bare_metal_restore, Boolean)
+      end
+
+      def is_backend_pingable
+        request(:is_backend_pingable, Boolean)
+      end
+
       def is_pingable
         request(:is_pingable, Boolean)
+      end
+
+      def is_windows_server
+        request(:is_windows_server, Boolean)
       end
 
       def ping
@@ -730,6 +1054,17 @@ module Softlayer
         request(:reboot_soft, Boolean)
       end
 
+      # token
+      def reload_current_operating_system_configuration(message)
+        request(:reload_current_operating_system_configuration, String, message)
+      end
+
+      # token
+      # config
+      def reload_operating_system(message)
+        request(:reload_operating_system, String, message)
+      end
+
       # network_storage_template_object
       def remove_access_to_network_storage(message)
         request(:remove_access_to_network_storage, Boolean, message)
@@ -740,16 +1075,58 @@ module Softlayer
         request(:remove_access_to_network_storage_list, Boolean, message)
       end
 
+      def run_passmark_certification_benchmark
+        request(:run_passmark_certification_benchmark, Boolean)
+      end
+
+      # new_password
+      def set_operating_system_password(message)
+        request(:set_operating_system_password, Boolean, message)
+      end
+
+      # new_speed
+      def set_private_network_interface_speed(message)
+        request(:set_private_network_interface_speed, Boolean, message)
+      end
+
+      # new_speed
+      def set_public_network_interface_speed(message)
+        request(:set_public_network_interface_speed, Boolean, message)
+      end
+
       # tags
       def set_tags(message)
         request(:set_tags, Boolean, message)
       end
 
-      class Representer < Softlayer::Hardware::Representer
+      # metadata
+      def set_user_metadata(message)
+        request(:set_user_metadata, Array[Softlayer::Hardware::Attribute], message)
+      end
+
+      def shutdown_private_port
+        request(:shutdown_private_port, Boolean)
+      end
+
+      def shutdown_public_port
+        request(:shutdown_public_port, Boolean)
+      end
+
+      # action
+      # new_order
+      def spare_pool(message)
+        request(:spare_pool, Boolean, message)
+      end
+
+      # operating_system
+      # partitions
+      def self.validate_partitions_for_operating_system(message)
+        request(:validate_partitions_for_operating_system, Boolean, message)
+      end
+
+      class Representer < Softlayer::Hardware::Server::Representer
         include Representable::Hash
         include Representable::Coercion
-        property :software_user_count, type: BigDecimal
-        property :user_count, type: BigDecimal
       end
     end
   end
