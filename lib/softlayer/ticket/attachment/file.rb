@@ -2,6 +2,7 @@ module Softlayer
   class Ticket
     class Attachment
       class File < Softlayer::Entity
+        SERVICE = 'SoftLayer_Ticket_Attachment_File'
         attr_accessor :create_date
         attr_accessor :file_name
         attr_accessor :file_size
@@ -13,6 +14,22 @@ module Softlayer
         attr_accessor :uploader_type
         attr_accessor :ticket
         attr_accessor :update
+
+        def self.get_extension_whitelist
+          request(:get_extension_whitelist, Array[String])
+        end
+
+        def get_object
+          request(:get_object, Softlayer::Ticket::Attachment::File)
+        end
+
+        def get_ticket
+          request(:get_ticket, Softlayer::Ticket)
+        end
+
+        def get_update
+          request(:get_update, Softlayer::Ticket::Update)
+        end
 
         class Representer < Softlayer::Entity::Representer
           include Representable::Hash

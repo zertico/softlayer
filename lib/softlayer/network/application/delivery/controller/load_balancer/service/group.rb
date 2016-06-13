@@ -21,6 +21,7 @@ module Softlayer
                 attr_accessor :routing_type
                 attr_accessor :service_references
                 attr_accessor :services
+                attr_accessor :virtual_server
                 attr_accessor :virtual_servers
 
                 # graph_type
@@ -47,6 +48,10 @@ module Softlayer
 
                 def get_services
                   request(:get_services, Array[Softlayer::Network::Application::Delivery::Controller::LoadBalancer::Service])
+                end
+
+                def get_virtual_server
+                  request(:get_virtual_server, Softlayer::Network::Application::Delivery::Controller::LoadBalancer::VirtualServer)
                 end
 
                 def get_virtual_servers

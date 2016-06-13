@@ -1,6 +1,7 @@
 module Softlayer
   class Account
     class Link < Softlayer::Entity
+      autoload :Bluemix, 'softlayer/account/link/bluemix'
       autoload :OpenStack, 'softlayer/account/link/open_stack'
       autoload :ThePlanet, 'softlayer/account/link/the_planet'
       autoload :Vendor, 'softlayer/account/link/vendor'

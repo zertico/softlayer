@@ -2097,6 +2097,23 @@
       </restriction>
     </complexContent>
   </complexType>
+  <complexType name="SoftLayer_Account_Link_Bluemix">
+    <complexContent>
+      <extension base="tns:SoftLayer_Account_Link"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Account_Link_BluemixObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Account_LinkObjectFilter"/>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Account_Link_BluemixArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Account_Link_Bluemix[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
   <complexType name="SoftLayer_Account_Link_OpenStack">
     <complexContent>
       <extension base="tns:SoftLayer_Account_Link">
@@ -19622,8 +19639,10 @@
           <element minOccurs="0" maxOccurs="1" name="healthCheckCount" type="unsignedLong"/>
           <element minOccurs="0" maxOccurs="1" name="groupReferences" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group_CrossReferenceArray"/>
           <element minOccurs="0" maxOccurs="1" name="groups" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupArray"/>
+          <element minOccurs="0" maxOccurs="1" name="healthCheck" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Check"/>
           <element minOccurs="0" maxOccurs="1" name="healthChecks" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckArray"/>
           <element minOccurs="0" maxOccurs="1" name="ipAddress" type="tns:SoftLayer_Network_Subnet_IpAddress"/>
+          <element minOccurs="0" maxOccurs="1" name="serviceGroup" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group"/>
         </sequence>
       </extension>
     </complexContent>
@@ -19641,8 +19660,10 @@
           <element minOccurs="0" maxOccurs="1" name="status" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
           <element minOccurs="0" maxOccurs="1" name="groupReferences" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group_CrossReferenceObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="groups" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="healthCheck" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="healthChecks" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="ipAddress" type="tns:SoftLayer_Network_Subnet_IpAddressObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="serviceGroup" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter"/>
         </sequence>
       </extension>
     </complexContent>
@@ -19671,6 +19692,7 @@
           <element minOccurs="0" maxOccurs="1" name="routingType" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Routing_Type"/>
           <element minOccurs="0" maxOccurs="1" name="serviceReferences" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group_CrossReferenceArray"/>
           <element minOccurs="0" maxOccurs="1" name="services" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceArray"/>
+          <element minOccurs="0" maxOccurs="1" name="virtualServer" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualServer"/>
           <element minOccurs="0" maxOccurs="1" name="virtualServers" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualServerArray"/>
         </sequence>
       </extension>
@@ -19690,6 +19712,7 @@
           <element minOccurs="0" maxOccurs="1" name="routingType" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Routing_TypeObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="serviceReferences" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group_CrossReferenceObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="services" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectFilter"/>
+          <element minOccurs="0" maxOccurs="1" name="virtualServer" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualServerObjectFilter"/>
           <element minOccurs="0" maxOccurs="1" name="virtualServers" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualServerObjectFilter"/>
         </sequence>
       </extension>

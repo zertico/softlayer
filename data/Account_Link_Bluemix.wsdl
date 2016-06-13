@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3.1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3.1/" schemaLocation="https://api.softlayer.com/soap/v3.1/SoftLayer_Account_Link_Bluemix?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:complexType name="SoftLayer_Account_Link_BluemixInitParameters">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int"/>
+          <xsd:element minOccurs="0" maxOccurs="1" name="globalIdentifier" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SoftLayer_Account_Link_BluemixObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Account_Link_Bluemix"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Account_Link_BluemixInitParametersHeader">
+    <part name="SoftLayer_Account_Link_BluemixInitParameters" type="tns:SoftLayer_Account_Link_BluemixInitParameters"/>
+  </message>
+  <message name="getAccount"/>
+  <message name="getAccountResponse">
+    <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getObject"/>
+  <message name="getObjectResponse">
+    <part name="getObjectReturn" type="tns:SoftLayer_Account_Link_Bluemix"/>
+  </message>
+  <message name="getServiceProvider"/>
+  <message name="getServiceProviderResponse">
+    <part name="getServiceProviderReturn" type="tns:SoftLayer_Service_Provider"/>
+  </message>
+  <message name="getSupportTierType">
+    <part name="imsAccount" type="tns:SoftLayer_Account"/>
+  </message>
+  <message name="getSupportTierTypeResponse">
+    <part name="getSupportTierTypeReturn" type="xsd:string"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Account_Link_BluemixObjectMaskHeader">
+    <part name="SoftLayer_Account_Link_BluemixObjectMask" type="tns:SoftLayer_Account_Link_BluemixObjectMask"/>
+  </message>
+  <message name="SoftLayer_Account_Link_BluemixObjectFilterHeader">
+    <part name="SoftLayer_Account_Link_BluemixObjectFilter" type="tns:SoftLayer_Account_Link_BluemixObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Account_Link_BluemixPortType">
+    <documentation></documentation>
+    <operation name="getAccount">
+      <documentation></documentation>
+      <input message="tns:getAccount"/>
+      <output message="tns:getAccountResponse"/>
+    </operation>
+    <operation name="getObject">
+      <documentation></documentation>
+      <input message="tns:getObject"/>
+      <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getServiceProvider">
+      <documentation></documentation>
+      <input message="tns:getServiceProvider"/>
+      <output message="tns:getServiceProviderResponse"/>
+    </operation>
+    <operation name="getSupportTierType">
+      <documentation></documentation>
+      <input message="tns:getSupportTierType"/>
+      <output message="tns:getSupportTierTypeResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Account_Link_BluemixBinding" type="tns:SoftLayer_Account_Link_BluemixPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Account_Link_BluemixAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixObjectMaskHeader" part="SoftLayer_Account_Link_BluemixObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixObjectFilterHeader" part="SoftLayer_Account_Link_BluemixObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixInitParametersHeader" part="SoftLayer_Account_Link_BluemixInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Account_Link_BluemixAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixObjectMaskHeader" part="SoftLayer_Account_Link_BluemixObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixObjectFilterHeader" part="SoftLayer_Account_Link_BluemixObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixInitParametersHeader" part="SoftLayer_Account_Link_BluemixInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceProvider">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Account_Link_BluemixAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixObjectMaskHeader" part="SoftLayer_Account_Link_BluemixObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixObjectFilterHeader" part="SoftLayer_Account_Link_BluemixObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixInitParametersHeader" part="SoftLayer_Account_Link_BluemixInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getSupportTierType">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Account_Link_BluemixAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Account_Link_BluemixService">
+    <port name="SoftLayer_Account_Link_BluemixPort" binding="tns:SoftLayer_Account_Link_BluemixBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3.1/SoftLayer_Account_Link_Bluemix"/>
+    </port>
+  </service>
+</definitions>

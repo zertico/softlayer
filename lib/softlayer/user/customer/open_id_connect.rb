@@ -121,6 +121,12 @@ module Softlayer
           request(:generate_authorization_endpoint_url, String, message)
         end
 
+        # provider_type
+        # response
+        def self.get_access_token_from_open_id_connect_authorize_redirect(message)
+          request(:get_access_token_from_open_id_connect_authorize_redirect, String, message)
+        end
+
         def get_account
           request(:get_account, Softlayer::Account)
         end
@@ -164,6 +170,10 @@ module Softlayer
 
         def get_closed_tickets
           request(:get_closed_tickets, Array[Softlayer::Ticket])
+        end
+
+        def get_default_account
+          request(:get_default_account, Softlayer::Account)
         end
 
         # key
@@ -213,6 +223,11 @@ module Softlayer
 
         def get_login_attempts
           request(:get_login_attempts, Array[Softlayer::User::Customer::Access::Authentication])
+        end
+
+        # provider_type
+        def get_mapped_accounts(message)
+          request(:get_mapped_accounts, Array[Softlayer::Account], message)
         end
 
         def get_mobile_devices
@@ -473,6 +488,11 @@ module Softlayer
         # saml_response
         def saml_logout(message)
           request(:saml_logout, nil, message)
+        end
+
+        # account_id
+        def set_default_account(message)
+          request(:set_default_account, Softlayer::Account, message)
         end
 
         # key

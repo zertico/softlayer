@@ -48,6 +48,10 @@
   <message name="getServicesResponse">
     <part name="getServicesReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceArray"/>
   </message>
+  <message name="getVirtualServer"/>
+  <message name="getVirtualServerResponse">
+    <part name="getVirtualServerReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualServer"/>
+  </message>
   <message name="getVirtualServers"/>
   <message name="getVirtualServersResponse">
     <part name="getVirtualServersReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualServerArray"/>
@@ -107,6 +111,11 @@ This method returns the raw binary image data. </documentation>
       <documentation></documentation>
       <input message="tns:getServices"/>
       <output message="tns:getServicesResponse"/>
+    </operation>
+    <operation name="getVirtualServer">
+      <documentation></documentation>
+      <input message="tns:getVirtualServer"/>
+      <output message="tns:getVirtualServerResponse"/>
     </operation>
     <operation name="getVirtualServers">
       <documentation></documentation>
@@ -203,6 +212,20 @@ This method returns the raw binary image data. </documentation>
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getVirtualServer">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>

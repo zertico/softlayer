@@ -40,6 +40,10 @@
   <message name="getGroupsResponse">
     <part name="getGroupsReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_GroupArray"/>
   </message>
+  <message name="getHealthCheck"/>
+  <message name="getHealthCheckResponse">
+    <part name="getHealthCheckReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Check"/>
+  </message>
   <message name="getHealthChecks"/>
   <message name="getHealthChecksResponse">
     <part name="getHealthChecksReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_CheckArray"/>
@@ -51,6 +55,10 @@
   <message name="getObject"/>
   <message name="getObjectResponse">
     <part name="getObjectReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service"/>
+  </message>
+  <message name="getServiceGroup"/>
+  <message name="getServiceGroupResponse">
+    <part name="getServiceGroupReturn" type="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group"/>
   </message>
   <message name="toggleStatus"/>
   <message name="toggleStatusResponse">
@@ -98,6 +106,11 @@ This method returns the raw binary image data. </documentation>
       <input message="tns:getGroups"/>
       <output message="tns:getGroupsResponse"/>
     </operation>
+    <operation name="getHealthCheck">
+      <documentation></documentation>
+      <input message="tns:getHealthCheck"/>
+      <output message="tns:getHealthCheckResponse"/>
+    </operation>
     <operation name="getHealthChecks">
       <documentation></documentation>
       <input message="tns:getHealthChecks"/>
@@ -112,6 +125,11 @@ This method returns the raw binary image data. </documentation>
       <documentation></documentation>
       <input message="tns:getObject"/>
       <output message="tns:getObjectResponse"/>
+    </operation>
+    <operation name="getServiceGroup">
+      <documentation></documentation>
+      <input message="tns:getServiceGroup"/>
+      <output message="tns:getServiceGroupResponse"/>
     </operation>
     <operation name="toggleStatus">
       <documentation></documentation>
@@ -175,6 +193,20 @@ This method returns the raw binary image data. </documentation>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
+    <operation name="getHealthCheck">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
     <operation name="getHealthChecks">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceAction"/>
       <input>
@@ -206,6 +238,20 @@ This method returns the raw binary image data. </documentation>
       </output>
     </operation>
     <operation name="getObject">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectFilterHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceInitParametersHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getServiceGroup">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceAction"/>
       <input>
         <soap:header message="tns:SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectMaskHeader" part="SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_ServiceObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

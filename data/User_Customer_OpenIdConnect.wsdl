@@ -149,6 +149,13 @@
   <message name="generateAuthorizationEndpointUrlResponse">
     <part name="generateAuthorizationEndpointUrlReturn" type="xsd:string"/>
   </message>
+  <message name="getAccessTokenFromOpenIdConnectAuthorizeRedirect">
+    <part name="providerType" type="xsd:int"/>
+    <part name="response" type="xsd:string"/>
+  </message>
+  <message name="getAccessTokenFromOpenIdConnectAuthorizeRedirectResponse">
+    <part name="getAccessTokenFromOpenIdConnectAuthorizeRedirectReturn" type="xsd:string"/>
+  </message>
   <message name="getAccount"/>
   <message name="getAccountResponse">
     <part name="getAccountReturn" type="tns:SoftLayer_Account"/>
@@ -194,6 +201,10 @@
   <message name="getClosedTickets"/>
   <message name="getClosedTicketsResponse">
     <part name="getClosedTicketsReturn" type="tns:SoftLayer_TicketArray"/>
+  </message>
+  <message name="getDefaultAccount"/>
+  <message name="getDefaultAccountResponse">
+    <part name="getDefaultAccountReturn" type="tns:SoftLayer_Account"/>
   </message>
   <message name="getDefaultSecurityQuestions">
     <part name="key" type="xsd:string"/>
@@ -244,6 +255,12 @@
   <message name="getLoginAttempts"/>
   <message name="getLoginAttemptsResponse">
     <part name="getLoginAttemptsReturn" type="tns:SoftLayer_User_Customer_Access_AuthenticationArray"/>
+  </message>
+  <message name="getMappedAccounts">
+    <part name="providerType" type="xsd:int"/>
+  </message>
+  <message name="getMappedAccountsResponse">
+    <part name="getMappedAccountsReturn" type="tns:SoftLayer_AccountArray"/>
   </message>
   <message name="getMobileDevices"/>
   <message name="getMobileDevicesResponse">
@@ -520,6 +537,12 @@
   <message name="samlLogout">
     <part name="samlResponse" type="xsd:string"/>
   </message>
+  <message name="setDefaultAccount">
+    <part name="accountId" type="xsd:int"/>
+  </message>
+  <message name="setDefaultAccountResponse">
+    <part name="setDefaultAccountReturn" type="tns:SoftLayer_Account"/>
+  </message>
   <message name="setPasswordFromLostPasswordRequest">
     <part name="key" type="xsd:string"/>
     <part name="password" type="xsd:string"/>
@@ -723,6 +746,11 @@ Note: The redirect URL must exactly match one of the URLs that was pre-registere
       <input message="tns:generateAuthorizationEndpointUrl"/>
       <output message="tns:generateAuthorizationEndpointUrlResponse"/>
     </operation>
+    <operation name="getAccessTokenFromOpenIdConnectAuthorizeRedirect">
+      <documentation></documentation>
+      <input message="tns:getAccessTokenFromOpenIdConnectAuthorizeRedirect"/>
+      <output message="tns:getAccessTokenFromOpenIdConnectAuthorizeRedirectResponse"/>
+    </operation>
     <operation name="getAccount">
       <documentation>Retrieve the customer account that a user belongs to.</documentation>
       <input message="tns:getAccount"/>
@@ -777,6 +805,11 @@ Note: The redirect URL must exactly match one of the URLs that was pre-registere
       <documentation>Retrieve an user's associated closed tickets.</documentation>
       <input message="tns:getClosedTickets"/>
       <output message="tns:getClosedTicketsResponse"/>
+    </operation>
+    <operation name="getDefaultAccount">
+      <documentation>This API gets the default for the OpenIdConnect identity that is linked from the current SoftLayer user identity. It also sets a default if there is none present. </documentation>
+      <input message="tns:getDefaultAccount"/>
+      <output message="tns:getDefaultAccountResponse"/>
     </operation>
     <operation name="getDefaultSecurityQuestions">
       <documentation>Retrieve default security questions.  The default security questions will be used during the password reset process if a user has not set up their own security questions and answers.</documentation>
@@ -837,6 +870,11 @@ Note: The redirect URL must exactly match one of the URLs that was pre-registere
       <documentation>Retrieve a user's attempts to log into the SoftLayer customer portal.</documentation>
       <input message="tns:getLoginAttempts"/>
       <output message="tns:getLoginAttemptsResponse"/>
+    </operation>
+    <operation name="getMappedAccounts">
+      <documentation>An OpenIdConnect identity, for example an IBMid, can be linked or mapped to one or more individual SoftLayer users, but no more than one SoftLayer user per account. This effectively links the OpenIdConnect identity to those accounts. This API returns a list of all the accounts for which there is a link between the OpenIdConnect identity and a SoftLayer user. </documentation>
+      <input message="tns:getMappedAccounts"/>
+      <output message="tns:getMappedAccountsResponse"/>
     </operation>
     <operation name="getMobileDevices">
       <documentation>Retrieve a portal user's associated mobile device profiles.</documentation>
@@ -1138,6 +1176,11 @@ Users can assign CloudLayer Computing Instance access to their child users, but 
     <operation name="samlLogout">
       <documentation></documentation>
       <input message="tns:samlLogout"/>
+    </operation>
+    <operation name="setDefaultAccount">
+      <documentation>This API sets the default account for the OpenIdConnect identity that is linked from the current SoftLayer user identity. </documentation>
+      <input message="tns:setDefaultAccount"/>
+      <output message="tns:setDefaultAccountResponse"/>
     </operation>
     <operation name="setPasswordFromLostPasswordRequest">
       <documentation>Set a user's password via the lost password recovery system, using a password recovery key received in an email generated by the [[SoftLayer_User_Customer::lostPassword|lostPassword]] method. Password recovery keys are valid for 24 hours after they're generated. 
@@ -1460,6 +1503,15 @@ Finally, users can only update their own VPN password. An account's master user 
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
+    <operation name="getAccessTokenFromOpenIdConnectAuthorizeRedirect">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_OpenIdConnectAction"/>
+      <input>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
     <operation name="getAccount">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_OpenIdConnectAction"/>
       <input>
@@ -1610,6 +1662,19 @@ Finally, users can only update their own VPN password. An account's master user 
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getDefaultAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_OpenIdConnectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_OpenIdConnectInitParametersHeader" part="SoftLayer_User_Customer_OpenIdConnectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_OpenIdConnectObjectMaskHeader" part="SoftLayer_User_Customer_OpenIdConnectObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
@@ -1779,6 +1844,19 @@ Finally, users can only update their own VPN password. An account's master user 
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getMappedAccounts">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_OpenIdConnectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_OpenIdConnectInitParametersHeader" part="SoftLayer_User_Customer_OpenIdConnectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_OpenIdConnectObjectMaskHeader" part="SoftLayer_User_Customer_OpenIdConnectObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
@@ -2477,6 +2555,19 @@ Finally, users can only update their own VPN password. An account's master user 
         <soap:header message="tns:SoftLayer_User_Customer_OpenIdConnectInitParametersHeader" part="SoftLayer_User_Customer_OpenIdConnectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
+    </operation>
+    <operation name="setDefaultAccount">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_OpenIdConnectAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_OpenIdConnectInitParametersHeader" part="SoftLayer_User_Customer_OpenIdConnectInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_User_Customer_OpenIdConnectObjectMaskHeader" part="SoftLayer_User_Customer_OpenIdConnectObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
     </operation>
     <operation name="setPasswordFromLostPasswordRequest">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_User_Customer_OpenIdConnectAction"/>

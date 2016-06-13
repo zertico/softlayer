@@ -19,8 +19,10 @@ module Softlayer
               attr_accessor :health_check_count
               attr_accessor :group_references
               attr_accessor :groups
+              attr_accessor :health_check
               attr_accessor :health_checks
               attr_accessor :ip_address
+              attr_accessor :service_group
 
               def delete_object
                 request(:delete_object, Boolean)
@@ -40,6 +42,10 @@ module Softlayer
                 request(:get_groups, Array[Softlayer::Network::Application::Delivery::Controller::LoadBalancer::Service::Group])
               end
 
+              def get_health_check
+                request(:get_health_check, Softlayer::Network::Application::Delivery::Controller::LoadBalancer::Health::Check)
+              end
+
               def get_health_checks
                 request(:get_health_checks, Array[Softlayer::Network::Application::Delivery::Controller::LoadBalancer::Health::Check])
               end
@@ -50,6 +56,10 @@ module Softlayer
 
               def get_object
                 request(:get_object, Softlayer::Network::Application::Delivery::Controller::LoadBalancer::Service)
+              end
+
+              def get_service_group
+                request(:get_service_group, Softlayer::Network::Application::Delivery::Controller::LoadBalancer::Service::Group)
               end
 
               def toggle_status
