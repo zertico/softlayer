@@ -248,6 +248,11 @@ module Softlayer
         request(:execute_r1_soft_bare_metal_restore, Boolean)
       end
 
+      # uri
+      def execute_remote_script(message)
+        request(:execute_remote_script, nil, message)
+      end
+
       def execute_rescue_layer
         request(:execute_rescue_layer, Boolean)
       end

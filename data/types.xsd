@@ -1876,6 +1876,33 @@
       </restriction>
     </complexContent>
   </complexType>
+  <complexType name="SoftLayer_Account_Authentication_OpenIdConnect_Option">
+    <complexContent>
+      <extension base="tns:SoftLayer_Entity">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="key" type="string"/>
+          <element minOccurs="0" maxOccurs="1" name="value" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Account_Authentication_OpenIdConnect_OptionObjectFilter">
+    <complexContent>
+      <extension base="tns:SoftLayer_Utility_ObjectFilter">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="key" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+          <element minOccurs="0" maxOccurs="1" name="value" type="tns:SoftLayer_Utility_ObjectFilter_Operation"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SoftLayer_Account_Authentication_OpenIdConnect_OptionArray">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns:SoftLayer_Account_Authentication_OpenIdConnect_Option[]"/>
+      </restriction>
+    </complexContent>
+  </complexType>
   <complexType name="SoftLayer_Account_Authentication_Saml">
     <complexContent>
       <extension base="tns:SoftLayer_Entity">

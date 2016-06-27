@@ -281,6 +281,9 @@
   <message name="executeR1SoftBareMetalRestoreResponse">
     <part name="executeR1SoftBareMetalRestoreReturn" type="xsd:boolean"/>
   </message>
+  <message name="executeRemoteScript">
+    <part name="uri" type="xsd:string"/>
+  </message>
   <message name="executeRescueLayer"/>
   <message name="executeRescueLayerResponse">
     <part name="executeRescueLayerReturn" type="xsd:boolean"/>
@@ -1533,6 +1536,10 @@ WARNING: The transaction created by this service will shut down the guest while 
       <input message="tns:executeR1SoftBareMetalRestore"/>
       <output message="tns:executeR1SoftBareMetalRestoreResponse"/>
     </operation>
+    <operation name="executeRemoteScript">
+      <documentation>Download and run remote script from uri on virtual guests.</documentation>
+      <input message="tns:executeRemoteScript"/>
+    </operation>
     <operation name="executeRescueLayer">
       <documentation>Reboot a Linux guest into the Xen rescue image. </documentation>
       <input message="tns:executeRescueLayer"/>
@@ -2616,6 +2623,14 @@ It will take less than a minute to update the port speed. </documentation>
       <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
+    </operation>
+    <operation name="executeRemoteScript">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Virtual_GuestAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_GuestInitParametersHeader" part="SoftLayer_Virtual_GuestInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
     </operation>
     <operation name="executeRescueLayer">
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Virtual_GuestAction"/>

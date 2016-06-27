@@ -117,6 +117,7 @@ module Softlayer
 
         # provider_type
         # redirection_url
+        # options
         def self.generate_authorization_endpoint_url(message)
           request(:generate_authorization_endpoint_url, String, message)
         end
