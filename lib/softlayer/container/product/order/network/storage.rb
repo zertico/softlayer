@@ -9,6 +9,7 @@ module Softlayer
             autoload :Iscsi, 'softlayer/container/product/order/network/storage/iscsi'
             autoload :Modification, 'softlayer/container/product/order/network/storage/modification'
             autoload :Nas, 'softlayer/container/product/order/network/storage/nas'
+            autoload :Object, 'softlayer/container/product/order/network/storage/object'
             autoload :Backup, 'softlayer/container/product/order/network/storage/backup'
           end
         end

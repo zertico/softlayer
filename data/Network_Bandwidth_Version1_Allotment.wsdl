@@ -72,62 +72,9 @@
               <xsd:documentation>specified_day</xsd:documentation>
             </xsd:annotation>
           </xsd:enumeration>
-        </xsd:restriction>
-      </xsd:simpleType>
-      <xsd:simpleType name="new_getBandwidthImage_networkType">
-        <xsd:restriction base="xsd:string">
-          <xsd:enumeration value="public">
+          <xsd:enumeration value="specified_range">
             <xsd:annotation>
-              <xsd:documentation>public</xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="private">
-            <xsd:annotation>
-              <xsd:documentation>private</xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-        </xsd:restriction>
-      </xsd:simpleType>
-      <xsd:simpleType name="new_getBandwidthImage_snapshotRange">
-        <xsd:restriction base="xsd:string">
-          <xsd:enumeration value="day">
-            <xsd:annotation>
-              <xsd:documentation>day</xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="week">
-            <xsd:annotation>
-              <xsd:documentation>week</xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="30day">
-            <xsd:annotation>
-              <xsd:documentation>30day</xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="previous_calendar_month">
-            <xsd:annotation>
-              <xsd:documentation>previous_calendar_month</xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="current_calendar_month">
-            <xsd:annotation>
-              <xsd:documentation>current_calendar_month</xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="current_billing_cycle">
-            <xsd:annotation>
-              <xsd:documentation>current_billing_cycle</xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="previous_billing_cycle">
-            <xsd:annotation>
-              <xsd:documentation>previous_billing_cycle</xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="specified_day">
-            <xsd:annotation>
-              <xsd:documentation>specified_day</xsd:documentation>
+              <xsd:documentation>specified_range</xsd:documentation>
             </xsd:annotation>
           </xsd:enumeration>
         </xsd:restriction>
@@ -190,6 +137,7 @@
     <part name="snapshotRange" type="tns:getBandwidthImage_snapshotRange"/>
     <part name="draw" type="xsd:boolean"/>
     <part name="dateSpecified" type="xsd:dateTime"/>
+    <part name="dateSpecifiedEnd" type="xsd:dateTime"/>
   </message>
   <message name="getBandwidthImageResponse">
     <part name="getBandwidthImageReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>
@@ -313,15 +261,6 @@
   <message name="getVirtualGuestsResponse">
     <part name="getVirtualGuestsReturn" type="tns:SoftLayer_Virtual_GuestArray"/>
   </message>
-  <message name="new_getBandwidthImage">
-    <part name="networkType" type="tns:new_getBandwidthImage_networkType"/>
-    <part name="snapshotRange" type="tns:new_getBandwidthImage_snapshotRange"/>
-    <part name="draw" type="xsd:boolean"/>
-    <part name="dateSpecified" type="xsd:dateTime"/>
-  </message>
-  <message name="new_getBandwidthImageResponse">
-    <part name="new_getBandwidthImageReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>
-  </message>
   <message name="reassignServers">
     <part name="templateObjects" type="tns:SoftLayer_HardwareArray"/>
     <part name="newAllotmentId" type="xsd:int"/>
@@ -444,7 +383,7 @@ For example, if you had 5 servers, each with 2000 GB of bandwidth, and one serve
       <output message="tns:getBandwidthForDateRangeResponse"/>
     </operation>
     <operation name="getBandwidthImage">
-      <documentation>This method recurses through all servers on a Bandwidth Pool for a given snapshot range, gathers the necessary parameters, and then calls the bandwidth graphing server.  The return result is a container that includes the min and max dates for all servers to be used in the query, as well as an image in PNG format.  Depending on the current workload of the graphing server this method make take some time to return.  As such, it is recommended the page not wait for the result without providing the user some sort of visual feedback.  To facilitate this, an option to gather the parameters but not actually draw the image is included.  This allows you to call the method twice, once for setting up your page, and then again to actually do the time consuming draw. </documentation>
+      <documentation>This method recurses through all servers on a Bandwidth Pool for a given snapshot range, gathers the necessary parameters, and then calls the bandwidth graphing server.  The return result is a container that includes the min and max dates for all servers to be used in the query, as well as an image in PNG format.  This method uses the new and improved drawing routines which should return in a reasonable time frame now that the new backend data warehouse is used. </documentation>
       <input message="tns:getBandwidthImage"/>
       <output message="tns:getBandwidthImageResponse"/>
     </operation>
@@ -587,11 +526,6 @@ For example, if you had 5 servers, each with 2000 GB of bandwidth, and one serve
       <documentation>Retrieve the Virtual Server contained within a virtual rack.</documentation>
       <input message="tns:getVirtualGuests"/>
       <output message="tns:getVirtualGuestsResponse"/>
-    </operation>
-    <operation name="new_getBandwidthImage">
-      <documentation>This method recurses through all servers on a Bandwidth Pool for a given snapshot range, gathers the necessary parameters, and then calls the bandwidth graphing server.  The return result is a container that includes the min and max dates for all servers to be used in the query, as well as an image in PNG format.  This method uses the new and improved drawing routines which should return in a reasonable time frame now that the new backend data warehouse is used. </documentation>
-      <input message="tns:new_getBandwidthImage"/>
-      <output message="tns:new_getBandwidthImageResponse"/>
     </operation>
     <operation name="reassignServers">
       <documentation>This method will reassign a collection of SoftLayer hardware to a bandwidth allotment Bandwidth Pool. </documentation>
@@ -1160,17 +1094,6 @@ For example, if you had 5 servers, each with 2000 GB of bandwidth, and one serve
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-      </output>
-    </operation>
-    <operation name="new_getBandwidthImage">
-      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Network_Bandwidth_Version1_AllotmentAction"/>
-      <input>
-        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:header message="tns:SoftLayer_Network_Bandwidth_Version1_AllotmentInitParametersHeader" part="SoftLayer_Network_Bandwidth_Version1_AllotmentInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-      </input>
-      <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>

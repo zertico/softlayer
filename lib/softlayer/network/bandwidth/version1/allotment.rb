@@ -100,6 +100,7 @@ module Softlayer
           # snapshot_range
           # draw
           # date_specified
+          # date_specified_end
           def get_bandwidth_image(message)
             request(:get_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
           end
@@ -218,14 +219,6 @@ module Softlayer
 
           def get_virtual_guests
             request(:get_virtual_guests, Array[Softlayer::Virtual::Guest])
-          end
-
-          # network_type
-          # snapshot_range
-          # draw
-          # date_specified
-          def new_get_bandwidth_image(message)
-            request(:new_get_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
           end
 
           # template_objects

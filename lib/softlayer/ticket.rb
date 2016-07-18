@@ -5,6 +5,7 @@ module Softlayer
     autoload :Attachment, 'softlayer/ticket/attachment'
     autoload :Chat, 'softlayer/ticket/chat'
     autoload :Group, 'softlayer/ticket/group'
+    autoload :Priority, 'softlayer/ticket/priority'
     autoload :State, 'softlayer/ticket/state'
     autoload :Status, 'softlayer/ticket/status'
     autoload :Subject, 'softlayer/ticket/subject'

@@ -264,6 +264,7 @@ module Softlayer
     attr_accessor :billing_agreements
     attr_accessor :billing_info
     attr_accessor :block_device_template_groups
+    attr_accessor :blue_id_authentication_required_flag
     attr_accessor :bluemix_linked_flag
     attr_accessor :brand
     attr_accessor :brand_account_flag
@@ -708,6 +709,10 @@ module Softlayer
 
     def self.get_block_device_template_groups
       request(:get_block_device_template_groups, Array[Softlayer::Virtual::Guest::Block::Device::Template::Group])
+    end
+
+    def self.get_blue_id_authentication_required_flag
+      request(:get_blue_id_authentication_required_flag, Boolean)
     end
 
     def self.get_bluemix_linked_flag
@@ -1911,6 +1916,7 @@ module Softlayer
       property :affiliate_id, type: String
       property :allows_bluemix_account_linking_flag, type: Boolean
       property :balance, type: Float
+      property :blue_id_authentication_required_flag, type: Boolean
       property :bluemix_linked_flag, type: Boolean
       property :brand_account_flag, type: Boolean
       property :brand_key_name, type: String

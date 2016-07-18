@@ -33,6 +33,7 @@ module Softlayer
         attr_accessor :processor_speed
         attr_accessor :product_name
         attr_accessor :redundant_power_flag
+        attr_accessor :sap_certified_server_flag
         attr_accessor :starting_hourly_price
         attr_accessor :starting_monthly_price
         attr_accessor :total_core_count
@@ -104,6 +105,7 @@ module Softlayer
           property :processor_speed, type: String
           property :product_name, type: String
           property :redundant_power_flag, type: Boolean
+          property :sap_certified_server_flag, type: Boolean
           property :starting_hourly_price, type: Float
           property :starting_monthly_price, type: Float
           property :total_core_count, type: Integer

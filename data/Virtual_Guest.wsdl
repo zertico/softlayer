@@ -72,6 +72,11 @@
               <xsd:documentation>specified_day</xsd:documentation>
             </xsd:annotation>
           </xsd:enumeration>
+          <xsd:enumeration value="specified_range">
+            <xsd:annotation>
+              <xsd:documentation>specified_range</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
         </xsd:restriction>
       </xsd:simpleType>
       <xsd:simpleType name="getCpuMetricImage_snapshotRange">
@@ -158,6 +163,11 @@
           <xsd:enumeration value="specified_day">
             <xsd:annotation>
               <xsd:documentation>specified_day</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="specified_range">
+            <xsd:annotation>
+              <xsd:documentation>specified_range</xsd:documentation>
             </xsd:annotation>
           </xsd:enumeration>
         </xsd:restriction>
@@ -425,6 +435,7 @@
     <part name="networkType" type="tns:getBandwidthImage_networkType"/>
     <part name="snapshotRange" type="tns:getBandwidthImage_snapshotRange"/>
     <part name="dateSpecified" type="xsd:dateTime"/>
+    <part name="dateSpecifiedEnd" type="xsd:dateTime"/>
   </message>
   <message name="getBandwidthImageResponse">
     <part name="getBandwidthImageReturn" type="tns:SoftLayer_Container_Bandwidth_GraphOutputs"/>

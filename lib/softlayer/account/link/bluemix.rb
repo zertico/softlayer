@@ -16,9 +16,8 @@ module Softlayer
           request(:get_service_provider, Softlayer::Service::Provider)
         end
 
-        # ims_account
-        def self.get_support_tier_type(message)
-          request(:get_support_tier_type, String, message)
+        def get_support_tier_type
+          request(:get_support_tier_type, String)
         end
 
         class Representer < Softlayer::Account::Link::Representer

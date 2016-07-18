@@ -8,7 +8,7 @@ describe 'Softlayer::Generator::Service (Account)' do
   end
   
   it "has 290 document methods" do
-    subject.document_methods.size.must_equal 290
+    subject.document_methods.size.must_equal 295
   end
   
   it "return parameters for document method" do

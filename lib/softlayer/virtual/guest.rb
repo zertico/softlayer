@@ -385,6 +385,7 @@ module Softlayer
       # network_type
       # snapshot_range
       # date_specified
+      # date_specified_end
       def get_bandwidth_image(message)
         request(:get_bandwidth_image, Softlayer::Container::Bandwidth::GraphOutputs, message)
       end

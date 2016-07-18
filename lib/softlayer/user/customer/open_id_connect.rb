@@ -73,6 +73,19 @@ module Softlayer
           request(:check_external_authentication_status, Softlayer::Container::User::Customer::Portal::Token, message)
         end
 
+        # password_set
+        # authentication_container
+        def check_phone_factor_authentication_for_password_set(message)
+          request(:check_phone_factor_authentication_for_password_set, Boolean, message)
+        end
+
+        # provider_type
+        # access_token
+        # email_registration_code
+        def self.complete_invitation_after_login(message)
+          request(:complete_invitation_after_login, nil, message)
+        end
+
         # key_name
         # resource_table_id
         def create_notification_subscriber(message)
@@ -86,6 +99,14 @@ module Softlayer
           request(:create_object, Softlayer::User::Customer::OpenIdConnect, message)
         end
 
+        # provider_type
+        # user
+        # password
+        # registration_code
+        def self.create_open_id_connect_user_and_complete_invitation(message)
+          request(:create_open_id_connect_user_and_complete_invitation, String, message)
+        end
+
         # notification_key_name
         # delivery_method_key_names
         def create_subscriber_delivery_methods(message)
@@ -96,6 +117,12 @@ module Softlayer
         # resource_table_id
         def deactivate_notification_subscriber(message)
           request(:deactivate_notification_subscriber, Boolean, message)
+        end
+
+        # provider_type
+        # registration_code
+        def self.decline_invitation(message)
+          request(:decline_invitation, nil, message)
         end
 
         # template_object
@@ -113,19 +140,6 @@ module Softlayer
         # preference_keyname
         def find_user_preference(message)
           request(:find_user_preference, Array[Softlayer::Layout::Profile], message)
-        end
-
-        # provider_type
-        # redirection_url
-        # options
-        def self.generate_authorization_endpoint_url(message)
-          request(:generate_authorization_endpoint_url, String, message)
-        end
-
-        # provider_type
-        # response
-        def self.get_access_token_from_open_id_connect_authorize_redirect(message)
-          request(:get_access_token_from_open_id_connect_authorize_redirect, String, message)
         end
 
         def get_account
@@ -173,8 +187,9 @@ module Softlayer
           request(:get_closed_tickets, Array[Softlayer::Ticket])
         end
 
-        def get_default_account
-          request(:get_default_account, Softlayer::Account)
+        # provider_type
+        def get_default_account(message)
+          request(:get_default_account, Softlayer::Account, message)
         end
 
         # key
@@ -243,6 +258,12 @@ module Softlayer
           request(:get_object, Softlayer::User::Customer::OpenIdConnect)
         end
 
+        # provider_type
+        # registration_code
+        def self.get_open_id_registration_info_from_code(message)
+          request(:get_open_id_registration_info_from_code, Softlayer::Account::Authentication::OpenIdConnect::RegistrationInformation, message)
+        end
+
         def get_open_tickets
           request(:get_open_tickets, Array[Softlayer::Ticket])
         end
@@ -285,6 +306,11 @@ module Softlayer
 
         def get_preferences
           request(:get_preferences, Array[Softlayer::User::Preference])
+        end
+
+        # password_set
+        def get_requirements_for_password_set(message)
+          request(:get_requirements_for_password_set, Softlayer::Container::User::Customer::PasswordSet, message)
         end
 
         def get_roles
@@ -348,6 +374,11 @@ module Softlayer
           request(:get_user_from_lost_password_request, Array[Softlayer::User::Security::Question], message)
         end
 
+        # key
+        def self.get_user_id_for_password_set(message)
+          request(:get_user_id_for_password_set, Integer, message)
+        end
+
         def get_user_links
           request(:get_user_links, Array[Softlayer::User::Customer::Link])
         end
@@ -379,6 +410,16 @@ module Softlayer
           request(:initiate_external_authentication, String, message)
         end
 
+        # username
+        def self.initiate_portal_password_change(message)
+          request(:initiate_portal_password_change, Boolean, message)
+        end
+
+        # provider_type
+        def invite_user_to_link_open_id_connect(message)
+          request(:invite_user_to_link_open_id_connect, Boolean, message)
+        end
+
         def is_master_user
           request(:is_master_user, Boolean)
         end
@@ -402,6 +443,12 @@ module Softlayer
         # authentication_container
         def self.perform_external_authentication(message)
           request(:perform_external_authentication, Softlayer::Container::User::Customer::Portal::Token, message)
+        end
+
+        # password_set
+        # authentication_container
+        def process_password_set_request(message)
+          request(:process_password_set_request, Softlayer::Container::User::Customer::PasswordSet, message)
         end
 
         def remove_all_hardware_access_for_this_user
@@ -491,6 +538,7 @@ module Softlayer
           request(:saml_logout, nil, message)
         end
 
+        # provider_type
         # account_id
         def set_default_account(message)
           request(:set_default_account, Softlayer::Account, message)

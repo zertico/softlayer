@@ -9,6 +9,9 @@ module Softlayer
             autoload :Vendor, 'softlayer/container/user/customer/external/binding/vendor'
             autoload :Verisign, 'softlayer/container/user/customer/external/binding/verisign'
             attr_accessor :authentication_token
+            attr_accessor :open_id_connect_access_token
+            attr_accessor :open_id_connect_account_id
+            attr_accessor :open_id_connect_provider
             attr_accessor :password
             attr_accessor :security_question_answer
             attr_accessor :security_question_id
@@ -19,6 +22,9 @@ module Softlayer
               include Representable::Hash
               include Representable::Coercion
               property :authentication_token, type: String
+              property :open_id_connect_access_token, type: String
+              property :open_id_connect_account_id, type: Integer
+              property :open_id_connect_provider, type: Integer
               property :password, type: String
               property :security_question_answer, type: String
               property :security_question_id, type: Integer

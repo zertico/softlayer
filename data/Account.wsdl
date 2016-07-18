@@ -276,6 +276,10 @@
   <message name="getBlockDeviceTemplateGroupsResponse">
     <part name="getBlockDeviceTemplateGroupsReturn" type="tns:SoftLayer_Virtual_Guest_Block_Device_Template_GroupArray"/>
   </message>
+  <message name="getBlueIdAuthenticationRequiredFlag"/>
+  <message name="getBlueIdAuthenticationRequiredFlagResponse">
+    <part name="getBlueIdAuthenticationRequiredFlagReturn" type="xsd:boolean"/>
+  </message>
   <message name="getBluemixLinkedFlag"/>
   <message name="getBluemixLinkedFlagResponse">
     <part name="getBluemixLinkedFlagReturn" type="xsd:boolean"/>
@@ -1609,6 +1613,11 @@ This method will return the [[SoftLayer_Product_Package]] objects from which you
       <documentation>Retrieve private template group objects (parent and children) and the shared template group objects (parent only) for an account.</documentation>
       <input message="tns:getBlockDeviceTemplateGroups"/>
       <output message="tns:getBlockDeviceTemplateGroupsResponse"/>
+    </operation>
+    <operation name="getBlueIdAuthenticationRequiredFlag">
+      <documentation>Retrieve indicates whether this account requires blue id authentication.</documentation>
+      <input message="tns:getBlueIdAuthenticationRequiredFlag"/>
+      <output message="tns:getBlueIdAuthenticationRequiredFlagResponse"/>
     </operation>
     <operation name="getBluemixLinkedFlag">
       <documentation>Retrieve returns true if this account is linked to IBM Bluemix, false if not.</documentation>
@@ -3560,6 +3569,19 @@ Always call this method to enable changes when manually configuring VPN subnet a
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBlueIdAuthenticationRequiredFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_AccountAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_AccountObjectMaskHeader" part="SoftLayer_AccountObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_AccountObjectFilterHeader" part="SoftLayer_AccountObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>

@@ -33,9 +33,7 @@
   <message name="getServiceProviderResponse">
     <part name="getServiceProviderReturn" type="tns:SoftLayer_Service_Provider"/>
   </message>
-  <message name="getSupportTierType">
-    <part name="imsAccount" type="tns:SoftLayer_Account"/>
-  </message>
+  <message name="getSupportTierType"/>
   <message name="getSupportTierTypeResponse">
     <part name="getSupportTierTypeReturn" type="xsd:string"/>
   </message>
@@ -128,6 +126,7 @@
       <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Account_Link_BluemixAction"/>
       <input>
         <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Account_Link_BluemixInitParametersHeader" part="SoftLayer_Account_Link_BluemixInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
       <output>

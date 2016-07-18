@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.service.softlayer.com/soap/v3.1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="slApi" targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+  <types>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:include namespace="http://api.service.softlayer.com/soap/v3.1/" schemaLocation="https://api.softlayer.com/soap/v3.1/SoftLayer_Ticket_Priority?xsd"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://api.service.softlayer.com/soap/v3.1/">
+      <xsd:complexType name="SoftLayer_Ticket_PriorityObjectMask">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="mask" type="tns:SoftLayer_Ticket_Priority"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="SoftLayer_Ticket_PriorityInitParametersHeader">
+    <part name="SoftLayer_Ticket_PriorityInitParameters" type="tns:SoftLayer_Ticket_PriorityInitParameters"/>
+  </message>
+  <message name="getPriorities"/>
+  <message name="getPrioritiesResponse">
+    <part name="getPrioritiesReturn" type="tns:SoftLayer_Container_Ticket_PriorityArray"/>
+  </message>
+  <message name="authenticateHeader">
+    <part name="authenticate" type="tns:authenticate"/>
+  </message>
+  <message name="resultLimitHeader">
+    <part name="resultLimit" type="tns:resultLimit"/>
+  </message>
+  <message name="totalItemsHeader">
+    <part name="totalItems" type="tns:totalItems"/>
+  </message>
+  <message name="SoftLayer_Ticket_PriorityObjectMaskHeader">
+    <part name="SoftLayer_Ticket_PriorityObjectMask" type="tns:SoftLayer_Ticket_PriorityObjectMask"/>
+  </message>
+  <message name="SoftLayer_Ticket_PriorityObjectFilterHeader">
+    <part name="SoftLayer_Ticket_PriorityObjectFilter" type="tns:SoftLayer_Ticket_PriorityObjectFilter"/>
+  </message>
+  <message name="SoftLayer_ObjectMaskHeader">
+    <part name="SoftLayer_ObjectMask" type="tns:SoftLayer_ObjectMask"/>
+  </message>
+  <portType name="SoftLayer_Ticket_PriorityPortType">
+    <documentation></documentation>
+    <operation name="getPriorities">
+      <documentation></documentation>
+      <input message="tns:getPriorities"/>
+      <output message="tns:getPrioritiesResponse"/>
+    </operation>
+  </portType>
+  <binding name="SoftLayer_Ticket_PriorityBinding" type="tns:SoftLayer_Ticket_PriorityPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getPriorities">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Ticket_PriorityAction"/>
+      <input>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftLayer_Ticket_PriorityService">
+    <port name="SoftLayer_Ticket_PriorityPort" binding="tns:SoftLayer_Ticket_PriorityBinding">
+      <soap:address location="https://api.softlayer.com/soap/v3.1/SoftLayer_Ticket_Priority"/>
+    </port>
+  </service>
+</definitions>

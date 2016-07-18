@@ -35,6 +35,10 @@
   <message name="getBlockDevicesResponse">
     <part name="getBlockDevicesReturn" type="tns:SoftLayer_Virtual_Guest_Block_DeviceArray"/>
   </message>
+  <message name="getBootableVolumeFlag"/>
+  <message name="getBootableVolumeFlagResponse">
+    <part name="getBootableVolumeFlagReturn" type="xsd:boolean"/>
+  </message>
   <message name="getCoalescedDiskImages"/>
   <message name="getCoalescedDiskImagesResponse">
     <part name="getCoalescedDiskImagesReturn" type="tns:SoftLayer_Virtual_Disk_ImageArray"/>
@@ -117,6 +121,11 @@
       <documentation>Retrieve the block devices that a disk image is attached to. Block devices connect computing instances to disk images.</documentation>
       <input message="tns:getBlockDevices"/>
       <output message="tns:getBlockDevicesResponse"/>
+    </operation>
+    <operation name="getBootableVolumeFlag">
+      <documentation></documentation>
+      <input message="tns:getBootableVolumeFlag"/>
+      <output message="tns:getBootableVolumeFlagResponse"/>
     </operation>
     <operation name="getCoalescedDiskImages">
       <documentation></documentation>
@@ -219,6 +228,20 @@
       </input>
       <output>
         <soap:header message="tns:totalItemsHeader" part="totalItems" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getBootableVolumeFlag">
+      <soap:operation soapAction="http://api.service.softlayer.com/soap/v3.1/SoftLayer_Virtual_Disk_ImageAction"/>
+      <input>
+        <soap:header message="tns:SoftLayer_Virtual_Disk_ImageObjectMaskHeader" part="SoftLayer_Virtual_Disk_ImageObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Disk_ImageObjectFilterHeader" part="SoftLayer_Virtual_Disk_ImageObjectFilter" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_ObjectMaskHeader" part="SoftLayer_ObjectMask" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:SoftLayer_Virtual_Disk_ImageInitParametersHeader" part="SoftLayer_Virtual_Disk_ImageInitParameters" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:header message="tns:authenticateHeader" part="authenticate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
         <soap:body namespace="http://api.service.softlayer.com/soap/v3.1/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>

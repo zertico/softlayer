@@ -22,6 +22,7 @@ module Softlayer
         attr_accessor :software_reference_count
         attr_accessor :billing_item
         attr_accessor :block_devices
+        attr_accessor :bootable_volume_flag
         attr_accessor :coalesced_disk_images
         attr_accessor :copy_on_write_flag
         attr_accessor :local_disk_flag
@@ -44,6 +45,10 @@ module Softlayer
 
         def get_block_devices
           request(:get_block_devices, Array[Softlayer::Virtual::Guest::Block::Device])
+        end
+
+        def get_bootable_volume_flag
+          request(:get_bootable_volume_flag, Boolean)
         end
 
         def get_coalesced_disk_images
@@ -112,6 +117,7 @@ module Softlayer
           property :block_device_count, type: BigDecimal
           property :coalesced_disk_image_count, type: BigDecimal
           property :software_reference_count, type: BigDecimal
+          property :bootable_volume_flag, type: Boolean
           property :copy_on_write_flag, type: Boolean
           property :local_disk_flag, type: Boolean
           property :metadata_flag, type: Boolean
